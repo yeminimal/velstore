@@ -281,6 +281,16 @@ return [
    
 
     'social_media_links' => [
+        'type' => 'Sosyal ağ türü',
+        'select_type' => 'Sosyal ağ türünü seçin',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'ID',
         'create' => 'Sosyal Medya Bağlantısı Oluştur',
         'edit' => 'Sosyal Medya Bağlantısını Düzenle',

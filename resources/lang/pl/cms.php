@@ -278,6 +278,16 @@ return [
     ],
    
     'social_media_links' => [
+        'type' => 'Typ sieci społecznościowej',
+        'select_type' => 'Wybierz typ sieci społecznościowej',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'ID',
         'create' => 'Utwórz link do mediów społecznościowych',
         'edit' => 'Edytuj link do mediów społecznościowych',

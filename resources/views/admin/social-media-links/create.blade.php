@@ -93,6 +93,22 @@
                 <form action="{{ route('admin.social-media-links.store') }}" method="POST">
                     @csrf
 
+                    <!-- Social Media Type -->
+                    <div class="mb-3">
+                        <label for="type" class="form-label">{{ __('cms.social_media_links.type') }}</label>
+                        <select name="type" id="type" class="form-control @error('type') is-invalid @enderror" required>
+                            <option value="" disabled selected>{{ __('cms.social_media_links.select_type') }}</option>
+                            <option value="facebook">{{ __('cms.social_media_links.types.facebook') }}</option>
+                            <option value="instagram">{{ __('cms.social_media_links.types.instagram') }}</option>
+                            <option value="tiktok">{{ __('cms.social_media_links.types.tiktok') }}</option>
+                            <option value="youtube">{{ __('cms.social_media_links.types.youtube') }}</option>
+                            <option value="x">{{ __('cms.social_media_links.types.x') }}</option>
+                        </select>
+                        @error('type')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <!-- Platform Name -->
                     <div class="mb-3">
                         <label for="platform" class="form-label">{{ __('cms.social_media_links.platform') }}</label>

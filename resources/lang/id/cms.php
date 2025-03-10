@@ -281,6 +281,16 @@ return [
 
 
     'social_media_links' => [
+        'type' => 'Jenis Jejaring Sosial',
+        'select_type' => 'Pilih Jenis Jejaring Sosial',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'Id',
         'create' => 'Buat Tautan Media Sosial',
         'edit' => 'Ubah Tautan Media Sosial',

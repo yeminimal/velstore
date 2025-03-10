@@ -104,6 +104,21 @@
                 <form action="{{ route('admin.social-media-links.update', $socialMediaLink->id) }}" method="POST">
                     @csrf
                     @method('PUT')
+                 <!-- Social Media Type -->
+                <div class="mb-3">
+                    <label for="type" class="form-label">{{ __('cms.social_media_links.type') }}</label>
+                    <select name="type" id="type" class="form-control @error('type') is-invalid @enderror" required>
+                        <option value="" disabled>{{ __('cms.social_media_links.select_type') }}</option>
+                        <option value="facebook" {{ old('type', $socialMediaLink->type) == 'facebook' ? 'selected' : '' }}> {{ __('cms.social_media_links.types.facebook') }}</option>
+                        <option value="instagram" {{ old('type', $socialMediaLink->type) == 'instagram' ? 'selected' : '' }}> {{ __('cms.social_media_links.types.instagram') }}</option>
+                        <option value="tiktok" {{ old('type', $socialMediaLink->type) == 'tiktok' ? 'selected' : '' }}> {{ __('cms.social_media_links.types.tiktok') }}</option>
+                        <option value="youtube" {{ old('type', $socialMediaLink->type) == 'youtube' ? 'selected' : '' }}> {{ __('cms.social_media_links.types.youtube') }}</option>
+                        <option value="x" {{ old('type', $socialMediaLink->type) == 'x' ? 'selected' : '' }}>  {{ __('cms.social_media_links.types.x') }}</option>
+                    </select>
+                    @error('type')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                     <!-- Platform Name -->
                     <div class="mb-3">

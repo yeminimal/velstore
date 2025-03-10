@@ -21,6 +21,7 @@ class SocialMediaLinkService
     public function createSocialMediaLink($data)
     {
         $socialMediaLink = $this->socialMediaLinkRepository->create([
+            'type' => $data['type'],
             'platform' => $data['platform'],
             'link' => $data['link'],
         ]);
@@ -35,6 +36,7 @@ class SocialMediaLinkService
     public function updateSocialMediaLink($id, $data)
     {
         $socialMediaLink = $this->socialMediaLinkRepository->update($id, [
+            'type' => $data['type'],
             'platform' => $data['platform'],
             'link' => $data['link'],
         ]);

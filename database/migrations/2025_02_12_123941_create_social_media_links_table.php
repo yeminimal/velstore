@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('social_media_links', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['facebook', 'instagram', 'tiktok', 'youtube', 'x']);
             $table->string('platform'); // Name of the social media platform (e.g., Facebook, Twitter, etc.)
             $table->string('link'); // URL link to the social media profile/page
             $table->timestamps();

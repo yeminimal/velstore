@@ -16,16 +16,9 @@ return [
     ],
        
     'categories' => [
-        'en' => 'English',
-        'fr' => 'French',
-        'de' => 'German',
-        'es' => 'Spanish',
         'heading' => 'Categories',
         'image' => 'Image',
         'choose_file' => 'Choose File',  
-        'image_preview' => 'Image Preview',  
-        'no_file_chosen' => 'No file chosen',
-        'language_selection' => 'Select Language',
         'id' => 'Id',
         'name' => 'Category Name',
         'description' => 'Description',
@@ -289,6 +282,15 @@ return [
 
 
     'social_media_links' => [
+        'type' => 'Social Media Type',
+        'select_type' => 'Select Social Media Type',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
         'id' => 'Id',
         'create' => 'Create Social Media Link',
         'edit' => 'Edit Social Media Link',
