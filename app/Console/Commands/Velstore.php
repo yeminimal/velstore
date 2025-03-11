@@ -71,6 +71,9 @@ class Velstore extends Command
         Artisan::call('key:generate');
         $this->info('Application key generated successfully.');
 
+        Artisan::call('storage:link');
+        $this->info('Storage link created successfully.');
+
         return Command::SUCCESS;
     }
 
