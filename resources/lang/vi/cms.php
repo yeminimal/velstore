@@ -280,6 +280,16 @@ return [
     
 
     'social_media_links' => [
+        'type' => 'Loại mạng xã hội',
+        'select_type' => 'Chọn loại mạng xã hội',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'ID',
         'create' => 'Tạo liên kết mạng xã hội',
         'edit' => 'Chỉnh sửa liên kết mạng xã hội',

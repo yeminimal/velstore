@@ -27,7 +27,7 @@ class MenuItemController extends Controller
         $menuItems = $this->menuItemService->getMenuItemsByMenuId($menuId);
 
         return view('admin.menu_items.index', compact('menu', 'menuItems'));
-    }
+    }   
 
     public function getData(Request $request, $menuId)
     {

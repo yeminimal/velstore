@@ -280,6 +280,16 @@ return [
    
 
     'social_media_links' => [
+        'type' => '소셜 네트워크 유형',
+        'select_type' => '소셜 네트워크 유형 선택',
+        'types' => [
+            'facebook' => '페이스북',
+            'instagram' => '인스타그램',
+            'tiktok' => '틱톡',
+            'youtube' => '유튜브',
+            'x' => '엑스',
+        ],
+
         'id' => '아이디',
         'create' => '소셜 미디어 링크 만들기',
         'edit' => '소셜 미디어 링크 수정',

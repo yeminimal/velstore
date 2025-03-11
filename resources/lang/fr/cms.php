@@ -277,6 +277,16 @@ return [
    
 
     'social_media_links' => [
+        'type' => 'Type de réseau social',
+        'select_type' => 'Sélectionnez le type de réseau social',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'ID',
         'create' => 'Créer un lien vers les réseaux sociaux',
         'edit' => 'Modifier le lien vers les réseaux sociaux',

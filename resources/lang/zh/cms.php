@@ -282,6 +282,16 @@ return [
    
 
     'social_media_links' => [
+        'type' => '社交媒体类型',
+        'select_type' => '选择社交媒体类型',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => '身份证号',
         'create' => '创建社交媒体链接',
         'edit' => '编辑社交媒体链接',

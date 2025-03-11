@@ -328,6 +328,21 @@
                         </div>
                     </div>
 
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="image_type">{{ __('cms.products.image_type') }}</label>
+                            <select name="image_type" id="image_type" class="form-control" required>
+                                <option value="thumb" {{ old('image_type') == 'thumb' ? 'selected' : '' }}>{{ __('cms.products.thumbnail') }}</option>
+                                <option value="slide" {{ old('image_type') == 'slide' ? 'selected' : '' }}>{{ __('cms.products.slide') }}</option>
+                            </select>
+                            @error('image_type')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="image_url">{{ __('cms.products.image_preview') }}</label>

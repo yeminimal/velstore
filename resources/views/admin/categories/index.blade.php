@@ -17,7 +17,6 @@
                     <tr>
                         <th>{{ __('cms.categories.id') }}</th>
                         <th>{{ __('cms.categories.name') }}</th>
-                        <th>{{ __('cms.categories.description') }}</th>
                         <th>{{ __('cms.categories.status') }}</th>
                         <th>{{ __('cms.categories.action') }}</th>
                     </tr>
@@ -76,8 +75,7 @@
             },
             columns: [
                 { data: 'id', name: 'id' },
-                { data: 'name', name: 'name' },
-                { data: 'description', name: 'description' },
+                { data: 'name', name: 'name' },              
                 { 
                     data: 'status', 
                     name: 'status',

@@ -74,6 +74,6 @@ class AppServiceProvider extends ServiceProvider
                 }
             ])
             ->first();
-        View::share('headerMenu', $headerMenu);
-    }
+        View::share('headerMenu', $headerMenu); 
+    } 
 }

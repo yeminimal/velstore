@@ -276,6 +276,16 @@ return [
     ],
     
     'social_media_links' => [
+        'type' => 'Type sociaal netwerk',
+        'select_type' => 'Selecteer het type sociaal netwerk',
+        'types' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+            'x' => 'X',
+        ],
+
         'id' => 'ID',
         'create' => 'Maak Social Media Link',
         'edit' => 'Bewerk Social Media Link',

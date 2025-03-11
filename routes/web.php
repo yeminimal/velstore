@@ -108,6 +108,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 });
 
+
+
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     // Menu routes
     Route::resource('menus', MenuController::class);

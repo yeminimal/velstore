@@ -55,6 +55,7 @@ class SocialMediaLinkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'type' => 'required|in:facebook,instagram,tiktok,youtube,x',
             'platform' => 'required|string|max:255',
             'link' => 'required|url',
             'languages.*.name' => 'required|string|max:255',
@@ -76,6 +77,7 @@ class SocialMediaLinkController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'type' => 'required|in:facebook,instagram,tiktok,youtube,x',
             'platform' => 'required|string|max:255',
             'link' => 'required|url',
             'languages.*.name' => 'required|string|max:255',
