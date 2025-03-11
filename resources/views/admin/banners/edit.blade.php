@@ -184,9 +184,9 @@
                                             <div class="invalid-feedback">{{ $message }}</div> 
                                         @enderror
                                     </div>
-
+                                     
                                     <!-- Image Upload -->
-                                    <label class="form-label mt-2">Image ({{ $language->code }})</label>
+                                    <label class="form-label mt-2">{{ __('cms.banners.image') }}  ({{ $language->code }})</label>
                                     <input type="file" name="languages[{{ $index }}][image]" 
                                            class="form-control @error('languages.' . $index . '.image') is-invalid @enderror" 
                                            onchange="previewImage(this, '{{ $language->code }}')">
@@ -199,10 +199,9 @@
                                         <img id="image_preview_img_{{ $language->code }}" 
                                          src="{{ !empty($bannerTranslation->image) ? asset('storage/' . $bannerTranslation->image) : '#' }}" 
                                            
-                                             alt="Image Preview" class="img-thumbnail" style="max-width: 200px;">
-                                    </div>
-                                    
-                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
+                                             alt="Image Preview" class="img-thumbnail" style="max-width: 200px;">  
+                                    </div>                                   
+                               <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">                             
                                 </div>
                             @endforeach
                         </div>
@@ -210,7 +209,6 @@
                         <p class="text-danger">{{ __('cms.banners.no_languages_available') }}</p>
                     @endif
                 </div>
-
                 <button type="submit" class="btn btn-primary mt-3">{{ __('cms.banners.save') }}</button>
                 <a href="{{ route('admin.banners.index') }}" class="btn btn-warning mt-3">Back</a>
             </form>

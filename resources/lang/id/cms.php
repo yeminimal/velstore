@@ -58,6 +58,9 @@ return [
 ],
 
     'products' =>  [
+        'image_type' => 'Jenis Gambar',
+        'thumbnail' => 'Gambar Mini',
+        'slide' => 'Slide',
         'heading' => 'Produk',
         'id' => 'Id',
         'name' => 'Nama Produk',
@@ -134,6 +137,8 @@ return [
         ],
 
         'banners' => [
+            'description' => 'Deskripsi',
+            'choose_file' => 'Pilih file',
             'all_banners' => 'Semua Banner',
             'id' => 'Id',
             'add_new' => 'Tambah Baru',

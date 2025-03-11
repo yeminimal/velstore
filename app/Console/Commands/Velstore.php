@@ -9,21 +9,21 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 
-class Martix extends Command
+class Velstore extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'install:martix {--locale= : Set the application locale}';
+    protected $signature = 'install:velstore {--locale= : Set the application locale}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install Martix Ecommerce Built with Laravel.';
+    protected $description = 'Install Velstore Ecommerce Built with Laravel.';
 
     /**
      * Execute the console command.
@@ -177,3 +177,4 @@ class Martix extends Command
         }
     }
 }
+

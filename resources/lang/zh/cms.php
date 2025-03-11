@@ -57,7 +57,10 @@ return [
     ],
     ],
 
-        'products' =>  [
+     'products' =>  [
+        'image_type' => '图片类型',
+        'thumbnail' => '缩略图',
+        'slide' => '幻灯片',
         'heading' => '产品',
         'id' => '身份证号',
         'name' => '产品名称',
@@ -135,6 +138,8 @@ return [
 
 
     'banners' => [
+        'description' => '描述',
+        'choose_file' => '选择文件',
         'all_banners' => '所有横幅',
         'id' => '身份证号',
         'add_new' => '添加新横幅',

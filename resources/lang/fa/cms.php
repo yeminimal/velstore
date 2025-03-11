@@ -57,6 +57,9 @@ return [
     ],
 ],
         'products' => [
+        'image_type' => 'نوع تصویر',
+        'thumbnail' => 'تصویر بندانگشتی',
+        'slide' => 'اسلاید',
         'heading' => 'محصولات',
         'id' => 'شناسه',
         'name' => 'نام محصول',
@@ -134,7 +137,9 @@ return [
     ],
 
    
-        'banners' => [
+    'banners' => [
+        'description' => 'توضیحات',
+        'choose_file' => 'انتخاب فایل',
         'all_banners' => 'تمام بنرها',
         'id' => 'شناسه',
         'add_new' => 'افزودن جدید',

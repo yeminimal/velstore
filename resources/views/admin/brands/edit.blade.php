@@ -1,108 +1,3 @@
-
-{{--
-@extends('admin.layouts.admin')
-
-@section('content')
-    <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
-            <h6>{{ __('cms.brands.heading') }}</h6>
-        </div>
-        <div class="card-body">
-            <form action="{{ route('admin.brands.update', $brand->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT') <!-- Method spoofing for PUT request -->
-
-                <!-- Validation Errors -->
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <div class="row">
-                    @foreach($languages as $language)
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="translations[{{ $language->code }}][name]">{{ $language->name }}{{ __('cms.brands.name') }}</label>
-                                <input type="text" 
-                                       name="translations[{{ $language->code }}][name]" 
-                                       class="form-control" 
-                                       value="{{ old('translations.' . $language->code . '.name', $brand->translations->where('locale', $language->code)->first()->name ?? '') }}" 
-                                       required>
-                                @error('translations.' . $language->code . '.name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="translations[{{ $language->code }}][description]">{{ $language->name }} {{ __('cms.brands.description') }}</label>
-                                <textarea name="translations[{{ $language->code }}][description]" 
-                                          class="form-control">{{ old('translations.' . $language->code . '.description', $brand->translations->where('locale', $language->code)->first()->description ?? '') }}</textarea>
-                                @error('translations.' . $language->code . '.description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <!-- Logo Field -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="logo_url">{{ __('cms.brands.logo') }}</label>
-                            <div class="custom-file">
-                                <!-- Custom file input with translated "Choose file" text -->
-                                <label class="btn btn-primary" for="logo_file">{{ __('cms.brands.choose_file') }}</label>
-                                <input type="file" name="logo_url" accept="image/*" class="form-control d-none" id="logo_file">
-                            </div>
-
-                            @if($brand->logo_url)
-                                <div class="mt-2">
-                                    <img src="{{ asset('storage/' . $brand->logo_url) }}" alt="Current Logo" class="img-thumbnail" width="100">
-                                </div>
-                            @endif
-
-                            <div class="mt-2" id="logo_preview" style="display:none;">
-                                <img id="logo_preview_img" src="" alt="Selected Logo" class="img-thumbnail" width="100">
-                            </div>
-                            @error('logo_url')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                </div>
-
-                <button type="submit" class="mt-3 btn btn-primary">{{ __('cms.brands.update') }}</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Handle logo file change event for image preview
-        document.getElementById('logo_file').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const logoUrl = e.target.result;
-                    document.getElementById('logo_preview').style.display = 'block';
-                    document.getElementById('logo_preview_img').src = logoUrl;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
-
-@endsection
-
---}}
-
 @extends('admin.layouts.admin')
 @section('content')
     <div class="card mt-4">
@@ -158,7 +53,7 @@
                                 </div>
                                 @if(isset($brand) && $brand->logo_url)
                                     <div class="mt-2" id="logo_preview">
-                                        <img id="logo_preview_img" src="{{ asset($brand->logo_url) }}" alt="Logo" class="img-thumbnail" width="100">
+                                        <img id="logo_preview_img" src="{{ asset('storage/'.$brand->logo_url) }}" alt="Logo" class="img-thumbnail" width="100">
                                     </div>
                                 @endif
                                 @error('logo_url')

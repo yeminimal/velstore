@@ -59,6 +59,9 @@ return [
   ],
 
     'products' =>  [
+        'image_type' => 'نوع الصورة',
+        'thumbnail' => 'صورة مصغرة',
+        'slide' => 'شريحة',
         'heading' => 'المنتجات',
         'id' => 'معرف',
         'name' => 'اسم المنتج',
@@ -136,7 +139,9 @@ return [
     ],
 
    
-        'banners' => [
+    'banners' => [
+        'description' => 'الوصف',
+        'choose_file' => 'اختر ملفًا',
         'all_banners' => 'جميع اللافتات',
         'id' => 'معرف',
         'add_new' => 'إضافة جديد',

@@ -155,7 +155,7 @@
                                     
                                     <!-- Description Field -->
                                     <div class="form-group">
-                                        <label for="languages[{{ $index }}][description]">Description</label>
+                                        <label for="languages[{{ $index }}][description]">{{ __('cms.banners.description') }}</label>
                                         <textarea name="languages[{{ $index }}][description]" 
                                                   class="form-control @error('languages.' . $index . '.description') is-invalid @enderror"
                                                   rows="3">{{ old('languages.' . $index . '.description') }}</textarea>
@@ -175,7 +175,7 @@
                                     </div>
 
                                     <!-- Image Upload -->
-                                    <label class="form-label mt-2">Image ({{ $language->code }})</label>
+                                    <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
                                     <input type="file" name="languages[{{ $index }}][image]" 
                                            class="form-control @error('languages.' . $index . '.image') is-invalid @enderror" 
                                            onchange="previewImage(this, '{{ $language->code }}')">

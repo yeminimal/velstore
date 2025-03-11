@@ -58,6 +58,9 @@ return [
   ],
     
     'products' => [
+        'image_type' => 'Bildtyp',
+        'thumbnail' => 'Miniaturbild',
+        'slide' => 'Dia',
         'heading' => 'Produkte',
         'id' => 'ID',
         'name' => 'Produktname',
@@ -135,6 +138,8 @@ return [
 
     'banners' => [
         'all_banners' => 'Alle Banner',
+        'description' => 'Beschreibung',
+        'choose_file' => 'Datei auswählen',
         'id' => 'ID',
         'add_new' => 'Neues hinzufügen',
         'banner_type' => 'Banner-Typ',
