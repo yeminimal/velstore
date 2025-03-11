@@ -57,7 +57,10 @@ return [
     ],
     ],
 
-        'products' =>  [
+    'products' =>  [
+        'image_type' => 'Loại hình ảnh',
+        'thumbnail' => 'Hình thu nhỏ',
+        'slide' => 'Trang trình chiếu',
         'heading' => 'Sản phẩm',
         'id' => 'ID',
         'name' => 'Tên sản phẩm',
@@ -134,6 +137,8 @@ return [
     ],
 
     'banners' => [
+        'description' => 'Mô tả',
+        'choose_file' => 'Chọn tệp',
         'all_banners' => 'Tất cả các Banner',
         'id' => 'ID',
         'add_new' => 'Thêm Mới',

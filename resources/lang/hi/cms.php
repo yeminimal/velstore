@@ -57,6 +57,9 @@ return [
     ],
 ],
     'products' => [
+        'image_type' => 'छवि प्रकार',
+        'thumbnail' => 'थंबनेल',
+        'slide' => 'स्लाइड',
         'heading' => 'उत्पाद',
         'id' => 'पहचान',
         'name' => 'उत्पाद का नाम',
@@ -132,6 +135,8 @@ return [
     ],
 
     'banners' => [
+        'description' => 'विवरण',
+        'choose_file' => 'फ़ाइल चुनें',  
         'all_banners' => 'सभी बैनर',
         'id' => 'पहचान',
         'add_new' => 'नया जोड़ें',

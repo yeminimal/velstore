@@ -56,7 +56,10 @@ return [
         'sPrevious' => 'Предыдущий',
     ],
     ],
-        'products' =>  [
+    'products' =>  [
+        'image_type' => 'Тип изображения',
+        'thumbnail' => 'Миниатюра',
+        'slide' => 'Слайд',
         'heading' => 'Продукты',
         'id' => 'ID',
         'name' => 'Название продукта',
@@ -133,6 +136,8 @@ return [
     ],
 
     'banners' => [
+        'description' => 'Описание',
+        'choose_file' => 'Выберите файл',
         'all_banners' => 'Все баннеры',
         'id' => 'ID',
         'add_new' => 'Добавить новый',

@@ -56,7 +56,10 @@ return [
         'sPrevious' => 'Précédent',
     ],
 ],
-        'products' => [
+    'products' => [
+        'image_type' => 'Type d\'image',
+        'thumbnail' => 'Vignette',
+        'slide' => 'Diapositive',
         'heading' => 'Produits',
         'id' => 'ID',
         'name' => 'Nom du produit',
@@ -133,6 +136,8 @@ return [
     ],
 
     'banners' => [
+        'description' => 'Description',
+        'choose_file' => 'Choisir un fichier',
         'all_banners' => 'Tous les bannières',
         'id' => 'ID',
         'add_new' => 'Ajouter un nouveau',

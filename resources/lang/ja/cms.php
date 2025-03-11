@@ -57,6 +57,9 @@ return [
     ],
 ],
     'products' => [
+        'image_type' => '画像タイプ',
+        'thumbnail' => 'サムネイル',
+        'slide' => 'スライド',
         'heading' => '製品',
         'id' => '識別子',
         'name' => '製品名',
@@ -134,6 +137,8 @@ return [
     ],
 
     'banners' => [
+        'description' => '説明',
+        'choose_file' => 'ファイルを選択',
         'all_banners' => 'すべてのバナー',
         'id' => '識別子',
         'add_new' => '新規追加',

@@ -56,7 +56,10 @@ return [
         'sPrevious' => '이전',
     ],
     ],
-        'products' =>  [
+    'products' =>  [
+        'image_type' => '이미지 유형',
+        'thumbnail' => '썸네일',
+        'slide' => '슬라이드',
         'heading' => '제품',
         'id' => '아이디',
         'name' => '제품 이름',
@@ -134,6 +137,8 @@ return [
 
 
     'banners' => [
+        'description' => '설명',
+        'choose_file' => '파일 선택',
         'all_banners' => '모든 배너',
         'id' => '아이디',
         'add_new' => '새로 추가',

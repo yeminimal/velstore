@@ -58,6 +58,9 @@ return [
 ],
 
     'products' =>  [
+        'image_type' => 'Image Type',
+        'thumbnail' => 'Thumbnail',
+        'slide' => 'Slide',
         'heading' => 'Products',
         'id' => 'Id',
         'name' => 'Product Name',
@@ -134,6 +137,8 @@ return [
         ],
 
         'banners' => [
+            'description' => 'Description',
+            'choose_file' => 'Choose file',
             'all_banners' => 'All Banners',
             'id' => 'Id',
             'add_new' => 'Add New',

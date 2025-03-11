@@ -54,7 +54,10 @@ return [
         'sPrevious' => 'Vorige',
     ],
     ],
-        'products' =>  [
+    'products' =>  [
+        'image_type' => 'Afbeeldingstype',
+        'thumbnail' => 'Miniatuur',
+        'slide' => 'Dia',
         'heading' => 'Producten',
         'id' => 'ID',
         'name' => 'Productnaam',
@@ -131,6 +134,8 @@ return [
     ],
         
     'banners' => [
+        'description' => 'Beschrijving',
+        'choose_file' => 'Bestand kiezen',
         'all_banners' => 'Alle banners',
         'id' => 'ID',
         'add_new' => 'Nieuw toevoegen',

@@ -57,7 +57,10 @@ return [
     ],
     ],
 
-        'products' =>  [
+     'products' =>  [
+        'image_type' => 'Görüntü Türü',
+        'thumbnail' => 'Küçük Resim',
+        'slide' => 'Slayt',
         'heading' => 'Ürünler',
         'id' => 'ID',
         'name' => 'Ürün Adı',
@@ -135,6 +138,8 @@ return [
 
 
     'banners' => [
+        'description' => 'Açıklama',
+        'choose_file' => 'Dosya seç',
         'all_banners' => 'Tüm Bannerlar',
         'id' => 'ID',
         'add_new' => 'Yeni Ekle',

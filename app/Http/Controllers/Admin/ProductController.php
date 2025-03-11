@@ -100,7 +100,7 @@ class ProductController extends Controller
         
         $image = $product->images->first();
         $imageUrl = $image ? $image->image_url : '';
-
+        
         $categories = Category::all();  
         $categories = collect($categories)->map(function ($category) {
             if (isset($category->translations) && $category->translations instanceof \Illuminate\Database\Eloquent\Collection) {

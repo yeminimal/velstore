@@ -80,9 +80,9 @@
 
                                 <!-- Image Preview -->
                                 <div id="image_preview_{{ $language->code }}" class="mt-2" 
-                                     style="{{ isset($translation->image) ? 'display: block;' : 'display: none;' }}">
+                                     style="{{ isset($translation->image_url) ? 'display: block;' : 'display: none;' }}">
                                     <img id="image_preview_img_{{ $language->code }}" 
-                                         src="{{ isset($translation->image) ? asset('storage/' . $translation->image) : '#' }}" 
+                                    src="{{ isset($translation->image_url) ? asset('storage/' . $translation->image_url) : '#' }}" 
                                          alt="{{ __('cms.categories.image_preview') }}" class="img-thumbnail" style="max-width: 200px;">
                                 </div>
 
