@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\View;
-use App\Models\Menu;
 use App\Services\Admin\ImageService;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Admin\Product\ProductRepository;
@@ -60,20 +58,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('menu', Menu::first()); 
 
-        $locale = app()->getLocale();
-
-        $headerMenu = Menu::where('status', 1)
-            ->with([
-                'menuItems' => function ($query) use ($locale) {
-                    $query->orderBy('order_number', 'asc')
-                        ->with(['translation' => function ($query) use ($locale) {
-                            $query->where('language_code', $locale);
-                        }]);
-                }
-            ])
-            ->first();
-        View::share('headerMenu', $headerMenu); 
     } 
 }

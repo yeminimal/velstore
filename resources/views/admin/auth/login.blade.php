@@ -32,7 +32,7 @@
 @section('content')
     <div class="login-container">
         <div class="text-center mb-4">
-            <h1>Martix</h1>
+            <h1>Velstore</h1>
         </div>
         <h2 class="text-center mb-4">{{ cms_translate('auth.login') }}</h2>
         @error('password')
