@@ -9,6 +9,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 
+
 class Velstore extends Command
 {
     /**
@@ -16,7 +17,7 @@ class Velstore extends Command
      *
      * @var string
      */
-    protected $signature = 'install:velstore {--locale= : Set the application locale}';
+    protected $signature = 'install:velstore {--locale= : Set the application locale} {--with-import : Import default data}';
 
     /**
      * The console command description.
@@ -58,11 +59,16 @@ class Velstore extends Command
             return 1;
         }
 
+        $withImport = $this->option('with-import');
+        if ($withImport) {
+            $this->call('data:import');
+        }
+
         $this->updateEnvFile('APP_LOCALE', $locale);
 
         $this->info("Application language set to: $locale");
 
-        $this->info('Matrix installation completed successfully.');
+        $this->info('Velstore installation completed successfully.');
 
         $this->info('Installing npm packages...');
         exec('npm install');

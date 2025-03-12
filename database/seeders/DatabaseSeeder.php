@@ -12,11 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Call the SiteSettingsSeeder
-        $this->call(SiteSettingsSeeder::class);
-        
-    $this->call([
-        OrderSeeder::class,
-    ]);
+        $this->call([
+            SiteSettingsSeeder::class,
+            OrderSeeder::class,
+            LanguageSeeder::class,
+        ]);
     }
 }
