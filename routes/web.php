@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\SellerController;
 
 use App\Http\Controllers\StoreController;
 /*
@@ -101,7 +102,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 }); 
 
+// Grouping admin routes
+Route::prefix('admin')->name('admin.')->group(function () {
 
+    // Menu Routes
+    Route::resource('menus', MenuController::class);
+    Route::post('menus/data', [MenuController::class, 'getData'])->name('menus.data');
+
+    // Menu Items Routes (Nested within Menus)
+    Route::resource('menus.items', MenuItemController::class)->shallow();
+});
+
+
+
+/*
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('admin/menus', MenuController::class);
     Route::post('menus/data', [MenuController::class, 'getData'])->name('menus.data');
@@ -128,7 +142,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     });
 }); 
 
-
+*/
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('social-media-links', SocialMediaLinkController::class);
@@ -160,3 +174,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 });
 
 
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('sellers', SellerController::class);
+});

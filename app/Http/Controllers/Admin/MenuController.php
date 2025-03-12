@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
 
 class MenuController extends Controller
-{
+{   
     protected $menuService;
 
     public function __construct(MenuService $menuService)
@@ -60,8 +60,10 @@ class MenuController extends Controller
             'date' => now(),
         ]);
 
-        return redirect()->route('admin.menu.items.create', $menu->id)
-                         ->with('success', __('cms.menus.created'));
+        return redirect()->route('admin.menus.items.create', ['menu' => $menu->id])
+                         ->with('success', __('cms.menus.created')); 
+
+       
     }
 
     public function edit($id)
@@ -100,5 +102,7 @@ class MenuController extends Controller
                 'message' => 'Error deleting menu. Please try again.'
             ]);
     }
-}
+} 
+
+
 }

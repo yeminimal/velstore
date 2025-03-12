@@ -117,8 +117,10 @@
                 </a>
                 <div class="collapse {{ Route::currentRouteName() == 'admin.menuitems.create' || Route::currentRouteName() == 'admin.menuitems.index' ? 'show' : '' }}" id="menuItemMenu">
                     <ul class="nav flex-column ms-3">
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.create' ? 'active' : '' }}" href="{{ route('admin.menu.items.create', $menu->id) }}">Add New</a></li>
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.index' ? 'active' : '' }}" href="{{ route('admin.menu.items.index', $menu->id) }}">List</a></li>
+                        @if(isset($menu) && $menu)
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.create' ? 'active' : '' }}" href="">Add New</a></li>
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.index' ? 'active' : '' }}" href="">List</a></li>
+                        @endif
                     </ul>
                 </div>
             </li>                       

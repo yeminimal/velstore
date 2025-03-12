@@ -19,7 +19,7 @@
 
     <!-- Add Menu Item Button (aligned to the right) -->
     <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('admin.menu.items.create', $menu->id) }}" class="btn btn-primary mt-2">{{ __('cms.menu_items.add_new') }}</a>
+        <a href="{{ route('admin.menus.items.create', $menu->id) }}" class="btn btn-primary mt-2">{{ __('cms.menu_items.add_new') }}</a>
     </div>
 
     <!-- Menu Items Table -->
@@ -84,7 +84,7 @@
         processing: true,
         serverSide: true,
         ajax: {
-            url: "{{ route('admin.menu.items.data', ['menuId' => $menu->id]) }}",
+            url: "{{ route("admin.menus.data") }}",
             type: 'POST',
             data: function(d) {
                 d._token = "{{ csrf_token() }}"; // Include CSRF token
@@ -120,7 +120,7 @@ function deleteMenuItem(id) {
     $('#confirmDeleteMenuItem').off('click').on('click', function() {
         if (menuItemToDeleteId !== null) {
             $.ajax({
-                url: '{{ route('admin.menu.items.destroy', ['menuId' => $menu->id, 'menuItemId' => '__menuItemId__']) }}'.replace('__menuItemId__', menuItemToDeleteId), // Dynamically replacing the menuItemId
+                url: '{{ route('admin.items.destroy', '__menuItemId__') }}'.replace('__menuItemId__', menuItemToDeleteId),
                 method: 'DELETE',
                 data: {
                     _token: "{{ csrf_token() }}",

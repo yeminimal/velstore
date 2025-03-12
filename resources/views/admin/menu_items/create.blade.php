@@ -118,18 +118,19 @@
             @endif
 
             <!-- Form for creating Menu Item -->
-            <form action="{{ route('admin.menu.items.store', $menu->id) }}" method="POST">
+            <form action="{{ route('admin.menus.items.store', $menu->id) }}" method="POST">
                 @csrf
 
-                <div class="mb-3">
-                    <label for="menu" class="form-label">{{ __('cms.menu_items.choose_an_option') }}</label>
-                    <select class="form-select" id="menu" name="menu">
-                        <option value="" disabled selected>{{ __('cms.menu_items.select_an_option') }}</option>
-                        <option value="order_number">{{ __('cms.menu_items.order_number') }}</option>
-                        <option value="parent_item">{{ __('cms.menu_items.parent_item') }}</option>
-                        <option value="none">{{ __('cms.menu_items.parent_none') }}</option>
-                    </select>
-                </div>
+                               <!-- Select Menu -->
+            <div class="mb-3">
+                <label for="menu_id" class="form-label">Menus</label>
+                <select class="form-select" id="menu_id" name="menu_id" required>
+                    <option value="" disabled selected>{{ __('cms.menu_items.select_menu') }}</option>
+                    @foreach($menus as $menu)
+                        <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+                    @endforeach
+                </select>
+            </div>
 
                 <!-- Order Number -->
                 <div class="mb-3">
