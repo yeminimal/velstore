@@ -59,6 +59,7 @@ class Velstore extends Command
             return 1;
         }
 
+        $withImport = $this->option('with-import');
         if ($withImport) {
             $this->call('data:import');
         }
