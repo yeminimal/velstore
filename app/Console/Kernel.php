@@ -4,9 +4,18 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\Velstore;
+use App\Console\Commands\DataImport;
 
 class Kernel extends ConsoleKernel
 {
+
+    protected $commands = [
+        Velstore::class,
+        DataImport::class,
+    ];
+    
+
     /**
      * Define the application's command schedule.
      */
