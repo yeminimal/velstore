@@ -1,5 +1,5 @@
 
-
+{{--
 @extends('admin.layouts.admin')
 
 @section('css')
@@ -55,13 +55,14 @@
 @endsection
 
 @section('js')
-@php
-    $datatableLang = __('cms.datatables'); // Optional translation for DataTables
-@endphp
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+@php
+    $datatableLang = __('cms.datatables'); // Optional translation for DataTables
+@endphp
+
 
 
 @if (session('success'))
@@ -79,18 +80,21 @@
  
      $(document).ready(function() {
     var menuId = {{ $menu->id }}; // Pass the menu ID from Blade to JavaScript
-
     $('#menu-items-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url: "{{ route("admin.menus.data") }}",
-            type: 'POST',
-            data: function(d) {
-                d._token = "{{ csrf_token() }}"; // Include CSRF token
-            }
+    processing: true,
+    serverSide: true,
+    ajax: {
+        url: "{{ route('admin.menus.items.data', $menu->id) }}", // Ensure quotes around route
+        type: "POST",
+        data: {
+            _token: "{{ csrf_token() }}" // Ensure CSRF token is sent
         },
-        columns: [
+        error: function(xhr, error, thrown) {
+            console.log("AJAX Error:", xhr.responseText); // Log full response
+            alert("DataTables AJAX Error: Check console for details.");
+        }
+    },
+            columns: [
             { data: 'id', name: 'id' },
             { data: 'title', name: 'title' },
             { data: 'slug', name: 'slug' },
@@ -99,13 +103,13 @@
                 data: 'action', 
                 orderable: false, 
                 searchable: false, 
-                render: function(data, type, row) {
-                    var editBtn = '<span class="border border-info dt-trash rounded-3 d-inline-block"><a href="/admin/menus/' + menuId + '/items/' + row.id + '/edit" class=""><i class="bi bi-pencil-fill text-info"></i></a></span>';
+                render: function(data, type, row) {  // <- Make sure this line is correct
+                    var editBtn = '<span class="border border-info dt-trash rounded-3 d-inline-block"><a href="/admin/menus/' + row.menu_id + '/items/' + row.id + '/edit" class=""><i class="bi bi-pencil-fill text-info"></i></a></span>';
                     var deleteBtn = '<span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deleteMenuItem(' + row.id + ')"> <i class="bi bi-trash-fill text-danger"></i> </span>';
                     return editBtn + ' ' + deleteBtn;
                 }
             }
-        ],
+        ]
         pageLength: 10,
         language: @json($datatableLang) // Optional: datatables language translations if any
     });
@@ -166,4 +170,69 @@ function deleteMenuItem(id) {
 }
 
 </script>
+@endsection
+--}}
+
+
+@extends('admin.layouts.admin')
+
+@section('content')
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h6>{{ __('cms.menu_items.index_title') }}</h6>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>{{ __('cms.menu_items.id') }}</th>
+                        <th>{{ __('cms.menu_items.title') }}</th>
+                        <th>{{ __('cms.menu_items.slug') }}</th>
+                        <th>{{ __('cms.menu_items.order_number') }}</th>
+                        <th>{{ __('cms.menu_items.actions') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($menuItems as $item)
+                        <tr>
+                            <td>{{ $item->id }}</td>
+
+                            <!-- Handle translation safely -->
+                            <td>{{ optional(optional($item->translations)->first())->title ?? __('cms.menu_items.no_title') }}</td>
+
+                            <td>{{ $item->slug }}</td>
+                            <td>{{ $item->order_number }}</td>
+
+                            <td>
+                                <a href="{{ route('admin.items.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                    {{ __('cms.edit') }}
+                                </a>
+
+                                <form action="{{ route('admin.items.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm delete-button">
+                                        {{ __('cms.delete') }}
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
 @endsection

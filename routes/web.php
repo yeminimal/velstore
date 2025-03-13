@@ -111,6 +111,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Menu Items Routes (Nested within Menus)
     Route::resource('menus.items', MenuItemController::class)->shallow();
+   // Route::post('menus/{menu}/items/data', [MenuItemController::class, 'getData'])
+      //  ->name('menus.items.data');
+
+        //Route::resource('admin/menu-items', MenuItemController::class)->names('menu-items');
+
+   // Route::post('menus/{menu}/items/data', [MenuItemController::class, 'getData'])->name('menus.items.data');
+
 });
 
 
