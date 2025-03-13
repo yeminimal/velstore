@@ -9,6 +9,11 @@ use Illuminate\Support\Str;
 
 class MenuItemRepository implements MenuItemRepositoryInterface
 {
+    public function getAll()
+    {
+        return MenuItem::all();
+    }
+
     public function getMenuItemsByMenuId($menuId)
     {
         return MenuItem::with('menuItemTranslations')

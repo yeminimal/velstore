@@ -15,12 +15,34 @@ use Yajra\DataTables\DataTables;
 
 class MenuItemController extends Controller
 {   
-    public function index($menuId)
+    protected $menuItemService;
+
+    public function __construct(MenuItemService $menuItemService)
+    {
+        $this->menuItemService = $menuItemService;
+    }
+
+    /*public function index($menuId)
     {
         $menu = Menu::with('menuItems.translations')->findOrFail($menuId);
         $menuItems = MenuItem::where('menu_id', $menuId)->with(['translations', 'parent.translations'])->orderBy('order_number')->get();
 
         return view('admin.menu_items.index', compact('menu', 'menuItems'));
+    }*/
+
+    public function getData(Request $request)
+    {
+            $menuItems = $this->menuItemService->getAllMenuItems();
+        return datatables()->of($menuItems)
+            ->addColumn('action', function ($menuItems) {
+                return view('admin.menus.index', compact('menuItems'));
+            })
+            ->make(true);
+    } 
+
+    public function index()
+    {
+        return view('admin.menu_items.index');
     }
 
     public function create($menuId)
@@ -73,8 +95,8 @@ class MenuItemController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.menus.items.create', ['menu' => $menuId])
-                            ->with('success', __('cms.menu_items.created_successfully'));
+            return redirect()->route('admin.menus.items.index', ['menu' => $menuId])
+                            ->with('success', __('cms.menu_items.created'));
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', __('cms.menu_items.creation_failed'));
@@ -126,7 +148,24 @@ class MenuItemController extends Controller
         $menuItem->translations()->whereNotIn('language_code', array_keys($request->title))->delete();
         
         /*return redirect()->route('admin.items.index')->with('success', __('cms.menu_items.updated_successfully'));*/
-        return redirect()->route('admin.dashboard')->with('success', __('cms.menu_items.updated_successfully'));
+        return redirect()->route('admin.menus.item.index')->with('success', __('cms.menu_items.updated'));
     }
+
+    public function destroy($id)
+    {
+        $menuItem = MenuItem::findOrFail($id);
+        if ($menuItem->delete()) {
+            return response()->json([
+                'success' => true,
+                'message' => __('cms.menu_items.deleted'),
+            ]);
+        }
+    
+        return response()->json([
+            'success' => false,
+            'message' => 'Error deleting menu item.',
+        ]);
+    }
+
 
 }

@@ -1,5 +1,4 @@
 
-{{--
 @extends('admin.layouts.admin')
 
 @section('css')
@@ -8,32 +7,28 @@
 @endsection
 
 @section('content')
-<div class="container">
-    
-    <!-- Card Heading for Menu Items -->
-    <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
-            <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.menu_items.heading') }}</h6>
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white">
+        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.menu_items.heading') }}</h6>
+    </div>
+    <div class="card-body">
+        <!-- Add Menu Item Button (aligned to the right) -->
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{{ route('admin.menus.items.create', $menu->id) }}" class="btn btn-primary mt-2">{{ __('cms.menu_items.add_new') }}</a>
         </div>
-    </div>
 
-    <!-- Add Menu Item Button (aligned to the right) -->
-    <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('admin.menus.items.create', $menu->id) }}" class="btn btn-primary mt-2">{{ __('cms.menu_items.add_new') }}</a>
+        <!-- Menu Items Table -->
+        <table id="menu-items-table" class="table">
+            <thead>
+                <tr>
+                    <th>{{ __('cms.menu_items.id') }}</th>
+                    <th>{{ __('cms.menu_items.slug') }}</th>
+                    <th>{{ __('cms.menu_items.order_number') }}</th>
+                    <th>{{ __('cms.menu_items.actions') }}</th>
+                </tr>
+            </thead>
+        </table>
     </div>
-
-    <!-- Menu Items Table -->
-    <table id="menu-items-table" class="table">
-        <thead>
-            <tr>
-                <th>{{ __('cms.menu_items.id') }}</th>
-                <th>{{ __('cms.menu_items.title') }}</th>
-                <th>{{ __('cms.menu_items.slug') }}</th>
-                <th>{{ __('cms.menu_items.order_number') }}</th>
-                <th>{{ __('cms.menu_items.actions') }}</th>
-            </tr>
-        </thead>
-    </table>
 </div>
 <!-- Delete Menu Item Modal -->
 <div class="modal fade" id="deleteMenuItemModal" tabindex="-1" aria-labelledby="deleteMenuItemModalLabel" aria-hidden="true">
@@ -77,39 +72,37 @@
 @endif
 
 <script>
- 
-     $(document).ready(function() {
+$(document).ready(function() {
     var menuId = {{ $menu->id }}; // Pass the menu ID from Blade to JavaScript
     $('#menu-items-table').DataTable({
-    processing: true,
-    serverSide: true,
-    ajax: {
-        url: "{{ route('admin.menus.items.data', $menu->id) }}", // Ensure quotes around route
-        type: "POST",
-        data: {
-            _token: "{{ csrf_token() }}" // Ensure CSRF token is sent
-        },
-        error: function(xhr, error, thrown) {
-            console.log("AJAX Error:", xhr.responseText); // Log full response
-            alert("DataTables AJAX Error: Check console for details.");
-        }
-    },
-            columns: [
-            { data: 'id', name: 'id' },
-            { data: 'title', name: 'title' },
-            { data: 'slug', name: 'slug' },
-            { data: 'order_number', name: 'order_number' },
-            { 
-                data: 'action', 
-                orderable: false, 
-                searchable: false, 
-                render: function(data, type, row) {  // <- Make sure this line is correct
-                    var editBtn = '<span class="border border-info dt-trash rounded-3 d-inline-block"><a href="/admin/menus/' + row.menu_id + '/items/' + row.id + '/edit" class=""><i class="bi bi-pencil-fill text-info"></i></a></span>';
-                    var deleteBtn = '<span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deleteMenuItem(' + row.id + ')"> <i class="bi bi-trash-fill text-danger"></i> </span>';
-                    return editBtn + ' ' + deleteBtn;
-                }
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: "{{ route('admin.menus.item.getData') }}", // Ensure quotes around route
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}" // Ensure CSRF token is sent
+            },
+            error: function(xhr, error, thrown) {
+                console.log("AJAX Error:", xhr.responseText); // Log full response
+                alert("DataTables AJAX Error: Check console for details.");
             }
-        ]
+        },
+        columns: [
+                { data: 'id', name: 'id' },
+                { data: 'slug', name: 'slug' },
+                { data: 'order_number', name: 'order_number' },
+                { 
+                    data: 'action', 
+                    orderable: false, 
+                    searchable: false, 
+                    render: function(data, type, row) {  // <- Make sure this line is correct
+                        var editBtn = '<span class="border border-info dt-trash rounded-3 d-inline-block"><a href="/admin/items/' + row.id + '/edit" class=""><i class="bi bi-pencil-fill text-info"></i></a></span>';
+                        var deleteBtn = '<span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deleteMenuItem(' + row.id + ')"> <i class="bi bi-trash-fill text-danger"></i> </span>';
+                        return editBtn + ' ' + deleteBtn;
+                    }
+                }
+        ],
         pageLength: 10,
         language: @json($datatableLang) // Optional: datatables language translations if any
     });
@@ -124,7 +117,7 @@ function deleteMenuItem(id) {
     $('#confirmDeleteMenuItem').off('click').on('click', function() {
         if (menuItemToDeleteId !== null) {
             $.ajax({
-                url: '{{ route('admin.items.destroy', '__menuItemId__') }}'.replace('__menuItemId__', menuItemToDeleteId),
+                url: '{{ route('admin.items.destroy', ':id') }}'.replace(':id', menuItemToDeleteId),
                 method: 'DELETE',
                 data: {
                     _token: "{{ csrf_token() }}",
@@ -170,69 +163,4 @@ function deleteMenuItem(id) {
 }
 
 </script>
-@endsection
---}}
-
-
-@extends('admin.layouts.admin')
-
-@section('content')
-<div class="container">
-    <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
-            <h6>{{ __('cms.menu_items.index_title') }}</h6>
-        </div>
-    </div>
-
-    <div class="card mt-4">
-        <div class="card-body">
-            @if(session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-            @if(session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
-            @endif
-
-            <table class="table table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>{{ __('cms.menu_items.id') }}</th>
-                        <th>{{ __('cms.menu_items.title') }}</th>
-                        <th>{{ __('cms.menu_items.slug') }}</th>
-                        <th>{{ __('cms.menu_items.order_number') }}</th>
-                        <th>{{ __('cms.menu_items.actions') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($menuItems as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-
-                            <!-- Handle translation safely -->
-                            <td>{{ optional(optional($item->translations)->first())->title ?? __('cms.menu_items.no_title') }}</td>
-
-                            <td>{{ $item->slug }}</td>
-                            <td>{{ $item->order_number }}</td>
-
-                            <td>
-                                <a href="{{ route('admin.items.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                                    {{ __('cms.edit') }}
-                                </a>
-
-                                <form action="{{ route('admin.items.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm delete-button">
-                                        {{ __('cms.delete') }}
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-</div>
 @endsection

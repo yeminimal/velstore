@@ -14,6 +14,12 @@ class MenuItemService
         $this->menuItemRepository = $menuItemRepository;
     }
 
+    public function getAllMenuItems()
+    {
+        return $this->menuItemRepository->getAll();
+       
+    }
+
     public function getMenuItemsByMenuId($menuId)
     {
         return $this->menuItemRepository->getMenuItemsByMenuId($menuId);
