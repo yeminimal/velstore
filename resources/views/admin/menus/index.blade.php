@@ -21,7 +21,6 @@
                 <tr>
                     <th>{{ __('cms.menus.id') }}</th>
                     <th>{{ __('cms.menus.title') }}</th>
-                    <th>{{ __('cms.menus.created_at') }}</th>
                     <th>{{ __('cms.menus.action') }}</th>
                 </tr>
             </thead>
@@ -84,7 +83,6 @@ $(document).ready(function() {
             columns: [
                 { data: 'id', name: 'id' },
                 { data: 'title', name: 'title' },
-                { data: 'created_at', name: 'created_at' },
                 { 
                     data: 'action', 
                     orderable: false, 

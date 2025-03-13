@@ -36,8 +36,6 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-
-
 Route::get('/lang/{locale}', function ($locale) {
 
     if (in_array($locale, ['en', 'es', 'de', 'ar', 'fa', 'it', 'nl', 'pl', 'pt', 'tr','zh', 'fr', 'ru', 'ja', 'ko', 'th', 'vi','hi','id'])) {
@@ -72,6 +70,12 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('change.language');
 
+    Route::resource('menus', MenuController::class);
+    Route::post('menus/data', [MenuController::class, 'getData'])->name('menus.data');
+    Route::resource('menus.items', MenuItemController::class)->shallow();
+    Route::get('menus-items', [MenuItemController::class, 'index'])->name('menus.item.index');
+    Route::post('menus-items/getdata', [MenuItemController::class, 'getData'])->name('menus.item.getData');
+
 
 
 });
@@ -90,10 +94,6 @@ Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('sit
 Route::get('site-settings/edit', [SiteSettingsController::class, 'edit'])->name('admin.site-settings.edit');
 Route::put('site-settings/update', [SiteSettingsController::class, 'update'])->name('admin.site-settings.update');
 
-
-
-
-
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('banners', BannerController::class);
     Route::post('banners/data', [BannerController::class, 'getData'])->name('banners.data');
@@ -101,48 +101,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/banners/update-status', [BannerController::class, 'updateStatus'])->name('banners.updateStatus');
 
 }); 
-
-// Grouping admin routes
-Route::prefix('admin')->name('admin.')->group(function () {
-
-    // Menu Routes
-    Route::resource('menus', MenuController::class);
-    Route::post('menus/data', [MenuController::class, 'getData'])->name('menus.data');
-
-    // Menu Items Routes (Nested within Menus)
-    Route::resource('menus.items', MenuItemController::class)->shallow();
-});
-
-
-
-/*
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('admin/menus', MenuController::class);
-    Route::post('menus/data', [MenuController::class, 'getData'])->name('menus.data');
-
-});
-
-
-
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    // Menu routes
-    Route::resource('menus', MenuController::class);
-    Route::post('menus/{menuId}/items/data', [MenuItemController::class, 'getData'])->name('menu.items.data');
-   
-    
-    // Menu Item routes
-    Route::prefix('menus/{menuId}/items')->name('menu.items.')->group(function () {
-       
-        Route::get('/', [MenuItemController::class, 'index'])->name('index');
-        Route::get('create', [MenuItemController::class, 'create'])->name('create');
-        Route::post('/', [MenuItemController::class, 'store'])->name('store');
-        Route::get('{menuItemId}/edit', [MenuItemController::class, 'edit'])->name('edit');
-        Route::put('{menuItemId}', [MenuItemController::class, 'update'])->name('update');
-        Route::delete('{menuItemId}', [MenuItemController::class, 'destroy'])->name('destroy');
-    });
-}); 
-
-*/
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('social-media-links', SocialMediaLinkController::class);
@@ -163,8 +121,6 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
     Route::post('/product_variants/data', [ProductVariantController::class, 'getData'])->name('product_variants.data');
 });
 
-
-
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('customers', CustomerController::class);
 });
@@ -172,8 +128,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('reviews', \App\Http\Controllers\Admin\ProductReviewController::class)->except(['create', 'store']);
 });
-
-
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('sellers', SellerController::class);

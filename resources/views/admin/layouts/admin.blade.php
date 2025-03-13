@@ -118,8 +118,8 @@
                 <div class="collapse {{ Route::currentRouteName() == 'admin.menuitems.create' || Route::currentRouteName() == 'admin.menuitems.index' ? 'show' : '' }}" id="menuItemMenu">
                     <ul class="nav flex-column ms-3">
                         @if(isset($menu) && $menu)
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.create' ? 'active' : '' }}" href="">Add New</a></li>
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.index' ? 'active' : '' }}" href="">List</a></li>
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menu.items.create' ? 'active' : '' }}" href="{{ route('admin.menus.items.create', $menu) }}">Add New</a></li>
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.menus.item.index' ? 'active' : '' }}" href="{{ route('admin.menus.item.index') }}">List</a></li>
                         @endif
                     </ul>
                 </div>
