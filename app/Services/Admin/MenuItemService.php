@@ -33,7 +33,7 @@ class MenuItemService
     public function updateMenuItem(Request $request, $menuId, $menuItemId)
     {
         return $this->menuItemRepository->updateMenuItem($request, $menuId, $menuItemId);
-    }
+    }    
 
     public function deleteMenuItem($menuItemId)
     {

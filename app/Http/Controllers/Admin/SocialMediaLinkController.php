@@ -48,7 +48,7 @@ class SocialMediaLinkController extends Controller
 
     public function create()
     {
-        $languages = Language::all();
+       $languages = Language::where('active', 1)->get();
         return view('admin.social-media-links.create', compact('languages'));
     }
 
@@ -69,7 +69,7 @@ class SocialMediaLinkController extends Controller
     public function edit($id)
     {
         $socialMediaLink = $this->socialMediaLinkService->getAllSocialMediaLinks()->find($id);
-        $languages = Language::all();
+        $languages = Language::where('active', 1)->get();
         $translations = $socialMediaLink->translations->keyBy('language_code');
         return view('admin.social-media-links.edit', compact('socialMediaLink', 'languages', 'translations'));
     }
