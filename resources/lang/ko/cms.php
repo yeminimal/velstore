@@ -57,6 +57,9 @@ return [
     ],
     ],
     'products' =>  [
+        'image_preview' => '이미지 미리보기',
+        'choose_file' => '파일 선택',
+        'no_file_chosen' => '선택된 파일 없음',
         'image_type' => '이미지 유형',
         'thumbnail' => '썸네일',
         'slide' => '슬라이드',

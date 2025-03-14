@@ -58,6 +58,9 @@ return [
 ],
 
     'products' =>  [
+        'image_preview' => 'Image Preview',
+        'choose_file' => 'Choose File',
+        'no_file_chosen' => 'No File Chosen',
         'image_type' => 'Image Type',
         'thumbnail' => 'Thumbnail',
         'slide' => 'Slide',

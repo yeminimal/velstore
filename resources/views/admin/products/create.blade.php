@@ -1,5 +1,4 @@
 
-
 @extends('admin.layouts.admin')
 @section('content')
     <div class="card mt-4">
@@ -18,6 +17,23 @@
                         </ul>
                     </div>
                 @endif
+                <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                    @foreach($activeLanguages as $language)
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->name }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $language->name }}" type="button" role="tab">{{ ucwords($language->name) }}</button>
+                        </li>
+                    @endforeach
+                </ul>
+                <div class="tab-content mt-3" id="languageTabContent">
+                    @foreach($activeLanguages as $language)
+                        <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->name }}" role="tabpanel">
+                            <label class="form-label">{{ __('cms.products.name') }} ({{ $language->code }})</label>
+                            <input type="text" name="translations[{{ $language->code }}][name]" class="form-control" required>
+                            <label class="form-label">{{ __('cms.products.description') }} ({{ $language->code }})</label>
+                            <textarea name="translations[{{ $language->code }}][description]" class="form-control ck-editor-multi-languages"></textarea>
+                        </div>
+                    @endforeach
+                </div> 
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -48,25 +64,6 @@
                             @enderror
                         </div>
                     </div>
-
-                    <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-                        @foreach($activeLanguages as $language)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->name }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $language->name }}" type="button" role="tab">{{ ucwords($language->name) }}</button>
-                            </li>
-                        @endforeach
-                    </ul>
-                    <div class="tab-content mt-3" id="languageTabContent">
-                        @foreach($activeLanguages as $language)
-                            <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->name }}" role="tabpanel">
-                                <label class="form-label">{{ __('cms.products.name') }} ({{ $language->code }})</label>
-                                <input type="text" name="translations[{{ $language->code }}][name]" class="form-control" required>
-                                <label class="form-label">{{ __('cms.products.description') }} ({{ $language->code }})</label>
-                                <textarea name="translations[{{ $language->code }}][description]" class="form-control ck-editor-multi-languages"></textarea>
-                            </div>
-                        @endforeach
-                    </div>
-
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="price">{{ __('cms.products.price') }}</label>
@@ -141,13 +138,17 @@
                             @enderror
                         </div>
                     </div>
-                    
-
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="image_url">{{ __('cms.products.image_preview') }}</label>
-                            <input type="file" name="image_url" id="image_url" class="form-control" accept="image/*">
-                            @error('image_url')
+                            <label for="product_image_url">{{ __('cms.products.image') }}</label>
+                            <div class="custom-file">
+                                <label class="btn btn-primary" for="product_image_file">{{ __('cms.products.choose_file') }}</label>
+                                <input type="file" name="product_image_url" accept="image/*" class="form-control d-none" id="product_image_file">
+                            </div>
+                            <div class="mt-2" id="product_image_preview" style="display:none;">
+                                <img id="product_image_preview_img" src="" alt="Selected Product Image" class="img-thumbnail" width="100">
+                            </div>
+                            @error('product_image_url')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>

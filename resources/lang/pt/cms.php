@@ -56,6 +56,9 @@ return [
     ],
     ],
     'products' =>  [
+        'image_preview' => 'Pré-visualização da imagem',
+        'choose_file' => 'Escolher arquivo',
+        'no_file_chosen' => 'Nenhum arquivo selecionado',
         'image_type' => 'Tipo de imagem',
         'thumbnail' => 'Miniatura',
         'slide' => 'Slide',

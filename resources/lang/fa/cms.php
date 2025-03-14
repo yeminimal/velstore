@@ -56,7 +56,10 @@ return [
         'sPrevious' => 'قبلی',
     ],
 ],
-        'products' => [
+    'products' => [
+        'image_preview' => 'پیش‌نمایش تصویر',
+        'choose_file' => 'انتخاب فایل',
+        'no_file_chosen' => 'هیچ فایلی انتخاب نشده است',
         'image_type' => 'نوع تصویر',
         'thumbnail' => 'تصویر بندانگشتی',
         'slide' => 'اسلاید',

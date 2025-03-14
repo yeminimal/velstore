@@ -56,7 +56,10 @@ return [
         'sPrevious' => 'Anterior',
     ],
   ],
-        'products' => [
+    'products' => [
+        'image_preview' => 'Vista previa de la imagen',
+        'choose_file' => 'Elegir archivo',
+        'no_file_chosen' => 'Ningún archivo seleccionado',
         'image_type' => 'Tipo de imagen',
         'thumbnail' => 'Miniatura',
         'slide' => 'Diapositiva',

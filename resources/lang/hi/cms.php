@@ -57,6 +57,9 @@ return [
     ],
 ],
     'products' => [
+        'image_preview' => 'छवि पूर्वावलोकन',
+        'choose_file' => 'फ़ाइल चुनें',
+        'no_file_chosen' => 'कोई फ़ाइल चुनी नहीं गई',
         'image_type' => 'छवि प्रकार',
         'thumbnail' => 'थंबनेल',
         'slide' => 'स्लाइड',

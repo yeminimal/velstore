@@ -57,6 +57,9 @@ return [
     ],
 ],
     'products' => [
+        'image_preview' => '画像プレビュー',
+        'choose_file' => 'ファイルを選択',
+        'no_file_chosen' => 'ファイルが選択されていません',
         'image_type' => '画像タイプ',
         'thumbnail' => 'サムネイル',
         'slide' => 'スライド',

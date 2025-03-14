@@ -59,6 +59,9 @@ return [
   ],
 
     'products' =>  [
+        'image_preview' => 'معاينة الصورة',
+        'choose_file' => 'اختر ملف',
+        'no_file_chosen' => 'لم يتم اختيار أي ملف',
         'image_type' => 'نوع الصورة',
         'thumbnail' => 'صورة مصغرة',
         'slide' => 'شريحة',
