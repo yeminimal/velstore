@@ -57,6 +57,9 @@ return [
     ],
     ],
     'products' =>  [
+        'image_preview' => 'Podgląd obrazu',
+        'choose_file' => 'Wybierz plik',
+        'no_file_chosen' => 'Nie wybrano pliku',
         'image_type' => 'Typ obrazu',
         'thumbnail' => 'Miniatura',
         'slide' => 'Slajd',

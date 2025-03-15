@@ -58,6 +58,9 @@ return [
     ],
 
     'products' =>  [
+        'image_preview' => 'Xem trước hình ảnh',
+        'choose_file' => 'Chọn tệp',
+        'no_file_chosen' => 'Chưa chọn tệp nào',
         'image_type' => 'Loại hình ảnh',
         'thumbnail' => 'Hình thu nhỏ',
         'slide' => 'Trang trình chiếu',

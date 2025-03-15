@@ -58,6 +58,9 @@ return [
     ],
 
      'products' =>  [
+        'image_preview' => '图片预览',
+        'choose_file' => '选择文件',
+        'no_file_chosen' => '未选择文件',
         'image_type' => '图片类型',
         'thumbnail' => '缩略图',
         'slide' => '幻灯片',

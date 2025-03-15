@@ -58,6 +58,9 @@ return [
   ],
     
     'products' => [
+        'image_preview' => 'Afbeeldingsvoorbeeld',
+        'choose_file' => 'Bestand kiezen',
+        'no_file_chosen' => 'Geen bestand gekozen',
         'image_type' => 'Bildtyp',
         'thumbnail' => 'Miniaturbild',
         'slide' => 'Dia',

@@ -19,7 +19,26 @@
                         </ul>
                     </div>
                 @endif
+
+                <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                    @foreach($languages as $language)
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $language->code }}" type="button" role="tab">{{ ucwords($language->name) }}</button>
+                        </li>
+                    @endforeach
+                </ul>
                 
+                <div class="tab-content mt-3" id="languageTabContent">
+                    @foreach($languages as $language)
+                    <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}" role="tabpanel">
+                        <label class="form-label">{{ __('cms.products.name') }} ({{ $language->code }})</label>
+                        <input type="text" name="translations[{{ $language->code }}][name]" class="form-control" value="{{ $product->getTranslation('name', $language->code) }}" required>
+                        <label class="form-label">{{ __('cms.products.description') }} ({{ $language->code }})</label>
+                        <textarea name="translations[{{ $language->code }}][description]" class="form-control ck-editor-multi-languages">{{ $product->getTranslation('description', $language->code) }}</textarea>
+                    </div>
+                    @endforeach
+                </div>
+               
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -43,26 +62,7 @@
                             </select>
                         </div>
                     </div>
-                    
-                    <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-                        @foreach($languages as $language)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $language->code }}" type="button" role="tab">{{ ucwords($language->name) }}</button>
-                            </li>
-                        @endforeach
-                    </ul>
-                    
-                    <div class="tab-content mt-3" id="languageTabContent">
-                        @foreach($languages as $language)
-                        <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}" role="tabpanel">
-                            <label class="form-label">{{ __('cms.products.name') }} ({{ $language->code }})</label>
-                            <input type="text" name="translations[{{ $language->code }}][name]" class="form-control" value="{{ $product->getTranslation('name', $language->code) }}" required>
-                            <label class="form-label">{{ __('cms.products.description') }} ({{ $language->code }})</label>
-                            <textarea name="translations[{{ $language->code }}][description]" class="form-control ck-editor-multi-languages">{{ $product->getTranslation('description', $language->code) }}</textarea>
-                        </div>
-                        @endforeach
-                    </div>
-                    
+                                       
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="price">{{ __('cms.products.price') }}</label>
@@ -119,19 +119,28 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>                      
+                    </div>   
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="image_url">{{ __('cms.products.image_preview') }}</label>
-                            <input type="file" name="image_url" id="image_url" class="form-control" accept="image/*">
-                           <img src="{{ $imageUrl ? asset('storage/' . $imageUrl) : asset('default-placeholder.png') }}" 
-                             id="product_image_preview" class="mt-2" width="100" style="display:block;">
+                            
+                            <!-- Custom File Input -->
+                            <div class="custom-file">
+                                <label class="btn btn-primary" for="image_url">{{ __('cms.products.choose_file') }}</label>
+                                <input type="file" name="image_url" id="image_url" class="d-none" accept="image/*">
+                            </div>
+                    
+                            <!-- Image Preview -->
+                            <img src="{{ isset($imageUrl) && $imageUrl ? asset('storage/' . $imageUrl) : asset('default-placeholder.png') }}" 
+                                 id="product_image_preview" 
+                                 class="mt-2 img-thumbnail" 
+                                 width="100">
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             <div class="col-md-12 text-start">
                 <div class="d-inline-block">
-                    <button type="submit" class="mt-3 btn btn-primary btn-sm">{{ __('cms.products.update_product') }}</button>
+                    <button type="submit" class=" btn btn-primary btn-sm">{{ __('cms.products.update_product') }}</button>
                 </div>
             </div>
             </form>
@@ -143,21 +152,23 @@
 <script>
     document.getElementById('image_url').addEventListener('change', function(event) {
         var file = event.target.files[0];
-        var previewElement = document.getElementById('product_image_preview');
+        var previewImage = document.getElementById('product_image_preview');
+        var chooseFileLabel = document.querySelector("label[for='image_url']");
 
         if (file) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                previewElement.src = e.target.result;
-                previewElement.style.display = 'block';
+                previewImage.src = e.target.result;
             };
             reader.readAsDataURL(file);
+
+            // Show file name in the label (translated)
+            chooseFileLabel.textContent = file.name;
         } else {
-            previewElement.style.display = 'none';
+            chooseFileLabel.textContent = "{{ __('cms.products.choose_file') }}";
         }
     });
 </script>
-
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
     document.querySelectorAll('.ck-editor-multi-languages').forEach((element) => {

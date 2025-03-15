@@ -57,6 +57,9 @@ return [
     ],
 ],
     'products' => [
+        'image_preview' => 'Aperçu de l’image',
+        'choose_file' => 'Choisir un fichier',
+        'no_file_chosen' => 'Aucun fichier choisi',
         'image_type' => 'Type d\'image',
         'thumbnail' => 'Vignette',
         'slide' => 'Diapositive',

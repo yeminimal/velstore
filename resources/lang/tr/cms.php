@@ -58,6 +58,9 @@ return [
     ],
 
      'products' =>  [
+        'image_preview' => 'Görüntü Önizlemesi',
+        'choose_file' => 'Dosya Seç',
+        'no_file_chosen' => 'Dosya Seçilmedi',
         'image_type' => 'Görüntü Türü',
         'thumbnail' => 'Küçük Resim',
         'slide' => 'Slayt',

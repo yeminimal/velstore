@@ -57,6 +57,9 @@ return [
     ],
     ],
     'products' =>  [
+        'image_preview' => 'ดูตัวอย่างรูปภาพ',
+        'choose_file' => 'เลือกไฟล์',
+        'no_file_chosen' => 'ยังไม่ได้เลือกไฟล์',
         'image_type' => 'ประเภทของภาพ',
         'thumbnail' => 'ภาพขนาดย่อ',
         'slide' => 'สไลด์',

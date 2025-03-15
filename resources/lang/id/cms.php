@@ -58,6 +58,9 @@ return [
 ],
 
     'products' =>  [
+        'image_preview' => 'Pratinjau Gambar',
+        'choose_file' => 'Pilih File',
+        'no_file_chosen' => 'Tidak ada file yang dipilih',
         'image_type' => 'Jenis Gambar',
         'thumbnail' => 'Gambar Mini',
         'slide' => 'Slide',
