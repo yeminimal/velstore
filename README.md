@@ -15,10 +15,11 @@ Follow these steps to set up Velstore:
 
 ### **Install via Composer**  
 Run the following command to create a new Velstore project:
-
+```sh
 composer create-project velstorelabs/velstore
+```
 
-Create database and rename .env.example to .env
+Create a new database, then rename .env.example to .env and update the database credentials.
 
 Run the command `php artisan install:velstore --with-import` to install Velstore.
 
@@ -26,12 +27,14 @@ Run the command `php artisan install:velstore --with-import` to install Velstore
 - `--with-import` Imports sample data to help you get started quickly.
 
 Start the Laravel server:
-
-`php artisan serve`
+```sh
+php artisan serve
+```
 
 Your Velstore instance is now running! Open your browser and visit:
-
-`http://127.0.0.1:8000`
+```sh
+http://127.0.0.1:8000
+```
 
 ## Tech Stack
 - Backend: Laravel 10+
