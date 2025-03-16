@@ -14,25 +14,24 @@ Velstore is a powerful and scalable Laravel eCommerce boilerplate designed for d
 Follow these steps to set up Velstore:  
 
 ### **Install via Composer**  
-Run the following command to create a new Velstore project:  
-```sh
+Run the following command to create a new Velstore project:
+
 composer create-project velstorelabs/velstore
 
 Create database and rename .env.example to .env
 
-```md
 Run the command `php artisan install:velstore --with-import` to install Velstore.
 
 ### **Options**
 - `--with-import` Imports sample data to help you get started quickly.
 
 Start the Laravel server:
-```sh
-php artisan serve
+
+`php artisan serve`
 
 Your Velstore instance is now running! Open your browser and visit:
-```sh
-http://127.0.0.1:8000
+
+`http://127.0.0.1:8000`
 
 ## Tech Stack
 - Backend: Laravel 10+
