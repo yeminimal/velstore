@@ -140,6 +140,7 @@ return [
     ],
 
     'banners' => [
+        'button_back' => '戻る',
         'description' => '説明',
         'choose_file' => 'ファイルを選択',
         'all_banners' => 'すべてのバナー',

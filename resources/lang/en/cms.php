@@ -140,6 +140,7 @@ return [
         ],
 
         'banners' => [
+            'button_back' => 'Back',
             'description' => 'Description',
             'choose_file' => 'Choose file',
             'all_banners' => 'All Banners',

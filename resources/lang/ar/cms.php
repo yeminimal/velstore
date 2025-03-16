@@ -143,6 +143,7 @@ return [
 
    
     'banners' => [
+        'button_back' => 'رجوع',
         'description' => 'الوصف',
         'choose_file' => 'اختر ملفًا',
         'all_banners' => 'جميع اللافتات',

@@ -139,6 +139,7 @@ return [
 
 
     'banners' => [
+        'button_back' => 'ย้อนกลับ',
         'description' => 'คำอธิบาย',
         'choose_file' => 'เลือกไฟล์',
         'all_banners' => 'แบนเนอร์ทั้งหมด',

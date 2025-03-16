@@ -140,6 +140,7 @@ return [
     ],
 
     'banners' => [
+        'button_back' => 'Quay lại',
         'description' => 'Mô tả',
         'choose_file' => 'Chọn tệp',
         'all_banners' => 'Tất cả các Banner',

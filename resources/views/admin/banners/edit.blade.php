@@ -1,101 +1,3 @@
-{{--
-@extends('admin.layouts.admin')
-
-@section('title', 'Edit Banner Translations')
-
-@section('content')
-    <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
-            <h6>{{ __('cms.banners.edit_banner') }}</h6>
-        </div>
-        <div class="card-body">
-            <form action="{{ route('admin.banners.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT') <!-- This specifies that the form is for an UPDATE request -->
-
-                <input type="hidden" name="banner_id" value="{{ $banner->id }}">
-
-                <!-- Banner Type Select (appears only once) -->
-                <div class="form-group">
-                    <label for="type">{{ __('cms.banners.banner_type') }}</label>
-                    <select name="type" class="form-control" required>
-                        <option value="promotion" {{ $banner->type == 'promotion' ? 'selected' : '' }}>{{ __('cms.banners.promotion') }}</option>
-                        <option value="sale" {{ $banner->type == 'sale' ? 'selected' : '' }}>{{ __('cms.banners.sale') }}</option>
-                        <option value="seasonal" {{ $banner->type == 'seasonal' ? 'selected' : '' }}>{{ __('cms.banners.seasonal') }}</option>
-                        <option value="featured" {{ $banner->type == 'featured' ? 'selected' : '' }}>{{ __('cms.banners.featured') }}</option>
-                        <option value="announcement" {{ $banner->type == 'announcement' ? 'selected' : '' }}>{{ __('cms.banners.announcement') }}</option>
-                    </select>
-                </div>
-
-                <!-- Loop through active languages and create fields for title, image_title, and image -->
-                <div id="languages-container">
-                    @foreach($languages as $index => $language)
-                        <div class="language-section">
-                            
-                            <!-- Title Input -->
-                            <div class="form-group">
-                                <label for="languages[{{ $index }}][title]">{{ __('cms.banners.title') }}</label>
-                                <input type="text" name="languages[{{ $index }}][title]" 
-                                       class="form-control @error('languages.' . $index . '.title') is-invalid @enderror"
-                                       value="{{ $translations[$language->code]->title ?? '' }}" required>
-                                @error('languages.' . $index . '.title') 
-                                    <div class="invalid-feedback">{{ $message }}</div> 
-                                @enderror
-                            </div>
-
-                            <!-- Image Title Input -->
-                            <div class="form-group">
-                                <label for="languages[{{ $index }}][image_title]">{{ __('cms.banners.image_title') }}</label>
-                                <input type="text" name="languages[{{ $index }}][image_title]" 
-                                       class="form-control @error('languages.' . $index . '.image_title') is-invalid @enderror"
-                                       value="{{ $translations[$language->code]->title ?? '' }}">
-                                @error('languages.' . $index . '.image_title') 
-                                    <div class="invalid-feedback">{{ $message }}</div> 
-                                @enderror
-                            </div>
-
-                            <!-- Image Input -->
-                            <div class="form-group">
-                                <label for="languages[{{ $index }}][image]">{{ __('cms.banners.image') }}</label>
-                                <div class="custom-file">
-                                    <input type="file" name="languages[{{ $index }}][image]" id="languages[{{ $index }}][image]" class="form-control d-none" onchange="displayFileName(this)">
-                                    <label class="btn btn-primary" for="languages[{{ $index }}][image]">{{ __('cms.banners.choose_file') }}</label>
-                                    <span id="file-name-{{ $index }}" class="ml-2">
-                                        @if (isset($translations[$language->code]) && $translations[$language->code]->image_url)
-                                            {{ basename($translations[$language->code]->image_url) }}
-                                        @endif
-                                    </span>
-                                </div>
-                                @error('languages.' . $index . '.image') 
-                                    <div class="invalid-feedback">{{ $message }}</div> 
-                                @enderror
-                            </div>
-
-                            <!-- Hidden language_code input for each language -->
-                            <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
-                        </div>
-                    @endforeach
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-3">{{ __('cms.banners.save') }}</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Display file name when a file is selected
-        function displayFileName(input) {
-            const fileName = input.files[0]?.name || '';
-            const span = document.getElementById(`file-name-${input.id.split('[')[1].split(']')[0]}`);
-            span.textContent = fileName;
-        }
-    </script>
-@endsection
---}}
-
-
-
-
 
 @extends('admin.layouts.admin')
 
@@ -166,42 +68,61 @@
                                     
                                     <!-- Description Field -->
                                     <div class="form-group">
-                                        <label for="languages[{{ $index }}][description]">Description</label>
+                                        <label for="languages[{{ $index }}][description]">{{ __('cms.banners.description') }}</label>
                                         <textarea name="languages[{{ $index }}][description]" 
                                                   class="form-control @error('languages.' . $index . '.description') is-invalid @enderror"
                                                   rows="3">{{ old('languages.' . $index . '.description', $bannerTranslation->description ?? '') }}</textarea>
                                         @error('languages.' . $index . '.description') 
                                             <div class="invalid-feedback">{{ $message }}</div> 
                                         @enderror
+                                    </div>                              
+                                    <!-- Image Upload -->
+                                    <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
+
+                                    <div class="input-group">
+                                        <label for="image_file_{{ $language->code }}" class="btn btn-primary">
+                                            {{ __('cms.banners.choose_file') }}
+                                        </label>
+                                        <input type="file" id="image_file_{{ $language->code }}" name="languages[{{ $index }}][image]" 
+                                            class="d-none form-control @error('languages.' . $index . '.image') is-invalid @enderror"
+                                            accept="image/*"
+                                            onchange="updateFileName(this, '{{ $language->code }}'); previewImage(this, '{{ $language->code }}')">
+
+                                        <span id="file-name-{{ $language->code }}" class="ms-2 text-muted">
+                                            @if (!empty($bannerTranslation->image))
+                                                {{ basename($bannerTranslation->image) }}
+                                            @else
+                                               
+                                            @endif
+                                        </span>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="languages[{{ $index }}][image_title]">{{ __('cms.banners.image_title') }}</label>
-                                        <input type="text" name="languages[{{ $index }}][image_title]" 
-                                               class="form-control @error('languages.' . $index . '.image_title') is-invalid @enderror"
-                                               value="{{ old('languages.' . $index . '.image_title', $bannerTranslation->title ?? '') }}">
-                                        @error('languages.' . $index . '.image_title') 
-                                            <div class="invalid-feedback">{{ $message }}</div> 
-                                        @enderror
-                                    </div>
-                                     
-                                    <!-- Image Upload -->
-                                    <label class="form-label mt-2">{{ __('cms.banners.image') }}  ({{ $language->code }})</label>
-                                    <input type="file" name="languages[{{ $index }}][image]" 
-                                           class="form-control @error('languages.' . $index . '.image') is-invalid @enderror" 
-                                           onchange="previewImage(this, '{{ $language->code }}')">
                                     @error('languages.' . $index . '.image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
-                                    
-                                    <!-- Image Preview -->
-                                    <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: {{ !empty($bannerTranslation->image) ? 'block' : 'none' }};">
+
+                                    <div id="image_preview_{{ $language->code }}" class="mt-2" 
+                                        style="display: {{ !empty($bannerTranslation->image) ? 'block' : 'none' }};">
+                                       {{-- <img id="image_preview_img_{{ $language->code }}" 
+                                        src="{{ isset($bannerTranslation->image) ? asset('storage/banner_images/' . $bannerTranslation->image) : asset('images/placeholder.png') }}" 
+                                        alt="{{ __('cms.banners.image_preview') }}" 
+                                        class="img-thumbnail" style="max-width: 200px;">--}}
+
+                                        @if (!empty($bannerTranslation->image_url))
                                         <img id="image_preview_img_{{ $language->code }}" 
-                                         src="{{ !empty($bannerTranslation->image) ? asset('storage/' . $bannerTranslation->image) : '#' }}" 
-                                           
-                                             alt="Image Preview" class="img-thumbnail" style="max-width: 200px;">  
-                                    </div>                                   
-                               <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">                             
+                                            src="{{ Storage::url($bannerTranslation->image_url) }}" 
+                                            alt="{{ __('cms.banners.image_preview') }}" 
+                                            class="img-thumbnail" style="max-width: 200px;">
+                                    @else
+                                        <img id="image_preview_img_{{ $language->code }}" 
+                                            src="{{ asset('images/placeholder.png') }}" 
+                                            alt="{{ __('cms.banners.image_preview') }}" 
+                                            class="img-thumbnail" style="max-width: 200px;">
+                                    @endif
+                                    
+                                   </div>
+                                   
+                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
                                 </div>
                             @endforeach
                         </div>
@@ -210,29 +131,29 @@
                     @endif
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">{{ __('cms.banners.save') }}</button>
-                <a href="{{ route('admin.banners.index') }}" class="btn btn-warning mt-3">Back</a>
+                <a href="{{ route('admin.banners.index') }}" class="btn btn-secondary mt-3">{{ __('cms.banners.button_back') }}</a>
             </form>
         </div>
     </div>
-    <script>
-        function previewImage(input, langCode) {
-            const file = input.files[0];
-            const previewDiv = document.getElementById(`image_preview_${langCode}`);
-            const previewImg = document.getElementById(`image_preview_img_${langCode}`);
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    previewImg.src = e.target.result;
-                    previewDiv.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            } else {
-                previewDiv.style.display = 'none';
-            }
-        }
-    </script>
+<script>
+function updateFileName(input, langCode) {
+    let fileNameSpan = document.getElementById('file-name-' + langCode);
+    fileNameSpan.textContent = input.files.length > 0 ? input.files[0].name : '{{ __("cms.banners.no_file_chosen") }}';
+}
+function previewImage(input, langCode) {
+    let previewDiv = document.getElementById('image_preview_' + langCode);
+    let previewImg = document.getElementById('image_preview_img_' + langCode);
+    if (input.files && input.files[0]) {
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+            previewDiv.style.display = 'block';
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+</script>
+
 @endsection
-
-
-

@@ -140,6 +140,7 @@ return [
 
 
     'banners' => [
+        'button_back' => '뒤로',
         'description' => '설명',
         'choose_file' => '파일 선택',
         'all_banners' => '모든 배너',

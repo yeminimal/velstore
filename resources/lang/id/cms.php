@@ -107,6 +107,7 @@ return [
     ],  
 
         'brands' => [
+            'button_back' => 'Kembali',
             'heading' => 'Merek',
             'id' => 'Id',
             'name' => 'Nama Merek',

@@ -141,6 +141,7 @@ return [
 
 
     'banners' => [
+        'button_back' => 'Geri',
         'description' => 'Açıklama',
         'choose_file' => 'Dosya seç',
         'all_banners' => 'Tüm Bannerlar',
