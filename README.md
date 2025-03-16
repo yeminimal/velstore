@@ -1,7 +1,5 @@
 # velstore
 
-![Packagist Downloads](https://img.shields.io/packagist/dt/velstorelabs/velstore?style=for-the-badge)
-
 Velstore is a powerful and scalable Laravel eCommerce boilerplate designed for developers who want to build online stores quickly.
 
 ## Features
