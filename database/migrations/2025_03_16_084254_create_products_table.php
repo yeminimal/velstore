@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
+            $table->foreignId('seller_id')->constrained('sellers')->onDelete('cascade');
             $table->string('slug')->unique();  
             $table->decimal('price', 10, 2);
             $table->decimal('discount_price', 10, 2)->nullable();
@@ -24,7 +26,7 @@ return new class extends Migration
             $table->decimal('weight', 10, 2)->nullable();
             $table->string('dimensions')->nullable();
             $table->string('product_type');
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('status')->default(1);            
             $table->timestamps();
         });
     }

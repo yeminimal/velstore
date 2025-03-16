@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('phone')->nullable();
-            $table->string('store_name')->unique();
-            $table->string('store_slug')->unique();
-            $table->text('address')->nullable();
-            $table->string('logo')->nullable(); // Store logo image path
-            $table->string('status')->default('pending'); // pending, approved, rejected
+            $table->enum('status', ['active', 'inactive', 'banned'])->default('active');
             $table->timestamps();
         });
     }

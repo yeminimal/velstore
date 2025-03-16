@@ -4,8 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\User;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 
@@ -35,11 +33,6 @@ class Velstore extends Command
 
         $this->info('Running migrations...');
         $this->call('migrate');
-
-        $this->info('Creating categories and products...');
-        $this->createCategoriesAndProducts();
-
-        $this->info('Categories and products created successfully.');
 
         $this->info('Creating admin user...');
         $this->createAdminUser();
@@ -106,64 +99,6 @@ class Velstore extends Command
             $this->info('Admin user already exists.');
         }
     }
-
-
-    protected function createCategoriesAndProducts()
-    {
-       
-        $electronics = Category::firstOrCreate(
-            ['slug' => 'electronics'],
-            ['status' => true]
-        );
-
-        $fashion = Category::firstOrCreate(
-            ['slug' => 'fashion'],
-            ['status' => true]
-        );
-
-        $smartphones = Category::firstOrCreate(
-            ['slug' => 'smartphones', 'parent_category_id' => $electronics->id],
-            ['status' => true]
-        );
-
-        $tShirts = Category::firstOrCreate(
-            ['slug' => 't-shirts', 'parent_category_id' => $fashion->id],
-            ['status' => true]
-        );
-
-        $products = [
-            [
-                'slug' => 'smartphone-xyz',
-                'price' => 599.99,
-                'discount_price' => 499.99,
-                'currency' => 'USD',
-                'stock' => 50,
-                'SKU' => 'SPH123',
-                'category_id' => $smartphones->id,
-                'product_type' => 'Electronics',
-                'status' => 1,
-            ],
-            [
-                'slug' => 'cool-tshirt',
-                'price' => 19.99,
-                'discount_price' => null,
-                'currency' => 'USD',
-                'stock' => 100,
-                'SKU' => 'TSH123',
-                'category_id' => $tShirts->id,
-                'product_type' => 'Fashion',
-                'status' => 1,
-            ],
-        ];
-
-        foreach ($products as $productData) {
-            Product::firstOrCreate(
-                ['slug' => $productData['slug']],
-                $productData 
-            );
-        }
-    } 
-
 
     /**
      * Update the .env file with a given key-value pair.

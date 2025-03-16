@@ -20,10 +20,10 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('short_description')->nullable();
             $table->text('tags')->nullable();
-            $table->timestamps();
         
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->unique(['product_id', 'locale']); 
+            $table->timestamps();
         });
     }
 
