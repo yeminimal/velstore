@@ -1,8 +1,8 @@
 {
     "name": "velstorelabs/velstore",
-    "description": "An open-source, multi-vendor, multi-lingual Laravel eCommerce boilerplate.",
     "type": "project",
-    "keywords": ["laravel", "ecommerce", "boilerplate", "multi-vendor"],
+    "description": "Velstore - A multi-vendor, multi-lingual Laravel eCommerce boilerplate.",
+    "keywords": ["laravel", "ecommerce", "boilerplate", "multi-vendor", "multilingual"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -29,8 +29,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/cms_translate.php"
-        ]
+        "app/Helpers/cms_translate.php"
+    ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -38,12 +38,18 @@
         }
     },
     "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
-            "@php artisan migrate --force"
+            "@php artisan key:generate --ansi"
         ]
     },
     "extra": {
@@ -61,5 +67,9 @@
         }
     },
     "minimum-stability": "beta",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/velstorelabs/velstore/issues",
+        "source": "https://github.com/velstorelabs/velstore"
+    }
 }
