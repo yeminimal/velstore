@@ -19,9 +19,10 @@ Run the following command to create a new Velstore project:
 composer create-project velstorelabs/velstore
 ```
 
-Create a new database, then rename .env.example to .env and update the database credentials.
-
-Run the command `php artisan install:velstore --with-import` to install Velstore.
+Create a new database, then rename `.env.example` to `.env` and update the database credentials. Run the following command to install Velstore:
+```sh
+php artisan install:velstore --with-import
+```
 
 ### **Options**
 - `--with-import` Imports sample data to help you get started quickly.
