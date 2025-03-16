@@ -6,11 +6,46 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the customers.
+     * Show the form to create a new customer.
+     */
+    public function create()
+    {
+        return view('admin.customers.create');
+    }
+
+    /**
+     * Store a new customer.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|max:255|unique:customers,email',
+            'password' => 'required|min:6',
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string|max:500',
+            'status'   => ['required', Rule::in(['active', 'inactive'])],
+        ]);
+
+        Customer::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+            'phone'    => $request->phone,
+            'address'  => $request->address,
+            'status'   => $request->status,
+        ]);
+
+        return redirect()->route('admin.customers.index')->with('success', 'Customer created successfully.');
+    }
+
+    /**
+     * List all customers.
      */
     public function index()
     {
@@ -19,51 +54,7 @@ class CustomerController extends Controller
     }
 
     /**
-     * Show the form for creating a new customer.
-     */
-    public function create()
-    {
-        return view('admin.customers.create');
-    }
-
-    /**
-     * Store a newly created customer in the database.
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:customers,email',
-            'password' => 'required|min:6|confirmed',
-            'phone' => 'nullable|string|max:15',
-            'address' => 'nullable|string|max:255',
-            'profile_image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
-
-        $customer = new Customer($request->except(['password', 'profile_image']));
-        $customer->password = Hash::make($request->password);
-
-        if ($request->hasFile('profile_image')) {
-            $imagePath = $request->file('profile_image')->store('customers', 'public');
-            $customer->profile_image = $imagePath;
-        }
-
-        $customer->save();
-
-        return redirect()->route('admin.customers.index')->with('success', 'Customer created successfully.');
-    }
-
-    /**
-     * Display the specified customer.
-     */
-    public function show(Customer $customer)
-    {
-        return view('admin.customers.show', compact('customer'));
-    }
-
-    /**
-     * Show the form for editing the specified customer.
+     * Show the edit form for a customer.
      */
     public function edit(Customer $customer)
     {
@@ -71,31 +62,31 @@ class CustomerController extends Controller
     }
 
     /**
-     * Update the specified customer in the database.
+     * Update a customer.
      */
     public function update(Request $request, Customer $customer)
     {
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:customers,email,' . $customer->id,
-            'phone' => 'nullable|string|max:15',
-            'address' => 'nullable|string|max:255',
-            'profile_image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'name'     => 'required|string|max:255',
+            'email'    => ['required', 'email', 'max:255', Rule::unique('customers')->ignore($customer->id)],
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string|max:500',
+            'status'   => ['required', Rule::in(['active', 'inactive'])],
         ]);
 
-        $customer->update($request->except(['password', 'profile_image']));
+        $data = $request->only(['name', 'email', 'phone', 'address', 'status']);
 
-        if ($request->hasFile('profile_image')) {
-            $imagePath = $request->file('profile_image')->store('customers', 'public');
-            $customer->profile_image = $imagePath;
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
         }
+
+        $customer->update($data);
 
         return redirect()->route('admin.customers.index')->with('success', 'Customer updated successfully.');
     }
 
     /**
-     * Remove the specified customer from the database.
+     * Delete a customer.
      */
     public function destroy(Customer $customer)
     {
