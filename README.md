@@ -9,7 +9,7 @@ Velstore is a powerful and scalable Laravel eCommerce boilerplate designed for d
 - Dedicated Admin, Seller, and Customer Panels 
 - Modular & Extensible Architecture 
 
-## 🛠️ Installation Guide  
+## Installation Guide  
 
 Follow these steps to set up Velstore:  
 
