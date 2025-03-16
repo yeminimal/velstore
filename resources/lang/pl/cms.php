@@ -139,6 +139,7 @@ return [
     ],
 
     'banners' => [
+        'button_back' => 'Wstecz',
         'description' => 'Opis',
         'choose_file' => 'Wybierz plik',
         'all_banners' => 'Wszystkie bannery',

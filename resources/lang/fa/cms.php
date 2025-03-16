@@ -141,6 +141,7 @@ return [
 
    
     'banners' => [
+        'button_back' => 'بازگشت',       
         'description' => 'توضیحات',
         'choose_file' => 'انتخاب فایل',
         'all_banners' => 'تمام بنرها',

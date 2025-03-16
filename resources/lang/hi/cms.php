@@ -138,6 +138,7 @@ return [
     ],
 
     'banners' => [
+        'button_back' => 'वापस',
         'description' => 'विवरण',
         'choose_file' => 'फ़ाइल चुनें',  
         'all_banners' => 'सभी बैनर',

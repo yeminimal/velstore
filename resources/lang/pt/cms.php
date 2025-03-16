@@ -138,6 +138,7 @@ return [
 
 
     'banners' => [
+        'button_back' => 'Voltar',
         'description' => 'Descrição',
         'choose_file' => 'Escolher arquivo',
         'all_banners' => 'Todos os Banners',

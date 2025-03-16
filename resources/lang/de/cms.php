@@ -140,6 +140,7 @@ return [
     ],
 
     'banners' => [
+        'button_back' => 'Zurück',
         'all_banners' => 'Alle Banner',
         'description' => 'Beschreibung',
         'choose_file' => 'Datei auswählen',

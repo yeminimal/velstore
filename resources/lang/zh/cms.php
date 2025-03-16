@@ -141,6 +141,7 @@ return [
 
 
     'banners' => [
+        'button_back' => '返回',
         'description' => '描述',
         'choose_file' => '选择文件',
         'all_banners' => '所有横幅',

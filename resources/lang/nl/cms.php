@@ -137,6 +137,7 @@ return [
     ],
         
     'banners' => [
+        'button_back' => 'Terug',
         'description' => 'Beschrijving',
         'choose_file' => 'Bestand kiezen',
         'all_banners' => 'Alle banners',
