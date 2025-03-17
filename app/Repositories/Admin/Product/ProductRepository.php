@@ -38,6 +38,8 @@ class ProductRepository implements ProductRepositoryInterface
         }
 
     $product = Product::create([
+        'seller_id' => 1,
+        'shop_id' => 1,
         'category_id' => $data['category_id'],
         'price' => $data['price'],
         'stock' => $data['stock'],

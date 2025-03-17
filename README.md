@@ -39,7 +39,7 @@ http://127.0.0.1:8000
 
 ## Tech Stack
 - Backend: Laravel 10+
-- Database: MySQL
+- Database: MySQLi
 - Frontend: Blade (with Laravel UI)
 - Authentication: Laravel Sanctum
 - DataTables: Yajra Laravel Datatables
