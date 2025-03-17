@@ -89,7 +89,7 @@
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
-                                    <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
+                                    <h3><a href="{{ route('product.show', $product->slug) }}" class="product-title">{{ $product->translation->name ?? 'Product Name Not Available' }}</a></h3>
                                     <p class="price">{{ $product->price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
                                 </div>
                                 <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
