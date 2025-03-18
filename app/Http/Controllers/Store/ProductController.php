@@ -10,8 +10,11 @@ class ProductController extends Controller
 {
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->with(['translation', 'thumbnail'])
-        ->withCount('reviews')->firstOrFail();
+        $product = Product::where('slug', $slug)
+        ->with(['translation', 'thumbnail'])
+        ->withCount('reviews')
+        ->withAvg('reviews', 'rating')
+        ->firstOrFail();
         return view('themes.xylo.product-detail', compact('product'));
     }
 }

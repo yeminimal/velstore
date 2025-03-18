@@ -29,8 +29,9 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-        "app/Helpers/cms_translate.php"
-    ]
+            "app/Helpers/cms_translate.php",
+            "app/Helpers/currency.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
