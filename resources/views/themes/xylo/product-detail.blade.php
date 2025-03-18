@@ -43,13 +43,20 @@
                     <div class=" mb-2 mt-3  btnss">
                         IN STOCK
                     </div>
+                    @php
+                        $averageRating = round($product->reviews_avg_rating, 1);
+                    @endphp
                     <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span class="spanstar"> (5 customer reviews)</span>
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= floor($averageRating))
+                                <i class="fa-solid fa-star text-warning"></i>
+                            @elseif ($i - 0.5 == $averageRating)
+                                <i class="fa-solid fa-star-half-alt text-warning"></i>
+                            @else
+                                <i class="fa-regular fa-star text-muted"></i>
+                            @endif
+                        @endfor
+                        <span class="spanstar"> ({{ $product->reviews_count }} customer reviews)</span>
                     </div>
                     <h1 class="sec-heading">{{ $product->translation->name }}</h1>
                     <h2>{{ $product->price }}</h2>
