@@ -57,6 +57,25 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#sellerMenu" role="button" aria-expanded="false" aria-controls="sellerMenu">
+                    <span><i class="fas fa-user-tie me-2"></i> <span>Sellers</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.sellers.create', 'admin.sellers.index']) ? 'show' : '' }}" id="sellerMenu">
+                    <ul class="nav flex-column ms-3">
+                        <li>
+                            <a class="nav-link {{ Route::currentRouteName() == 'admin.sellers.index' ? 'active' : '' }}" href="{{ route('admin.sellers.create') }}">
+                                Add New
+                            </a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'admin.sellers.index' ? 'active' : '' }}" href="{{ route('admin.sellers.index') }}">
+                                List
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#productReviewMenu" role="button" aria-expanded="false" aria-controls="productReviewMenu">
                     <span><i class="fas fa-star me-2"></i> <span>Product Reviews</span></span>
                     <i class="fas fa-chevron-down"></i>

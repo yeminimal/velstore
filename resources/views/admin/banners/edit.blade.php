@@ -75,7 +75,8 @@
                                         @error('languages.' . $index . '.description') 
                                             <div class="invalid-feedback">{{ $message }}</div> 
                                         @enderror
-                                    </div>                              
+                                    </div> 
+                                                                 
                                     <!-- Image Upload -->
                                     <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
 
@@ -100,28 +101,10 @@
                                     @error('languages.' . $index . '.image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
-
-                                    <div id="image_preview_{{ $language->code }}" class="mt-2" 
-                                        style="display: {{ !empty($bannerTranslation->image) ? 'block' : 'none' }};">
-                                       {{-- <img id="image_preview_img_{{ $language->code }}" 
-                                        src="{{ isset($bannerTranslation->image) ? asset('storage/banner_images/' . $bannerTranslation->image) : asset('images/placeholder.png') }}" 
+                                        <img id="image_preview_img_{{ $language->code }}" 
+                                        src="{{ !empty($bannerTranslation->image_url) ? Storage::url($bannerTranslation->image_url) : asset('images/placeholder.png') }}" 
                                         alt="{{ __('cms.banners.image_preview') }}" 
-                                        class="img-thumbnail" style="max-width: 200px;">--}}
-
-                                        @if (!empty($bannerTranslation->image_url))
-                                        <img id="image_preview_img_{{ $language->code }}" 
-                                            src="{{ Storage::url($bannerTranslation->image_url) }}" 
-                                            alt="{{ __('cms.banners.image_preview') }}" 
-                                            class="img-thumbnail" style="max-width: 200px;">
-                                    @else
-                                        <img id="image_preview_img_{{ $language->code }}" 
-                                            src="{{ asset('images/placeholder.png') }}" 
-                                            alt="{{ __('cms.banners.image_preview') }}" 
-                                            class="img-thumbnail" style="max-width: 200px;">
-                                    @endif
-                                    
-                                   </div>
-                                   
+                                        class="img-thumbnail" style="max-width: 100px;">                                  
                                     <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
                                 </div>
                             @endforeach
@@ -135,7 +118,6 @@
             </form>
         </div>
     </div>
-
 <script>
 function updateFileName(input, langCode) {
     let fileNameSpan = document.getElementById('file-name-' + langCode);

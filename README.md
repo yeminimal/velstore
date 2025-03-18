@@ -1,13 +1,14 @@
 # velstore
 
-Velstore is a powerful and scalable Laravel eCommerce solution, designed for developers who want to build online stores quickly and efficiently.
+Velstore is a powerful and open-source multi-vendor Laravel eCommerce solution. It is fully customizable and ready to use. It is the perfect choice for launching your online store with ease and efficiency.
 
 ## Features
 
 - Built with Laravel
-- Multi-Vendor & Multi-Lingual Support  
-- Dedicated Admin, Seller, and Customer Panels 
-- Modular & Extensible Architecture 
+- Multi vendor support
+- Multi lingual support  
+- Dedicated Admin, Seller, and Customer panels 
+- Modular and extensible architecture 
 
 ## Installation Guide  
 
