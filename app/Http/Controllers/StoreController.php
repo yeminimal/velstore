@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\App;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Menu;
+use App\Models\brand;
 
 class StoreController extends Controller
 {
@@ -34,6 +35,12 @@ class StoreController extends Controller
         ->take(10)
         ->get();
 
-        return view('themes.xylo.home', compact('banners', 'categories', 'products'));
+        $brands = Brand::where('status', 1)
+        ->with('translation') 
+        ->orderBy('id', 'desc')
+        ->take(10)
+        ->get();
+
+        return view('themes.xylo.home', compact('banners', 'categories', 'products','brands'));
     }
 }

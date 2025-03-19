@@ -73,11 +73,21 @@ class Product extends Model
 
     public function reviews()
     {
-        return $this->hasMany(ProductReview::class);
+        return $this->hasMany(ProductReview::class)->approved()->latest();
     }
 
     public function averageRating()
     {
         return $this->reviews()->avg('rating') ?: 0;
+    }
+
+    public function getConvertedPriceAttribute()
+    {
+        return convert_price($this->price);
+    }
+
+    public function getConvertedDiscountPriceAttribute()
+    {
+        return $this->discount_price ? convert_price($this->discount_price) : null;
     }
 }

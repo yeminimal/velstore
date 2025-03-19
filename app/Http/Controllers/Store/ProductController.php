@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)
-        ->with(['translation', 'thumbnail'])
+        ->with(['translation', 'thumbnail', 'reviews'])
         ->withCount('reviews')
         ->withAvg('reviews', 'rating')
         ->firstOrFail();

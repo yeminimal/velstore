@@ -1,6 +1,7 @@
 @extends('themes.xylo.layouts.master')
 
 @section('content')
+    @php $currency = activeCurrency(); @endphp
     <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
         <div class="container h-100">
             <div class="row">
@@ -40,9 +41,11 @@
 
                 </div>
                 <div class="col-md-6 pro-textarea">
-                    <div class=" mb-2 mt-3  btnss">
-                        IN STOCK
-                    </div>
+                    @if ($product->stock > 0)
+                        <div class="mb-2 mt-3 btnss">IN STOCK</div>
+                    @else
+                        <div class="mb-2 mt-3 btnss text-danger">OUT OF STOCK</div>
+                    @endif
                     @php
                         $averageRating = round($product->reviews_avg_rating, 1);
                     @endphp
@@ -59,8 +62,8 @@
                         <span class="spanstar"> ({{ $product->reviews_count }} customer reviews)</span>
                     </div>
                     <h1 class="sec-heading">{{ $product->translation->name }}</h1>
-                    <h2>{{ $product->price }}</h2>
-                    <p>{{ $product->translation->description }}</p>
+                    <h2>{{ $currency->symbol }}{{ $product->converted_price ?? 'N/A' }}</h2>
+                    <p>{{ $product->translation->short_description }}</p>
 
                     <div class="product-options">
                         <div class="color-options">
@@ -143,29 +146,31 @@
 
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{!! $product->translation->description !!}</div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            @if ($product->reviews->count() > 0)
+                                <h3>Customer Reviews</h3>
+                                @foreach ($product->reviews as $review)
+                                    <div class="review">
+                                        <strong>Rating: {{ $review->rating }}/5</strong>
+                                        <p>{{ $review->review }}</p>
+                                        <small>Reviewed on {{ $review->created_at->format('M d, Y') }}</small>
+                                    </div>
+                                @endforeach
+                            @else
+                                <p>No reviews yet.</p>
+                            @endif
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-
                     </div>
                 </div>
             </div>
+            @php /*
             <div class="column">
-
-                <div class="col-md-7"></div>
-                <div class="randomt">
-                    Diam integer turpis tristique integer cursuws dignissim. Euismod libero pellentesq suspendisseit an
-                    amet, consectetur
-                    Libero quaerat commodi ab quo. Ut accusamus qui aliquam corrupti. Repellendus modi velit minus nam
-                    fugit veniam. Hic qui quis deleniti vero. Ad quis nostrum velit nihil <br>
-
-                    Necessitatibus distinctio esse illum sit ex assumenda. Iusto omnis consequatur modi porro
-                    perspiciatis. Qui neque aut quia ipsa sint tenetur non amet.
-
-                    adipiscing elitmperdiet nisvunc imperdras eliton ameoumsa dummy text.
-                </div>
-
-            </div>
+                <div class="col-md-7">
+                    <div class="randomt">{!! $product->translation->description !!}</div>
+                 </div>
+            </div> */
+            @endphp
         </div>
     </div>
 
