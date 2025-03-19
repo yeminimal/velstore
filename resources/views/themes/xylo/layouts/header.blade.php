@@ -16,6 +16,16 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
+                    <form action="{{ route('change.currency') }}" method="POST">
+                        @csrf
+                        <select name="currency_code" onchange="this.form.submit()">
+                            @foreach (\App\Models\Currency::all() as $currency)
+                                <option value="{{ $currency->code }}" {{ session('currency', 'USD') == $currency->code ? 'selected' : '' }}>
+                                    {{ $currency->name }} ({{ $currency->symbol }})
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
                     <div class="social-top d-flex justify-content-end">
                         {{ __('xylo.header.social_media') }}
                         <a href="facebook.com"><i class="fa-brands fa-square-facebook"></i></a>

@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\SellerController;
 
-use App\Http\Controllers\StoreController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,9 +28,6 @@ use App\Http\Controllers\StoreController;
 */
 
 require base_path('routes/store.php');
-
-Route::get('/', [StoreController::class, 'index'])->name('xylo.home');
-
 
 Route::get('/login', function () {
     return view('admin.auth.login');

@@ -1,6 +1,7 @@
 @extends('themes.xylo.layouts.master')
 
 @section('content')
+    @php $currency = activeCurrency(); @endphp
     {{-- Banner Section Start --}}
     <section class="banner-area py-5 animate__animated animate__fadeIn">
         <div class="container h-100 banner-slider">
@@ -28,6 +29,41 @@
         </div>
     </section>
     {{-- Banner Section End --}}
+
+
+    {{-- Brands Section Start --}}
+<section class="brand-section animate-on-scroll py-5">
+    <div class="container">
+        <h2 class="text-start pb-5 sec-heading">{{ __('Our Brands') }}</h2>
+        
+        @if($brands->isNotEmpty()) 
+            <div class="brand-slider">
+                @foreach($brands as $brand)
+                <div>
+                    <div class="brand-card text-center">
+                        @if($brand->logo_url)
+                        {{--
+                            <img src="{{ asset('storage/'.$brand->logo_url) }}" alt="{{ optional($brand->translation)->name ?? $brand->slug }}" class="brand-logo"> 
+                            --}}
+                            <img src="{{ asset('storage/'.$brand->logo_url) }}" 
+                            alt="{{ optional($brand->translation)->name ?? $brand->slug }}" 
+                            class="brand-logo"
+                            style="width: 300px; height: 300px; object-fit: contain;">
+
+                        @endif
+                        <h3 class="mt-3">{{ optional($brand->translation)->name ?? $brand->slug }}</h3>
+                        <p class="brand-description">{{ optional($brand->translation)->description ?? '' }}</p>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+        @else
+            <p class="text-center">{{ __('No brands available at the moment.') }}</p>
+        @endif
+    </div>
+</section>
+{{-- Brands Section End --}}
+
 
     <section class="cat-slider animate-on-scroll">
         <div class="container">
@@ -90,7 +126,7 @@
                             <div class="bottom-info">
                                 <div class="left">
                                     <h3><a href="{{ route('product.show', $product->slug) }}" class="product-title">{{ $product->translation->name ?? 'Product Name Not Available' }}</a></h3>
-                                    <p class="price">{{ $product->price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
+                                    <p class="price">{{ $currency->symbol }}{{ $product->converted_price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
                                 </div>
                                 <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
                             </div>

@@ -41,7 +41,7 @@ class ProductRepository implements ProductRepositoryInterface
         'seller_id' => 1,
         'shop_id' => 1,
         'category_id' => $data['category_id'],
-        'price' => $data['price'],
+        'price' => currency_to_usd($data['price'], $defaultCurrencyCode),
         'stock' => $data['stock'],
         'status' => $data['status'] ?? true,
         'slug' => $data['slug'],
