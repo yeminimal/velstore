@@ -35,12 +35,6 @@ class StoreController extends Controller
         ->take(10)
         ->get();
 
-        $brands = Brand::where('status', 1)
-        ->with('translation') 
-        ->orderBy('id', 'desc')
-        ->take(10)
-        ->get();
-
-        return view('themes.xylo.home', compact('banners', 'categories', 'products','brands'));
+        return view('themes.xylo.home', compact('banners', 'categories', 'products',));
     }
 }
