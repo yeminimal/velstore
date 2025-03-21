@@ -198,3 +198,6 @@
         </div>
     </section>
 @endsection
+@section('js')
+
+@endsection

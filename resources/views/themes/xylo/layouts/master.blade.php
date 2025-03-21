@@ -25,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @vite(['resources/views/themes/xylo/js/slick.min.js'])
     @vite(['resources/views/themes/xylo/js/main.js'])
+    @yield('js')
     <script>
         $(document).ready(function () {
             $('.category-slider').slick({

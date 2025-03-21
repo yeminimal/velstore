@@ -281,3 +281,16 @@
         </div>
     </section>
 @endsection
+
+@section('js')
+    <script>
+        function changeQty(amount) {
+            let qtyInput = document.getElementById("qty");
+            let currentQty = parseInt(qtyInput.value);
+            let newQty = currentQty + amount;
+
+            if (newQty < 1) newQty = 1; // Prevent going below 1
+            qtyInput.value = newQty;
+        }
+    </script>
+@endsection
