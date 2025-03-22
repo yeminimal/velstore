@@ -10,7 +10,7 @@
 
         <!-- Card-like Heading for "All Banners" -->
         <div class="card mt-4">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header card-header-bg text-white">
                 <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.banners.all_banners') }}</h6>
             </div>
         </div>

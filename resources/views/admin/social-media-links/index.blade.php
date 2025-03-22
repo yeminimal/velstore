@@ -14,7 +14,7 @@
 @section('content')
 
 <div class="card mt-4">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header card-header-bg text-white">
         <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.social_media_links.create') }}</h6>
     </div>
     <div class="card-body">
