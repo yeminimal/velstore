@@ -37,35 +37,37 @@ class ProductRepository implements ProductRepositoryInterface
             $skuCounter++;
         }
 
-    $product = Product::create([
-        'seller_id' => 1,
-        'shop_id' => 1,
-        'category_id' => $data['category_id'],
-        'price' => currency_to_usd($data['price'], $defaultCurrencyCode),
-        'stock' => $data['stock'],
-        'status' => $data['status'] ?? true,
-        'slug' => $data['slug'],
-        'currency' => $data['currency'],
-        'SKU' => $sku,
-        'weight' => $data['weight'],
-        'dimensions' => $data['dimensions'],
-        'product_type' => $data['product_type'],
-    ]);
+        $defaultCurrencyCode = getWebConfig('default_currency', 'USD');
 
-    if (isset($data['image_url']) && $data['image_url'] instanceof \Illuminate\Http\UploadedFile) {
-        $imagePath = $this->imageService->uploadImage($data['image_url'], 'products');
-        
-        $productImage = new ProductImage([
-            'name' => basename($imagePath), 
-            'image_url' => $imagePath, 
-            'product_id' => $product->id, 
-            'type' => $data['image_type'] ?? 'thumb',
+        $product = Product::create([
+            'seller_id' => 1,
+            'shop_id' => 1,
+            'category_id' => $data['category_id'],
+            'price' => currency_to_usd($data['price'], $defaultCurrencyCode),
+            'stock' => $data['stock'],
+            'status' => $data['status'] ?? true,
+            'slug' => $data['slug'],
+            'currency' => $data['currency'],
+            'SKU' => $sku,
+            'weight' => $data['weight'],
+            'dimensions' => $data['dimensions'],
+            'product_type' => $data['product_type'],
         ]);
-        
-        $productImage->save();
-    }   
 
-    return $product;
+        if (isset($data['image_url']) && $data['image_url'] instanceof \Illuminate\Http\UploadedFile) {
+            $imagePath = $this->imageService->uploadImage($data['image_url'], 'products');
+            
+            $productImage = new ProductImage([
+                'name' => basename($imagePath), 
+                'image_url' => $imagePath, 
+                'product_id' => $product->id, 
+                'type' => $data['image_type'] ?? 'thumb',
+            ]);
+            
+            $productImage->save();
+        }   
+
+        return $product;
     }
 
     public function update($id, array $data)

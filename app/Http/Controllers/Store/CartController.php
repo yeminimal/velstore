@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -18,29 +19,61 @@ class CartController extends Controller
         if (isset($cart[$productId])) {
             $cart[$productId]['quantity'] += $quantity;
         } else {
-            $product = \App\Models\Product::findOrFail($productId);
+            $product = Product::with(['translations', 'thumbnail'])->findOrFail($productId);
 
             $cart[$productId] = [
-                'name' => $product->name,
+                'product_id' => $product->id, // Store only the ID for dynamic fetching
                 'price' => $product->price,
-                'quantity' => $quantity
+                'quantity' => $quantity,
+                'image' => optional($product->thumbnail)->image_url,
             ];
         }
 
         Session::put('cart', $cart);
+        Session::put('cart_count', array_sum(array_column($cart, 'quantity')));
 
-        return response()->json(['message' => 'Product added to cart', 'cart' => $cart]);
+        return response()->json([
+            'message' => 'Product added to cart successfully.',
+            'cart' => $cart,
+            'cart_count' => Session::get('cart_count')
+        ]);
     }
 
     public function updateCart(Request $request)
     {
         $cart = Session::get('cart', []);
+    
+        foreach ($request->cart as $item) {
+            if (isset($cart[$item['product_id']])) {
+                $cart[$item['product_id']]['quantity'] = max(1, intval($item['quantity'])); // Ensure quantity is at least 1
+            }
+        }
+    
+        Session::put('cart', $cart);
+        Session::put('cart_count', array_sum(array_column($cart, 'quantity')));
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Cart updated successfully!',
+            'cart' => $cart
+        ]);
+    }
+
+    public function viewCart()
+    {
+        $cart = Session::get('cart', []);
+        return view('themes.xylo.cart', compact('cart'));
+    }
+
+    public function removeFromCart(Request $request)
+    {
+        $cart = Session::get('cart', []);
 
         if (isset($cart[$request->product_id])) {
-            $cart[$request->product_id]['quantity'] = max(1, $request->quantity);
+            unset($cart[$request->product_id]);
             Session::put('cart', $cart);
         }
 
-        return response()->json(['message' => 'Cart updated', 'cart' => $cart]);
+        return response()->json(['message' => 'Product removed from cart.', 'cart' => $cart]);
     }
 }
