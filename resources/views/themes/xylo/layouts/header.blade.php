@@ -100,7 +100,7 @@
                 @endif
             </nav>
             <button class="cat-item cart-info">
-                <a href="{{ route('cart.view') }}">
+                <a href="{{ route('cart.view') }}" class="cart-view">
                 Cart Item @php /*<img src="assets/images/cart-icon.png" alt="">*/ @endphp
                 <i class="fa fa-shopping-bag"></i>
                 <span id="cart-count" class="count">{{ session('cart') ? collect(session('cart'))->sum('quantity') : 0 }}</span></a>
