@@ -15,6 +15,35 @@ return [
         'logout' => 'خروج',       
     ],
 
+    'languages'=> [   
+        'english' => 'انگلیسی',
+        'spanish' => 'اسپانیایی',
+        'french' => 'فرانسوی',
+        'arabic' => 'عربی',
+        'german' => 'آلمانی',
+        'persian' => 'فارسی',
+        'hindi' => 'هندی',
+        'indonesian' => 'اندونزیایی',
+        'italian' => 'ایتالیایی',
+        'japanese' => 'ژاپنی',
+        'korean' => 'کره‌ای',
+        'dutch' => 'هلندی',
+        'polish' => 'لهستانی',
+        'portuguese' => 'پرتغالی',
+        'russian' => 'روسی',
+        'thai' => 'تایلندی',
+        'turkish' => 'ترکی',
+        'vietnamese' => 'ویتنامی',
+        'chinese' => 'چینی',
+
+        'language_change' => 'تغییر زبان',
+        'change_language' => 'تغییر زبان',
+        'confirm_language_change' => 'آیا مطمئن هستید که می‌خواهید زبان را تغییر دهید؟',
+        'cancel' => 'لغو',
+        'yes_change' => 'بله، تغییر بده',
+    ],
+
+
     'categories' => [
         'heading' => 'دسته‌ها',
         'image' => 'تصویر',  

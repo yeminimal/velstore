@@ -15,6 +15,35 @@ return [
         'logout' => 'Выйти',       
     ],
 
+    'languages'=> [   
+        'english' => 'Английский',
+        'spanish' => 'Испанский',
+        'french' => 'Французский',
+        'arabic' => 'Арабский',
+        'german' => 'Немецкий',
+        'persian' => 'Персидский (Фарси)',
+        'hindi' => 'Хинди',
+        'indonesian' => 'Индонезийский',
+        'italian' => 'Итальянский',
+        'japanese' => 'Японский',
+        'korean' => 'Корейский',
+        'dutch' => 'Голландский',
+        'polish' => 'Польский',
+        'portuguese' => 'Португальский',
+        'russian' => 'Русский',
+        'thai' => 'Тайский',
+        'turkish' => 'Турецкий',
+        'vietnamese' => 'Вьетнамский',
+        'chinese' => 'Китайский',
+
+        'language_change' => 'Смена языка',
+        'change_language' => 'Изменить язык',
+        'confirm_language_change' => 'Вы уверены, что хотите изменить язык?',
+        'cancel' => 'Отмена',
+        'yes_change' => 'Да, изменить',
+    ],
+
+
     'categories' => [
         'heading' => 'Категории',
         'image' => 'Изображение',  

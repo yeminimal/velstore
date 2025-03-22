@@ -7,6 +7,7 @@ use App\Models\ProductTranslation;
 use App\Services\Admin\ImageService;
 use App\Models\ProductImage;
 use Illuminate\Support\Str;
+use App\Models\StoreSetting;
 
 class ProductRepository implements ProductRepositoryInterface
 {
@@ -65,12 +66,13 @@ class ProductRepository implements ProductRepositoryInterface
         $productImage->save();
     }   
 
-    return $product;
+    return $product;  
+
     }
 
     public function update($id, array $data)
     {
-           /*
+       /*    
         \Log::info('Attempting to update product with ID ' . $id, ['data' => $data]);
 
         $product = Product::findOrFail($id);
@@ -191,7 +193,7 @@ class ProductRepository implements ProductRepositoryInterface
             \Log::error('Failed to update product with ID ' . $id);
         }
     
-        return $product;
+        return $product;  
 
     }
 

@@ -15,6 +15,35 @@ return [
         'logout' => 'Çıkış',       
     ],
 
+    'languages'=> [   
+        'english' => 'İngilizce',
+        'spanish' => 'İspanyolca',
+        'french' => 'Fransızca',
+        'arabic' => 'Arapça',
+        'german' => 'Almanca',
+        'persian' => 'Farsça (Farsi)',
+        'hindi' => 'Hintçe',
+        'indonesian' => 'Endonezce',
+        'italian' => 'İtalyanca',
+        'japanese' => 'Japonca',
+        'korean' => 'Korece',
+        'dutch' => 'Flemenkçe',
+        'polish' => 'Lehçe',
+        'portuguese' => 'Portekizce',
+        'russian' => 'Rusça',
+        'thai' => 'Tayca',
+        'turkish' => 'Türkçe',
+        'vietnamese' => 'Vietnamca',
+        'chinese' => 'Çince',
+
+        'language_change' => 'Dil Değiştirme',
+        'change_language' => 'Dili Değiştir',
+        'confirm_language_change' => 'Dili değiştirmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'yes_change' => 'Evet, Değiştir',
+    ],
+
+
     'categories' => [
         'heading' => 'Kategoriler',
         'image' => 'Görsel',  

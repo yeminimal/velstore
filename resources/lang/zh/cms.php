@@ -15,6 +15,35 @@ return [
         'logout' => '登出',       
     ],
 
+    'languages'=> [   
+        'english' => '英语',
+        'spanish' => '西班牙语',
+        'french' => '法语',
+        'arabic' => '阿拉伯语',
+        'german' => '德语',
+        'persian' => '波斯语（法尔西语）',
+        'hindi' => '印地语',
+        'indonesian' => '印尼语',
+        'italian' => '意大利语',
+        'japanese' => '日语',
+        'korean' => '韩语',
+        'dutch' => '荷兰语',
+        'polish' => '波兰语',
+        'portuguese' => '葡萄牙语',
+        'russian' => '俄语',
+        'thai' => '泰语',
+        'turkish' => '土耳其语',
+        'vietnamese' => '越南语',
+        'chinese' => '中文',
+
+        'language_change' => '语言更改',
+        'change_language' => '更改语言',
+        'confirm_language_change' => '您确定要更改语言吗？',
+        'cancel' => '取消',
+        'yes_change' => '是的，更改',
+    ],
+
+
     'categories' => [
         'heading' => '类别',
         'image' => '图片',  

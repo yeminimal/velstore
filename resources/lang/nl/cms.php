@@ -13,6 +13,36 @@ return [
         'setting' => 'Instellingen',
         'logout' => 'Uitloggen',       
     ],
+
+    'languages'=> [   
+        'english' => 'Engels',
+        'spanish' => 'Spaans',
+        'french' => 'Frans',
+        'arabic' => 'Arabisch',
+        'german' => 'Duits',
+        'persian' => 'Perzisch (Farsi)',
+        'hindi' => 'Hindi',
+        'indonesian' => 'Indonesisch',
+        'italian' => 'Italiaans',
+        'japanese' => 'Japans',
+        'korean' => 'Koreaans',
+        'dutch' => 'Nederlands',
+        'polish' => 'Pools',
+        'portuguese' => 'Portugees',
+        'russian' => 'Russisch',
+        'thai' => 'Thais',
+        'turkish' => 'Turks',
+        'vietnamese' => 'Vietnamees',
+        'chinese' => 'Chinees',
+
+        'language_change' => 'Taal wijzigen',
+        'change_language' => 'Wijzig taal',
+        'confirm_language_change' => 'Weet je zeker dat je de taal wilt wijzigen?',
+        'cancel' => 'Annuleren',
+        'yes_change' => 'Ja, wijzigen',
+    ],
+
+
     'categories' => [
         'heading' => 'Categorieën',
         'image' => 'Afbeelding',  
