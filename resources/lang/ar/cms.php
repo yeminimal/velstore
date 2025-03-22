@@ -14,6 +14,35 @@ return [
         'setting' => 'الإعدادات',
         'logout' => 'تسجيل الخروج',    
     ],
+
+    'languages' => [   
+        'english' => 'الإنجليزية',
+        'spanish' => 'الإسبانية',
+        'french' => 'الفرنسية',
+        'arabic' => 'العربية',
+        'german' => 'الألمانية',
+        'persian' => 'الفارسية',
+        'hindi' => 'الهندية',
+        'indonesian' => 'الإندونيسية',
+        'italian' => 'الإيطالية',
+        'japanese' => 'اليابانية',
+        'korean' => 'الكورية',
+        'dutch' => 'الهولندية',
+        'polish' => 'البولندية',
+        'portuguese' => 'البرتغالية',
+        'russian' => 'الروسية',
+        'thai' => 'التايلاندية',
+        'turkish' => 'التركية',
+        'vietnamese' => 'الفيتنامية',
+        'chinese' => 'الصينية',
+
+        'language_change' => 'تغيير اللغة',
+        'change_language' => 'تغيير اللغة',
+        'confirm_language_change' => 'هل أنت متأكد أنك تريد تغيير اللغة؟',
+        'cancel' => 'إلغاء',
+        'yes_change' => 'نعم، قم بالتغيير',
+    ],
+
     
     'categories' => [
         'heading' => 'الفئات',

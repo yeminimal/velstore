@@ -121,7 +121,7 @@
                             <input type="text" id="qty" value="1">
                             <button onclick="changeQty(1)">+</button>
                         </div>
-                        <button class="add-to-cart read-more">Add to Cart</button>
+                        <button class="add-to-cart read-more" onclick="addToCart(1)">Add to Cart</button>
                     </div>
 
                 </div>
@@ -280,4 +280,37 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+    <script>
+        function changeQty(amount) {
+            let qtyInput = document.getElementById("qty");
+            let currentQty = parseInt(qtyInput.value);
+            let newQty = currentQty + amount;
+
+            if (newQty < 1) newQty = 1; // Prevent going below 1
+            qtyInput.value = newQty;
+        }
+        function addToCart(productId) {
+        let quantity = document.getElementById("qty").value;
+
+        fetch("{{ route('cart.add') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": "{{ csrf_token() }}"
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Show success message
+        })
+        .catch(error => console.error("Error:", error));
+    }
+    </script>
 @endsection

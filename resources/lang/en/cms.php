@@ -14,6 +14,35 @@ return [
         'setting' => 'setting',
         'logout' => 'logout',       
     ],
+
+    'languages'=> [   
+        'english' => 'English',
+        'spanish' => 'Spanish',
+        'french' => 'French',
+        'arabic' => 'Arabic',
+        'german' => 'German',
+        'persian' => 'Persian (Farsi)',
+        'hindi' => 'Hindi',
+        'indonesian' => 'Indonesian',
+        'italian' => 'Italian',
+        'japanese' => 'Japanese',
+        'korean' => 'Korean',
+        'dutch' => 'Dutch',
+        'polish' => 'Polish',
+        'portuguese' => 'Portuguese',
+        'russian' => 'Russian',
+        'thai' => 'Thai',
+        'turkish' => 'Turkish',
+        'vietnamese' => 'Vietnamese',
+        'chinese' => 'Chinese',
+
+        'language_change' => 'Language Change',
+        'change_language' => 'Change Language',
+        'confirm_language_change' => 'Are you sure you want to change the language?',
+        'cancel' => 'Cancel',
+        'yes_change' => 'Yes, Change',
+    ],
+    
        
     'categories' => [
         'heading' => 'Categories',

@@ -29,42 +29,6 @@
         </div>
     </section>
     {{-- Banner Section End --}}
-
-
-    {{-- Brands Section Start --}}
-<section class="brand-section animate-on-scroll py-5">
-    <div class="container">
-        <h2 class="text-start pb-5 sec-heading">{{ __('Our Brands') }}</h2>
-        
-        @if($brands->isNotEmpty()) 
-            <div class="brand-slider">
-                @foreach($brands as $brand)
-                <div>
-                    <div class="brand-card text-center">
-                        @if($brand->logo_url)
-                        {{--
-                            <img src="{{ asset('storage/'.$brand->logo_url) }}" alt="{{ optional($brand->translation)->name ?? $brand->slug }}" class="brand-logo"> 
-                            --}}
-                            <img src="{{ asset('storage/'.$brand->logo_url) }}" 
-                            alt="{{ optional($brand->translation)->name ?? $brand->slug }}" 
-                            class="brand-logo"
-                            style="width: 300px; height: 300px; object-fit: contain;">
-
-                        @endif
-                        <h3 class="mt-3">{{ optional($brand->translation)->name ?? $brand->slug }}</h3>
-                        <p class="brand-description">{{ optional($brand->translation)->description ?? '' }}</p>
-                    </div>
-                </div>
-            @endforeach
-            </div>
-        @else
-            <p class="text-center">{{ __('No brands available at the moment.') }}</p>
-        @endif
-    </div>
-</section>
-{{-- Brands Section End --}}
-
-
     <section class="cat-slider animate-on-scroll">
         <div class="container">
             <h2 class="text-start pb-5 sec-heading">Explore Popular Categories</h2>
@@ -233,4 +197,7 @@
             </div>
         </div>
     </section>
+@endsection
+@section('js')
+
 @endsection
