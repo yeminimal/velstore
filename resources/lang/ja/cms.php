@@ -15,6 +15,35 @@ return [
         'logout' => 'ログアウト',       
     ],
 
+    'languages'=> [   
+    'english' => '英語',
+    'spanish' => 'スペイン語',
+    'french' => 'フランス語',
+    'arabic' => 'アラビア語',
+    'german' => 'ドイツ語',
+    'persian' => 'ペルシャ語（ファルシ）',
+    'hindi' => 'ヒンディー語',
+    'indonesian' => 'インドネシア語',
+    'italian' => 'イタリア語',
+    'japanese' => '日本語',
+    'korean' => '韓国語',
+    'dutch' => 'オランダ語',
+    'polish' => 'ポーランド語',
+    'portuguese' => 'ポルトガル語',
+    'russian' => 'ロシア語',
+    'thai' => 'タイ語',
+    'turkish' => 'トルコ語',
+    'vietnamese' => 'ベトナム語',
+    'chinese' => '中国語',
+
+    'language_change' => '言語変更',
+    'change_language' => '言語を変更する',
+    'confirm_language_change' => '本当に言語を変更しますか？',
+    'cancel' => 'キャンセル',
+    'yes_change' => 'はい、変更する',
+],
+
+
     'categories' => [
         'heading' => 'カテゴリ',
         'image' => '画像',  

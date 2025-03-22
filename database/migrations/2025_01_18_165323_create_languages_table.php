@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique(); 
             $table->string('name');
+            $table->string('translated_text')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

@@ -15,6 +15,35 @@ return [
         'logout' => 'ออกจากระบบ',
     ],
 
+    'languages'=> [   
+        'english' => 'อังกฤษ',
+        'spanish' => 'สเปน',
+        'french' => 'ฝรั่งเศส',
+        'arabic' => 'อาหรับ',
+        'german' => 'เยอรมัน',
+        'persian' => 'เปอร์เซีย (ฟาร์ซี)',
+        'hindi' => 'ฮินดี',
+        'indonesian' => 'อินโดนีเซีย',
+        'italian' => 'อิตาลี',
+        'japanese' => 'ญี่ปุ่น',
+        'korean' => 'เกาหลี',
+        'dutch' => 'ดัตช์',
+        'polish' => 'โปแลนด์',
+        'portuguese' => 'โปรตุเกส',
+        'russian' => 'รัสเซีย',
+        'thai' => 'ไทย',
+        'turkish' => 'ตุรกี',
+        'vietnamese' => 'เวียดนาม',
+        'chinese' => 'จีน',
+
+        'language_change' => 'เปลี่ยนภาษา',
+        'change_language' => 'เปลี่ยนภาษา',
+        'confirm_language_change' => 'คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนภาษา?',
+        'cancel' => 'ยกเลิก',
+        'yes_change' => 'ใช่, เปลี่ยน',
+    ],
+
+
     'categories' => [
         'heading' => 'หมวดหมู่',
         'image' => 'รูปภาพ',  

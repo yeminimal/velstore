@@ -14,6 +14,35 @@ return [
         'setting' => 'सेटिंग',
         'logout' => 'लॉगआउट',
     ],
+
+    'languages'=> [   
+        'english' => 'अंग्रेज़ी',
+        'spanish' => 'स्पेनिश',
+        'french' => 'फ्रेंच',
+        'arabic' => 'अरबी',
+        'german' => 'जर्मन',
+        'persian' => 'फारसी (फारसी)',
+        'hindi' => 'हिन्दी',
+        'indonesian' => 'इंडोनेशियाई',
+        'italian' => 'इतालवी',
+        'japanese' => 'जापानी',
+        'korean' => 'कोरियाई',
+        'dutch' => 'डच',
+        'polish' => 'पोलिश',
+        'portuguese' => 'पुर्तगाली',
+        'russian' => 'रूसी',
+        'thai' => 'थाई',
+        'turkish' => 'तुर्की',
+        'vietnamese' => 'वियतनामी',
+        'chinese' => 'चीनी',
+
+        'language_change' => 'भाषा परिवर्तन',
+        'change_language' => 'भाषा बदलें',
+        'confirm_language_change' => 'क्या आप वाकई भाषा बदलना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'yes_change' => 'हाँ, बदलें',
+    ],
+
        
     'categories' => [
         'heading' => 'श्रेणियाँ',

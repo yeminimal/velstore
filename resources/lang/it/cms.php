@@ -15,6 +15,35 @@ return [
         'logout' => 'Disconnettersi',       
     ],
 
+    'languages'=> [   
+    'english' => 'Inglese',
+    'spanish' => 'Spagnolo',
+    'french' => 'Francese',
+    'arabic' => 'Arabo',
+    'german' => 'Tedesco',
+    'persian' => 'Persiano (Farsi)',
+    'hindi' => 'Hindi',
+    'indonesian' => 'Indonesiano',
+    'italian' => 'Italiano',
+    'japanese' => 'Giapponese',
+    'korean' => 'Coreano',
+    'dutch' => 'Olandese',
+    'polish' => 'Polacco',
+    'portuguese' => 'Portoghese',
+    'russian' => 'Russo',
+    'thai' => 'Thailandese',
+    'turkish' => 'Turco',
+    'vietnamese' => 'Vietnamita',
+    'chinese' => 'Cinese',
+
+    'language_change' => 'Cambio Lingua',
+    'change_language' => 'Cambia Lingua',
+    'confirm_language_change' => 'Sei sicuro di voler cambiare lingua?',
+    'cancel' => 'Annulla',
+    'yes_change' => 'Sì, Cambia',
+],
+
+
     'categories' => [
         'heading' => 'Categorie',
         'image' => 'Immagine',  
