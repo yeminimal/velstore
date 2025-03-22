@@ -3,6 +3,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> 
 @endsection
 @section('content')
+    @php $currency = activeCurrency(); @endphp
     <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
         <div class="container h-100">
             <div class="row">
@@ -39,7 +40,7 @@
                                 @foreach ($cart as $productId => $item)
                                     @php
                                         $product = \App\Models\Product::with(['translation', 'thumbnail'])->find($productId);
-                                        $subtotal = $item['price'] * $item['quantity'];
+                                        $subtotal = $product->converted_price * $item['quantity'];
                                     @endphp
                                     <tr>
                                         <td>
@@ -53,13 +54,13 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <strong>${{ number_format($item['price'], 2) }}</strong>
+                                            <strong>{{ $currency->symbol }}{{ $product->converted_price }}</strong>
                                         </td>
                                         <td>
                                             <input type="number" value="{{ $item['quantity'] }}" min="1" data-id="{{ $productId }}">
                                         </td>
                                         <td>
-                                            <strong>${{ number_format($item['price'] * $item['quantity'], 2) }}</strong>
+                                            <strong>{{ $currency->symbol }}{{ number_format($product->converted_price * $item['quantity'], 2) }}</strong>
                                         </td>
                                     </tr>
                                     @php $total += $subtotal; @endphp
@@ -80,7 +81,7 @@
 
                         <div class="row border-bottom pb-2 mb-2 mt-4">
                             <div class="col-6 col-md-4">Subtotal</div>
-                            <div class="col-6 col-md-8 text-end">{{ $subtotal ?? '0' }}</div>
+                            <div class="col-6 col-md-8 text-end">{{ $currency->symbol }}{{ $subtotal ?? '0' }}</div>
                         </div>
                         <div class="row border-bottom pb-2 mb-2">
                             <div class="col-4 col-md-4">Shipping</div>
@@ -88,7 +89,7 @@
                         </div>
                         <div class="row border-bottom pb-2 mb-2">
                             <div class="col-6 col-md-4">Total</div>
-                            <div class="col-6 col-md-8 text-end"><span>{{ $total ?? '0' }}</span></div>
+                            <div class="col-6 col-md-8 text-end"><span>{{ $currency->symbol }}{{ $total ?? '0' }}</span></div>
                         </div>
 
                         <div class="mt-4">

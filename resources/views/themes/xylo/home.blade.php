@@ -77,7 +77,6 @@
 
             <div class="product-slider">
                 @foreach ($products as $product)
-                
                     <div class="product-card">
                         <div class="product-img">
                             <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
@@ -92,7 +91,8 @@
                                     <h3><a href="{{ route('product.show', $product->slug) }}" class="product-title">{{ $product->translation->name ?? 'Product Name Not Available' }}</a></h3>
                                     <p class="price">{{ $currency->symbol }}{{ $product->converted_price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
                                 </div>
-                                <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                                @php /*<button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>*/ @endphp
+                                <button class="cart-btn" onclick="addToCart({{ $product->id }})"><i class="fa fa-shopping-bag"></i></button>
                             </div>
                         </div>
                     </div>
@@ -199,5 +199,37 @@
     </section>
 @endsection
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+        function addToCart(productId) {
 
+            fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    product_id: productId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                toastr.success("{{ session('success') }}", data.message, {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: 5000
+                });
+                updateCartCount(data.cart);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function updateCartCount(cart) {
+            let totalCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById("cart-count").textContent = totalCount;
+        }
+</script>
 @endsection
