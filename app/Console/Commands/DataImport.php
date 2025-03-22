@@ -9,6 +9,7 @@ use App\Models\Seller;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class DataImport extends Command
 {
@@ -42,6 +43,9 @@ class DataImport extends Command
 
         $this->info('Running menu seeder');
         $this->call('db:seed', ['--class' => 'MenuSeeder']);
+
+        $this->info('Running currency seeder');
+        $this->call('db:seed', ['--class' => 'CurrencySeeder']);
 
         $this->info('Data import completed successfully!');
     }

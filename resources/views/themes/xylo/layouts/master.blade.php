@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
         @vite(['resources/views/themes/xylo/css/style.css'])
+        @vite(['resources/views/themes/xylo/css/custom.css'])
     @yield('css')
 </head>
 <body>

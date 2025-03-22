@@ -16,16 +16,6 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <form action="{{ route('change.currency') }}" method="POST">
-                        @csrf
-                        <select name="currency_code" onchange="this.form.submit()">
-                            @foreach (\App\Models\Currency::all() as $currency)
-                                <option value="{{ $currency->code }}" {{ session('currency', 'USD') == $currency->code ? 'selected' : '' }}>
-                                    {{ $currency->name }} ({{ $currency->symbol }})
-                                </option>
-                            @endforeach
-                        </select>
-                    </form>
                     <div class="social-top d-flex justify-content-end">
                         {{ __('xylo.header.social_media') }}
                         <a href="facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
@@ -72,6 +62,25 @@
                 </div>
             </div>
             <div class="maccount">
+                <form action="{{ route('change.currency') }}" method="POST">
+                    @csrf
+                    <select class="me-3 language-drop" name="currency_code" onchange="this.form.submit()">
+                        @foreach (\App\Models\Currency::all() as $currency)
+                            <option value="{{ $currency->code }}" {{ session('currency', 'USD') == $currency->code ? 'selected' : '' }}>
+                                {{ $currency->code }} ({{ $currency->symbol }})
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+                <form action="{{ route('change.store.language') }}" method="POST">
+                    @csrf
+                    <select name="lang" id="" class="me-3 language-drop" onchange="this.form.submit()">
+                        <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>EN</option>
+                        <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>FR</option>
+                        <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>ES</option>
+                        <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>DE</option>
+                    </select>
+                </form>
                 <a href="#"><i class="fa fa-user"></i> My Account</a>
             </div>
         </div>
@@ -90,9 +99,11 @@
                     </ul>
                 @endif
             </nav>
-            <button class="cat-item">
-                Cart Item <img src="assets/images/cart-icon.png" alt="">
-                <span class="count">0</span>
+            <button class="cat-item cart-info">
+                <a href="{{ route('cart.view') }}">
+                Cart Item @php /*<img src="assets/images/cart-icon.png" alt="">*/ @endphp
+                <i class="fa fa-shopping-bag"></i>
+                <span id="cart-count" class="count">{{ session('cart') ? collect(session('cart'))->sum('quantity') : 0 }}</span></a>
             </button>
         </div>
 

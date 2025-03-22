@@ -1,7 +1,4 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@use 'variables';
+@use 'admin';
 
-// Variables
-@import 'variables';
-
-@import 'admin';
+@import url('https://fonts.bunny.net/css?family=Nunito'); // ✅ External CSS import goes after @use

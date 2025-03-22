@@ -236,3 +236,16 @@ input:checked + .slider:before {
 .btn-primary {
     width: auto;
 }
+
+.cart-info{
+    height: 54px;
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 0 27px;
+    border-radius: 42px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 54px;
+    position: relative;
+}

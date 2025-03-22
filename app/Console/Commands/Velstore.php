@@ -30,13 +30,14 @@ class Velstore extends Command
     public function handle()
     {
         $this->info('Running composer dump-autoload...');
+        exec('composer dump-autoload');
 
         $this->info('Running migrations...');
         $this->call('migrate');
 
         $this->info('Creating admin user...');
         $this->createAdminUser();
-        exec('composer dump-autoload');
+
         $this->info('Admin user created successfully.');
 
         $availableLocales = ['en' => 'English', 'es' => 'Spanish', 'fr' => 'French', 'de' => 'German'];

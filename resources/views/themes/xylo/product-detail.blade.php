@@ -1,7 +1,10 @@
 @extends('themes.xylo.layouts.master')
-
+@section('css')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> 
+@endsection
 @section('content')
-    @php $currency = activeCurrency(); @endphp
+    @php $currency = activeCurrency(); 
+    @endphp
     <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
         <div class="container h-100">
             <div class="row">
@@ -121,7 +124,7 @@
                             <input type="text" id="qty" value="1">
                             <button onclick="changeQty(1)">+</button>
                         </div>
-                        <button class="add-to-cart read-more" onclick="addToCart(1)">Add to Cart</button>
+                        <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }})">Add to Cart</button>
                     </div>
 
                 </div>
@@ -283,6 +286,7 @@
 @endsection
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         function changeQty(amount) {
             let qtyInput = document.getElementById("qty");
@@ -293,24 +297,35 @@
             qtyInput.value = newQty;
         }
         function addToCart(productId) {
-        let quantity = document.getElementById("qty").value;
+            let quantity = document.getElementById("qty").value;
 
-        fetch("{{ route('cart.add') }}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": "{{ csrf_token() }}"
-            },
-            body: JSON.stringify({
-                product_id: productId,
-                quantity: quantity
+            fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    product_id: productId,
+                    quantity: quantity
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message); // Show success message
-        })
-        .catch(error => console.error("Error:", error));
-    }
+            .then(response => response.json())
+            .then(data => {
+                toastr.success("{{ session('success') }}", data.message, {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: "toast-top-right",
+                    timeOut: 5000
+                });
+                updateCartCount(data.cart);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function updateCartCount(cart) {
+            let totalCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById("cart-count").textContent = totalCount;
+        }
     </script>
 @endsection

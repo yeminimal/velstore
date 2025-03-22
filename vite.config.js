@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/views/themes/xylo/css/animate.min.css',
                 'resources/views/themes/xylo/css/slick.css',
                 'resources/views/themes/xylo/css/style.css',
+                'resources/views/themes/xylo/css/custom.css',
                 'resources/views/themes/xylo/js/main.js',
                 'resources/views/themes/xylo/js/slick.min.js',
             ],
