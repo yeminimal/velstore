@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="mt-4">
-                            <a href="#" class="read-more d-block text-center">Proceed to checkout </a>
+                            <a href="#" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
                         </div>
                     </div>
 

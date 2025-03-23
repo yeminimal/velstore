@@ -10,6 +10,7 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use App\Models\StoreSetting;
 
 class DataImport extends Command
 {
@@ -47,6 +48,12 @@ class DataImport extends Command
         $this->info('Running currency seeder');
         $this->call('db:seed', ['--class' => 'CurrencySeeder']);
 
+        $this->info('Running category seeder');
+        $this->call('db:seed', ['--class' => 'CategorySeeder']);
+
+        $this->info('Running product seeder');
+        $this->call('db:seed', ['--class' => 'ProductSeeder']);
+
         $this->info('Data import completed successfully!');
     }
 
@@ -71,61 +78,13 @@ class DataImport extends Command
                 'description' => 'Luxurious comfort in every step. Crafted with premium materials for a soft, stylish, and effortless walking experience. '
             ]
         );
-
-        $electronics = Category::firstOrCreate(
-            ['slug' => 'electronics'],
-            ['status' => true]
-        );
-
-        $fashion = Category::firstOrCreate(
-            ['slug' => 'fashion'],
-            ['status' => true]
-        );
-
-        $smartphones = Category::firstOrCreate(
-            ['slug' => 'smartphones', 'parent_category_id' => $electronics->id],
-            ['status' => true]
-        );
-
-        $tShirts = Category::firstOrCreate(
-            ['slug' => 't-shirts', 'parent_category_id' => $fashion->id],
-            ['status' => true]
-        );
-
-        $products = [
-            [
-                'seller_id' => 1,
-                'shop_id' => 1,
-                'slug' => 'smartphone-xyz',
-                'price' => 599.99,
-                'discount_price' => 499.99,
-                'currency' => 'USD',
-                'stock' => 50,
-                'SKU' => 'SPH123',
-                'category_id' => $smartphones->id,
-                'product_type' => 'Electronics',
-                'status' => 1,
-            ],
-            [
-                'seller_id' => 1,
-                'shop_id' => 1,
-                'slug' => 'cool-tshirt',
-                'price' => 19.99,
-                'discount_price' => null,
-                'currency' => 'USD',
-                'stock' => 100,
-                'SKU' => 'TSH123',
-                'category_id' => $tShirts->id,
-                'product_type' => 'Fashion',
-                'status' => 1,
-            ],
-        ];
-
-        foreach ($products as $productData) {
-            Product::firstOrCreate(
-                ['slug' => $productData['slug']],
-                $productData 
-            );
-        }
+        
+        StoreSetting::insert([
+            ['key' => 'default_currency', 'value' => 'USD'],
+            ['key' => 'meta_title', 'value' => 'Welcome to Velstore - Your Laravel eCommerce Journey Begins!'],
+            ['key' => 'meta_description', 'value' => 'Welcome to Velstore! You have successfully installed the ultimate Laravel eCommerce boilerplate. Set up your store, configure settings, and start selling with a powerful multi-vendor, multilingual platform.'],
+            ['key' => 'phone_number', 'value' => '+1 234 567 890'],
+        ]);
+        
     } 
 }

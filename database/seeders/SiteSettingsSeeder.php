@@ -20,8 +20,8 @@ class SiteSettingsSeeder extends Seeder
             'meta_title' => 'My Awesome Laravel Site - Home', 
             'meta_description' => 'Welcome to My Awesome Laravel Site, the place for all your web development needs.',
             'meta_keywords' => 'laravel, web development, awesome site', 
-            'logo' => 'path_to_logo.png',  // Example path to logo image (replace with actual path)
-            'favicon' => 'favicon.ico',  // Example favicon path (replace with actual path)
+            'logo' => 'path_to_logo.png',
+            'favicon' => 'favicon.ico', 
             'contact_email' => 'contact@myawesomelarsite.com', 
             'contact_phone' => '+1 234 567 890',
             'address' => '123 Laravel St, Web City, Webland',
