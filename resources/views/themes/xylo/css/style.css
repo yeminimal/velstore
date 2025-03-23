@@ -704,14 +704,6 @@ header {
 }
 
 .custom-arrows button {
-    /* background: #000;
-    color: #fff;
-    padding: 10px 12px;
-    margin-left: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px; */
-    /* top: -74px; */
     border: none;
     margin-left: 10px;
     background-color: var(--dark-color);
@@ -851,8 +843,6 @@ img.blog-img.deactive {
 
 /* Section Background */
 .client-testimonials {
-    /* background: linear-gradient(to bottom, #faf7fc, #fff);
-    pa */
     padding-top: 100px;
     padding-bottom: 50px;
 }

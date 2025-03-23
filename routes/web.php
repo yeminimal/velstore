@@ -35,19 +35,6 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/lang/{locale}', function ($locale) {
-
-    if (in_array($locale, ['en', 'es', 'de', 'ar', 'fa', 'it', 'nl', 'pl', 'pt', 'tr','zh', 'fr', 'ru', 'ja', 'ko', 'th', 'vi','hi','id'])) {
-        session(['locale' => $locale]);
-        App::setLocale($locale);        
-    }
-    return redirect()->back();
-});
-
-Route::get('/test', function () {
-    return view('test');
-});
-
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 

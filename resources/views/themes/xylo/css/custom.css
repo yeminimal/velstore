@@ -20,3 +20,110 @@
 .cart-view{
     color: #ffffff;
 }
+
+.proceed-to-checkout{
+    background: linear-gradient(to right, #6d3faa, #d08dc3);
+    color: white;
+    border: none;
+    padding: 10px 26px !important;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 700;
+}
+
+.proceed-to-checkout:hover {
+    background: linear-gradient(to right, #5b2d89, #b06ca4);
+}
+
+.phone-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #111111;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.currency-form{
+    width: auto !important;
+    max-width: none !important;
+}
+
+.language-form{
+    width: auto !important;
+    max-width: none !important;
+}
+.account-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    display: none;
+    z-index: 1050;
+}
+.account-menu.show {
+    display: block;
+}
+.account-menu li {
+    list-style: none;
+    padding: 5px 0;
+}
+.account-menu a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px 10px;
+}
+.account-menu a:hover {
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.header-categories {
+    width: 25vw;
+    height: 50px;
+    background: #f6f6f6;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 25px;
+    justify-content: flex-end;
+}
+.header-categories .input-group {
+    flex-grow: 1;
+}
+.header-categories form {
+    width: 100%;
+}
+.header-categories input {
+    flex-grow: 1;
+    border: none;
+    height: 40px;
+}
+.header-categories button {
+    background: transparent;
+    border: none;
+}
+
+.language-drop {
+    background-color: #111111;
+    color: white;
+}
+
+.language-drop option {
+    color: black;
+    background: white;
+}
+
+.language-drop option:hover {
+    background-color: #ddd;
+}

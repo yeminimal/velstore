@@ -17,12 +17,6 @@ return new class extends Migration
             $table->text('value')->nullable();
             $table->timestamps();
         });
-
-        DB::table('store_settings')->insert([
-            ['key' => 'default_currency', 'value' => 'USD'],
-            ['key' => 'meta_title', 'value' => 'Velstore - Best Laravel eCommerce Solution'],
-            ['key' => 'meta_description', 'value' => 'Velstore is an open-source Laravel eCommerce platform, scalable and customizable for online businesses.'],
-        ]);
     }
 
     /**
