@@ -15,6 +15,72 @@ return [
         'logout' => 'تسجيل الخروج',    
     ],
 
+  'sidebar' => [
+    'search_placeholder' => 'بحث...',
+    'dashboard' => 'لوحة التحكم',
+    'logo' => 'الشعار',
+
+    'categories' => [
+        'title' => 'الفئات',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'brands' => [
+        'title' => 'العلامات التجارية',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'products' => [
+        'title' => 'المنتجات',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'customers' => [
+        'title' => 'العملاء',
+        'list' => 'القائمة',
+    ],
+    'sellers' => [
+        'title' => 'البائعون',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'product_reviews' => [
+        'title' => 'تقييمات المنتجات',
+        'list' => 'القائمة',
+    ],
+    'banners' => [
+        'title' => 'اللافتات',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'menu' => [
+        'title' => 'القائمة',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'menu_items' => [
+        'title' => 'عناصر القائمة',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'social_media_links' => [
+        'title' => 'روابط وسائل التواصل الاجتماعي',
+        'add_new' => 'إضافة جديد',
+        'list' => 'القائمة',
+    ],
+    'site_settings' => [
+        'title' => 'إعدادات الموقع',
+        'manage' => 'إدارة الإعدادات',
+    ],
+    'orders' => [
+        'title' => 'الطلبات',
+        'all_orders' => 'جميع الطلبات',
+        'pending_orders' => 'الطلبات المعلقة',
+        'completed_orders' => 'الطلبات المكتملة',
+    ],
+],
+
+
     'languages' => [   
         'english' => 'الإنجليزية',
         'spanish' => 'الإسبانية',

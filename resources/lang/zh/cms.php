@@ -15,6 +15,71 @@ return [
         'logout' => '登出',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => '搜索...',
+    'dashboard' => '控制面板',
+    'logo' => '标志',
+
+    'categories' => [
+        'title' => '分类',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'brands' => [
+        'title' => '品牌',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'products' => [
+        'title' => '产品',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'customers' => [
+        'title' => '客户',
+        'list' => '列表',
+    ],
+    'sellers' => [
+        'title' => '卖家',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'product_reviews' => [
+        'title' => '产品评价',
+        'list' => '列表',
+    ],
+    'banners' => [
+        'title' => '横幅',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'menu' => [
+        'title' => '菜单',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'menu_items' => [
+        'title' => '菜单项',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'social_media_links' => [
+        'title' => '社交媒体链接',
+        'add_new' => '新增',
+        'list' => '列表',
+    ],
+    'site_settings' => [
+        'title' => '网站设置',
+        'manage' => '管理设置',
+    ],
+    'orders' => [
+        'title' => '订单',
+        'all_orders' => '所有订单',
+        'pending_orders' => '待处理订单',
+        'completed_orders' => '已完成订单',
+    ],
+],
+
     'languages'=> [   
         'english' => '英语',
         'spanish' => '西班牙语',

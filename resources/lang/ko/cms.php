@@ -15,6 +15,71 @@ return [
         'logout' => '로그아웃',
     ],
 
+    'sidebar' => [
+    'search_placeholder' => '검색...',
+    'dashboard' => '대시보드',
+    'logo' => '로고',
+
+    'categories' => [
+        'title' => '카테고리',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'brands' => [
+        'title' => '브랜드',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'products' => [
+        'title' => '제품',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'customers' => [
+        'title' => '고객',
+        'list' => '목록',
+    ],
+    'sellers' => [
+        'title' => '판매자',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'product_reviews' => [
+        'title' => '제품 리뷰',
+        'list' => '목록',
+    ],
+    'banners' => [
+        'title' => '배너',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'menu' => [
+        'title' => '메뉴',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'menu_items' => [
+        'title' => '메뉴 항목',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'social_media_links' => [
+        'title' => '소셜 미디어 링크',
+        'add_new' => '새로 추가',
+        'list' => '목록',
+    ],
+    'site_settings' => [
+        'title' => '사이트 설정',
+        'manage' => '설정 관리',
+    ],
+    'orders' => [
+        'title' => '주문',
+        'all_orders' => '전체 주문',
+        'pending_orders' => '보류 중인 주문',
+        'completed_orders' => '완료된 주문',
+    ],
+],
+
     'languages'=> [   
     'english' => '영어',
     'spanish' => '스페인어',

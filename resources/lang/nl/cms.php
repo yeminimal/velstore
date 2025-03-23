@@ -14,6 +14,71 @@ return [
         'logout' => 'Uitloggen',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Zoeken...',
+    'dashboard' => 'Dashboard',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Categorieën',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'brands' => [
+        'title' => 'Merken',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'products' => [
+        'title' => 'Producten',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'customers' => [
+        'title' => 'Klanten',
+        'list' => 'Lijst',
+    ],
+    'sellers' => [
+        'title' => 'Verkopers',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'product_reviews' => [
+        'title' => 'Productbeoordelingen',
+        'list' => 'Lijst',
+    ],
+    'banners' => [
+        'title' => 'Banners',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'menu' => [
+        'title' => 'Menu',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'menu_items' => [
+        'title' => 'Menu-items',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'social_media_links' => [
+        'title' => 'Sociale Media Links',
+        'add_new' => 'Nieuwe Toevoegen',
+        'list' => 'Lijst',
+    ],
+    'site_settings' => [
+        'title' => 'Website-instellingen',
+        'manage' => 'Instellingen Beheren',
+    ],
+    'orders' => [
+        'title' => 'Bestellingen',
+        'all_orders' => 'Alle Bestellingen',
+        'pending_orders' => 'In Behandeling',
+        'completed_orders' => 'Voltooide Bestellingen',
+    ],
+],
+
     'languages'=> [   
         'english' => 'Engels',
         'spanish' => 'Spaans',

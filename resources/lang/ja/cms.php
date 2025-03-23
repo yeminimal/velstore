@@ -15,6 +15,71 @@ return [
         'logout' => 'ログアウト',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => '検索...',
+    'dashboard' => 'ダッシュボード',
+    'logo' => 'ロゴ',
+
+    'categories' => [
+        'title' => 'カテゴリー',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'brands' => [
+        'title' => 'ブランド',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'products' => [
+        'title' => '商品',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'customers' => [
+        'title' => '顧客',
+        'list' => '一覧',
+    ],
+    'sellers' => [
+        'title' => '販売者',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'product_reviews' => [
+        'title' => '商品レビュー',
+        'list' => '一覧',
+    ],
+    'banners' => [
+        'title' => 'バナー',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'menu' => [
+        'title' => 'メニュー',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'menu_items' => [
+        'title' => 'メニュー項目',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'social_media_links' => [
+        'title' => 'ソーシャルメディアリンク',
+        'add_new' => '新規追加',
+        'list' => '一覧',
+    ],
+    'site_settings' => [
+        'title' => 'サイト設定',
+        'manage' => '設定を管理',
+    ],
+    'orders' => [
+        'title' => '注文',
+        'all_orders' => 'すべての注文',
+        'pending_orders' => '保留中の注文',
+        'completed_orders' => '完了した注文',
+    ],
+],
+
     'languages'=> [   
     'english' => '英語',
     'spanish' => 'スペイン語',

@@ -15,6 +15,71 @@ return [
         'logout' => 'Đăng xuất',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Tìm kiếm...',
+    'dashboard' => 'Bảng điều khiển',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Danh mục',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'brands' => [
+        'title' => 'Thương hiệu',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'products' => [
+        'title' => 'Sản phẩm',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'customers' => [
+        'title' => 'Khách hàng',
+        'list' => 'Danh sách',
+    ],
+    'sellers' => [
+        'title' => 'Người bán',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'product_reviews' => [
+        'title' => 'Đánh giá sản phẩm',
+        'list' => 'Danh sách',
+    ],
+    'banners' => [
+        'title' => 'Biểu ngữ',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'menu' => [
+        'title' => 'Menu',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'menu_items' => [
+        'title' => 'Mục menu',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'social_media_links' => [
+        'title' => 'Liên kết mạng xã hội',
+        'add_new' => 'Thêm mới',
+        'list' => 'Danh sách',
+    ],
+    'site_settings' => [
+        'title' => 'Cài đặt trang web',
+        'manage' => 'Quản lý cài đặt',
+    ],
+    'orders' => [
+        'title' => 'Đơn hàng',
+        'all_orders' => 'Tất cả đơn hàng',
+        'pending_orders' => 'Đơn hàng đang chờ',
+        'completed_orders' => 'Đơn hàng đã hoàn thành',
+    ],
+],
+
     'languages'=> [   
         'english' => 'Tiếng Anh',
         'spanish' => 'Tiếng Tây Ban Nha',

@@ -15,6 +15,71 @@ return [
         'logout' => 'Çıkış',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Ara...',
+    'dashboard' => 'Kontrol Paneli',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Kategoriler',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'brands' => [
+        'title' => 'Markalar',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'products' => [
+        'title' => 'Ürünler',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'customers' => [
+        'title' => 'Müşteriler',
+        'list' => 'Liste',
+    ],
+    'sellers' => [
+        'title' => 'Satıcılar',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'product_reviews' => [
+        'title' => 'Ürün İncelemeleri',
+        'list' => 'Liste',
+    ],
+    'banners' => [
+        'title' => 'Afişler',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'menu' => [
+        'title' => 'Menü',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'menu_items' => [
+        'title' => 'Menü Öğeleri',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'social_media_links' => [
+        'title' => 'Sosyal Medya Bağlantıları',
+        'add_new' => 'Yeni Ekle',
+        'list' => 'Liste',
+    ],
+    'site_settings' => [
+        'title' => 'Site Ayarları',
+        'manage' => 'Ayarları Yönet',
+    ],
+    'orders' => [
+        'title' => 'Siparişler',
+        'all_orders' => 'Tüm Siparişler',
+        'pending_orders' => 'Bekleyen Siparişler',
+        'completed_orders' => 'Tamamlanan Siparişler',
+    ],
+],
+
     'languages'=> [   
         'english' => 'İngilizce',
         'spanish' => 'İspanyolca',
