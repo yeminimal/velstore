@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\SellerController;
+use App\Http\Controllers\Admin\ProductReviewController;
 
 
 /*
@@ -125,8 +126,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('reviews', \App\Http\Controllers\Admin\ProductReviewController::class)->except(['create', 'store']);
+    Route::get('/reviews/data', [ProductReviewController::class, 'getData'])->name('reviews.data');
+    Route::resource('reviews', ProductReviewController::class)->except(['create', 'store']);
 });
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('sellers', SellerController::class);
