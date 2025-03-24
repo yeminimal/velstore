@@ -15,7 +15,7 @@
     @yield('css')
 </head>
 <body>
-    @include('admin.layouts.sidebar')
+    @include('admin.vendor-views.layouts.sidebar')
     
     <!-- Content Area -->
     <div id="content" class="w-100">
@@ -24,28 +24,28 @@
             <!-- Language Change Dropdown -->
             <div class="dropdown ms-auto me-3">
                 <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                    <img src="https://flagcdn.com/w40/us.png" width="20">{{ __('cms.languages.english') }}
+                    <img src="https://flagcdn.com/w40/us.png" width="20"> English
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item language-select {{ app()->getLocale() == 'en' ? 'active' : '' }}" data-lang="en" href="#"><img src="https://flagcdn.com/w40/us.png" width="20">{{ __('cms.languages.english') }}</a></li>
-                    <li><a class="dropdown-item language-select " data-lang="es" href="#"><img src="https://flagcdn.com/w40/es.png" width="20">{{ __('cms.languages.spanish') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="fr" href="#"><img src="https://flagcdn.com/w40/fr.png" width="20">{{ __('cms.languages.french') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="ar" href="#"><img src="https://flagcdn.com/w40/sa.png" width="20">{{ __('cms.languages.arabic') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="de" href="#"><img src="https://flagcdn.com/w40/de.png" width="20">{{ __('cms.languages.german') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="fa" href="#"><img src="https://flagcdn.com/w40/ir.png" width="20">{{ __('cms.languages.persian') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="hi" href="#"><img src="https://flagcdn.com/w40/in.png" width="20">{{ __('cms.languages.hindi') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="id" href="#"><img src="https://flagcdn.com/w40/id.png" width="20">{{ __('cms.languages.indonesian') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="it" href="#"><img src="https://flagcdn.com/w40/it.png" width="20">{{ __('cms.languages.italian') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="ja" href="#"><img src="https://flagcdn.com/w40/jp.png" width="20">{{ __('cms.languages.japanese') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="ko" href="#"><img src="https://flagcdn.com/w40/kr.png" width="20">{{ __('cms.languages.korean') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="nl" href="#"><img src="https://flagcdn.com/w40/nl.png" width="20">{{ __('cms.languages.dutch') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="pl" href="#"><img src="https://flagcdn.com/w40/pl.png" width="20">{{ __('cms.languages.polish') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="pt" href="#"><img src="https://flagcdn.com/w40/pt.png" width="20"> {{ __('cms.languages.portuguese') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="ru" href="#"><img src="https://flagcdn.com/w40/ru.png" width="20">{{ __('cms.languages.russian') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="th" href="#"><img src="https://flagcdn.com/w40/th.png" width="20">{{ __('cms.languages.thai') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="tr" href="#"><img src="https://flagcdn.com/w40/tr.png" width="20">{{ __('cms.languages.turkish') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="vi" href="#"><img src="https://flagcdn.com/w40/vn.png" width="20">{{ __('cms.languages.vietnamese') }}</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="zh" href="#"><img src="https://flagcdn.com/w40/cn.png" width="20">{{ __('cms.languages.chinese') }} </a></li>                    
+                    <li><a class="dropdown-item language-select " data-lang="es" href="#"><img src="https://flagcdn.com/w40/es.png" width="20"> {{ __('cms.languages.spanish') }}</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="fr" href="#"><img src="https://flagcdn.com/w40/fr.png" width="20"> French</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="ar" href="#"><img src="https://flagcdn.com/w40/sa.png" width="20"> Arabic</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="de" href="#"><img src="https://flagcdn.com/w40/de.png" width="20"> German</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="fa" href="#"><img src="https://flagcdn.com/w40/ir.png" width="20"> Persian (Farsi)</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="hi" href="#"><img src="https://flagcdn.com/w40/in.png" width="20"> Hindi</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="id" href="#"><img src="https://flagcdn.com/w40/id.png" width="20"> Indonesian</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="it" href="#"><img src="https://flagcdn.com/w40/it.png" width="20"> Italian</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="ja" href="#"><img src="https://flagcdn.com/w40/jp.png" width="20"> Japanese</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="ko" href="#"><img src="https://flagcdn.com/w40/kr.png" width="20"> Korean</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="nl" href="#"><img src="https://flagcdn.com/w40/nl.png" width="20"> Dutch</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="pl" href="#"><img src="https://flagcdn.com/w40/pl.png" width="20"> Polish</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="pt" href="#"><img src="https://flagcdn.com/w40/pt.png" width="20"> Portuguese</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="ru" href="#"><img src="https://flagcdn.com/w40/ru.png" width="20"> Russian</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="th" href="#"><img src="https://flagcdn.com/w40/th.png" width="20"> Thai</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="tr" href="#"><img src="https://flagcdn.com/w40/tr.png" width="20"> Turkish</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="vi" href="#"><img src="https://flagcdn.com/w40/vn.png" width="20"> Vietnamese</a></li>
+                    <li><a class="dropdown-item language-select" data-lang="zh" href="#"><img src="https://flagcdn.com/w40/cn.png" width="20"> Chinese</a></li>                    
                 </ul>
             </div>
             <div class="dropdown">
@@ -55,10 +55,10 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Profile</a></li>
                     <li>
-                        <form id="admin-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="vendor-logout-form" action="{{ route('vendor.logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('vendor-logout-form').submit();">
                             Logout
                         </a>
                     </li>
@@ -75,16 +75,16 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="languageChangeModalLabel">{{ __('cms.languages.change_language') }}</h5>
+                    <h5 class="modal-title" id="languageChangeModalLabel">Change Language</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    {{ __('cms.languages.confirm_language_change') }}
+                    Are you sure you want to change the language?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.languages.cancel') }}</button>
-                    <button type="button" id="confirmChange" class="btn btn-primary">{{ __('cms.languages.yes_change') }}</button>
-                </div>c
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" id="confirmChange" class="btn btn-primary">Yes, Change</button>
+                </div>
             </div>
         </div>
     </div>
