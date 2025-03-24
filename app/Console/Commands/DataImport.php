@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\Seller;
+use App\Models\Vendor;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
@@ -59,7 +59,7 @@ class DataImport extends Command
 
     protected function createCategoriesAndProducts()
     {
-        $seller = Seller::firstOrCreate(
+        $seller = Vendor::firstOrCreate(
             ['email' => 'seller@example.com'],
             [
                 'name' => 'Seller',
@@ -72,7 +72,7 @@ class DataImport extends Command
         $shop = Shop::firstOrCreate(
             ['name' => 'Soft Shoes'],
             [
-                'seller_id' => 1,
+                'vendor_id' => 1,
                 'name' => 'Soft Shoes',
                 'logo' => 'N/A',
                 'description' => 'Luxurious comfort in every step. Crafted with premium materials for a soft, stylish, and effortless walking experience. '

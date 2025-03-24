@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     {
         $products = [
             [
-                'seller_id' => 1,
+                'vendor_id' => 1,
                 'shop_id' => 1,
                 'slug' => 'smartphone-xyz',
                 'price' => 599.99,
@@ -37,7 +37,7 @@ class ProductSeeder extends Seeder
                 ]
             ],
             [
-                'seller_id' => 1,
+                'vendor_id' => 1,
                 'shop_id' => 1,
                 'slug' => 'cool-tshirt',
                 'price' => 19.99,

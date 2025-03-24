@@ -15,7 +15,7 @@
     @yield('css')
 </head>
 <body>
-    @include('admin.layouts.sidebar')
+    @include('admin.vendor-views.layouts.sidebar')
     
     <!-- Content Area -->
     <div id="content" class="w-100">
@@ -55,10 +55,10 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Profile</a></li>
                     <li>
-                        <form id="admin-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="vendor-logout-form" action="{{ route('vendor.logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('vendor-logout-form').submit();">
                             Logout
                         </a>
                     </li>

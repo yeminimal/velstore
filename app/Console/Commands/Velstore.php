@@ -45,7 +45,7 @@ class Velstore extends Command
         $locale = $this->choice(
             'Please select a locale to set for the application',
             array_keys($availableLocales),
-            'en' /* Default value */
+            'en'
         );
 
         if (!array_key_exists($locale, $availableLocales)) {

@@ -21,6 +21,7 @@
 <body>
     @include('themes.xylo.layouts.header')
     @yield('content')
+    @include('themes.xylo.layouts.footer')
     @vite(['resources/views/themes/xylo/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -100,6 +101,21 @@
                     }
                 ]
             });
+        });
+    </script>
+    <script>
+        /* header script */
+        document.addEventListener('DOMContentLoaded', function() {
+            const accountToggle = document.getElementById('accountDropdown');
+            const accountMenu = document.querySelector('.account-menu');
+
+            if (accountToggle && accountMenu) {
+                document.addEventListener('click', function(event) {
+                    if (!accountToggle.contains(event.target) && !accountMenu.contains(event.target)) {
+                        accountMenu.classList.remove('show');
+                    }
+                });
+            }
         });
     </script>
 </body>

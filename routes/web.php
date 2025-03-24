@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin\SellerController;
 |
 */
 
-require base_path('routes/store.php');
+/* require base_path('routes/store.php'); */
 
 Route::get('/login', function () {
     return view('admin.auth.login');
