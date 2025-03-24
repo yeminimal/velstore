@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="card mt-4">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <div class="card-header card-header-bg text-white d-flex justify-content-between align-items-center">
             <h6>Customers List</h6>
             <a href="{{ route('admin.customers.create') }}" class="btn btn-success">Add Customer</a>
         </div>

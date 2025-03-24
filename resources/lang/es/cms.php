@@ -15,6 +15,71 @@ return [
         'logout' => 'Cerrar sesión',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Buscar...',
+    'dashboard' => 'Panel de control',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Categorías',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'brands' => [
+        'title' => 'Marcas',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'products' => [
+        'title' => 'Productos',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'customers' => [
+        'title' => 'Clientes',
+        'list' => 'Lista',
+    ],
+    'sellers' => [
+        'title' => 'Vendedores',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'product_reviews' => [
+        'title' => 'Reseñas de productos',
+        'list' => 'Lista',
+    ],
+    'banners' => [
+        'title' => 'Banners',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'menu' => [
+        'title' => 'Menú',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'menu_items' => [
+        'title' => 'Elementos del menú',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'social_media_links' => [
+        'title' => 'Enlaces de redes sociales',
+        'add_new' => 'Agregar nuevo',
+        'list' => 'Lista',
+    ],
+    'site_settings' => [
+        'title' => 'Configuración del sitio',
+        'manage' => 'Administrar configuración',
+    ],
+    'orders' => [
+        'title' => 'Pedidos',
+        'all_orders' => 'Todos los pedidos',
+        'pending_orders' => 'Pedidos pendientes',
+        'completed_orders' => 'Pedidos completados',
+    ],
+],
+
     'languages'=> [   
         'english' => 'Inglés',
         'spanish' => 'Español',

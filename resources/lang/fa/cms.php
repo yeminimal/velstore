@@ -15,6 +15,71 @@ return [
         'logout' => 'خروج',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'جستجو...',
+    'dashboard' => 'داشبورد',
+    'logo' => 'لوگو',
+
+    'categories' => [
+        'title' => 'دسته‌بندی‌ها',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'brands' => [
+        'title' => 'برندها',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'products' => [
+        'title' => 'محصولات',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'customers' => [
+        'title' => 'مشتریان',
+        'list' => 'لیست',
+    ],
+    'sellers' => [
+        'title' => 'فروشندگان',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'product_reviews' => [
+        'title' => 'نظرات محصولات',
+        'list' => 'لیست',
+    ],
+    'banners' => [
+        'title' => 'بنرها',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'menu' => [
+        'title' => 'منو',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'menu_items' => [
+        'title' => 'آیتم‌های منو',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'social_media_links' => [
+        'title' => 'لینک‌های شبکه‌های اجتماعی',
+        'add_new' => 'افزودن جدید',
+        'list' => 'لیست',
+    ],
+    'site_settings' => [
+        'title' => 'تنظیمات سایت',
+        'manage' => 'مدیریت تنظیمات',
+    ],
+    'orders' => [
+        'title' => 'سفارشات',
+        'all_orders' => 'همه سفارشات',
+        'pending_orders' => 'سفارشات در انتظار',
+        'completed_orders' => 'سفارشات تکمیل شده',
+    ],
+],
+
     'languages'=> [   
         'english' => 'انگلیسی',
         'spanish' => 'اسپانیایی',

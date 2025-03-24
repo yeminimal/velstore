@@ -15,6 +15,72 @@ return [
         'logout' => 'लॉगआउट',
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'खोजें...',
+    'dashboard' => 'डैशबोर्ड',
+    'logo' => 'लोगो',
+
+    'categories' => [
+        'title' => 'श्रेणियाँ',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'brands' => [
+        'title' => 'ब्रांड्स',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'products' => [
+        'title' => 'उत्पाद',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'customers' => [
+        'title' => 'ग्राहक',
+        'list' => 'सूची',
+    ],
+    'sellers' => [
+        'title' => 'विक्रेता',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'product_reviews' => [
+        'title' => 'उत्पाद समीक्षाएँ',
+        'list' => 'सूची',
+    ],
+    'banners' => [
+        'title' => 'बैनर',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'menu' => [
+        'title' => 'मेनू',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'menu_items' => [
+        'title' => 'मेनू आइटम्स',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'social_media_links' => [
+        'title' => 'सोशल मीडिया लिंक',
+        'add_new' => 'नया जोड़ें',
+        'list' => 'सूची',
+    ],
+    'site_settings' => [
+        'title' => 'साइट सेटिंग्स',
+        'manage' => 'सेटिंग्स प्रबंधित करें',
+    ],
+    'orders' => [
+        'title' => 'ऑर्डर',
+        'all_orders' => 'सभी ऑर्डर',
+        'pending_orders' => 'लंबित ऑर्डर',
+        'completed_orders' => 'पूर्ण ऑर्डर',
+    ],
+],
+
+
     'languages'=> [   
         'english' => 'अंग्रेज़ी',
         'spanish' => 'स्पेनिश',

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     // Assume that you have an 'active' column in your languages table
-    protected $fillable = ['name', 'code', 'active'];
+    protected $fillable = ['name', 'code', 'translated_text', 'active'];
 
     /**
      * Scope to filter active languages

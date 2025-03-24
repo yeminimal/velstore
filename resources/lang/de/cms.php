@@ -15,6 +15,72 @@ return [
         'logout' => 'Abmelden',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Suche...',
+    'dashboard' => 'Dashboard',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Kategorien',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'brands' => [
+        'title' => 'Marken',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'products' => [
+        'title' => 'Produkte',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'customers' => [
+        'title' => 'Kunden',
+        'list' => 'Liste',
+    ],
+    'sellers' => [
+        'title' => 'Verkäufer',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'product_reviews' => [
+        'title' => 'Produktbewertungen',
+        'list' => 'Liste',
+    ],
+    'banners' => [
+        'title' => 'Banner',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'menu' => [
+        'title' => 'Menü',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'menu_items' => [
+        'title' => 'Menüeinträge',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'social_media_links' => [
+        'title' => 'Soziale Medien Links',
+        'add_new' => 'Neu hinzufügen',
+        'list' => 'Liste',
+    ],
+    'site_settings' => [
+        'title' => 'Seiteneinstellungen',
+        'manage' => 'Einstellungen verwalten',
+    ],
+    'orders' => [
+        'title' => 'Bestellungen',
+        'all_orders' => 'Alle Bestellungen',
+        'pending_orders' => 'Ausstehende Bestellungen',
+        'completed_orders' => 'Abgeschlossene Bestellungen',
+    ],
+],
+
+
     'languages'=> [   
         'english' => 'Englisch',
         'spanish' => 'Spanisch',

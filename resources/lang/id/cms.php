@@ -15,6 +15,71 @@ return [
         'logout' => 'Keluar',       
     ],
 
+    'sidebar' => [
+    'search_placeholder' => 'Cari...',
+    'dashboard' => 'Dasbor',
+    'logo' => 'Logo',
+
+    'categories' => [
+        'title' => 'Kategori',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'brands' => [
+        'title' => 'Merek',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'products' => [
+        'title' => 'Produk',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'customers' => [
+        'title' => 'Pelanggan',
+        'list' => 'Daftar',
+    ],
+    'sellers' => [
+        'title' => 'Penjual',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'product_reviews' => [
+        'title' => 'Ulasan Produk',
+        'list' => 'Daftar',
+    ],
+    'banners' => [
+        'title' => 'Banner',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'menu' => [
+        'title' => 'Menu',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'menu_items' => [
+        'title' => 'Item Menu',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'social_media_links' => [
+        'title' => 'Tautan Media Sosial',
+        'add_new' => 'Tambah Baru',
+        'list' => 'Daftar',
+    ],
+    'site_settings' => [
+        'title' => 'Pengaturan Situs',
+        'manage' => 'Kelola Pengaturan',
+    ],
+    'orders' => [
+        'title' => 'Pesanan',
+        'all_orders' => 'Semua Pesanan',
+        'pending_orders' => 'Pesanan Tertunda',
+        'completed_orders' => 'Pesanan Selesai',
+    ],
+],
+
     'languages'=> [   
         'english' => 'Inggris',
         'spanish' => 'Spanyol',

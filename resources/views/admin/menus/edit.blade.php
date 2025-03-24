@@ -6,7 +6,7 @@
 
     <!-- Card-like Heading for "Edit Menu" -->
     <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header card-header-bg text-white">
             <h6>{{ __('cms.menus.edit_menu') }}</h6>
         </div>
     </div>
