@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Product;
+use App\Services\Store\CartService;
 
 class CartController extends Controller
 {
+    protected $cartService;
+
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+
     public function addToCart(Request $request)
     {
         $productId = $request->product_id;
@@ -75,5 +83,20 @@ class CartController extends Controller
         }
 
         return response()->json(['message' => 'Product removed from cart.', 'cart' => $cart]);
+    }
+
+    public function applyCoupon(Request $request)
+    {
+        $request->validate(['code' => 'required|string']);
+        
+        $result = $this->cartService->applyCoupon($request->code);
+
+        return response()->json($result);
+    }
+
+    public function removeCoupon()
+    {
+        $this->cartService->removeCoupon();
+        return response()->json(['success' => true, 'message' => 'Coupon removed successfully!']);
     }
 }
