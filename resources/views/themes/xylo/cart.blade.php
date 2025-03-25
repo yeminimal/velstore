@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-
+    @php $total = 0; @endphp
     <div class="cart-page pb-5 pt-5">
     <div class="container">
         <div class="row">
@@ -36,9 +36,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @php 
-                            $total = 0;
-                        @endphp
                             @foreach ($cart as $productId => $item)
                                 @php
                                     $product = \App\Models\Product::with(['translation', 'thumbnail'])->find($productId);
