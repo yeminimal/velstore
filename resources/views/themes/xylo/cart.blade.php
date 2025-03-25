@@ -99,10 +99,19 @@
                     @endphp
 
                     @if($coupon)
-                    <div class="row border-bottom pb-2 mb-2">
-                        <div class="col-6 col-md-4">Discount ({{ $coupon['code'] }})</div>
-                        <div class="col-6 col-md-8 text-end text-danger">-{{ $currency->symbol }}{{ number_format($discountAmount, 2) }}</div>
-                    </div>
+                        <div class="row border-bottom pb-2 mb-2 d-flex align-items-center">
+                            <div class="col-8 d-flex align-items-center">Discount ({{ $coupon['code'] }})</div>
+                            <div class="col-4 d-flex justify-content-end align-items-center">
+                                    -{{ $currency->symbol }}{{ number_format($discountAmount, 2) }}
+                                <form id="removeCouponForm" class="ms-2">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm p-1 remove-coupon"
+                                        style="border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;">
+                                        x
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     @endif
 
                     <div class="row border-bottom pb-2 mb-2">
@@ -125,13 +134,6 @@
                         </div>
                         <button type="submit" class="btn-light d-block text-center w-100">Apply Coupon</button>
                     </form>
-
-                    @if($coupon)
-                        <form id="removeCouponForm" class="mt-2">
-                            @csrf
-                            <button type="submit" class="btn-danger d-block text-center w-100">Remove Coupon</button>
-                        </form>
-                    @endif
                 </div>
 
             </div>
