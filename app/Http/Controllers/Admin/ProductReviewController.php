@@ -10,10 +10,7 @@ use Yajra\DataTables\Facades\DataTables;
 class ProductReviewController extends Controller
 {
     public function index(Request $request)
-    {
-       /* $reviews = ProductReview::with(['customer', 'product'])->paginate(10);
-        return view('admin.reviews.index', compact('reviews')); */
-       
+    {  
         return view('admin.reviews.index');
     }
 
