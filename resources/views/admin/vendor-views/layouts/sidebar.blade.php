@@ -15,10 +15,10 @@
                 <span><i class="fas fa-box me-2"></i> <span>Products</span></span>
                 <i class="fas fa-chevron-down"></i>
             </a>
-            <div class="collapse {{ Route::currentRouteName() == 'admin.products.create' || Route::currentRouteName() == 'admin.products.index' ? 'show' : '' }}" id="productMenu">
+            <div class="collapse {{ Route::currentRouteName() == 'vendor.products.create' || Route::currentRouteName() == 'vendor.products.index' ? 'show' : '' }}" id="productMenu">
                 <ul class="nav flex-column ms-3">
-                    <li><a class="nav-link {{ Route::currentRouteName() == 'admin.products.create' ? 'active' : '' }}" href="{{ route('admin.products.create') }}">Add New</a></li>
-                    <li><a class="nav-link {{ Route::currentRouteName() == 'admin.products.index' ? 'active' : '' }}" href="{{ route('admin.products.index') }}">List</a></li>
+                    <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.products.create' ? 'active' : '' }}" href="{{ route('vendor.products.create') }}">Add New</a></li>
+                    <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.products.index' ? 'active' : '' }}" href="{{ route('vendor.products.index') }}">List</a></li>
                 </ul>
             </div>
         </li>  

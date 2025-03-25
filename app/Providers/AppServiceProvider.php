@@ -21,6 +21,7 @@ use App\Repositories\Admin\MenuItem\MenuItemRepository;
 
 
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -51,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SocialMediaLinkRepositoryInterface::class, SocialMediaLinkRepository::class);
 
         $this->app->bind(MenuItemRepositoryInterface::class, MenuItemRepository::class);
+
+
+        
     }
 
     /**
