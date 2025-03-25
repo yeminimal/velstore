@@ -18,3 +18,6 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 Route::post('/change-store-language', [LanguageController::class, 'changeLanguage'])->name('change.store.language');
+
+Route::post('/cart/apply-coupon', [CartController::class, 'applyCoupon'])->name('cart.applyCoupon');
+Route::post('/cart/remove-coupon', [CartController::class, 'removeCoupon'])->name('cart.removeCoupon');

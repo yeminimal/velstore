@@ -18,101 +18,129 @@
     </section>
 
     <div class="cart-page pb-5 pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    @if(empty($cart))
-                        <p class="alert alert-warning">Your cart is empty.</p>
-                    @else
-                    <div class="table-responsive">
-                        <table class="w-100 table">
-                            <thead>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                @if(empty($cart))
+                    <p class="alert alert-warning">Your cart is empty.</p>
+                @else
+                <div class="table-responsive">
+                    <table class="w-100 table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @php 
+                            $total = 0;
+                        @endphp
+                            @foreach ($cart as $productId => $item)
+                                @php
+                                    $product = \App\Models\Product::with(['translation', 'thumbnail'])->find($productId);
+                                    $subtotal = $product->converted_price * $item['quantity'];
+                                @endphp
                                 <tr>
-                                    <th></th>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Subtotal</th>
+                                    <td>
+                                        <button class="btn btn-link p-0 bnlink remove-from-cart" data-id="{{ $productId }}">
+                                            <i class="fa-regular fa-circle-xmark"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div class="pr-imghead">
+                                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" 
+                                                alt="{{ $product->translation->name }}">
+                                            <p>{{ $product->translation->name }}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong>{{ $currency->symbol }}{{ $product->converted_price }}</strong>
+                                    </td>
+                                    <td>
+                                        <input type="number" value="{{ $item['quantity'] }}" min="1" data-id="{{ $productId }}">
+                                    </td>
+                                    <td>
+                                        <strong>{{ $currency->symbol }}{{ number_format($subtotal, 2) }}</strong>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                            @php $total = 0; @endphp
-                                @foreach ($cart as $productId => $item)
-                                    @php
-                                        $product = \App\Models\Product::with(['translation', 'thumbnail'])->find($productId);
-                                        $subtotal = $product->converted_price * $item['quantity'];
-                                    @endphp
-                                    <tr>
-                                        <td>
-                                            <button class="btn btn-link p-0 bnlink remove-from-cart" data-id="{{ $productId }}"><i class="fa-regular fa-circle-xmark"></i></button>
-                                        </td>
-                                        <td>
-                                            <div class="pr-imghead">
-                                                <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" 
-                                                    alt="{{ $product->translation->name }}">
-                                                <p>{{ $product->translation->name }}</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <strong>{{ $currency->symbol }}{{ $product->converted_price }}</strong>
-                                        </td>
-                                        <td>
-                                            <input type="number" value="{{ $item['quantity'] }}" min="1" data-id="{{ $productId }}">
-                                        </td>
-                                        <td>
-                                            <strong>{{ $currency->symbol }}{{ number_format($product->converted_price * $item['quantity'], 2) }}</strong>
-                                        </td>
-                                    </tr>
-                                    @php $total += $subtotal; @endphp
-                                @endforeach
-                            </tbody>
-                        </table>
+                                @php $total += $subtotal; @endphp
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @endif
+                <div class="btn-group mt-4">
+                    <a href="#" class="btn-light">Continue Shopping</a>
+                    <a href="#" class="read-more update-cart">Update cart</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="cart-box">
+                    <h3 class="cart-heading">Cart totals</h3>
+
+                    <div class="row border-bottom pb-2 mb-2 mt-4">
+                        <div class="col-6 col-md-4">Subtotal</div>
+                        <div class="col-6 col-md-8 text-end">{{ $currency->symbol }}{{ number_format($total, 2) }}</div>
+                    </div>
+
+                    @php
+                        $coupon = session('cart_coupon');
+                        $discountAmount = 0;
+                        if ($coupon) {
+                            if ($coupon['type'] === 'percentage') {
+                                $discountAmount = $total * ($coupon['discount'] / 100);
+                            } else {
+                                $discountAmount = $coupon['discount'];
+                            }
+                        }
+                        $finalTotal = max(0, $total - $discountAmount);
+                    @endphp
+
+                    @if($coupon)
+                    <div class="row border-bottom pb-2 mb-2">
+                        <div class="col-6 col-md-4">Discount ({{ $coupon['code'] }})</div>
+                        <div class="col-6 col-md-8 text-end text-danger">-{{ $currency->symbol }}{{ number_format($discountAmount, 2) }}</div>
                     </div>
                     @endif
-                    <div class="btn-group mt-4">
-                        <a href="#" class="btn-light">Continue Shopping</a>
-                        <a href="#" class="read-more update-cart">Update cart</a>
+
+                    <div class="row border-bottom pb-2 mb-2">
+                        <div class="col-6 col-md-4">Total</div>
+                        <div class="col-6 col-md-8 text-end"><span>{{ $currency->symbol }}{{ number_format($finalTotal, 2) }}</span></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="#" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
                     </div>
                 </div>
-    
-                <div class="col-md-3">
-                    <div class="cart-box">
-                        <h3 class="cart-heading">Cart totals</h3>
 
-                        <div class="row border-bottom pb-2 mb-2 mt-4">
-                            <div class="col-6 col-md-4">Subtotal</div>
-                            <div class="col-6 col-md-8 text-end">{{ $currency->symbol }}{{ $subtotal ?? '0' }}</div>
-                        </div>
-                        <div class="row border-bottom pb-2 mb-2">
-                            <div class="col-4 col-md-4">Shipping</div>
-                            <div class="col-8 col-md-8 text-end"><small>Enter you address to view shipping</small></div>
-                        </div>
-                        <div class="row border-bottom pb-2 mb-2">
-                            <div class="col-6 col-md-4">Total</div>
-                            <div class="col-6 col-md-8 text-end"><span>{{ $currency->symbol }}{{ $total ?? '0' }}</span></div>
-                        </div>
+                <div class="coupon-box mt-4">
+                    <h3 class="cart-heading mb-4">Coupon</h3>
 
-                        <div class="mt-4">
-                            <a href="#" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
+                    <form id="applyCouponForm">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="code" id="coupon_code" placeholder="Coupon code" class="form-control">
                         </div>
-                    </div>
+                        <button type="submit" class="btn-light d-block text-center w-100">Apply Coupon</button>
+                    </form>
 
-                    <div class="coupon-box mt-4">
-                        <h3 class="cart-heading mb-4">Coupon</h3>
-
-                        <form>
-                            <div class="form-group">
-                                <input type="text" placeholder="Coupon code" class="form-control">
-                            </div>
-                            <button type="submit" class="btn-light d-block text-center w-100">Apply Coupon</button>
+                    @if($coupon)
+                        <form id="removeCouponForm" class="mt-2">
+                            @csrf
+                            <button type="submit" class="btn-danger d-block text-center w-100">Remove Coupon</button>
                         </form>
-
-                    </div>
-
+                    @endif
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('js')
@@ -176,6 +204,60 @@
             });
         });
     });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("applyCouponForm")?.addEventListener("submit", function(e) {
+        e.preventDefault();
+        let code = document.getElementById("coupon_code").value;
+        fetch("{{ route('cart.applyCoupon') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value
+            },
+            body: JSON.stringify({ code: code })
+        })
+        .then(response => response.json())
+        .then(data => {
+            toastr.success("success", data.message, {
+                closeButton: true,
+                progressBar: true,
+                positionClass: "toast-top-right",
+                timeOut: 5000
+            });
+            setTimeout(() => {
+                if (data.success) location.reload();
+            }, 1000);
+        });
+    });
+
+    document.getElementById("removeCouponForm")?.addEventListener("submit", function(e) {
+        e.preventDefault();
+        fetch("{{ route('cart.removeCoupon') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            toastr.success("success", data.message, {
+                closeButton: true,
+                progressBar: true,
+                positionClass: "toast-top-right",
+                timeOut: 5000
+            });
+            
+            setTimeout(() => {
+                if (data.success) location.reload();
+            }, 1000);
+
+        });
+    });
+});
 </script>
 
 @endsection
