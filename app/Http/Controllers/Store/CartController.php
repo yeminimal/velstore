@@ -82,6 +82,10 @@ class CartController extends Controller
             Session::put('cart', $cart);
         }
 
+        if (empty($cart)) {
+            session()->forget('cart_coupon');
+        }
+
         return response()->json(['message' => 'Product removed from cart.', 'cart' => $cart]);
     }
 
