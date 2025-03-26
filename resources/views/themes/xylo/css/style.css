@@ -4,8 +4,9 @@
     --dark-color: #111111;
     --white: #ffffff;
     --cardbg: #ebebeb;
+    --grid-color-1: #7e5a96;
+    --grid-color-2: #df9ece;
 }
-
 a,
 button {
     text-decoration: none;
@@ -172,7 +173,7 @@ header .logo img {
 .navigation button {
     height: 54px;
     display: inline-block;
-    background: #111;
+    background: var(--dark-color);;
     color: #fff;
     padding: 0 27px;
     border-radius: 42px;
@@ -675,7 +676,7 @@ header {
 }
 
 .cart-btn {
-    background: linear-gradient(45deg, #7e5a96, #df9ece);
+    background: linear-gradient(45deg, var(--grid-color-1), var(--grid-color-2));
     border: none;
     /* padding: 10px; */
     border-radius: 50%;
@@ -690,10 +691,11 @@ header {
     line-height: 45px;
 }
 
+/*
 .cart-btn:hover {
-    background: #df9ece;
+    background: var(--grid-color-2);
 }
-
+*/
 .custom-arrows {
     display: flex;
     justify-content: flex-end;

@@ -5,6 +5,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\Store\ProductController;
 use App\Http\Controllers\Store\CurrencyController;
 use App\Http\Controllers\Store\CartController;
+use App\Http\Controllers\Store\ShopController;
 
 use App\Http\Controllers\Admin\LanguageController;
 
@@ -21,3 +22,5 @@ Route::post('/change-store-language', [LanguageController::class, 'changeLanguag
 
 Route::post('/cart/apply-coupon', [CartController::class, 'applyCoupon'])->name('cart.applyCoupon');
 Route::post('/cart/remove-coupon', [CartController::class, 'removeCoupon'])->name('cart.removeCoupon');
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');

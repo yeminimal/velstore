@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
-            toastr.success("success", data.message, {
+            toastr.success(data.message, "Applied", {
                 closeButton: true,
                 progressBar: true,
                 positionClass: "toast-top-right",
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
-            toastr.success("success", data.message, {
+            toastr.success(data.message, "Removed", {
                 closeButton: true,
                 progressBar: true,
                 positionClass: "toast-top-right",
