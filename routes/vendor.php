@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Vendor\Auth\AuthController;
 use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\ProductController;
+use App\Http\Controllers\Vendor\SocialMediaLinkController;
+
 
 Route::prefix('vendor')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('vendor.login');
@@ -15,6 +17,7 @@ Route::prefix('vendor')->group(function () {
         Route::resource('products', ProductController::class)->names('vendor.products');  
         Route::post('products/data', [ProductController::class, 'getProducts'])->name('products.data');
         Route::post('vendor/products/updateStatus', [ProductController::class, 'updateStatus'])->name('vendor.products.updateStatus');
-
+        Route::resource('social-media-links', SocialMediaLinkController::class)->names('vendor.social-media-links');
+        Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('vendor.social-media-links.data');
     });
 });

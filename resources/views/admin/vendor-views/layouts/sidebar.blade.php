@@ -22,5 +22,19 @@
                 </ul>
             </div>
         </li>  
+
+        <li class="nav-item">
+            <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#socialMediaMenu" role="button" aria-expanded="false" aria-controls="socialMediaMenu">
+                <span><i class="fas fa-share-alt me-2"></i> <span>Social Media Links</span></span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="collapse {{ in_array(Route::currentRouteName(), ['vendor.social-media-links.create', 'vendor.social-media-links.index']) ? 'show' : '' }}" id="socialMediaMenu">
+                <ul class="nav flex-column ms-3">
+                    <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.social-media-links.create' ? 'active' : '' }}" href="{{ route('vendor.social-media-links.create') }}">Add New</a></li>
+                    <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.social-media-links.index' ? 'active' : '' }}" href="{{ route('vendor.social-media-links.index') }}">List</a></li>
+                </ul>
+            </div>
+        </li>
+
     </ul>
 </nav>
