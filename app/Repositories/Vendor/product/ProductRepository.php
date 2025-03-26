@@ -67,12 +67,12 @@ class ProductRepository implements ProductRepositoryInterface
             'product_type' => $data['product_type'],
         ]);
 
-        if (isset($data['image_url']) && $data['image_url'] instanceof \Illuminate\Http\UploadedFile) {
-            $imagePath = $this->imageService->uploadImage($data['image_url'], 'products');
+        if (isset($data['product_image_url']) && $data['product_image_url'] instanceof \Illuminate\Http\UploadedFile) {
+            $imagePath = $this->imageService->uploadImage($data['product_image_url'], 'products'); 
             
             $productImage = new ProductImage([
                 'name' => basename($imagePath), 
-                'image_url' => $imagePath, 
+                'image_url' => $imagePath,                
                 'product_id' => $product->id, 
                 'type' => $data['image_type'] ?? 'thumb',
             ]);

@@ -19,6 +19,7 @@ class ImageService
         $imagePath = $image->store($folder, 'public');
         
         return $imagePath;
+       
     }
 
     public function deleteImage(string $imageUrl): bool
