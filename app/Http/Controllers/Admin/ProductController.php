@@ -12,6 +12,7 @@ use App\Services\Admin\ProductService;
 use App\Services\Admin\CategoryService;
 use Illuminate\Support\Facades\Validator;
 
+
 class ProductController extends Controller
 {
     protected $categoryService;
