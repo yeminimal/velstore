@@ -41,6 +41,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
+    Route::post('products/data', [ProductController::class, 'getProducts'])->name('products.data');
+    Route::post('admin/products/updateStatus', [ProductController::class, 'updateStatus'])->name('products.updateStatus');
 
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
@@ -73,8 +75,8 @@ Route::post('/categories/data', [CategoryController::class, 'getCategories'])->n
 Route::post('/admin/categories/update-status', [CategoryController::class, 'updateCategoryStatus'])->name('admin.categories.updateStatus');
 
 
-Route::post('products/data', [ProductController::class, 'getProducts'])->name('products.data');
-Route::post('admin/products/updateStatus', [ProductController::class, 'updateStatus'])->name('admin.products.updateStatus');
+
+
 
 
 Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
