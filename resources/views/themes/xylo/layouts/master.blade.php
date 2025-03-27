@@ -118,5 +118,47 @@
             }
         });
     </script>
+    <script>
+        /* product seach input */
+        $(document).ready(function () {
+            $('#search-input').on('keyup', function () {
+                let query = $(this).val();
+                if (query.length > 2) {
+                    $.ajax({
+                        url: '{{ url('/search-suggestions') }}',
+                        type: 'GET',
+                        data: { q: query },
+                        success: function (data) {
+                            let suggestions = $('#search-suggestions');
+                            suggestions.html('');
+                            if (data.length > 0) {
+                                data.forEach(product => {
+                                    suggestions.append(`
+                                        <a href="/product/${product.slug}" class="dropdown-item d-flex align-items-center">
+                                            <img src="${product.thumbnail}" alt="${product.name}" class="me-2" width="40" height="40" style="object-fit: cover; border-radius: 5px;">
+                                            <span>${product.name}</span>
+                                        </a>
+                                    `);
+                                });
+                                suggestions.removeClass('d-none');
+                            } else {
+                                suggestions.addClass('d-none');
+                            }
+                        }
+                    });
+                } else {
+                    $('#search-suggestions').addClass('d-none');
+                }
+            });
+
+            $(document).on('click', function (event) {
+                if (!$(event.target).closest('#search-input, #search-suggestions').length) {
+                    $('#search-suggestions').addClass('d-none');
+                }
+            });
+        });
+
+
+    </script>
 </body>
 </html>

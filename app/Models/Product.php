@@ -67,8 +67,7 @@ class Product extends Model
 
     public function thumbnail()
     {
-        /*return $this->hasOne(ProductImage::class)->where('type', 'thumb');*/
-        return $this->hasOne(ProductImage::class);
+        return $this->hasOne(ProductImage::class)->where('type', 'thumb');
     }
 
     public function reviews()
