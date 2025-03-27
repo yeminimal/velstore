@@ -6,7 +6,7 @@ use App\Http\Controllers\Store\ProductController;
 use App\Http\Controllers\Store\CurrencyController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\ShopController;
-
+use App\Http\Controllers\Store\SearchController;
 use App\Http\Controllers\Admin\LanguageController;
 
 Route::get('/', [StoreController::class, 'index'])->name('xylo.home');
@@ -24,3 +24,6 @@ Route::post('/cart/apply-coupon', [CartController::class, 'applyCoupon'])->name(
 Route::post('/cart/remove-coupon', [CartController::class, 'removeCoupon'])->name('cart.removeCoupon');
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+
+Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
+Route::get('/search', [SearchController::class, 'searchResults']);

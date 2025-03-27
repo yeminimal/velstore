@@ -74,8 +74,11 @@
             <a href="#" class="logo"><img src="assets/images/logo-main.png" alt="Logo"></a>
             <div class="header-categories ms-auto">
                 <div class="input-group">
-                    <form class="d-flex">
-                        <input type="text" class="form-control" placeholder="Search your product...">
+                    <form class="d-flex" id="search-form" action="{{ url('/search') }}" method="GET">
+                        <div class="position-relative w-100">
+                            <input type="text" class="form-control" name="q" id="search-input" placeholder="Search your product..." autocomplete="off">
+                            <div id="search-suggestions" class="dropdown-menu show w-100 mt-1 d-none"></div>
+                        </div>
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
