@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('product_translations', function (Blueprint $table) {
             $table->id(); 
             $table->unsignedBigInteger('product_id'); 
-            $table->string('locale'); 
+            $table->string('locale')->nullable();
             $table->string('language_code', 5)->default('en');
             $table->string('name');
             $table->text('description')->nullable();
