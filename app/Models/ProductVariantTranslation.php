@@ -11,10 +11,8 @@ class ProductVariantTranslation extends Model
 
     protected $fillable = [
         'product_variant_id',
-        'locale',
         'language_code',
         'name',
-        'value',
     ];
 
     // Relationship with the ProductVariant model
