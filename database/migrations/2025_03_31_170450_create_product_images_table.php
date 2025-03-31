@@ -12,14 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_images', function (Blueprint $table) {
-            $table->id();  
-            $table->string('name'); 
-            $table->string('image_url', 255); 
-            $table->enum('type', ['thumb', 'slide'])->default('thumb'); // Add enum column 
-            $table->unsignedBigInteger('product_id');  
-            $table->timestamps();  
-
+            $table->id();
+            $table->string('name');
+            $table->string('image_url', 255);
+            $table->enum('type', ['thumb', 'slide'])->default('thumb');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('variant_id')->nullable();
+            $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('variant_id')->references('id')->on('product_variants')->onDelete('cascade');
+            $table->index('product_id');
+            $table->index('variant_id');
         });
     }
 

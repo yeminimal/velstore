@@ -20,6 +20,7 @@ return new class extends Migration
         
             // Shorter custom index name
             $table->unique(['product_variant_id', 'language_code'], 'pv_translations_lang_unique');
+            $table->index('language_code');
         });        
         
     }

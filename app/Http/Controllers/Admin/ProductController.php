@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Admin\ProductService;
 use App\Services\Admin\CategoryService;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Brand;
 
 
 class ProductController extends Controller
@@ -43,22 +44,13 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();  
+        $locale = app()->getLocale();
 
-        $categories = collect($categories); 
+        $categories = Category::with('translation')->get();    
 
-        $categories = $categories->map(function ($category) {
-            if (is_object($category) && isset($category->translations) && $category->translations instanceof \Illuminate\Database\Eloquent\Collection) {
-                $translation = $category->translations->firstWhere('language_code', 'en');
-                $category->name = $translation ? $translation->name : 'No Name Available';
-            } else {
-                $category->name = 'No Name Available';
-            }
-
-            return $category;
-        });
+        $brands = Brand::with('translation')->get();  
   
-        return view('admin.products.create', compact('categories'));
+        return view('admin.products.create', compact('categories', 'brands'));
 
     }
 
