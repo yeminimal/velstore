@@ -7,26 +7,52 @@ use App\Models\AttributeValue;
 use App\Models\AttributeValueTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
+use App\Services\Admin\AttributeService;
 
 class AttributeController extends Controller
-{
+{          
+    protected $attributeService;
+
+    public function __construct(AttributeService $attributeService)
+    {
+        $this->attributeService = $attributeService;
+    }
+
     public function index()
     {
-        $attributes = Attribute::with('values.translations')->latest()->paginate(10);
+        $attributes = $this->attributeService->getAllAttributes();
         return view('admin.attributes.index', compact('attributes'));
     }
 
-   
+    public function getAttributesData(Request $request)
+    {
+        if ($request->ajax()) {
+            $attributes = Attribute::with('values')->get();
+    
+            return DataTables::of($attributes)
+                ->addColumn('values', function ($attribute) {
+                    return $attribute->values->map(function ($value) {
+                        return '<span class="badge bg-primary">' . e($value->value) . '</span>';
+                    })->implode(' ');
+                })
+                ->addColumn('action', function ($attribute) {
+                    return '<a href="' . route('admin.attributes.edit', $attribute->id) . '" class="btn btn-sm btn-warning">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="deleteAttribute(' . $attribute->id . ')">Delete</button>';
+                })
+                ->rawColumns(['values', 'action'])
+                ->make(true);
+        }
+    }
+
     public function create()
     {
-       
         $languages = Language::active()->get();
         return view('admin.attributes.create', compact('languages'));
     }
 
     public function store(Request $request)
     {
-        
         $request->validate([
             'name' => 'required|string|max:255',
             'values' => 'required|array',
@@ -34,38 +60,19 @@ class AttributeController extends Controller
             'translations' => 'array',
         ]);
 
-        $attribute = Attribute::create(['name' => $request->name]);
+        $this->attributeService->createAttribute($request->all());
 
-        foreach ($request->values as $value) {
-            $attributeValue = $attribute->values()->create(['value' => $value]);
-
-            if ($request->has('translations')) {
-                foreach ($request->translations as $languageCode => $translatedValue) {
-                    if (!empty($translatedValue)) {
-                        AttributeValueTranslation::create([
-                            'attribute_value_id' => $attributeValue->id,
-                            'language_code' => $languageCode,
-                            'translated_value' => $translatedValue,
-                        ]);
-                    }
-                }
-            }
-        }
-
-        return redirect()->route('admin.attributes.index')->with('success', 'Attribute created successfully!');   
+        return redirect()->route('admin.attributes.index')->with('success', 'Attribute created successfully!');
     }
 
-   
     public function edit(Attribute $attribute)
     {
-       
-        $attribute->load('values.translations'); 
+        $attribute = $this->attributeService->getAttributeById($attribute->id);
         $languages = Language::active()->get();
-        
+
         return view('admin.attributes.edit', compact('attribute', 'languages'));
     }
 
-   
     public function update(Request $request, Attribute $attribute)
     {
         $request->validate([
@@ -74,40 +81,20 @@ class AttributeController extends Controller
             'values.*' => 'string|max:255',
             'translations' => 'array',
         ]);
-    
-        $attribute->update(['name' => $request->name]);
-    
-        $existingValues = $attribute->values->keyBy('id'); 
-    
-        foreach ($request->values as $valueId => $value) {
-            if (is_numeric($valueId) && isset($existingValues[$valueId])) {
-                $existingValues[$valueId]->update(['value' => $value]);
-            } else {
-                $attributeValue = $attribute->values()->create(['value' => $value]);
-            }
-    
-            if ($request->has('translations')) {
-                foreach ($request->translations as $languageCode => $translatedValue) {
-                    if (!empty($translatedValue)) {
-                        AttributeValueTranslation::updateOrCreate(
-                            [
-                                'attribute_value_id' => $attributeValue->id ?? $valueId,
-                                'language_code' => $languageCode,
-                            ],
-                            ['translated_value' => $translatedValue]
-                        );
-                    }
-                }
-            }
-        }
-    
+
+        $this->attributeService->updateAttribute($attribute, $request->all());
+
         return redirect()->route('admin.attributes.index')->with('success', 'Attribute updated successfully!');
     }
 
-    public function destroy(Attribute $attribute)
+    public function destroy($id)
     {
-        $attribute->delete();
-
-        return redirect()->route('admin.attributes.index')->with('success', 'Attribute deleted successfully.');
+        try {
+            $this->attributeService->deleteAttribute($id);
+            return response()->json(['success' => true, 'message' => 'Attribute deleted successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Error deleting attribute! Please try again.']);
+        }
     }
+
 }

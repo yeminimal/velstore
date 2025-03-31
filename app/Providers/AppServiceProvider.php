@@ -18,6 +18,8 @@ use App\Repositories\Admin\SocialMediaLink\SocialMediaLinkRepositoryInterface;
 use App\Repositories\Admin\SocialMediaLink\SocialMediaLinkRepository;
 use App\Repositories\Admin\MenuItem\MenuItemRepositoryInterface;
 use App\Repositories\Admin\MenuItem\MenuItemRepository;
+use App\Repositories\Admin\Attribute\AttributeRepository;
+use App\Repositories\Admin\Attribute\AttributeRepositoryInterface;
 
 
 
@@ -53,6 +55,8 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(MenuItemRepositoryInterface::class, MenuItemRepository::class);
 
+
+        $this->app->bind(AttributeRepositoryInterface::class, AttributeRepository::class);
 
         
     }

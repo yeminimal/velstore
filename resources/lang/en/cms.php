@@ -430,6 +430,36 @@ return [
         'action' => 'Action',
     ],
 
+    'attribuits' => [
+        'title_create' => 'Create Attribuit',
+        'title_edit' => 'Edit Attribuit',
+        'title_manage' => 'Manage Attribuits',
+    
+        'attribuit_name' => 'Attribuit Name',
+        'attribuit_values' => 'Attribuit Values',
+        'translations' => 'Translations',
+        'translated_value' => 'Translated Value',
+    
+        'add_value' => 'Add Value',
+        'remove_value' => 'Remove',
+        'save_attribuit' => 'Save Attribuit',
+        'update_attribuit' => 'Update Attribuit',
+    
+        'success_create' => 'Attribuit created successfully!',
+        'success_update' => 'Attribuit updated successfully!',
+        'success_delete' => 'Attribuit deleted successfully!',
+        'delete_confirmation' => 'Are you sure you want to delete this attribuit?',
+    
+        'id' => 'ID',
+        'name' => 'Name',
+        'values' => 'Values',
+        'action' => 'Action',
+    
+        'confirm_delete' => 'Confirm Delete',
+        'delete' => 'Delete',
+        'cancel' => 'Cancel',
+    ],
+    
 
 ];
 
