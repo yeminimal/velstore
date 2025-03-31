@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AttributeValue extends Model
 {
+    
     use HasFactory;
 
     protected $fillable = ['attribute_id', 'value'];
@@ -18,6 +19,6 @@ class AttributeValue extends Model
 
     public function translations()
     {
-        return $this->hasMany(AttributeValueTranslation::class);
+        return $this->hasMany(AttributeValueTranslation::class, 'attribute_value_id');
     }
 }
