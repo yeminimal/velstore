@@ -10,14 +10,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    // Define fillable attributes for mass assignment
     protected $fillable = [
         'slug',
         'parent_category_id',
         'status',
     ];
 
-    // Define the relationship with CategoryTranslation
     public function translations()
     {
         return $this->hasMany(CategoryTranslation::class);
@@ -29,14 +27,12 @@ class Category extends Model
                     ->where('language_code', App::getLocale());
     }
 
-    // Define the relationship for the parent category (self-referencing)
-    public function parentCategory()
+    public function parent()
     {
         return $this->belongsTo(Category::class, 'parent_category_id');
     }
 
-    // Define the relationship for child categories
-    public function childCategories()
+    public function children()
     {
         return $this->hasMany(Category::class, 'parent_category_id');
     }

@@ -15,18 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
             $table->foreignId('vendor_id')->constrained('vendors')->onDelete('cascade');
-            $table->string('slug')->unique();  
-            $table->decimal('price', 10, 2);
-            $table->decimal('discount_price', 10, 2)->nullable();
-            $table->string('currency', 3);
-            $table->integer('stock')->default(0);
-            $table->string('SKU')->unique();
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id')->nullable();
-            $table->decimal('weight', 10, 2)->nullable();
-            $table->string('dimensions')->nullable();
             $table->string('product_type');
-            $table->tinyInteger('status')->default(1);            
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
