@@ -459,6 +459,30 @@ return [
         'cancel' => 'Cancelar',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Reseñas de productos',
+
+        'review_id' => 'ID de reseña',
+        'customer_name' => 'Nombre del cliente',
+        'product_name' => 'Nombre del producto',
+        'rating' => 'Calificación',
+        'status' => 'Estado',
+        'actions' => 'Acciones',
+
+        'confirm_delete' => 'Confirmar eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar esta reseña de producto?',
+        'delete' => 'Eliminar',
+        'cancel' => 'Cancelar',
+
+        'success_create' => '¡Reseña de producto creada con éxito!',
+        'success_update' => '¡Reseña de producto actualizada con éxito!',
+        'success_delete' => '¡Reseña de producto eliminada con éxito!',
+        'error_delete' => '¡Error al eliminar la reseña de producto! Por favor, inténtelo de nuevo.',
+
+        'success' => 'Éxito',
+        'error' => 'Error',
+    ],
+
 
 ];
 

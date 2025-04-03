@@ -462,6 +462,30 @@ return [
         'cancel' => '取消',
     ],
 
+    'product_reviews' => [
+        'title_manage' => '产品评论管理',
+
+        'review_id' => '评论ID',
+        'customer_name' => '客户名称',
+        'product_name' => '产品名称',
+        'rating' => '评分',
+        'status' => '状态',
+        'actions' => '操作',
+
+        'confirm_delete' => '确认删除',
+        'delete_message' => '您确定要删除此产品评论吗？',
+        'delete' => '删除',
+        'cancel' => '取消',
+
+        'success_create' => '产品评论创建成功！',
+        'success_update' => '产品评论更新成功！',
+        'success_delete' => '产品评论删除成功！',
+        'error_delete' => '删除产品评论时发生错误！请重试。',
+
+        'success' => '成功',
+        'error' => '错误',
+    ],
+
 
 ];
 

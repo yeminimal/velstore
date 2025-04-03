@@ -472,6 +472,30 @@ return [
         'cancel' => 'Abbrechen',
     ],
 
+'product_reviews' => [
+    'title_manage' => 'Produktbewertungen',
+
+    'review_id' => 'Bewertungs-ID',
+    'customer_name' => 'Kundenname',
+    'product_name' => 'Produktname',
+    'rating' => 'Bewertung',
+    'status' => 'Status',
+    'actions' => 'Aktionen',
+
+    'confirm_delete' => 'Löschen bestätigen',
+    'delete_message' => 'Möchten Sie diese Produktbewertung wirklich löschen?',
+    'delete' => 'Löschen',
+    'cancel' => 'Abbrechen',
+
+    'success_create' => 'Produktbewertung erfolgreich erstellt!',
+    'success_update' => 'Produktbewertung erfolgreich aktualisiert!',
+    'success_delete' => 'Produktbewertung erfolgreich gelöscht!',
+    'error_delete' => 'Fehler beim Löschen der Produktbewertung! Bitte versuchen Sie es erneut.',
+
+    'success' => 'Erfolg',
+    'error' => 'Fehler',
+],
+
 
 
 ];

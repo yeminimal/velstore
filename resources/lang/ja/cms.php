@@ -459,6 +459,31 @@ return [
         'cancel' => 'キャンセル',
     ],
 
+    'product_reviews' => [
+        'title_manage' => '商品レビュー管理',
+
+        'review_id' => 'レビューID',
+        'customer_name' => '顧客名',
+        'product_name' => '商品名',
+        'rating' => '評価',
+        'status' => 'ステータス',
+        'actions' => '操作',
+
+        'confirm_delete' => '削除の確認',
+        'delete_message' => '本当にこの商品レビューを削除しますか？',
+        'delete' => '削除',
+        'cancel' => 'キャンセル',
+
+        'success_create' => '商品レビューが正常に作成されました！',
+        'success_update' => '商品レビューが正常に更新されました！',
+        'success_delete' => '商品レビューが正常に削除されました！',
+        'error_delete' => '商品レビューの削除中にエラーが発生しました！もう一度お試しください。',
+
+        'success' => '成功',
+        'error' => 'エラー',
+    ],
+
+
 
 ];
 

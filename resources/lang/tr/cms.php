@@ -461,6 +461,29 @@ return [
         'cancel' => 'İptal',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Ürün Yorumları Yönetimi',
+
+        'review_id' => 'Yorum ID',
+        'customer_name' => 'Müşteri Adı',
+        'product_name' => 'Ürün Adı',
+        'rating' => 'Puan',
+        'status' => 'Durum',
+        'actions' => 'İşlemler',
+
+        'confirm_delete' => 'Silme Onayı',
+        'delete_message' => 'Bu ürün yorumunu silmek istediğinizden emin misiniz?',
+        'delete' => 'Sil',
+        'cancel' => 'İptal',
+
+        'success_create' => 'Ürün yorumu başarıyla oluşturuldu!',
+        'success_update' => 'Ürün yorumu başarıyla güncellendi!',
+        'success_delete' => 'Ürün yorumu başarıyla silindi!',
+        'error_delete' => 'Ürün yorumu silinirken hata oluştu! Lütfen tekrar deneyin.',
+
+        'success' => 'Başarı',
+        'error' => 'Hata',
+    ],
 
 
 ];

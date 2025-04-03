@@ -460,6 +460,31 @@ return [
         'cancel' => '취소',
     ],
 
+    'product_reviews' => [
+        'title_manage' => '상품 리뷰 관리',
+
+        'review_id' => '리뷰 ID',
+        'customer_name' => '고객 이름',
+        'product_name' => '상품명',
+        'rating' => '평점',
+        'status' => '상태',
+        'actions' => '작업',
+
+        'confirm_delete' => '삭제 확인',
+        'delete_message' => '이 상품 리뷰를 정말 삭제하시겠습니까?',
+        'delete' => '삭제',
+        'cancel' => '취소',
+
+        'success_create' => '상품 리뷰가 성공적으로 생성되었습니다!',
+        'success_update' => '상품 리뷰가 성공적으로 업데이트되었습니다!',
+        'success_delete' => '상품 리뷰가 성공적으로 삭제되었습니다!',
+        'error_delete' => '상품 리뷰 삭제 중 오류가 발생했습니다! 다시 시도해주세요.',
+
+        'success' => '성공',
+        'error' => '오류',
+    ],
+
+
 
 
 ];

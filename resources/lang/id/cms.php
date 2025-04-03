@@ -460,5 +460,30 @@ return [
         'cancel' => 'Batal',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Manajemen Ulasan Produk',
+
+        'review_id' => 'ID Ulasan',
+        'customer_name' => 'Nama Pelanggan',
+        'product_name' => 'Nama Produk',
+        'rating' => 'Peringkat',
+        'status' => 'Status',
+        'actions' => 'Tindakan',
+
+        'confirm_delete' => 'Konfirmasi Penghapusan',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus ulasan produk ini?',
+        'delete' => 'Hapus',
+        'cancel' => 'Batal',
+
+        'success_create' => 'Ulasan produk berhasil dibuat!',
+        'success_update' => 'Ulasan produk berhasil diperbarui!',
+        'success_delete' => 'Ulasan produk berhasil dihapus!',
+        'error_delete' => 'Terjadi kesalahan saat menghapus ulasan produk! Silakan coba lagi.',
+
+        'success' => 'Sukses',
+        'error' => 'Kesalahan',
+    ],
+
+
 
 ];

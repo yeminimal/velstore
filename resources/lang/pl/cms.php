@@ -458,6 +458,31 @@ return [
         'cancel' => 'Anuluj',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Zarządzanie opiniami o produktach',
+
+        'review_id' => 'ID opinii',
+        'customer_name' => 'Nazwa klienta',
+        'product_name' => 'Nazwa produktu',
+        'rating' => 'Ocena',
+        'status' => 'Status',
+        'actions' => 'Akcje',
+
+        'confirm_delete' => 'Potwierdzenie usunięcia',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę opinię o produkcie?',
+        'delete' => 'Usuń',
+        'cancel' => 'Anuluj',
+
+        'success_create' => 'Opinia o produkcie została pomyślnie dodana!',
+        'success_update' => 'Opinia o produkcie została pomyślnie zaktualizowana!',
+        'success_delete' => 'Opinia o produkcie została pomyślnie usunięta!',
+        'error_delete' => 'Błąd podczas usuwania opinii o produkcie! Spróbuj ponownie.',
+
+        'success' => 'Sukces',
+        'error' => 'Błąd',
+    ],
+
+
 
 ];
 

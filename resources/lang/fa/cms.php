@@ -460,6 +460,30 @@ return [
         'cancel' => 'لغو',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'مدیریت نظرات محصولات',
+
+        'review_id' => 'شناسه نظر',
+        'customer_name' => 'نام مشتری',
+        'product_name' => 'نام محصول',
+        'rating' => 'امتیاز',
+        'status' => 'وضعیت',
+        'actions' => 'عملیات',
+
+        'confirm_delete' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این نظر محصول را حذف کنید؟',
+        'delete' => 'حذف',
+        'cancel' => 'لغو',
+
+        'success_create' => 'نظر محصول با موفقیت ایجاد شد!',
+        'success_update' => 'نظر محصول با موفقیت به‌روزرسانی شد!',
+        'success_delete' => 'نظر محصول با موفقیت حذف شد!',
+        'error_delete' => 'خطا در حذف نظر محصول! لطفاً دوباره تلاش کنید.',
+
+        'success' => 'موفقیت',
+        'error' => 'خطا',
+    ],
+
 
 ];
 

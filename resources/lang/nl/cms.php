@@ -457,6 +457,29 @@ return [
         'cancel' => 'Annuleren',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Beheer van productrecensies',
+
+        'review_id' => 'Recensie-ID',
+        'customer_name' => 'Naam klant',
+        'product_name' => 'Productnaam',
+        'rating' => 'Beoordeling',
+        'status' => 'Status',
+        'actions' => 'Acties',
+
+        'confirm_delete' => 'Verwijderen bevestigen',
+        'delete_message' => 'Weet u zeker dat u deze productrecensie wilt verwijderen?',
+        'delete' => 'Verwijderen',
+        'cancel' => 'Annuleren',
+
+        'success_create' => 'Productrecensie succesvol aangemaakt!',
+        'success_update' => 'Productrecensie succesvol bijgewerkt!',
+        'success_delete' => 'Productrecensie succesvol verwijderd!',
+        'error_delete' => 'Fout bij het verwijderen van de productrecensie! Probeer het opnieuw.',
+
+        'success' => 'Succes',
+        'error' => 'Fout',
+    ],
 
 
 

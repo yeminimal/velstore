@@ -457,6 +457,31 @@ return [
         'cancel' => 'Annuler',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Gestion des avis sur les produits',
+
+        'review_id' => 'ID de l\'avis',
+        'customer_name' => 'Nom du client',
+        'product_name' => 'Nom du produit',
+        'rating' => 'Note',
+        'status' => 'Statut',
+        'actions' => 'Actions',
+
+        'confirm_delete' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer cet avis sur le produit ?',
+        'delete' => 'Supprimer',
+        'cancel' => 'Annuler',
+
+        'success_create' => 'L\'avis sur le produit a été créé avec succès !',
+        'success_update' => 'L\'avis sur le produit a été mis à jour avec succès !',
+        'success_delete' => 'L\'avis sur le produit a été supprimé avec succès !',
+        'error_delete' => 'Erreur lors de la suppression de l\'avis sur le produit ! Veuillez réessayer.',
+
+        'success' => 'Succès',
+        'error' => 'Erreur',
+    ],
+
+
 
 ];
 

@@ -457,6 +457,31 @@ return [
         'cancel' => 'रद्द करें',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Gestione delle recensioni dei prodotti',
+
+        'review_id' => 'ID Recensione',
+        'customer_name' => 'Nome Cliente',
+        'product_name' => 'Nome Prodotto',
+        'rating' => 'Valutazione',
+        'status' => 'Stato',
+        'actions' => 'Azioni',
+
+        'confirm_delete' => 'Conferma Eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questa recensione del prodotto?',
+        'delete' => 'Elimina',
+        'cancel' => 'Annulla',
+
+        'success_create' => 'Recensione del prodotto creata con successo!',
+        'success_update' => 'Recensione del prodotto aggiornata con successo!',
+        'success_delete' => 'Recensione del prodotto eliminata con successo!',
+        'error_delete' => 'Errore durante l\'eliminazione della recensione del prodotto! Riprova.',
+
+        'success' => 'Successo',
+        'error' => 'Errore',
+    ],
+
+
 
 ];
 

@@ -488,5 +488,30 @@ return [
         'cancel' => 'Hủy',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Quản lý đánh giá sản phẩm',
+
+        'review_id' => 'ID đánh giá',
+        'customer_name' => 'Tên khách hàng',
+        'product_name' => 'Tên sản phẩm',
+        'rating' => 'Đánh giá',
+        'status' => 'Trạng thái',
+        'actions' => 'Hành động',
+
+        'confirm_delete' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa đánh giá sản phẩm này?',
+        'delete' => 'Xóa',
+        'cancel' => 'Hủy',
+
+        'success_create' => 'Đánh giá sản phẩm đã được tạo thành công!',
+        'success_update' => 'Đánh giá sản phẩm đã được cập nhật thành công!',
+        'success_delete' => 'Đánh giá sản phẩm đã được xóa thành công!',
+        'error_delete' => 'Lỗi khi xóa đánh giá sản phẩm! Vui lòng thử lại.',
+
+        'success' => 'Thành công',
+        'error' => 'Lỗi',
+    ],
+
+
 
 ];

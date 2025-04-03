@@ -461,6 +461,31 @@ return [
         'cancel' => 'Cancel',
     ],
 
+    'product_reviews' => [
+        'title_manage' => 'Product Reviews',
+
+        'review_id' => 'Review ID',
+        'customer_name' => 'Customer Name',
+        'product_name' => 'Product Name',
+        'rating' => 'Rating',
+        'status' => 'Status',
+        'actions' => 'Actions',
+
+        'confirm_delete' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this product review?',
+        'delete' => 'Delete',
+        'cancel' => 'Cancel',
+
+        'success_create' => 'Product review created successfully!',
+        'success_update' => 'Product review updated successfully!',
+        'success_delete' => 'Product review deleted successfully!',
+        'error_delete' => 'Error deleting product review! Please try again.',
+
+        'success' => 'Success',
+        'error' => 'Error',
+    ],
+
+
 
 ];
 
