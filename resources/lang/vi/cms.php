@@ -457,5 +457,36 @@ return [
         'action' => 'Hành động',
     ],
 
+    'attributes' => [
+        'title_create' => 'Tạo Thuộc Tính',
+        'title_edit' => 'Chỉnh Sửa Thuộc Tính',
+        'title_manage' => 'Quản Lý Thuộc Tính',
+
+        'attribute_name' => 'Tên Thuộc Tính',
+        'attribute_values' => 'Giá Trị Thuộc Tính',
+        'translations' => 'Dịch Thuật',
+        'translated_value' => 'Giá Trị Dịch Thuật',
+
+        'add_value' => 'Thêm Giá Trị',
+        'remove_value' => 'Xóa',
+        'save_attribute' => 'Lưu Thuộc Tính',
+        'update_attribute' => 'Cập Nhật Thuộc Tính',
+
+        'success_create' => 'Tạo Thuộc Tính Thành Công!',
+        'success_update' => 'Cập Nhật Thuộc Tính Thành Công!',
+        'success_delete' => 'Xóa Thuộc Tính Thành Công!',
+        'delete_confirmation' => 'Bạn có chắc chắn muốn xóa thuộc tính này?',
+        'success' => 'Thành Công',
+
+        'id' => 'ID',
+        'name' => 'Tên',
+        'values' => 'Giá Trị',
+        'action' => 'Hành Động',
+
+        'confirm_delete' => 'Xác Nhận Xóa',
+        'delete' => 'Xóa',
+        'cancel' => 'Hủy',
+    ],
+
 
 ];

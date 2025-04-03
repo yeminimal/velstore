@@ -429,6 +429,38 @@ return [
         'action' => '작업',
     ],
 
+    'attributes' => [
+        'title_create' => '속성 만들기',
+        'title_edit' => '속성 수정',
+        'title_manage' => '속성 관리',
+
+        'attribute_name' => '속성 이름',
+        'attribute_values' => '속성 값',
+        'translations' => '번역',
+        'translated_value' => '번역된 값',
+
+        'add_value' => '값 추가',
+        'remove_value' => '제거',
+        'save_attribute' => '속성 저장',
+        'update_attribute' => '속성 업데이트',
+
+        'success_create' => '속성이 성공적으로 생성되었습니다!',
+        'success_update' => '속성이 성공적으로 업데이트되었습니다!',
+        'success_delete' => '속성이 성공적으로 삭제되었습니다!',
+        'delete_confirmation' => '이 속성을 정말로 삭제하시겠습니까?',
+        'success' => '성공',
+
+        'id' => 'ID',
+        'name' => '이름',
+        'values' => '값',
+        'action' => '작업',
+
+        'confirm_delete' => '삭제 확인',
+        'delete' => '삭제',
+        'cancel' => '취소',
+    ],
+
+
 
 ];
 

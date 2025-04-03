@@ -429,37 +429,38 @@ return [
         'delete' => 'Delete',
         'action' => 'Action',
     ],
-
-    'attribuits' => [
-        'title_create' => 'Create Attribuit',
-        'title_edit' => 'Edit Attribuit',
-        'title_manage' => 'Manage Attribuits',
     
-        'attribuit_name' => 'Attribuit Name',
-        'attribuit_values' => 'Attribuit Values',
+    'attributes' => [
+        'title_create' => 'Create Attribute',
+        'title_edit' => 'Edit Attribute',
+        'title_manage' => 'Manage Attributes',
+
+        'attribute_name' => 'Attribute Name',
+        'attribute_values' => 'Attribute Values',
         'translations' => 'Translations',
         'translated_value' => 'Translated Value',
-    
+
         'add_value' => 'Add Value',
         'remove_value' => 'Remove',
-        'save_attribuit' => 'Save Attribuit',
-        'update_attribuit' => 'Update Attribuit',
-    
-        'success_create' => 'Attribuit created successfully!',
-        'success_update' => 'Attribuit updated successfully!',
-        'success_delete' => 'Attribuit deleted successfully!',
-        'delete_confirmation' => 'Are you sure you want to delete this attribuit?',
-    
+        'save_attribute' => 'Save Attribute',
+        'update_attribute' => 'Update Attribute',
+
+        'success_create' => 'Attribute created successfully!',
+        'success_update' => 'Attribute updated successfully!',
+        'success_delete' => 'Attribute deleted successfully!',
+        'delete_confirmation' => 'Are you sure you want to delete this attribute?',
+        'success' => 'Success',
+
         'id' => 'ID',
         'name' => 'Name',
         'values' => 'Values',
         'action' => 'Action',
-    
+
         'confirm_delete' => 'Confirm Delete',
         'delete' => 'Delete',
         'cancel' => 'Cancel',
     ],
-    
+
 
 ];
 

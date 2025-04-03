@@ -441,6 +441,38 @@ return [
         'action' => 'Aktion',
     ],
 
+    'attributes' => [
+        'title_create' => 'Attribut erstellen',
+        'title_edit' => 'Attribut bearbeiten',
+        'title_manage' => 'Attribute verwalten',
+
+        'attribute_name' => 'Attributname',
+        'attribute_values' => 'Attributwerte',
+        'translations' => 'Übersetzungen',
+        'translated_value' => 'Übersetzter Wert',
+
+        'add_value' => 'Wert hinzufügen',
+        'remove_value' => 'Entfernen',
+        'save_attribute' => 'Attribut speichern',
+        'update_attribute' => 'Attribut aktualisieren',
+
+        'success_create' => 'Attribut erfolgreich erstellt!',
+        'success_update' => 'Attribut erfolgreich aktualisiert!',
+        'success_delete' => 'Attribut erfolgreich gelöscht!',
+        'delete_confirmation' => 'Sind Sie sicher, dass Sie dieses Attribut löschen möchten?',
+        'success' => 'Erfolg',
+
+        'id' => 'ID',
+        'name' => 'Name',
+        'values' => 'Werte',
+        'action' => 'Aktion',
+
+        'confirm_delete' => 'Löschen bestätigen',
+        'delete' => 'Löschen',
+        'cancel' => 'Abbrechen',
+    ],
+
+
 
 ];
 

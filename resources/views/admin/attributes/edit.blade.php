@@ -6,7 +6,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header card-header-bg text-white">
-                <h6>Edit Attribute</h6>
+                <h6>{{ __('cms.attributes.title_edit') }}</h6>
             </div>
             <div class="card-body">
                 @if ($errors->any())
@@ -25,7 +25,7 @@
 
                     <!-- Attribute Name -->
                     <div class="mb-3">
-                        <label for="name" class="form-label">Attribute Name</label>
+                        <label for="name" class="form-label">{{ __('cms.attributes.attribute_name') }}</label>
                         <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
                                value="{{ old('name', $attribute->name) }}" required>
                         @error('name')
@@ -35,22 +35,22 @@
 
                     <!-- Dynamic Attribute Values -->
                     <div class="mb-3">
-                        <label class="form-label">Attribute Values</label>
+                        <label class="form-label">{{ __('cms.attributes.attribute_values') }}</label>
                         <div id="attribute-values-container">
                             @foreach ($attribute->values as $value)
                                 <div class="input-group mb-2">
                                     <input type="text" name="values[{{ $value->id }}]" class="form-control"
                                            value="{{ old('values.'.$value->id, $value->value) }}">
-                                    <button type="button" class="btn btn-danger remove-value">Remove</button>
+                                    <button type="button" class="btn btn-danger remove-value">{{ __('cms.attributes.remove_value') }}</button>
                                 </div>
                             @endforeach
                         </div>
-                        <button type="button" id="add-value" class="btn btn-primary mt-2">Add Value</button>
+                        <button type="button" id="add-value" class="btn btn-primary mt-2">{{ __('cms.attributes.add_value') }}</button>
                     </div>
 
                     <!-- Translations Section -->
                     <div class="mb-3">
-                        <label class="form-label">Translations</label>
+                        <label class="form-label">{{ __('cms.attributes.translations') }}</label>
                         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                             @foreach ($languages as $language)
                                 <li class="nav-item">
@@ -68,7 +68,7 @@
                             @foreach ($languages as $language)
                                 <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" 
                                      id="{{ $language->code }}">
-                                    <label class="form-label">Translated Value ({{ $language->name }})</label>
+                                    <label class="form-label">{{ __('cms.attributes.translated_value') }} ({{ $language->name }})</label>
                                     <input type="text" 
                                            name="translations[{{ $language->code }}]" 
                                            class="form-control"
@@ -79,7 +79,7 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success mt-3">Update Attribute</button>
+                    <button type="submit" class="btn btn-success mt-3">{{ __('cms.attributes.update_attribute') }}</button>
                 </form>
             </div>
         </div>

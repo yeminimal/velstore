@@ -430,6 +430,38 @@ return [
         'action' => 'İşlem',
     ],
 
+    'attributes' => [
+        'title_create' => 'Özellik Oluştur',
+        'title_edit' => 'Özellik Düzenle',
+        'title_manage' => 'Özellikleri Yönet',
+
+        'attribute_name' => 'Özellik Adı',
+        'attribute_values' => 'Özellik Değerleri',
+        'translations' => 'Çeviriler',
+        'translated_value' => 'Çevrilen Değer',
+
+        'add_value' => 'Değer Ekle',
+        'remove_value' => 'Kaldır',
+        'save_attribute' => 'Özelliği Kaydet',
+        'update_attribute' => 'Özelliği Güncelle',
+
+        'success_create' => 'Özellik başarıyla oluşturuldu!',
+        'success_update' => 'Özellik başarıyla güncellendi!',
+        'success_delete' => 'Özellik başarıyla silindi!',
+        'delete_confirmation' => 'Bu özelliği silmek istediğinizden emin misiniz?',
+        'success' => 'Başarılı',
+
+        'id' => 'ID',
+        'name' => 'Ad',
+        'values' => 'Değerler',
+        'action' => 'İşlem',
+
+        'confirm_delete' => 'Silme işlemini onayla',
+        'delete' => 'Sil',
+        'cancel' => 'İptal',
+    ],
+
+
 
 ];
 

@@ -12,16 +12,16 @@
 
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6 class="d-flex align-items-center mb-0 dt-heading">Manage Attributes</h6>
+        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.attributes.title_manage') }}</h6>
     </div>
     <div class="card-body">
         <table id="attributes-table" class="table table-bordered mt-4">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Values</th>
-                    <th>Action</th>
+                    <th>{{ __('cms.attributes.id') }}</th>
+                    <th>{{ __('cms.attributes.name') }}</th>
+                    <th>{{ __('cms.attributes.values') }}</th>
+                    <th>{{ __('cms.attributes.action') }}</th>
                 </tr>
             </thead>
         </table>
@@ -33,13 +33,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteAttributeModalLabel">Confirm Delete</h5>
+                <h5 class="modal-title" id="deleteAttributeModalLabel">{{ __('cms.attributes.confirm_delete') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Are you sure you want to delete this attribute?</div>
+            <div class="modal-body">{{ __('cms.attributes.delete_confirmation') }}</div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteAttribute">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.attributes.cancel') }}</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteAttribute">{{ __('cms.attributes.delete') }}</button>
             </div>
         </div>
     </div>
@@ -54,10 +54,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+@php
+    $datatableLang = __('cms.datatables'); // Get translation array
+@endphp
 @if (session('success'))
 <script>
-    toastr.success("{{ session('success') }}", "Success", {
+    toastr.success("{{ session('success') }}", "{{ __('cms.attributes.success') }}", {
         closeButton: true,
         progressBar: true,
         positionClass: "toast-top-right",
@@ -93,7 +95,8 @@
                     }
                 }
             ],
-            pageLength: 10
+            pageLength: 10,
+            language: {!! json_encode($datatableLang) !!}
         });
     });
 

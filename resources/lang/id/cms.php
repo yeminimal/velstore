@@ -429,5 +429,36 @@ return [
         'action' => 'Aksi',
     ],
 
+    'attributes' => [
+        'title_create' => 'Buat Atribut',
+        'title_edit' => 'Edit Atribut',
+        'title_manage' => 'Kelola Atribut',
+
+        'attribute_name' => 'Nama Atribut',
+        'attribute_values' => 'Nilai Atribut',
+        'translations' => 'Terjemahan',
+        'translated_value' => 'Nilai Terjemahan',
+
+        'add_value' => 'Tambah Nilai',
+        'remove_value' => 'Hapus',
+        'save_attribute' => 'Simpan Atribut',
+        'update_attribute' => 'Perbarui Atribut',
+
+        'success_create' => 'Atribut berhasil dibuat!',
+        'success_update' => 'Atribut berhasil diperbarui!',
+        'success_delete' => 'Atribut berhasil dihapus!',
+        'delete_confirmation' => 'Apakah Anda yakin ingin menghapus atribut ini?',
+        'success' => 'Sukses',
+
+        'id' => 'ID',
+        'name' => 'Nama',
+        'values' => 'Nilai',
+        'action' => 'Aksi',
+
+        'confirm_delete' => 'Konfirmasi Hapus',
+        'delete' => 'Hapus',
+        'cancel' => 'Batal',
+    ],
+
 
 ];

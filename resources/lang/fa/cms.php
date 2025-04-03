@@ -429,6 +429,38 @@ return [
         'action' => 'عملیات',
     ],
 
+    'attributes' => [
+        'title_create' => 'ایجاد ویژگی',
+        'title_edit' => 'ویرایش ویژگی',
+        'title_manage' => 'مدیریت ویژگی‌ها',
+
+        'attribute_name' => 'نام ویژگی',
+        'attribute_values' => 'مقادیر ویژگی',
+        'translations' => 'ترجمه‌ها',
+        'translated_value' => 'مقدار ترجمه شده',
+
+        'add_value' => 'افزودن مقدار',
+        'remove_value' => 'حذف',
+        'save_attribute' => 'ذخیره ویژگی',
+        'update_attribute' => 'بروزرسانی ویژگی',
+
+        'success_create' => 'ویژگی با موفقیت ایجاد شد!',
+        'success_update' => 'ویژگی با موفقیت بروزرسانی شد!',
+        'success_delete' => 'ویژگی با موفقیت حذف شد!',
+        'delete_confirmation' => 'آیا مطمئن هستید که می‌خواهید این ویژگی را حذف کنید؟',
+        'success' => 'موفقیت',
+
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'values' => 'مقادیر',
+        'action' => 'عملیات',
+
+        'confirm_delete' => 'تأیید حذف',
+        'delete' => 'حذف',
+        'cancel' => 'لغو',
+    ],
+
+
 ];
 
 

@@ -426,6 +426,38 @@ return [
         'action' => 'Actie',
     ],
 
+    'attributes' => [
+        'title_create' => 'Attribuut aanmaken',
+        'title_edit' => 'Attribuut bewerken',
+        'title_manage' => 'Attribuut beheren',
+
+        'attribute_name' => 'Attribuut naam',
+        'attribute_values' => 'Attribuut waarden',
+        'translations' => 'Vertalingen',
+        'translated_value' => 'Vertaald waarde',
+
+        'add_value' => 'Waarde toevoegen',
+        'remove_value' => 'Verwijderen',
+        'save_attribute' => 'Attribuut opslaan',
+        'update_attribute' => 'Attribuut bijwerken',
+
+        'success_create' => 'Attribuut succesvol aangemaakt!',
+        'success_update' => 'Attribuut succesvol bijgewerkt!',
+        'success_delete' => 'Attribuut succesvol verwijderd!',
+        'delete_confirmation' => 'Weet je zeker dat je dit attribuut wilt verwijderen?',
+        'success' => 'Succes',
+
+        'id' => 'ID',
+        'name' => 'Naam',
+        'values' => 'Waarden',
+        'action' => 'Actie',
+
+        'confirm_delete' => 'Verwijderen bevestigen',
+        'delete' => 'Verwijderen',
+        'cancel' => 'Annuleren',
+    ],
+
+
 
 
 ];

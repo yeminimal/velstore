@@ -427,6 +427,38 @@ return [
         'action' => 'Действие',
     ],
 
+    'attributes' => [
+        'title_create' => 'Создать атрибут',
+        'title_edit' => 'Редактировать атрибут',
+        'title_manage' => 'Управление атрибутами',
+
+        'attribute_name' => 'Название атрибута',
+        'attribute_values' => 'Значения атрибута',
+        'translations' => 'Переводы',
+        'translated_value' => 'Переведенное значение',
+
+        'add_value' => 'Добавить значение',
+        'remove_value' => 'Удалить',
+        'save_attribute' => 'Сохранить атрибут',
+        'update_attribute' => 'Обновить атрибут',
+
+        'success_create' => 'Атрибут успешно создан!',
+        'success_update' => 'Атрибут успешно обновлен!',
+        'success_delete' => 'Атрибут успешно удален!',
+        'delete_confirmation' => 'Вы уверены, что хотите удалить этот атрибут?',
+        'success' => 'Успех',
+
+        'id' => 'ID',
+        'name' => 'Название',
+        'values' => 'Значения',
+        'action' => 'Действие',
+
+        'confirm_delete' => 'Подтвердите удаление',
+        'delete' => 'Удалить',
+        'cancel' => 'Отмена',
+    ],
+
+
 ];
 
 

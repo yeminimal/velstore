@@ -428,6 +428,37 @@ return [
         'action' => 'Acción',
     ],
 
+    'attributes' => [
+        'title_create' => 'Crear Atributo',
+        'title_edit' => 'Editar Atributo',
+        'title_manage' => 'Gestionar Atributos',
+
+        'attribute_name' => 'Nombre del Atributo',
+        'attribute_values' => 'Valores del Atributo',
+        'translations' => 'Traducciones',
+        'translated_value' => 'Valor Traducido',
+
+        'add_value' => 'Agregar Valor',
+        'remove_value' => 'Eliminar',
+        'save_attribute' => 'Guardar Atributo',
+        'update_attribute' => 'Actualizar Atributo',
+
+        'success_create' => '¡Atributo creado con éxito!',
+        'success_update' => '¡Atributo actualizado con éxito!',
+        'success_delete' => '¡Atributo eliminado con éxito!',
+        'delete_confirmation' => '¿Estás seguro de que quieres eliminar este atributo?',
+        'success' => 'Éxito',
+
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'values' => 'Valores',
+        'action' => 'Acción',
+
+        'confirm_delete' => 'Confirmar Eliminación',
+        'delete' => 'Eliminar',
+        'cancel' => 'Cancelar',
+    ],
+
 
 ];
 

@@ -431,6 +431,38 @@ return [
         'action' => '操作',
     ],
 
+    'attributes' => [
+        'title_create' => '创建属性',
+        'title_edit' => '编辑属性',
+        'title_manage' => '管理属性',
+
+        'attribute_name' => '属性名称',
+        'attribute_values' => '属性值',
+        'translations' => '翻译',
+        'translated_value' => '翻译后的值',
+
+        'add_value' => '添加值',
+        'remove_value' => '移除',
+        'save_attribute' => '保存属性',
+        'update_attribute' => '更新属性',
+
+        'success_create' => '属性创建成功！',
+        'success_update' => '属性更新成功！',
+        'success_delete' => '属性删除成功！',
+        'delete_confirmation' => '您确定要删除此属性吗？',
+        'success' => '成功',
+
+        'id' => 'ID',
+        'name' => '名称',
+        'values' => '值',
+        'action' => '操作',
+
+        'confirm_delete' => '确认删除',
+        'delete' => '删除',
+        'cancel' => '取消',
+    ],
+
+
 ];
 
 

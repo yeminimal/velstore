@@ -430,6 +430,38 @@ return [
         'action' => 'الإجراء',
     ],
 
+    'attributes' => [
+        'title_create' => 'إنشاء خاصية',
+        'title_edit' => 'تعديل خاصية',
+        'title_manage' => 'إدارة الخصائص',
+
+        'attribute_name' => 'اسم الخاصية',
+        'attribute_values' => 'قيم الخاصية',
+        'translations' => 'الترجمات',
+        'translated_value' => 'القيمة المترجمة',
+
+        'add_value' => 'إضافة قيمة',
+        'remove_value' => 'إزالة',
+        'save_attribute' => 'حفظ الخاصية',
+        'update_attribute' => 'تحديث الخاصية',
+
+        'success_create' => 'تم إنشاء الخاصية بنجاح!',
+        'success_update' => 'تم تحديث الخاصية بنجاح!',
+        'success_delete' => 'تم حذف الخاصية بنجاح!',
+        'delete_confirmation' => 'هل أنت متأكد أنك تريد حذف هذه الخاصية؟',
+        'success' => 'نجاح',
+
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'values' => 'القيم',
+        'action' => 'الإجراء',
+
+        'confirm_delete' => 'تأكيد الحذف',
+        'delete' => 'حذف',
+        'cancel' => 'إلغاء',
+    ],
+
+
 ];
 
 

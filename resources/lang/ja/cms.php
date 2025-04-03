@@ -428,5 +428,37 @@ return [
         'action' => 'アクション',
     ],
 
+    'attributes' => [
+        'title_create' => '属性を作成',
+        'title_edit' => '属性を編集',
+        'title_manage' => '属性を管理',
+
+        'attribute_name' => '属性名',
+        'attribute_values' => '属性の値',
+        'translations' => '翻訳',
+        'translated_value' => '翻訳された値',
+
+        'add_value' => '値を追加',
+        'remove_value' => '削除',
+        'save_attribute' => '属性を保存',
+        'update_attribute' => '属性を更新',
+
+        'success_create' => '属性が正常に作成されました！',
+        'success_update' => '属性が正常に更新されました！',
+        'success_delete' => '属性が正常に削除されました！',
+        'delete_confirmation' => 'この属性を本当に削除しますか？',
+        'success' => '成功',
+
+        'id' => 'ID',
+        'name' => '名前',
+        'values' => '値',
+        'action' => 'アクション',
+
+        'confirm_delete' => '削除の確認',
+        'delete' => '削除',
+        'cancel' => 'キャンセル',
+    ],
+
+
 ];
 

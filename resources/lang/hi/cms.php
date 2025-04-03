@@ -425,5 +425,37 @@ return [
         'action' => 'क्रिया',
     ],
 
+    'attributes' => [
+        'title_create' => 'विशेषता बनाएँ',
+        'title_edit' => 'विशेषता संपादित करें',
+        'title_manage' => 'विशेषताएँ प्रबंधित करें',
+
+        'attribute_name' => 'विशेषता नाम',
+        'attribute_values' => 'विशेषता मान',
+        'translations' => 'अनुवाद',
+        'translated_value' => 'अनुवादित मान',
+
+        'add_value' => 'मान जोड़ें',
+        'remove_value' => 'हटाएँ',
+        'save_attribute' => 'विशेषता सहेजें',
+        'update_attribute' => 'विशेषता अपडेट करें',
+
+        'success_create' => 'विशेषता सफलतापूर्वक बनाई गई!',
+        'success_update' => 'विशेषता सफलतापूर्वक अपडेट की गई!',
+        'success_delete' => 'विशेषता सफलतापूर्वक हटाई गई!',
+        'delete_confirmation' => 'क्या आप वाकई इस विशेषता को हटाना चाहते हैं?',
+        'success' => 'सफलता',
+
+        'id' => 'आईडी',
+        'name' => 'नाम',
+        'values' => 'मान',
+        'action' => 'कार्रवाई',
+
+        'confirm_delete' => 'हटाने की पुष्टि करें',
+        'delete' => 'हटाएँ',
+        'cancel' => 'रद्द करें',
+    ],
+
+
 
 ];
