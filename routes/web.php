@@ -113,6 +113,7 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('customers', CustomerController::class);
+    Route::get('admin/customers/data', [CustomerController::class, 'getCustomerData'])->name('customers.data');
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
