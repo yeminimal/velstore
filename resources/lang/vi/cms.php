@@ -35,6 +35,11 @@ return [
         'add_new' => 'Thêm mới',
         'list' => 'Danh sách',
     ],
+    'attributes' => [
+    'title' => 'Thuộc tính',
+    'add_new' => 'Thêm mới',
+    'list' => 'Danh sách',
+    ],
     'customers' => [
         'title' => 'Khách hàng',
         'list' => 'Danh sách',

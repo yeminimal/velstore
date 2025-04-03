@@ -35,6 +35,11 @@ return [
         'add_new' => 'नया जोड़ें',
         'list' => 'सूची',
     ],
+    'attributes' => [
+    'title' => 'गुण',
+    'add_new' => 'नया जोड़ें',
+    'list' => 'सूची',
+    ],
     'customers' => [
         'title' => 'ग्राहक',
         'list' => 'सूची',

@@ -35,6 +35,11 @@ return [
         'add_new' => '新增',
         'list' => '列表',
     ],
+    'attributes' => [
+    'title' => '属性',
+    'add_new' => '添加新项',
+    'list' => '列表',
+    ],
     'customers' => [
         'title' => '客户',
         'list' => '列表',

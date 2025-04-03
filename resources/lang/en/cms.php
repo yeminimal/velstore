@@ -35,6 +35,11 @@ return [
             'add_new' => 'Add New',
             'list' => 'List',
         ],
+        'attributes' => [
+            'title' => 'Attributes',
+            'add_new' => 'Add New',
+            'list' => 'List',
+        ],
         'customers' => [
             'title' => 'Customers',
             'list' => 'List',

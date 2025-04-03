@@ -35,6 +35,11 @@ return [
         'add_new' => 'Neu hinzufügen',
         'list' => 'Liste',
     ],
+    'attributes' => [
+    'title' => 'Attribute',
+    'add_new' => 'Neu hinzufügen',
+    'list' => 'Liste',
+    ],
     'customers' => [
         'title' => 'Kunden',
         'list' => 'Liste',

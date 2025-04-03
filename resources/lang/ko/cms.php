@@ -35,6 +35,11 @@ return [
         'add_new' => '새로 추가',
         'list' => '목록',
     ],
+    'attributes' => [
+    'title' => '속성',
+    'add_new' => '새로 추가',
+    'list' => '목록',
+    ],
     'customers' => [
         'title' => '고객',
         'list' => '목록',

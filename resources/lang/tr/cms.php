@@ -35,6 +35,11 @@ return [
         'add_new' => 'Yeni Ekle',
         'list' => 'Liste',
     ],
+    'attributes' => [
+    'title' => 'Özellikler',
+    'add_new' => 'Yeni Ekle',
+    'list' => 'Liste',
+    ],
     'customers' => [
         'title' => 'Müşteriler',
         'list' => 'Liste',

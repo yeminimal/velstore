@@ -35,6 +35,11 @@ return [
         'add_new' => 'Tambah Baru',
         'list' => 'Daftar',
     ],
+    'attributes' => [
+    'title' => 'Atribut',
+    'add_new' => 'Tambah Baru',
+    'list' => 'Daftar',
+    ],
     'customers' => [
         'title' => 'Pelanggan',
         'list' => 'Daftar',

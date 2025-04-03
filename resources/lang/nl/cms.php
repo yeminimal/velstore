@@ -34,6 +34,11 @@ return [
         'add_new' => 'Nieuwe Toevoegen',
         'list' => 'Lijst',
     ],
+    'attributes' => [
+    'title' => 'Attributen',
+    'add_new' => 'Nieuw Toevoegen',
+    'list' => 'Lijst',
+    ],
     'customers' => [
         'title' => 'Klanten',
         'list' => 'Lijst',

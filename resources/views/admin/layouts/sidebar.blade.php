@@ -47,13 +47,13 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#attributeMenu" role="button" aria-expanded="false" aria-controls="attributeMenu">
-                    <span><i class="fas fa-cogs me-2"></i> <span>Attributes</span></span>
+                    <span><i class="fas fa-cogs me-2"></i> <span>{{ __('cms.sidebar.attributes.title') }}</span></span>
                     <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="collapse {{ Route::currentRouteName() == 'admin.attributes.create' || Route::currentRouteName() == 'admin.attributes.index' ? 'show' : '' }}" id="attributeMenu">
                     <ul class="nav flex-column ms-3">
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.attributes.create' ? 'active' : '' }}" href="{{ route('admin.attributes.create') }}">Add New</a></li>
-                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.attributes.index' ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">Attribute List</a></li>
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.attributes.create' ? 'active' : '' }}" href="{{ route('admin.attributes.create') }}">{{ __('cms.sidebar.attributes.add_new') }}</a></li>
+                        <li><a class="nav-link {{ Route::currentRouteName() == 'admin.attributes.index' ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">{{ __('cms.sidebar.attributes.list') }}</a></li>
                     </ul>
                 </div>
             </li>            

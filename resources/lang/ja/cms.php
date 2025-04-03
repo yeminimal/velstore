@@ -35,6 +35,11 @@ return [
         'add_new' => '新規追加',
         'list' => '一覧',
     ],
+    'attributes' => [
+    'title' => '属性',
+    'add_new' => '新規追加',
+    'list' => 'リスト',
+    ],
     'customers' => [
         'title' => '顧客',
         'list' => '一覧',

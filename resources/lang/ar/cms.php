@@ -35,6 +35,11 @@ return [
         'add_new' => 'إضافة جديد',
         'list' => 'القائمة',
     ],
+    'attributes' => [
+    'title' => 'السمات',
+    'add_new' => 'إضافة جديد',
+    'list' => 'قائمة',
+    ],
     'customers' => [
         'title' => 'العملاء',
         'list' => 'القائمة',
