@@ -71,6 +71,7 @@
     </section>
     {{-- About Section End --}}
 
+
     <section class="trending-products animate-on-scroll">
         <div class="container position-relative">
             <h1 class="text-start pb-5 sec-heading">Trending Products</h1>
@@ -79,19 +80,35 @@
                 @foreach ($products as $product)
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
+                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" 
+                                alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
                             <button class="wishlist-btn"><i class="fa-solid fa-heart"></i></button>
                         </div>
                         <div class="product-info mt-4">
                             <div class="top-info">
-                                <div class="reviews"><i class="fa-solid fa-star"></i> ({{ $product->reviews_count }} Reviews)</div>
+                                <div class="reviews">
+                                    <i class="fa-solid fa-star"></i> ({{ $product->reviews_count }} Reviews)
+                                </div>
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
-                                    <h3><a href="{{ route('product.show', $product->slug) }}" class="product-title">{{ $product->translation->name ?? 'Product Name Not Available' }}</a></h3>
-                                    <p class="price">{{ $currency->symbol }}{{ $product->converted_price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
+                                    <h3>
+                                        <a href="{{ route('product.show', $product->slug) }}" class="product-title">
+                                            {{ $product->translation->name ?? 'Product Name Not Available' }}
+                                        </a>
+                                    </h3>
+                                    <p class="price">
+                                        {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }} 
+                                        @if(optional($product->primaryVariant)->converted_discount_price)
+                                            <span class="discount"> 
+                                                {{ $currency->symbol }}{{ $product->primaryVariant->converted_discount_price }}
+                                            </span>
+                                        @endif
+                                    </p>
                                 </div>
-                                <button class="cart-btn" onclick="addToCart({{ $product->id }})"><i class="fa fa-shopping-bag"></i></button>
+                                <button class="cart-btn" onclick="addToCart({{ $product->id }})">
+                                    <i class="fa fa-shopping-bag"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -105,6 +122,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="sale-banner pt-5 pb-5 animate-on-scroll">
         <img src="assets/images/homesale-banner.png" alt="">
@@ -123,49 +141,24 @@
                         </div>
                         <div class="product-info mt-4">
                             <div class="top-info">
-                                <div class="reviews"><i class="fa-solid fa-star"></i> (11.6k Reviews)</div>
+                                <div class="reviews"><i class="fa-solid fa-star"></i>({{ $product->reviews_count }} Reviews)</div>
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
                                     <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
-                                    <p class="price">{{ $product->price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
+                                    <p class="price">
+                                        {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }} 
+                                        @if(optional($product->primaryVariant)->converted_discount_price)
+                                            <span class="discount"> 
+                                                {{ $currency->symbol }}{{ $product->primaryVariant->converted_discount_price }}
+                                            </span>
+                                        @endif    
+                                        <span class="sold-out">Sold Out 85%</span>
+                                    </p>
                                 </div>
-                                <button class="cart-btn" onclick="addToCart({{ $product->id }})"><i class="fa fa-shopping-bag"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>>
-                @endforeach
-            </div>
-
-            <div class="view-button text-center mt-4">
-                <a href="#" class="read-more pe-4 ps-4">VIEW ALL</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="products-home py-5 animate-on-scroll">
-        <div class="container">
-            <h1 class="sec-heading mb-5">Featured Products</h1>
-            <div class="row">
-                @foreach ($products as $product)
-                <div class="col-md-3">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
-                            <button class="wishlist-btn"><i class="fa-solid fa-heart"></i></button>
-                        </div>
-                        <div class="product-info mt-4">
-                            <div class="top-info">
-                                <div class="reviews"><i class="fa-solid fa-star"></i> (11.6k Reviews)</div>
-                            </div>
-                            <div class="bottom-info">
-                                <div class="left">
-                                    <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
-                                    <p class="price">{{ $product->price ?? 'N/A' }} <span class="sold-out">Sold Out 85%</span></p>
-                                </div>
-                                <button class="cart-btn"><img src="assets/images/carts-icon.png" alt=""></button>
+                                <button class="cart-btn" onclick="addToCart({{ $product->id }})">
+                                    <i class="fa fa-shopping-bag"></i>
+                                </button>
                             </div>
                         </div>
                     </div>

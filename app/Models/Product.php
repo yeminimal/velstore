@@ -89,4 +89,24 @@ class Product extends Model
     {
         return $this->discount_price ? convert_price($this->discount_price) : null;
     }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+
+    /*public function attributeValues()
+    {
+        return $this->belongsToMany(AttributeValue::class, 'product_attribute_values', 'product_id', 'attribute_value_id');
+    }*/
+    public function attributeValues()
+    {
+        return $this->belongsToMany(AttributeValue::class, 'product_attribute_values')
+                    ->with('attribute', 'translations');
+    }
+
+    public function primaryVariant()
+    {
+        return $this->hasOne(ProductVariant::class)->where('is_primary', true);
+    }
 }

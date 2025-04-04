@@ -20,15 +20,41 @@ class ProductVariant extends Model
         'dimensions',
     ];
 
-    // Relationship with the Product model
+    protected $appends = ['converted_price', 'converted_discount_price'];
+
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
 
-    // Relationship with the ProductVariantTranslation model
     public function translations()
     {
         return $this->hasMany(ProductVariantTranslation::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'variant_id');
+    }
+
+    public function getConvertedPriceAttribute()
+    {
+        return convert_price($this->price);
+    }
+
+    public function getConvertedDiscountPriceAttribute()
+    {
+        return $this->discount_price ? convert_price($this->discount_price) : null;
+    }
+
+    public function attributeValues()
+    {
+        return $this->belongsToMany(
+            \App\Models\AttributeValue::class,
+            'product_attribute_values',
+            'product_id',
+            'attribute_value_id'
+        )->withTimestamps();
+    }
+
 }
