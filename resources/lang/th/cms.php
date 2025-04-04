@@ -35,6 +35,11 @@ return [
         'add_new' => 'เพิ่มใหม่',
         'list' => 'รายการ',
     ],
+    'attributes' => [
+    'title' => 'คุณสมบัติ',
+    'add_new' => 'เพิ่มใหม่',
+    'list' => 'รายการ',
+    ],
     'customers' => [
         'title' => 'ลูกค้า',
         'list' => 'รายการ',
@@ -425,5 +430,62 @@ return [
         'delete' => 'ลบ',
         'action' => 'การกระทำ',
     ],
+
+    'attributes' => [
+        'title_create' => 'สร้างคุณลักษณะ',
+        'title_edit' => 'แก้ไขคุณลักษณะ',
+        'title_manage' => 'จัดการคุณลักษณะ',
+
+        'attribute_name' => 'ชื่อคุณลักษณะ',
+        'attribute_values' => 'ค่าของคุณลักษณะ',
+        'translations' => 'การแปลภาษา',
+        'translated_value' => 'ค่าที่แปล',
+
+        'add_value' => 'เพิ่มค่า',
+        'remove_value' => 'ลบ',
+        'save_attribute' => 'บันทึกคุณลักษณะ',
+        'update_attribute' => 'อัปเดตคุณลักษณะ',
+
+        'success_create' => 'สร้างคุณลักษณะสำเร็จ!',
+        'success_update' => 'อัปเดตคุณลักษณะสำเร็จ!',
+        'success_delete' => 'ลบคุณลักษณะสำเร็จ!',
+        'delete_confirmation' => 'คุณแน่ใจหรือไม่ว่าต้องการลบคุณลักษณะนี้?',
+        'success' => 'สำเร็จ',
+
+        'id' => 'ID',
+        'name' => 'ชื่อ',
+        'values' => 'ค่า',
+        'action' => 'การกระทำ',
+
+        'confirm_delete' => 'ยืนยันการลบ',
+        'delete' => 'ลบ',
+        'cancel' => 'ยกเลิก',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'การจัดการรีวิวสินค้า',
+
+        'review_id' => 'รหัสรีวิว',
+        'customer_name' => 'ชื่อลูกค้า',
+        'product_name' => 'ชื่อสินค้า',
+        'rating' => 'คะแนน',
+        'status' => 'สถานะ',
+        'actions' => 'การดำเนินการ',
+
+        'confirm_delete' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบรีวิวสินค้านี้?',
+        'delete' => 'ลบ',
+        'cancel' => 'ยกเลิก',
+
+        'success_create' => 'รีวิวสินค้าถูกสร้างสำเร็จ!',
+        'success_update' => 'รีวิวสินค้าถูกอัปเดตสำเร็จ!',
+        'success_delete' => 'รีวิวสินค้าถูกลบสำเร็จ!',
+        'error_delete' => 'เกิดข้อผิดพลาดในการลบรีวิวสินค้า! กรุณาลองใหม่อีกครั้ง.',
+
+        'success' => 'สำเร็จ',
+        'error' => 'ข้อผิดพลาด',
+    ],
+
+
 
 ];

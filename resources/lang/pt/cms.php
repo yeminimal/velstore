@@ -34,6 +34,11 @@ return [
         'add_new' => 'Adicionar Novo',
         'list' => 'Lista',
     ],
+    'attributes' => [
+    'title' => 'Atributos',
+    'add_new' => 'Adicionar Novo',
+    'list' => 'Lista',
+    ],
     'customers' => [
         'title' => 'Clientes',
         'list' => 'Lista',
@@ -426,6 +431,86 @@ return [
         'delete' => 'Excluir',
         'action' => 'Ação',
     ],
+
+    'attributes' => [
+        'title_create' => 'Criar Atributo',
+        'title_edit' => 'Editar Atributo',
+        'title_manage' => 'Gerenciar Atributos',
+
+        'attribute_name' => 'Nome do Atributo',
+        'attribute_values' => 'Valores do Atributo',
+        'translations' => 'Traduções',
+        'translated_value' => 'Valor Traduzido',
+
+        'add_value' => 'Adicionar Valor',
+        'remove_value' => 'Remover',
+        'save_attribute' => 'Salvar Atributo',
+        'update_attribute' => 'Atualizar Atributo',
+
+        'success_create' => 'Atributo criado com sucesso!',
+        'success_update' => 'Atributo atualizado com sucesso!',
+        'success_delete' => 'Atributo excluído com sucesso!',
+        'delete_confirmation' => 'Tem certeza de que deseja excluir este atributo?',
+        'success' => 'Sucesso',
+
+        'id' => 'ID',
+        'name' => 'Nome',
+        'values' => 'Valores',
+        'action' => 'Ação',
+
+        'confirm_delete' => 'Confirmar Exclusão',
+        'delete' => 'Excluir',
+        'cancel' => 'Cancelar',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Zarządzanie opiniami o produktach',
+
+        'review_id' => 'ID opinii',
+        'customer_name' => 'Nazwa klienta',
+        'product_name' => 'Nazwa produktu',
+        'rating' => 'Ocena',
+        'status' => 'Status',
+        'actions' => 'Akcje',
+
+        'confirm_delete' => 'Potwierdzenie usunięcia',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę opinię o produkcie?',
+        'delete' => 'Usuń',
+        'cancel' => 'Anuluj',
+
+        'success_create' => 'Opinia o produkcie została pomyślnie dodana!',
+        'success_update' => 'Opinia o produkcie została pomyślnie zaktualizowana!',
+        'success_delete' => 'Opinia o produkcie została pomyślnie usunięta!',
+        'error_delete' => 'Błąd podczas usuwania opinii o produkcie! Spróbuj ponownie.',
+
+        'success' => 'Sukces',
+        'error' => 'Błąd',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Gerenciar Avaliações de Produtos',
+
+        'review_id' => 'ID da Avaliação',
+        'customer_name' => 'Nome do Cliente',
+        'product_name' => 'Nome do Produto',
+        'rating' => 'Avaliação',
+        'status' => 'Status',
+        'actions' => 'Ações',
+
+        'confirm_delete' => 'Confirmar Exclusão',
+        'delete_message' => 'Tem certeza de que deseja excluir esta avaliação de produto?',
+        'delete' => 'Excluir',
+        'cancel' => 'Cancelar',
+
+        'success_create' => 'Avaliação de produto criada com sucesso!',
+        'success_update' => 'Avaliação de produto atualizada com sucesso!',
+        'success_delete' => 'Avaliação de produto excluída com sucesso!',
+        'error_delete' => 'Erro ao excluir a avaliação de produto! Tente novamente.',
+
+        'success' => 'Sucesso',
+        'error' => 'Erro',
+    ],
+
 
 
 ];

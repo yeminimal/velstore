@@ -34,6 +34,11 @@ return [
         'add_new' => 'Nieuwe Toevoegen',
         'list' => 'Lijst',
     ],
+    'attributes' => [
+    'title' => 'Attributen',
+    'add_new' => 'Nieuw Toevoegen',
+    'list' => 'Lijst',
+    ],
     'customers' => [
         'title' => 'Klanten',
         'list' => 'Lijst',
@@ -424,6 +429,61 @@ return [
         'trans_name' => 'Vertaalde Naam',
         'delete' => 'Verwijderen',
         'action' => 'Actie',
+    ],
+
+    'attributes' => [
+        'title_create' => 'Attribuut aanmaken',
+        'title_edit' => 'Attribuut bewerken',
+        'title_manage' => 'Attribuut beheren',
+
+        'attribute_name' => 'Attribuut naam',
+        'attribute_values' => 'Attribuut waarden',
+        'translations' => 'Vertalingen',
+        'translated_value' => 'Vertaald waarde',
+
+        'add_value' => 'Waarde toevoegen',
+        'remove_value' => 'Verwijderen',
+        'save_attribute' => 'Attribuut opslaan',
+        'update_attribute' => 'Attribuut bijwerken',
+
+        'success_create' => 'Attribuut succesvol aangemaakt!',
+        'success_update' => 'Attribuut succesvol bijgewerkt!',
+        'success_delete' => 'Attribuut succesvol verwijderd!',
+        'delete_confirmation' => 'Weet je zeker dat je dit attribuut wilt verwijderen?',
+        'success' => 'Succes',
+
+        'id' => 'ID',
+        'name' => 'Naam',
+        'values' => 'Waarden',
+        'action' => 'Actie',
+
+        'confirm_delete' => 'Verwijderen bevestigen',
+        'delete' => 'Verwijderen',
+        'cancel' => 'Annuleren',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Beheer van productrecensies',
+
+        'review_id' => 'Recensie-ID',
+        'customer_name' => 'Naam klant',
+        'product_name' => 'Productnaam',
+        'rating' => 'Beoordeling',
+        'status' => 'Status',
+        'actions' => 'Acties',
+
+        'confirm_delete' => 'Verwijderen bevestigen',
+        'delete_message' => 'Weet u zeker dat u deze productrecensie wilt verwijderen?',
+        'delete' => 'Verwijderen',
+        'cancel' => 'Annuleren',
+
+        'success_create' => 'Productrecensie succesvol aangemaakt!',
+        'success_update' => 'Productrecensie succesvol bijgewerkt!',
+        'success_delete' => 'Productrecensie succesvol verwijderd!',
+        'error_delete' => 'Fout bij het verwijderen van de productrecensie! Probeer het opnieuw.',
+
+        'success' => 'Succes',
+        'error' => 'Fout',
     ],
 
 

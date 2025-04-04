@@ -35,6 +35,11 @@ return [
         'add_new' => 'Thêm mới',
         'list' => 'Danh sách',
     ],
+    'attributes' => [
+    'title' => 'Thuộc tính',
+    'add_new' => 'Thêm mới',
+    'list' => 'Danh sách',
+    ],
     'customers' => [
         'title' => 'Khách hàng',
         'list' => 'Danh sách',
@@ -456,6 +461,62 @@ return [
         'delete' => 'Xóa',
         'action' => 'Hành động',
     ],
+
+    'attributes' => [
+        'title_create' => 'Tạo Thuộc Tính',
+        'title_edit' => 'Chỉnh Sửa Thuộc Tính',
+        'title_manage' => 'Quản Lý Thuộc Tính',
+
+        'attribute_name' => 'Tên Thuộc Tính',
+        'attribute_values' => 'Giá Trị Thuộc Tính',
+        'translations' => 'Dịch Thuật',
+        'translated_value' => 'Giá Trị Dịch Thuật',
+
+        'add_value' => 'Thêm Giá Trị',
+        'remove_value' => 'Xóa',
+        'save_attribute' => 'Lưu Thuộc Tính',
+        'update_attribute' => 'Cập Nhật Thuộc Tính',
+
+        'success_create' => 'Tạo Thuộc Tính Thành Công!',
+        'success_update' => 'Cập Nhật Thuộc Tính Thành Công!',
+        'success_delete' => 'Xóa Thuộc Tính Thành Công!',
+        'delete_confirmation' => 'Bạn có chắc chắn muốn xóa thuộc tính này?',
+        'success' => 'Thành Công',
+
+        'id' => 'ID',
+        'name' => 'Tên',
+        'values' => 'Giá Trị',
+        'action' => 'Hành Động',
+
+        'confirm_delete' => 'Xác Nhận Xóa',
+        'delete' => 'Xóa',
+        'cancel' => 'Hủy',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Quản lý đánh giá sản phẩm',
+
+        'review_id' => 'ID đánh giá',
+        'customer_name' => 'Tên khách hàng',
+        'product_name' => 'Tên sản phẩm',
+        'rating' => 'Đánh giá',
+        'status' => 'Trạng thái',
+        'actions' => 'Hành động',
+
+        'confirm_delete' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa đánh giá sản phẩm này?',
+        'delete' => 'Xóa',
+        'cancel' => 'Hủy',
+
+        'success_create' => 'Đánh giá sản phẩm đã được tạo thành công!',
+        'success_update' => 'Đánh giá sản phẩm đã được cập nhật thành công!',
+        'success_delete' => 'Đánh giá sản phẩm đã được xóa thành công!',
+        'error_delete' => 'Lỗi khi xóa đánh giá sản phẩm! Vui lòng thử lại.',
+
+        'success' => 'Thành công',
+        'error' => 'Lỗi',
+    ],
+
 
 
 ];

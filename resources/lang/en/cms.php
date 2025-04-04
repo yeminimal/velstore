@@ -35,6 +35,11 @@ return [
             'add_new' => 'Add New',
             'list' => 'List',
         ],
+        'attributes' => [
+            'title' => 'Attributes',
+            'add_new' => 'Add New',
+            'list' => 'List',
+        ],
         'customers' => [
             'title' => 'Customers',
             'list' => 'List',
@@ -429,6 +434,62 @@ return [
         'delete' => 'Delete',
         'action' => 'Action',
     ],
+    
+    'attributes' => [
+        'title_create' => 'Create Attribute',
+        'title_edit' => 'Edit Attribute',
+        'title_manage' => 'Manage Attributes',
+
+        'attribute_name' => 'Attribute Name',
+        'attribute_values' => 'Attribute Values',
+        'translations' => 'Translations',
+        'translated_value' => 'Translated Value',
+
+        'add_value' => 'Add Value',
+        'remove_value' => 'Remove',
+        'save_attribute' => 'Save Attribute',
+        'update_attribute' => 'Update Attribute',
+
+        'success_create' => 'Attribute created successfully!',
+        'success_update' => 'Attribute updated successfully!',
+        'success_delete' => 'Attribute deleted successfully!',
+        'delete_confirmation' => 'Are you sure you want to delete this attribute?',
+        'success' => 'Success',
+
+        'id' => 'ID',
+        'name' => 'Name',
+        'values' => 'Values',
+        'action' => 'Action',
+
+        'confirm_delete' => 'Confirm Delete',
+        'delete' => 'Delete',
+        'cancel' => 'Cancel',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Product Reviews',
+
+        'review_id' => 'Review ID',
+        'customer_name' => 'Customer Name',
+        'product_name' => 'Product Name',
+        'rating' => 'Rating',
+        'status' => 'Status',
+        'actions' => 'Actions',
+
+        'confirm_delete' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this product review?',
+        'delete' => 'Delete',
+        'cancel' => 'Cancel',
+
+        'success_create' => 'Product review created successfully!',
+        'success_update' => 'Product review updated successfully!',
+        'success_delete' => 'Product review deleted successfully!',
+        'error_delete' => 'Error deleting product review! Please try again.',
+
+        'success' => 'Success',
+        'error' => 'Error',
+    ],
+
 
 
 ];

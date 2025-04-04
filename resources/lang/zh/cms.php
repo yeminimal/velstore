@@ -35,6 +35,11 @@ return [
         'add_new' => '新增',
         'list' => '列表',
     ],
+    'attributes' => [
+    'title' => '属性',
+    'add_new' => '添加新项',
+    'list' => '列表',
+    ],
     'customers' => [
         'title' => '客户',
         'list' => '列表',
@@ -430,6 +435,62 @@ return [
         'delete' => '删除',
         'action' => '操作',
     ],
+
+    'attributes' => [
+        'title_create' => '创建属性',
+        'title_edit' => '编辑属性',
+        'title_manage' => '管理属性',
+
+        'attribute_name' => '属性名称',
+        'attribute_values' => '属性值',
+        'translations' => '翻译',
+        'translated_value' => '翻译后的值',
+
+        'add_value' => '添加值',
+        'remove_value' => '移除',
+        'save_attribute' => '保存属性',
+        'update_attribute' => '更新属性',
+
+        'success_create' => '属性创建成功！',
+        'success_update' => '属性更新成功！',
+        'success_delete' => '属性删除成功！',
+        'delete_confirmation' => '您确定要删除此属性吗？',
+        'success' => '成功',
+
+        'id' => 'ID',
+        'name' => '名称',
+        'values' => '值',
+        'action' => '操作',
+
+        'confirm_delete' => '确认删除',
+        'delete' => '删除',
+        'cancel' => '取消',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => '产品评论管理',
+
+        'review_id' => '评论ID',
+        'customer_name' => '客户名称',
+        'product_name' => '产品名称',
+        'rating' => '评分',
+        'status' => '状态',
+        'actions' => '操作',
+
+        'confirm_delete' => '确认删除',
+        'delete_message' => '您确定要删除此产品评论吗？',
+        'delete' => '删除',
+        'cancel' => '取消',
+
+        'success_create' => '产品评论创建成功！',
+        'success_update' => '产品评论更新成功！',
+        'success_delete' => '产品评论删除成功！',
+        'error_delete' => '删除产品评论时发生错误！请重试。',
+
+        'success' => '成功',
+        'error' => '错误',
+    ],
+
 
 ];
 

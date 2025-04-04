@@ -35,6 +35,11 @@ return [
         'add_new' => 'Neu hinzufügen',
         'list' => 'Liste',
     ],
+    'attributes' => [
+    'title' => 'Attribute',
+    'add_new' => 'Neu hinzufügen',
+    'list' => 'Liste',
+    ],
     'customers' => [
         'title' => 'Kunden',
         'list' => 'Liste',
@@ -440,6 +445,62 @@ return [
         'delete' => 'Löschen',
         'action' => 'Aktion',
     ],
+
+    'attributes' => [
+        'title_create' => 'Attribut erstellen',
+        'title_edit' => 'Attribut bearbeiten',
+        'title_manage' => 'Attribute verwalten',
+
+        'attribute_name' => 'Attributname',
+        'attribute_values' => 'Attributwerte',
+        'translations' => 'Übersetzungen',
+        'translated_value' => 'Übersetzter Wert',
+
+        'add_value' => 'Wert hinzufügen',
+        'remove_value' => 'Entfernen',
+        'save_attribute' => 'Attribut speichern',
+        'update_attribute' => 'Attribut aktualisieren',
+
+        'success_create' => 'Attribut erfolgreich erstellt!',
+        'success_update' => 'Attribut erfolgreich aktualisiert!',
+        'success_delete' => 'Attribut erfolgreich gelöscht!',
+        'delete_confirmation' => 'Sind Sie sicher, dass Sie dieses Attribut löschen möchten?',
+        'success' => 'Erfolg',
+
+        'id' => 'ID',
+        'name' => 'Name',
+        'values' => 'Werte',
+        'action' => 'Aktion',
+
+        'confirm_delete' => 'Löschen bestätigen',
+        'delete' => 'Löschen',
+        'cancel' => 'Abbrechen',
+    ],
+
+'product_reviews' => [
+    'title_manage' => 'Produktbewertungen',
+
+    'review_id' => 'Bewertungs-ID',
+    'customer_name' => 'Kundenname',
+    'product_name' => 'Produktname',
+    'rating' => 'Bewertung',
+    'status' => 'Status',
+    'actions' => 'Aktionen',
+
+    'confirm_delete' => 'Löschen bestätigen',
+    'delete_message' => 'Möchten Sie diese Produktbewertung wirklich löschen?',
+    'delete' => 'Löschen',
+    'cancel' => 'Abbrechen',
+
+    'success_create' => 'Produktbewertung erfolgreich erstellt!',
+    'success_update' => 'Produktbewertung erfolgreich aktualisiert!',
+    'success_delete' => 'Produktbewertung erfolgreich gelöscht!',
+    'error_delete' => 'Fehler beim Löschen der Produktbewertung! Bitte versuchen Sie es erneut.',
+
+    'success' => 'Erfolg',
+    'error' => 'Fehler',
+],
+
 
 
 ];

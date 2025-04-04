@@ -35,6 +35,11 @@ return [
         'add_new' => 'Yeni Ekle',
         'list' => 'Liste',
     ],
+    'attributes' => [
+    'title' => 'Özellikler',
+    'add_new' => 'Yeni Ekle',
+    'list' => 'Liste',
+    ],
     'customers' => [
         'title' => 'Müşteriler',
         'list' => 'Liste',
@@ -428,6 +433,61 @@ return [
         'trans_name' => 'Çevrilmiş Ad',
         'delete' => 'Sil',
         'action' => 'İşlem',
+    ],
+
+    'attributes' => [
+        'title_create' => 'Özellik Oluştur',
+        'title_edit' => 'Özellik Düzenle',
+        'title_manage' => 'Özellikleri Yönet',
+
+        'attribute_name' => 'Özellik Adı',
+        'attribute_values' => 'Özellik Değerleri',
+        'translations' => 'Çeviriler',
+        'translated_value' => 'Çevrilen Değer',
+
+        'add_value' => 'Değer Ekle',
+        'remove_value' => 'Kaldır',
+        'save_attribute' => 'Özelliği Kaydet',
+        'update_attribute' => 'Özelliği Güncelle',
+
+        'success_create' => 'Özellik başarıyla oluşturuldu!',
+        'success_update' => 'Özellik başarıyla güncellendi!',
+        'success_delete' => 'Özellik başarıyla silindi!',
+        'delete_confirmation' => 'Bu özelliği silmek istediğinizden emin misiniz?',
+        'success' => 'Başarılı',
+
+        'id' => 'ID',
+        'name' => 'Ad',
+        'values' => 'Değerler',
+        'action' => 'İşlem',
+
+        'confirm_delete' => 'Silme işlemini onayla',
+        'delete' => 'Sil',
+        'cancel' => 'İptal',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Ürün Yorumları Yönetimi',
+
+        'review_id' => 'Yorum ID',
+        'customer_name' => 'Müşteri Adı',
+        'product_name' => 'Ürün Adı',
+        'rating' => 'Puan',
+        'status' => 'Durum',
+        'actions' => 'İşlemler',
+
+        'confirm_delete' => 'Silme Onayı',
+        'delete_message' => 'Bu ürün yorumunu silmek istediğinizden emin misiniz?',
+        'delete' => 'Sil',
+        'cancel' => 'İptal',
+
+        'success_create' => 'Ürün yorumu başarıyla oluşturuldu!',
+        'success_update' => 'Ürün yorumu başarıyla güncellendi!',
+        'success_delete' => 'Ürün yorumu başarıyla silindi!',
+        'error_delete' => 'Ürün yorumu silinirken hata oluştu! Lütfen tekrar deneyin.',
+
+        'success' => 'Başarı',
+        'error' => 'Hata',
     ],
 
 

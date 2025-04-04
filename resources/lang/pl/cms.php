@@ -35,6 +35,11 @@ return [
         'add_new' => 'Dodaj nowy',
         'list' => 'Lista',
     ],
+    'attributes' => [
+    'title' => 'Atrybuty',
+    'add_new' => 'Dodaj Nowy',
+    'list' => 'Lista',
+    ],
     'customers' => [
         'title' => 'Klienci',
         'list' => 'Lista',
@@ -426,6 +431,63 @@ return [
         'delete' => 'Usuń',
         'action' => 'Akcja',
     ],
+
+    'attributes' => [
+        'title_create' => 'Utwórz atrybut',
+        'title_edit' => 'Edytuj atrybut',
+        'title_manage' => 'Zarządzaj atrybutami',
+
+        'attribute_name' => 'Nazwa atrybutu',
+        'attribute_values' => 'Wartości atrybutu',
+        'translations' => 'Tłumaczenia',
+        'translated_value' => 'Przetłumaczona wartość',
+
+        'add_value' => 'Dodaj wartość',
+        'remove_value' => 'Usuń',
+        'save_attribute' => 'Zapisz atrybut',
+        'update_attribute' => 'Aktualizuj atrybut',
+
+        'success_create' => 'Atrybut został pomyślnie utworzony!',
+        'success_update' => 'Atrybut został pomyślnie zaktualizowany!',
+        'success_delete' => 'Atrybut został pomyślnie usunięty!',
+        'delete_confirmation' => 'Czy na pewno chcesz usunąć ten atrybut?',
+        'success' => 'Sukces',
+
+        'id' => 'ID',
+        'name' => 'Nazwa',
+        'values' => 'Wartości',
+        'action' => 'Akcja',
+
+        'confirm_delete' => 'Potwierdź usunięcie',
+        'delete' => 'Usuń',
+        'cancel' => 'Anuluj',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Zarządzanie opiniami o produktach',
+
+        'review_id' => 'ID opinii',
+        'customer_name' => 'Nazwa klienta',
+        'product_name' => 'Nazwa produktu',
+        'rating' => 'Ocena',
+        'status' => 'Status',
+        'actions' => 'Akcje',
+
+        'confirm_delete' => 'Potwierdzenie usunięcia',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę opinię o produkcie?',
+        'delete' => 'Usuń',
+        'cancel' => 'Anuluj',
+
+        'success_create' => 'Opinia o produkcie została pomyślnie dodana!',
+        'success_update' => 'Opinia o produkcie została pomyślnie zaktualizowana!',
+        'success_delete' => 'Opinia o produkcie została pomyślnie usunięta!',
+        'error_delete' => 'Błąd podczas usuwania opinii o produkcie! Spróbuj ponownie.',
+
+        'success' => 'Sukces',
+        'error' => 'Błąd',
+    ],
+
+
 
 ];
 

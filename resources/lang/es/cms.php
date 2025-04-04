@@ -35,6 +35,11 @@ return [
         'add_new' => 'Agregar nuevo',
         'list' => 'Lista',
     ],
+    'attributes' => [
+    'title' => 'Atributos',
+    'add_new' => 'Agregar nuevo',
+    'list' => 'Lista',
+    ],
     'customers' => [
         'title' => 'Clientes',
         'list' => 'Lista',
@@ -426,6 +431,61 @@ return [
         'trans_name' => 'Nombre traducido',
         'delete' => 'Eliminar',
         'action' => 'Acción',
+    ],
+
+    'attributes' => [
+        'title_create' => 'Crear Atributo',
+        'title_edit' => 'Editar Atributo',
+        'title_manage' => 'Gestionar Atributos',
+
+        'attribute_name' => 'Nombre del Atributo',
+        'attribute_values' => 'Valores del Atributo',
+        'translations' => 'Traducciones',
+        'translated_value' => 'Valor Traducido',
+
+        'add_value' => 'Agregar Valor',
+        'remove_value' => 'Eliminar',
+        'save_attribute' => 'Guardar Atributo',
+        'update_attribute' => 'Actualizar Atributo',
+
+        'success_create' => '¡Atributo creado con éxito!',
+        'success_update' => '¡Atributo actualizado con éxito!',
+        'success_delete' => '¡Atributo eliminado con éxito!',
+        'delete_confirmation' => '¿Estás seguro de que quieres eliminar este atributo?',
+        'success' => 'Éxito',
+
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'values' => 'Valores',
+        'action' => 'Acción',
+
+        'confirm_delete' => 'Confirmar Eliminación',
+        'delete' => 'Eliminar',
+        'cancel' => 'Cancelar',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Reseñas de productos',
+
+        'review_id' => 'ID de reseña',
+        'customer_name' => 'Nombre del cliente',
+        'product_name' => 'Nombre del producto',
+        'rating' => 'Calificación',
+        'status' => 'Estado',
+        'actions' => 'Acciones',
+
+        'confirm_delete' => 'Confirmar eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar esta reseña de producto?',
+        'delete' => 'Eliminar',
+        'cancel' => 'Cancelar',
+
+        'success_create' => '¡Reseña de producto creada con éxito!',
+        'success_update' => '¡Reseña de producto actualizada con éxito!',
+        'success_delete' => '¡Reseña de producto eliminada con éxito!',
+        'error_delete' => '¡Error al eliminar la reseña de producto! Por favor, inténtelo de nuevo.',
+
+        'success' => 'Éxito',
+        'error' => 'Error',
     ],
 
 

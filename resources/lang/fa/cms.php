@@ -48,6 +48,11 @@ return [
         'title' => 'نظرات محصولات',
         'list' => 'لیست',
     ],
+    'attributes' => [
+    'title' => 'ویژگی‌ها',
+    'add_new' => 'افزودن جدید',
+    'list' => 'فهرست',
+    ],
     'banners' => [
         'title' => 'بنرها',
         'add_new' => 'افزودن جدید',
@@ -428,6 +433,62 @@ return [
         'delete' => 'حذف',
         'action' => 'عملیات',
     ],
+
+    'attributes' => [
+        'title_create' => 'ایجاد ویژگی',
+        'title_edit' => 'ویرایش ویژگی',
+        'title_manage' => 'مدیریت ویژگی‌ها',
+
+        'attribute_name' => 'نام ویژگی',
+        'attribute_values' => 'مقادیر ویژگی',
+        'translations' => 'ترجمه‌ها',
+        'translated_value' => 'مقدار ترجمه شده',
+
+        'add_value' => 'افزودن مقدار',
+        'remove_value' => 'حذف',
+        'save_attribute' => 'ذخیره ویژگی',
+        'update_attribute' => 'بروزرسانی ویژگی',
+
+        'success_create' => 'ویژگی با موفقیت ایجاد شد!',
+        'success_update' => 'ویژگی با موفقیت بروزرسانی شد!',
+        'success_delete' => 'ویژگی با موفقیت حذف شد!',
+        'delete_confirmation' => 'آیا مطمئن هستید که می‌خواهید این ویژگی را حذف کنید؟',
+        'success' => 'موفقیت',
+
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'values' => 'مقادیر',
+        'action' => 'عملیات',
+
+        'confirm_delete' => 'تأیید حذف',
+        'delete' => 'حذف',
+        'cancel' => 'لغو',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'مدیریت نظرات محصولات',
+
+        'review_id' => 'شناسه نظر',
+        'customer_name' => 'نام مشتری',
+        'product_name' => 'نام محصول',
+        'rating' => 'امتیاز',
+        'status' => 'وضعیت',
+        'actions' => 'عملیات',
+
+        'confirm_delete' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این نظر محصول را حذف کنید؟',
+        'delete' => 'حذف',
+        'cancel' => 'لغو',
+
+        'success_create' => 'نظر محصول با موفقیت ایجاد شد!',
+        'success_update' => 'نظر محصول با موفقیت به‌روزرسانی شد!',
+        'success_delete' => 'نظر محصول با موفقیت حذف شد!',
+        'error_delete' => 'خطا در حذف نظر محصول! لطفاً دوباره تلاش کنید.',
+
+        'success' => 'موفقیت',
+        'error' => 'خطا',
+    ],
+
 
 ];
 

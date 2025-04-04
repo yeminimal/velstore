@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\ProductReviewController;
+use App\Http\Controllers\Admin\AttributeController;
 
 
 /*
@@ -112,6 +113,7 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('customers', CustomerController::class);
+    Route::get('admin/customers/data', [CustomerController::class, 'getCustomerData'])->name('customers.data');
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
@@ -122,4 +124,19 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('sellers', SellerController::class);
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('attributes', AttributeController::class);
+    
+    // Attribute Value Management
+    Route::post('attributes/{attribute}/values', [AttributeController::class, 'storeValue'])->name('attributes.values.store');
+    Route::delete('values/{value}', [AttributeController::class, 'destroyValue'])->name('values.destroy');
+    Route::post('attributes/data', [AttributeController::class, 'getAttributesData'])->name('attributes.data');
+
+
+    // Attribute Value Translations Management
+    Route::post('values/{value}/translations', [AttributeController::class, 'storeTranslation'])->name('values.translations.store');
+    Route::delete('translations/{translation}', [AttributeController::class, 'destroyTranslation'])->name('translations.destroy');
 });

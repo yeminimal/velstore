@@ -35,6 +35,11 @@ return [
         'add_new' => 'Ajouter nouveau',
         'list' => 'Liste',
     ],
+    'attributes' => [
+    'title' => 'Attributs',
+    'add_new' => 'Ajouter nouveau',
+    'list' => 'Liste',
+    ],
     'customers' => [
         'title' => 'Clients',
         'list' => 'Liste',
@@ -425,6 +430,63 @@ return [
         'delete' => 'Supprimer',
         'action' => 'Action',
     ],
+
+    'attributes' => [
+        'title_create' => 'Créer un attribut',
+        'title_edit' => 'Modifier un attribut',
+        'title_manage' => 'Gérer les attributs',
+
+        'attribute_name' => 'Nom de l\'attribut',
+        'attribute_values' => 'Valeurs de l\'attribut',
+        'translations' => 'Traductions',
+        'translated_value' => 'Valeur traduite',
+
+        'add_value' => 'Ajouter une valeur',
+        'remove_value' => 'Supprimer',
+        'save_attribute' => 'Enregistrer l\'attribut',
+        'update_attribute' => 'Mettre à jour l\'attribut',
+
+        'success_create' => 'Attribut créé avec succès !',
+        'success_update' => 'Attribut mis à jour avec succès !',
+        'success_delete' => 'Attribut supprimé avec succès !',
+        'delete_confirmation' => 'Êtes-vous sûr de vouloir supprimer cet attribut ?',
+        'success' => 'Succès',
+
+        'id' => 'ID',
+        'name' => 'Nom',
+        'values' => 'Valeurs',
+        'action' => 'Action',
+
+        'confirm_delete' => 'Confirmer la suppression',
+        'delete' => 'Supprimer',
+        'cancel' => 'Annuler',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Gestion des avis sur les produits',
+
+        'review_id' => 'ID de l\'avis',
+        'customer_name' => 'Nom du client',
+        'product_name' => 'Nom du produit',
+        'rating' => 'Note',
+        'status' => 'Statut',
+        'actions' => 'Actions',
+
+        'confirm_delete' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer cet avis sur le produit ?',
+        'delete' => 'Supprimer',
+        'cancel' => 'Annuler',
+
+        'success_create' => 'L\'avis sur le produit a été créé avec succès !',
+        'success_update' => 'L\'avis sur le produit a été mis à jour avec succès !',
+        'success_delete' => 'L\'avis sur le produit a été supprimé avec succès !',
+        'error_delete' => 'Erreur lors de la suppression de l\'avis sur le produit ! Veuillez réessayer.',
+
+        'success' => 'Succès',
+        'error' => 'Erreur',
+    ],
+
+
 
 ];
 

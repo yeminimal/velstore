@@ -35,6 +35,11 @@ return [
         'add_new' => 'Tambah Baru',
         'list' => 'Daftar',
     ],
+    'attributes' => [
+    'title' => 'Atribut',
+    'add_new' => 'Tambah Baru',
+    'list' => 'Daftar',
+    ],
     'customers' => [
         'title' => 'Pelanggan',
         'list' => 'Daftar',
@@ -428,6 +433,62 @@ return [
         'delete' => 'Hapus',
         'action' => 'Aksi',
     ],
+
+    'attributes' => [
+        'title_create' => 'Buat Atribut',
+        'title_edit' => 'Edit Atribut',
+        'title_manage' => 'Kelola Atribut',
+
+        'attribute_name' => 'Nama Atribut',
+        'attribute_values' => 'Nilai Atribut',
+        'translations' => 'Terjemahan',
+        'translated_value' => 'Nilai Terjemahan',
+
+        'add_value' => 'Tambah Nilai',
+        'remove_value' => 'Hapus',
+        'save_attribute' => 'Simpan Atribut',
+        'update_attribute' => 'Perbarui Atribut',
+
+        'success_create' => 'Atribut berhasil dibuat!',
+        'success_update' => 'Atribut berhasil diperbarui!',
+        'success_delete' => 'Atribut berhasil dihapus!',
+        'delete_confirmation' => 'Apakah Anda yakin ingin menghapus atribut ini?',
+        'success' => 'Sukses',
+
+        'id' => 'ID',
+        'name' => 'Nama',
+        'values' => 'Nilai',
+        'action' => 'Aksi',
+
+        'confirm_delete' => 'Konfirmasi Hapus',
+        'delete' => 'Hapus',
+        'cancel' => 'Batal',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'Manajemen Ulasan Produk',
+
+        'review_id' => 'ID Ulasan',
+        'customer_name' => 'Nama Pelanggan',
+        'product_name' => 'Nama Produk',
+        'rating' => 'Peringkat',
+        'status' => 'Status',
+        'actions' => 'Tindakan',
+
+        'confirm_delete' => 'Konfirmasi Penghapusan',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus ulasan produk ini?',
+        'delete' => 'Hapus',
+        'cancel' => 'Batal',
+
+        'success_create' => 'Ulasan produk berhasil dibuat!',
+        'success_update' => 'Ulasan produk berhasil diperbarui!',
+        'success_delete' => 'Ulasan produk berhasil dihapus!',
+        'error_delete' => 'Terjadi kesalahan saat menghapus ulasan produk! Silakan coba lagi.',
+
+        'success' => 'Sukses',
+        'error' => 'Kesalahan',
+    ],
+
 
 
 ];

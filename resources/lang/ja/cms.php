@@ -35,6 +35,11 @@ return [
         'add_new' => '新規追加',
         'list' => '一覧',
     ],
+    'attributes' => [
+    'title' => '属性',
+    'add_new' => '新規追加',
+    'list' => 'リスト',
+    ],
     'customers' => [
         'title' => '顧客',
         'list' => '一覧',
@@ -427,6 +432,63 @@ return [
         'delete' => '削除',
         'action' => 'アクション',
     ],
+
+    'attributes' => [
+        'title_create' => '属性を作成',
+        'title_edit' => '属性を編集',
+        'title_manage' => '属性を管理',
+
+        'attribute_name' => '属性名',
+        'attribute_values' => '属性の値',
+        'translations' => '翻訳',
+        'translated_value' => '翻訳された値',
+
+        'add_value' => '値を追加',
+        'remove_value' => '削除',
+        'save_attribute' => '属性を保存',
+        'update_attribute' => '属性を更新',
+
+        'success_create' => '属性が正常に作成されました！',
+        'success_update' => '属性が正常に更新されました！',
+        'success_delete' => '属性が正常に削除されました！',
+        'delete_confirmation' => 'この属性を本当に削除しますか？',
+        'success' => '成功',
+
+        'id' => 'ID',
+        'name' => '名前',
+        'values' => '値',
+        'action' => 'アクション',
+
+        'confirm_delete' => '削除の確認',
+        'delete' => '削除',
+        'cancel' => 'キャンセル',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => '商品レビュー管理',
+
+        'review_id' => 'レビューID',
+        'customer_name' => '顧客名',
+        'product_name' => '商品名',
+        'rating' => '評価',
+        'status' => 'ステータス',
+        'actions' => '操作',
+
+        'confirm_delete' => '削除の確認',
+        'delete_message' => '本当にこの商品レビューを削除しますか？',
+        'delete' => '削除',
+        'cancel' => 'キャンセル',
+
+        'success_create' => '商品レビューが正常に作成されました！',
+        'success_update' => '商品レビューが正常に更新されました！',
+        'success_delete' => '商品レビューが正常に削除されました！',
+        'error_delete' => '商品レビューの削除中にエラーが発生しました！もう一度お試しください。',
+
+        'success' => '成功',
+        'error' => 'エラー',
+    ],
+
+
 
 ];
 

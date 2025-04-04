@@ -68,7 +68,11 @@ class ProductReviewController extends Controller
 
     public function destroy(ProductReview $review)
     {
-        $review->delete();
-        return redirect()->route('admin.reviews.index')->with('success', 'Review deleted successfully.');
+        try {
+            $review->delete();
+            return response()->json(['success' => true, 'message' => __('cms.product_reviews.success_delete')]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => __('cms.product_reviews.error_delete')]);
+        }
     }
 }

@@ -11,8 +11,9 @@ class Attribute extends Model
 
     protected $fillable = ['name'];
 
-    public function values()
+    // Define the correct relationship
+    public function values() // Change from attributeValues() to values()
     {
-        return $this->hasMany(AttributeValue::class);
+        return $this->hasMany(AttributeValue::class, 'attribute_id');
     }
 }

@@ -35,6 +35,11 @@ return [
         'add_new' => 'إضافة جديد',
         'list' => 'القائمة',
     ],
+    'attributes' => [
+    'title' => 'السمات',
+    'add_new' => 'إضافة جديد',
+    'list' => 'قائمة',
+    ],
     'customers' => [
         'title' => 'العملاء',
         'list' => 'القائمة',
@@ -429,6 +434,63 @@ return [
         'delete' => 'حذف',
         'action' => 'الإجراء',
     ],
+
+    'attributes' => [
+        'title_create' => 'إنشاء خاصية',
+        'title_edit' => 'تعديل خاصية',
+        'title_manage' => 'إدارة الخصائص',
+
+        'attribute_name' => 'اسم الخاصية',
+        'attribute_values' => 'قيم الخاصية',
+        'translations' => 'الترجمات',
+        'translated_value' => 'القيمة المترجمة',
+
+        'add_value' => 'إضافة قيمة',
+        'remove_value' => 'إزالة',
+        'save_attribute' => 'حفظ الخاصية',
+        'update_attribute' => 'تحديث الخاصية',
+
+        'success_create' => 'تم إنشاء الخاصية بنجاح!',
+        'success_update' => 'تم تحديث الخاصية بنجاح!',
+        'success_delete' => 'تم حذف الخاصية بنجاح!',
+        'delete_confirmation' => 'هل أنت متأكد أنك تريد حذف هذه الخاصية؟',
+        'success' => 'نجاح',
+
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'values' => 'القيم',
+        'action' => 'الإجراء',
+
+        'confirm_delete' => 'تأكيد الحذف',
+        'delete' => 'حذف',
+        'cancel' => 'إلغاء',
+    ],
+
+    'product_reviews' => [
+        'title_manage' => 'مراجعات المنتج',
+
+        'review_id' => 'معرف المراجعة',
+        'customer_name' => 'اسم العميل',
+        'product_name' => 'اسم المنتج',
+        'rating' => 'التقييم',
+        'status' => 'الحالة',
+        'actions' => 'الإجراءات',
+
+        'confirm_delete' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد أنك تريد حذف مراجعة المنتج هذه؟',
+        'delete' => 'حذف',
+        'cancel' => 'إلغاء',
+
+        'success_create' => 'تم إنشاء مراجعة المنتج بنجاح!',
+        'success_update' => 'تم تحديث مراجعة المنتج بنجاح!',
+        'success_delete' => 'تم حذف مراجعة المنتج بنجاح!',
+        'error_delete' => 'خطأ في حذف مراجعة المنتج! يرجى المحاولة مرة أخرى.',
+
+        'success' => 'نجاح',
+        'error' => 'خطأ',
+    ],
+
+
 
 ];
 
