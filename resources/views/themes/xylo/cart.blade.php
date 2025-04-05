@@ -59,18 +59,46 @@
                          alt="{{ $variant->name ?? $product->translation->name }}">
                     <p>{{ $variant->name ?? $product->translation->name }}</p>
                 </div>
-                <div>
-                @if (!empty($item['attributes']))
-                    @foreach ($item['attributes'] as $attributeValueId)
-                        @php
-                            $attributeValue = \App\Models\AttributeValue::with('attribute')->find($attributeValueId);
-                        @endphp
-                        @if ($attributeValue && $attributeValue->attribute)
-                            <p>{{ $attributeValue->attribute->name }}: {{ $attributeValue->translated_value }}</p>
-                        @endif
-                    @endforeach
-                @endif
+                
+                <div id="size-color-wrapper">
+                    @php
+                        $sizes = [];
+                        $colors = [];
+                    @endphp
 
+                    @if (!empty($item['attributes']))
+                        @foreach ($item['attributes'] as $attributeValueId)
+                            @php
+                                $attributeValue = \App\Models\AttributeValue::with('attribute')->find($attributeValueId);
+                            @endphp
+                            @if ($attributeValue && $attributeValue->attribute)
+                                @php
+                                    $attributeName = strtolower($attributeValue->attribute->name);
+                                    if ($attributeName === 'size') {
+                                        $sizes[] = $attributeValue->translated_value;
+                                    } elseif ($attributeName === 'color') {
+                                        $colors[] = $attributeValue->translated_value;
+                                    }
+                                @endphp
+                            @endif
+                        @endforeach
+                    @endif
+
+                    @if (!empty($sizes))
+                        <span id="product-size">
+                            @foreach ($sizes as $size)
+                                <span class="size-box">{{ $size }}</span>
+                            @endforeach
+                        </span>
+                    @endif
+
+                    @if (!empty($colors))
+                        <span id="product-color">
+                            @foreach ($colors as $color)
+                                <span class="color-circle {{ strtolower($color) }}" ></span>
+                            @endforeach
+                        </span>
+                    @endif
                 </div>
             </td>
             <td>
