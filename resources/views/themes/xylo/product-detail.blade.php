@@ -34,10 +34,10 @@
                 </div>
             </div>
             <div class="col-md-6 pro-textarea">
-                @if ($product->stock > 0)
-                    <div class="mb-2 mt-3 btnss">IN STOCK</div>
+                @if ($inStock)
+                    <div id="product-stock" class="mb-2 mt-3 btnss">IN STOCK</div>
                 @else
-                    <div class="mb-2 mt-3 btnss text-danger">OUT OF STOCK</div>
+                    <div id="product-stock" class="mb-2 mt-3 btnss text-danger">OUT OF STOCK</div>
                 @endif
                 @php
                     $averageRating = round($product->reviews_avg_rating, 1);
@@ -55,92 +55,41 @@
                     <span class="spanstar"> ({{ $product->reviews_count }} customer reviews)</span>
                 </div>
                 <h1 class="sec-heading">{{ $product->translation->name }}</h1>
-                <h2 id="variant-price" >{{ $currency->symbol }}{{ $product->primaryVariant->converted_price ?? 'N/A' }}</h2>
+                <h2><span id="currency-symbol">{{ $currency->symbol }}</span><span  id="variant-price" >{{ $product->primaryVariant->converted_price ?? 'N/A' }}</span></h2>
                 <p>{{ $product->translation->short_description }}</p>
-
-                <!--
                 <div id="product-attributes" class="product-options">
-                    <div class="color-options">
-                        <h3>Color</h3>
-                        <div class="color-wrapper">
-                            <input type="radio" name="color" id="color-black" checked>
-                            <label for="color-black" class="color-circle black"></label>
+    @php
+        $groupedAttributes = $product->attributeValues->groupBy(fn($item) => $item->attribute->id);
+    @endphp
 
-                            <input type="radio" name="color" id="color-blue">
-                            <label for="color-blue" class="color-circle blue"></label>
-
-                            <input type="radio" name="color" id="color-gray">
-                            <label for="color-gray" class="color-circle gray"></label>
-
-                            <input type="radio" name="color" id="color-pink">
-                            <label for="color-pink" class="color-circle pink"></label>
-
-                            <input type="radio" name="color" id="color-red">
-                            <label for="color-red" class="color-circle red"></label>
-
-                            <input type="radio" name="color" id="color-yellow">
-                            <label for="color-yellow" class="color-circle yellow"></label>
-
-                            <input type="radio" name="color" id="color-teal">
-                            <label for="color-teal" class="color-circle teal"></label>
-
-                            <input type="radio" name="color" id="color-white">
-                            <label for="color-white" class="color-circle white"></label>
-                        </div>
-                    </div>
-
-                    <div class="size-options mt-3">
-                        <h3>Size</h3>
-                        <div class="size-wrapper">
-                            <input type="radio" name="size" id="size-m">
-                            <label for="size-m" class="size-box">M</label>
-
-                            <input type="radio" name="size" id="size-l">
-                            <label for="size-l" class="size-box">L</label>
-
-                            <input type="radio" name="size" id="size-xl">
-                            <label for="size-xl" class="size-box">XL</label>
-
-                            <input type="radio" name="size" id="size-x">
-                            <label for="size-x" class="size-box">X</label>
-                        </div>
-                    </div>
-                </div>-->
-
-                <div id="product-attributes" class="product-options">
+    @foreach ($groupedAttributes as $attributeId => $values)
+        <div class="attribute-options mt-3">
+            <h3>{{ $values->first()->attribute->name }}</h3>
+            <div class="{{ strtolower($values->first()->attribute->name) }}-wrapper">
+                @foreach ($values as $index => $value)
                     @php
-                        $groupedAttributes = $product->attributeValues->groupBy(fn($item) => $item->attribute->name);
+                        $inputId = strtolower($values->first()->attribute->name) . '-' . $index;
                     @endphp
-
-                    @foreach ($groupedAttributes as $attributeName => $values)
-                        <div class="attribute-options mt-3">
-                            <h3>{{ $attributeName }}</h3>
-                            <div class="{{ strtolower($attributeName) }}-wrapper">
-                                @foreach ($values as $index => $value)
-                                    @php
-                                        $inputId = strtolower($attributeName) . '-' . $index;
-                                    @endphp
-                                    <input 
-                                        type="radio" 
-                                        name="{{ strtolower($attributeName) }}" 
-                                        id="{{ $inputId }}"
-                                        value="{{ $value->id }}"
-                                        {{ $index === 0 ? 'checked' : '' }}
-                                    >
-                                    <label 
-                                        for="{{ $inputId }}" 
-                                        class="{{ strtolower($attributeName) === 'color' ? 'color-circle ' . strtolower($value->translated_value) : 'size-box' }}"
-                                    >
-                                        @if(strtolower($attributeName)  == 'size')
-                                            {{ $value->translated_value }}
-                                        @endif
-                                    </label>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
+                    <input 
+                        type="radio" 
+                        name="attribute_{{ $attributeId }}" 
+                        id="{{ $inputId }}"
+                        value="{{ $value->id }}"
+                        {{ $index === 0 ? 'checked' : '' }}
+                    >
+                    <label 
+                        for="{{ $inputId }}" 
+                        class="{{ strtolower($values->first()->attribute->name) === 'color' ? 'color-circle ' . strtolower($value->translated_value) : 'size-box' }}"
+                    >
+                    @if(strtolower($values->first()->attribute->name) === 'size')
+                        {{ $value->translated_value }}
+                    @endif
+                    </label>
+                @endforeach
+            </div>
+        </div>
+    @endforeach
+</div>
                 <!-- Quantity Selector and Cart Button -->
                 <div class="cart-actions mt-3 d-flex">
                     <div class="quantity me-4">
@@ -148,7 +97,7 @@
                         <input type="text" id="qty" value="1">
                         <button onclick="changeQty(1)">+</button>
                     </div>
-                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }})">Add to Cart</button>
+                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }}, '{{ $product->product_type }}')">Add to Cart</button>
                 </div>
 
             </div>
@@ -160,124 +109,40 @@
 @endsection
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-@php
-    $variants = $product->variants->map(function ($variant) {
-        return [
-            'id' => $variant->id,
-            'price' => $variant->converted_price,
-            'discount_price' => $variant->converted_discount_price,
-            'attribute_value_ids' => $variant->attributeValues->pluck('id')->sort()->values()->all()
-        ];
-    });
-@endphp
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        const variants = @json($variants);
-        const currencySymbol = '{{ $currency->symbol }}';
-    </script>
-
-<script>
-    $(document).ready(function () {
-        function updateVariantPrice() {
-            let selectedAttributeIds = [];
-
-            // Collect selected radio inputs
-            $('#product-attributes input[type=radio]:checked').each(function () {
-                selectedAttributeIds.push(parseInt($(this).val()));
-            });
-
-            // Sort for consistent comparison
-            selectedAttributeIds.sort();
-
-            // Debug: check selected attributes
-            console.log('Selected Attribute IDs:', selectedAttributeIds);
-
-            // Find matching variant
-            let matchedVariant = variants.find(variant =>
-                JSON.stringify(variant.attribute_value_ids) === JSON.stringify(selectedAttributeIds)
-            );
-
-            // Update price
-            if (matchedVariant) {
-                if (matchedVariant.discount_price) {
-                    $('#variant-price').html(
-                        `${currencySymbol}${matchedVariant.discount_price} <del>${currencySymbol}${matchedVariant.price}</del>`
-                    );
-                } else {
-                    $('#variant-price').text(`${currencySymbol}${matchedVariant.price}`);
-                }
-            } else {
-                // Fallback to primary variant
-                $('#variant-price').text(`${currencySymbol}{{ $product->primaryVariant->converted_price }}`);
-            }
-        }
-
-        // Trigger on change
-        $('#product-attributes input[type=radio]').on('change', updateVariantPrice);
-
-        // Trigger on load
-        updateVariantPrice();
-    });
-</script>
-
-
-
-    <script>
-       /* $(document).ready(function () {
-            function updateVariantPrice() {
-                let selectedAttributeIds = [];
-
-                // Get all checked radio inputs inside #product-attributes
-                $('#product-attributes input[type=radio]:checked').each(function () {
-                    selectedAttributeIds.push(parseInt($(this).val()));
-                });
-
-                // Sort to match structure
-                selectedAttributeIds.sort();
-
-                // Find matching variant
-                let matchedVariant = variants.find(variant =>
-                    JSON.stringify(variant.attribute_value_ids) === JSON.stringify(selectedAttributeIds)
-                );
-
-                // Update price
-                if (matchedVariant) {
-                    if (matchedVariant.discount_price) {
-                        $('#variant-price').html(`${currencySymbol}${matchedVariant.discount_price} <del>${currencySymbol}${matchedVariant.price}</del>`);
-                    } else {
-                        $('#variant-price').text(`${currencySymbol}${matchedVariant.price}`);
+        $(document).ready(function() {
+            const productId = {{ $product->id }};
+            $('input[type="radio"]').on('change', function() {
+                var selectedVariantId = $(this).val();
+                $.ajax({
+                    url: '/get-variant-price',
+                    type: 'GET',
+                    data: { variant_id: selectedVariantId,
+                        product_id: productId
+                     },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#variant-price').text(response.price);
+                            $('#product-stock').text(response.stock);
+                            $('#currency-symbol').text(response.currency_symbol);
+                            
+                            if (response.is_out_of_stock) {
+                                $('#product-stock').addClass('text-danger');
+                            } else {
+                                $('#product-stock').removeClass('text-danger');
+                            }
+                        } else {
+                            console.log('Unable to fetch variant price.');
+                        }
+                    },
+                    error: function() {
+                        alert('Something went wrong. Please try again.');
                     }
-                } else {
-                    $('#variant-price').text('N/A');
-                }
-            }
-
-            // Trigger on change
-            $('#product-attributes input[type=radio]').on('change', updateVariantPrice); 
-
-            // Trigger on page load
-             updateVariantPrice(); 
-        });*/
+                });
+            });
+        });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script>
         function changeQty(amount) {
@@ -285,10 +150,12 @@
             let currentQty = parseInt(qtyInput.value);
             let newQty = currentQty + amount;
 
-            if (newQty < 1) newQty = 1; // Prevent going below 1
+            if (newQty < 1) newQty = 1;
             qtyInput.value = newQty;
         }
-        function addToCart(productId) {
+       /*
+
+        function addToCart(productId, variantId = null) {
             let quantity = document.getElementById("qty").value;
 
             fetch("{{ route('cart.add') }}", {
@@ -299,7 +166,8 @@
                 },
                 body: JSON.stringify({
                     product_id: productId,
-                    quantity: quantity
+                    quantity: quantity,
+                    variant_id: variantId // Pass variant_id if available
                 })
             })
             .then(response => response.json())
@@ -314,6 +182,47 @@
             })
             .catch(error => console.error("Error:", error));
         }
+
+*/
+
+function addToCart(productId, product_type) {
+    const quantity = parseInt(document.getElementById("qty").value);
+    const attributeInputs = document.querySelectorAll('#product-attributes input[type="radio"]:checked');
+
+    let selectedAttributes = [];
+    attributeInputs.forEach(input => {
+        selectedAttributes.push(parseInt(input.value));
+    });
+
+    fetch("{{ route('cart.add') }}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: JSON.stringify({
+            product_id: productId,
+            quantity: quantity,
+            attribute_value_ids: selectedAttributes,
+            product_type: product_type
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        toastr.success(data.message);
+        updateCartCount(data.cart);
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+
+    function getSelectedVariantId(attributes) {
+        // Custom logic to determine the variant ID based on selected attributes (size, color)
+        // This is a simplified version. In practice, you'd likely query the backend to determine the exact variant ID
+        // based on these attributes.
+        return null; // For now, assuming no variant is selected directly
+    }
+
 
         function updateCartCount(cart) {
             let totalCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);

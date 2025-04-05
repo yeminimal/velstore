@@ -47,7 +47,7 @@ class ProductVariant extends Model
         return $this->discount_price ? convert_price($this->discount_price) : null;
     }
 
-    public function attributeValues()
+    /*public function attributeValues()
     {
         return $this->belongsToMany(
             \App\Models\AttributeValue::class,
@@ -55,6 +55,11 @@ class ProductVariant extends Model
             'product_id',
             'attribute_value_id'
         )->withTimestamps();
+    }*/
+
+    public function attributeValues()
+    {
+        return $this->belongsToMany(AttributeValue::class, 'product_variant_attribute_values');
     }
 
 }

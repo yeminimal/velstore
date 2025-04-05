@@ -35,14 +35,33 @@ class ProductController extends Controller
           ->where('slug', $slug)
           ->firstOrFail();
 
-          $variants = $product->variants->map(function ($variant) {
-            return [
-                'id' => $variant->id,
-                'price' => $variant->converted_price,
-                'discount_price' => $variant->converted_discount_price,
-                'attribute_value_ids' => $variant->attributeValues->pluck('id')->sort()->values()->toArray(),
-            ];
-        })->values()->toArray();
-        return view('themes.xylo.product-detail', compact('product', 'variants'));
+        $primaryVariant = $product->variants()->where('is_primary', true)->first();
+        $inStock = $primaryVariant && $primaryVariant->stock > 0;
+        return view('themes.xylo.product-detail', compact('product', 'inStock'));
     }
+
+    public function getVariantPrice(Request $request)
+    {
+        $variantId = $request->input('variant_id');
+        $productId = $request->input('product_id');
+        $variant = ProductVariant::with('product')
+                    ->where('id', $variantId)
+                    ->where('product_id', $productId)
+                    ->first();
+
+        if ($variant) {
+            $stockStatus = $variant->stock > 0 ? 'IN STOCK' : 'OUT OF STOCK';
+            $isOutOfStock = $variant->stock <= 0;
+            return response()->json([
+                'success' => true,
+                'price' => number_format($variant->converted_price, 2),
+                'stock' => $stockStatus,
+                'is_out_of_stock' => $isOutOfStock,
+                'currency_symbol' => activeCurrency()->symbol,
+            ]);
+        } else {
+            return response()->json(['success' => false]);
+        }
+    }
+
 }
