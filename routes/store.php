@@ -27,3 +27,6 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 
 Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
 Route::get('/search', [SearchController::class, 'searchResults']);
+
+Route::get('/get-variant-price', [ProductController::class, 'getVariantPrice'])->name('product.variant.price');
+

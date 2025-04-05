@@ -29,11 +29,13 @@ class StoreController extends Controller
         ->get();
 
         $products = Product::where('status', 1)
-        ->with(['translation', 'thumbnail'])
+        ->with(['translation', 'thumbnail', 'primaryVariant', 'reviews'])
         ->withCount('reviews')
         ->orderBy('id', 'desc')
         ->take(10)
         ->get();
+
+        
 
         return view('themes.xylo.home', compact('banners', 'categories', 'products',));
     }

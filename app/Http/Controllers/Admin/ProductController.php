@@ -19,6 +19,7 @@ use App\Models\ProductVariant;
 use App\Models\ProductVariantTranslation;
 use App\Models\ProductAttributeValue;
 use App\Models\AttributeValue;
+use Yajra\DataTables\Facades\DataTables;
 
 
 class ProductController extends Controller

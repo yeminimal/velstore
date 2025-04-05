@@ -35,38 +35,87 @@
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
+                        
+                      
                         <tbody>
-                            @foreach ($cart as $productId => $item)
+    @foreach ($cart as $key => $item)
+        @php
+            $product = \App\Models\Product::with(['translations', 'thumbnail'])->find($item['product_id']);
+            $variant = isset($item['variant_id'])
+                        ? \App\Models\ProductVariant::with('images')->find($item['variant_id'])
+                        : \App\Models\ProductVariant::where('product_id', $item['product_id'])->where('is_primary', true)->first();
+
+            $subtotal = $item['price'] * $item['quantity'];
+        @endphp
+        <tr>
+            <td>
+                <button class="btn btn-link p-0 bnlink remove-from-cart" data-id="{{ $key }}">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </button>
+            </td>
+            <td>
+                <div class="pr-imghead">
+                    <img src="{{ Storage::url(optional($variant->images->first() ?? $product->thumbnail)->image_url ?? 'default.jpg') }}" 
+                         alt="{{ $variant->name ?? $product->translation->name }}">
+                    <p>{{ $variant->name ?? $product->translation->name }}</p>
+                </div>
+                
+                <div id="size-color-wrapper">
+                    @php
+                        $sizes = [];
+                        $colors = [];
+                    @endphp
+
+                    @if (!empty($item['attributes']))
+                        @foreach ($item['attributes'] as $attributeValueId)
+                            @php
+                                $attributeValue = \App\Models\AttributeValue::with('attribute')->find($attributeValueId);
+                            @endphp
+                            @if ($attributeValue && $attributeValue->attribute)
                                 @php
-                                    $product = \App\Models\Product::with(['translation', 'thumbnail'])->find($productId);
-                                    $subtotal = $product->converted_price * $item['quantity'];
+                                    $attributeName = strtolower($attributeValue->attribute->name);
+                                    if ($attributeName === 'size') {
+                                        $sizes[] = $attributeValue->translated_value;
+                                    } elseif ($attributeName === 'color') {
+                                        $colors[] = $attributeValue->translated_value;
+                                    }
                                 @endphp
-                                <tr>
-                                    <td>
-                                        <button class="btn btn-link p-0 bnlink remove-from-cart" data-id="{{ $productId }}">
-                                            <i class="fa-regular fa-circle-xmark"></i>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <div class="pr-imghead">
-                                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" 
-                                                alt="{{ $product->translation->name }}">
-                                            <p>{{ $product->translation->name }}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <strong>{{ $currency->symbol }}{{ $product->converted_price }}</strong>
-                                    </td>
-                                    <td>
-                                        <input type="number" value="{{ $item['quantity'] }}" min="1" data-id="{{ $productId }}">
-                                    </td>
-                                    <td>
-                                        <strong>{{ $currency->symbol }}{{ number_format($subtotal, 2) }}</strong>
-                                    </td>
-                                </tr>
-                                @php $total += $subtotal; @endphp
+                            @endif
+                        @endforeach
+                    @endif
+
+                    @if (!empty($sizes))
+                        <span id="product-size">
+                            @foreach ($sizes as $size)
+                                <span class="size-box">{{ $size }}</span>
                             @endforeach
-                        </tbody>
+                        </span>
+                    @endif
+
+                    @if (!empty($colors))
+                        <span id="product-color">
+                            @foreach ($colors as $color)
+                                <span class="color-circle {{ strtolower($color) }}" ></span>
+                            @endforeach
+                        </span>
+                    @endif
+                </div>
+            </td>
+            <td>
+                <strong>{{ $currency->symbol }}{{ number_format($item['price'], 2) }}</strong>
+            </td>
+            <td>
+                <input type="number" value="{{ $item['quantity'] }}" min="1" data-id="{{ $key }}">
+            </td>
+            <td>
+                <strong>{{ $currency->symbol }}{{ number_format($subtotal, 2) }}</strong>
+            </td>
+        </tr>
+        @php $total += $subtotal; @endphp
+    @endforeach
+</tbody>
+
+
                     </table>
                 </div>
                 @endif
