@@ -37,7 +37,14 @@ class ProductController extends Controller
 
         $primaryVariant = $product->variants()->where('is_primary', true)->first();
         $inStock = $primaryVariant && $primaryVariant->stock > 0;
-        return view('themes.xylo.product-detail', compact('product', 'inStock'));
+
+        $variantMap = $product->variants->map(function ($variant) {
+            return [
+                'id' => $variant->id,
+                'attributes' => $variant->attributeValues->pluck('id')->sort()->values()->toArray()
+            ];
+        });
+        return view('themes.xylo.product-detail', compact('product', 'inStock', 'variantMap'));
     }
 
     public function getVariantPrice(Request $request)

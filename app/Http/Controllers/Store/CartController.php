@@ -80,11 +80,9 @@ class CartController extends Controller
     {
         
         if (empty($attributeValueIds)) {
-            // Simple product — return primary variant
             return ProductVariant::where('product_id', $productId)->where('is_primary', true)->first();
         }
         
-        // Variable product — match variant with exact attribute values
         $variants = ProductVariant::with('attributeValues')
             ->where('product_id', $productId)
             ->get();
@@ -95,66 +93,8 @@ class CartController extends Controller
                 return $variant;
             }
         }
-        /*$variants = ProductVariant::with('attributeValues')
-        ->where('product_id', $productId)
-        ->whereHas('attributeValues', function ($query) use ($attributeValueIds) {
-            // Clarify which table's 'id' column we're referring to
-            $query->whereIn('attribute_values.id', $attributeValueIds);
-        })
-        ->get();
 
-        foreach ($variants as $variant) {
-            $variantAttrIds = $variant->attributeValues->pluck('id')->sort()->values();
-            if ($variantAttrIds->toArray() === collect($attributeValueIds)->sort()->values()->toArray()) {
-                return $variant;
-            }
-        }*/
-
-        /*
-        $variants = ProductVariant::with('attributeValues')
-            ->where('product_id', $productId)
-            ->whereHas('attributeValues', function ($query) use ($attributeValueIds) {
-                // Filter variants based on the provided attribute value IDs
-                $query->whereIn('attribute_values.id', $attributeValueIds);
-            })
-            ->get();
-
-        dd($variants->toArray());
-
-        foreach ($variants as $variant) {
-            // Collect sorted attribute value IDs for the current variant
-            $variantAttrIds = $variant->attributeValues->pluck('id')->sort()->values();
-            dd($attributeValueIds, $variantAttrIds);
-            // Ensure both are sorted arrays and compare them
-            if ($variantAttrIds->diff($attributeValueIds)->isEmpty()) {
-                return $variant;
-            }
-        }
-        */
-
-        // Retrieve variants based on the selected attribute values
-        /*$variants = ProductVariant::with('attributeValues')
-            ->where('product_id', $productId)
-            ->whereHas('attributeValues', function ($query) use ($attributeValueIds) {
-                // Match variants that have the selected attribute values
-                $query->whereIn('attribute_values.id', $attributeValueIds);
-            })
-            ->get();
-
-        // Step 2: Iterate through the variants and find an exact match
-        foreach ($variants as $variant) {
-            // Sort and compare the attribute values of the current variant
-            $variantAttrIds = $variant->attributeValues->pluck('id')->sort()->values();
-            $selectedAttrIds = collect($attributeValueIds)->sort()->values();
-
-            // If both sorted attribute IDs match, return the variant
-            if ($variantAttrIds->diff($selectedAttrIds)->isEmpty()) {
-                return $variant;  // Return the matching variant
-            }
-        }*/
-
-    
-        return null; // No exact match found
+        return null;
     }
     
 
