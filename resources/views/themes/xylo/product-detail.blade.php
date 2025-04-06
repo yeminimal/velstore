@@ -57,39 +57,47 @@
                 <h1 class="sec-heading">{{ $product->translation->name }}</h1>
                 <h2><span id="currency-symbol">{{ $currency->symbol }}</span><span  id="variant-price" >{{ $product->primaryVariant->converted_price ?? 'N/A' }}</span></h2>
                 <p>{{ $product->translation->short_description }}</p>
-                <div id="product-attributes" class="product-options">
-    @php
-        $groupedAttributes = $product->attributeValues->groupBy(fn($item) => $item->attribute->id);
-    @endphp
 
-    @foreach ($groupedAttributes as $attributeId => $values)
-        <div class="attribute-options mt-3">
-            <h3>{{ $values->first()->attribute->name }}</h3>
-            <div class="{{ strtolower($values->first()->attribute->name) }}-wrapper">
-                @foreach ($values as $index => $value)
+
+
+
+                <div id="product-attributes" class="product-options">
                     @php
-                        $inputId = strtolower($values->first()->attribute->name) . '-' . $index;
+                        $groupedAttributes = $product->attributeValues->groupBy(fn($item) => $item->attribute->id);
                     @endphp
-                    <input 
-                        type="radio" 
-                        name="attribute_{{ $attributeId }}" 
-                        id="{{ $inputId }}"
-                        value="{{ $value->id }}"
-                        {{ $index === 0 ? 'checked' : '' }}
-                    >
-                    <label 
-                        for="{{ $inputId }}" 
-                        class="{{ strtolower($values->first()->attribute->name) === 'color' ? 'color-circle ' . strtolower($value->translated_value) : 'size-box' }}"
-                    >
-                    @if(strtolower($values->first()->attribute->name) === 'size')
-                        {{ $value->translated_value }}
-                    @endif
-                    </label>
-                @endforeach
-            </div>
-        </div>
-    @endforeach
-</div>
+
+                    @foreach ($groupedAttributes as $attributeId => $values)
+                        <div class="attribute-options mt-3">
+                            <h3>{{ $values->first()->attribute->name }}</h3>
+                            <div class="{{ strtolower($values->first()->attribute->name) }}-wrapper">
+                                @foreach ($values as $index => $value)
+                                    @php
+                                        $inputId = strtolower($values->first()->attribute->name) . '-' . $index;
+                                    @endphp
+                                    <input 
+                                        type="radio" 
+                                        name="attribute_{{ $attributeId }}" 
+                                        id="{{ $inputId }}"
+                                        value="{{ $value->id }}"
+                                        {{ $index === 0 ? 'checked' : '' }}
+                                    >
+                                    <label 
+                                        for="{{ $inputId }}" 
+                                        class="{{ strtolower($values->first()->attribute->name) === 'color' ? 'color-circle ' . strtolower($value->translated_value) : 'size-box' }}"
+                                    >
+                                    @if(strtolower($values->first()->attribute->name) === 'size')
+                                        {{ $value->translated_value }}
+                                    @endif
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+
+
+
                 <!-- Quantity Selector and Cart Button -->
                 <div class="cart-actions mt-3 d-flex">
                     <div class="quantity me-4">
@@ -111,8 +119,11 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        $(document).ready(function() {
-            const productId = {{ $product->id }};
+        const variantMap = @json($variantMap);
+    </script>
+    <script>
+        /*$(document).ready(function() {
+            const productId = product->id }};
             $('input[type="radio"]').on('change', function() {
                 var selectedVariantId = $(this).val();
                 $.ajax({
@@ -141,7 +152,70 @@
                     }
                 });
             });
+        });*/
+
+        $(document).ready(function () {
+    const productId = {{ $product->id }};
+
+    function getSelectedAttributeValueIds() {
+        let selected = [];
+        $('#product-attributes input[type="radio"]:checked').each(function () {
+            selected.push(parseInt($(this).val()));
         });
+        return selected.sort((a, b) => a - b);
+    }
+
+    function findMatchingVariantId(selectedAttrIds) {
+        for (const variant of variantMap) {
+            const variantAttrIds = variant.attributes.slice().sort((a, b) => a - b);
+            if (JSON.stringify(variantAttrIds) === JSON.stringify(selectedAttrIds)) {
+                return variant.id;
+            }
+        }
+        return null;
+    }
+
+    $('input[type="radio"]').on('change', function () {
+        const selectedAttrIds = getSelectedAttributeValueIds();
+        const variantId = findMatchingVariantId(selectedAttrIds);
+
+        if (!variantId) {
+            alert('Selected variant not available.');
+            return;
+        }
+
+        $.ajax({
+            url: '/get-variant-price',
+            type: 'GET',
+            data: {
+                variant_id: variantId,
+                product_id: productId
+            },
+            success: function (response) {
+                if (response.success) {
+                    $('#variant-price').text(response.price);
+                    $('#product-stock').text(response.stock);
+                    $('#currency-symbol').text(response.currency_symbol);
+
+                    if (response.is_out_of_stock) {
+                        $('#product-stock').addClass('text-danger');
+                    } else {
+                        $('#product-stock').removeClass('text-danger');
+                    }
+                } else {
+                    console.log('Unable to fetch variant price.');
+                }
+            },
+            error: function () {
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    });
+
+    // Trigger change on load to set default variant
+    $('input[type="radio"]:checked').trigger('change');
+});
+
     </script>
 
     <script>
