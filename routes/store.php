@@ -13,6 +13,8 @@ use App\Http\Controllers\Store\Auth\LoginController;
 use App\Http\Controllers\Store\Auth\RegisterController;
 use App\Http\Controllers\Store\Auth\ForgotPasswordController;
 use App\Http\Controllers\Store\Auth\ResetPasswordController;
+use App\Http\Controllers\Store\WishlistController;
+
 
 Route::get('/', [StoreController::class, 'index'])->name('xylo.home');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
@@ -59,6 +61,7 @@ Route::prefix('customer')->name('customer.')->group(function () {
     Route::middleware('auth.customer')->group(function () { 
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/', fn() => view('themes.xylo.home'))->name('dashboard');
+        Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
     });
 });
 

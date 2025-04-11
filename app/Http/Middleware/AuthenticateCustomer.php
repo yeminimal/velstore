@@ -16,9 +16,19 @@ class AuthenticateCustomer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard('customer')->check()) {
+        /*if (!Auth::guard('customer')->check()) {
+            return redirect()->route('customer.login');
+        }*/
+
+        if (!auth('customer')->check()) {
+            // Detect if this is an AJAX/JS call expecting JSON
+            if ($request->expectsJson() || $request->isJson()) {
+                return response()->json(['message' => 'Unauthenticated.'], 401);
+            }
+    
             return redirect()->route('customer.login');
         }
+
         return $next($request);
     }
 }
