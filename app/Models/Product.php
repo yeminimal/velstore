@@ -109,4 +109,9 @@ class Product extends Model
     {
         return $this->hasOne(ProductVariant::class)->where('is_primary', true);
     }
+
+    public function wishlistedBy()
+    {
+        return $this->belongsToMany(Customer::class, 'wishlists');
+    }
 }

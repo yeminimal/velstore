@@ -7,8 +7,7 @@
                     <div class="numbers-top d-inline-flex">
                         <a href="tel:{{ getWebConfig('phone_number') }}" title="Call Now">
                             <span class="phone-icon"><i class="fas fa-phone"></i></span>
-                            @php /*<img src="assets/images/phone-top.png" alt="Phone Icon">*/ @endphp Call Now:
-                            <strong>{{ getWebConfig('phone_number') }}</strong>
+                            Call Now: <strong>{{ getWebConfig('phone_number') }}</strong>
                         </a>
                     </div>
                 </div>
@@ -76,7 +75,7 @@
                 <div class="input-group">
                     <form class="d-flex" id="search-form" action="{{ url('/search') }}" method="GET">
                         <div class="position-relative w-100">
-                            <input type="text" class="form-control" name="q" id="search-input" placeholder="Search your product..." autocomplete="off">
+                            <input type="text" class="form-control" name="q" id="search-input" placeholder="Search for a product" autocomplete="off">
                             <div id="search-suggestions" class="dropdown-menu show w-100 mt-1 d-none"></div>
                         </div>
                         <button type="submit"><i class="fa fa-search"></i></button>
@@ -84,10 +83,16 @@
                 </div>
             </div>
             <div class="maccount d-flex align-items-center gap-3">
-                <a href="#" class="wishlist"><i class="fa fa-heart"></i></a>
+                <a href="{{ auth()->check() ? route('customer.wishlist.index') : route('customer.login') }}" class="wishlist">
+                    <i class="fa fa-heart"></i>
+                </a>
+
                 <div class="account-dropdown position-relative">
                     <a href="#" class="account-toggle dropdown-toggle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user"></i> My Account
+                        <i class="fa fa-user"></i>
+                        @auth
+                            My Account
+                        @endauth
                     </a>
                     <ul class="account-menu dropdown-menu position-absolute bg-white shadow rounded p-2" aria-labelledby="accountDropdown" style="right: 0; left: auto; min-width: 200px;">
                         @guest
@@ -99,7 +104,7 @@
                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
-                            </form>
+                            </form> 
                         @endguest
                     </ul>
                 </div>

@@ -16,15 +16,15 @@ class SearchController extends Controller
         $locale = $request->input('locale', App::getLocale());
 
         $products = Product::whereHas('translations', function ($q) use ($query, $locale) {
-            $q->where('name', 'like', "%{$query}%")->where('locale', $locale);
+            $q->where('name', 'like', "%{$query}%")->where('language_code', $locale);
         })
         ->with([
             'translations' => function ($q) use ($locale) {
-                $q->where('locale', $locale)->select('product_id', 'name');
+                $q->where('language_code', $locale)->select('product_id', 'name');
             },
-            'thumbnail' // Load the thumbnail relationship
+            'thumbnail'
         ])
-        ->limit(5)
+        ->limit(10)
         ->get(['id', 'slug']);
 
         $products = $products->map(function ($product) {
@@ -33,7 +33,7 @@ class SearchController extends Controller
                 'slug' => $product->slug,
                 'thumbnail' => $product->thumbnail 
                     ? Storage::url($product->thumbnail->image_url) 
-                    : asset('default-thumbnail.jpg'), // Ensure it works with storage
+                    : asset('default-thumbnail.jpg'),
                 'name' => $product->translations->first()->name ?? null
             ];
         });

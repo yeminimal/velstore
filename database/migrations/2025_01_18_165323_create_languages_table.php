@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('translated_text')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
-        });
+        });     
     }
-
+    
     /**
      * Reverse the migrations.
      */
