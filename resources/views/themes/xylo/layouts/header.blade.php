@@ -7,8 +7,7 @@
                     <div class="numbers-top d-inline-flex">
                         <a href="tel:{{ getWebConfig('phone_number') }}" title="Call Now">
                             <span class="phone-icon"><i class="fas fa-phone"></i></span>
-                            @php /*<img src="assets/images/phone-top.png" alt="Phone Icon">*/ @endphp Call Now:
-                            <strong>{{ getWebConfig('phone_number') }}</strong>
+                            Call Now: <strong>{{ getWebConfig('phone_number') }}</strong>
                         </a>
                     </div>
                 </div>
@@ -76,7 +75,7 @@
                 <div class="input-group">
                     <form class="d-flex" id="search-form" action="{{ url('/search') }}" method="GET">
                         <div class="position-relative w-100">
-                            <input type="text" class="form-control" name="q" id="search-input" placeholder="Search your product..." autocomplete="off">
+                            <input type="text" class="form-control" name="q" id="search-input" placeholder="Search for a product" autocomplete="off">
                             <div id="search-suggestions" class="dropdown-menu show w-100 mt-1 d-none"></div>
                         </div>
                         <button type="submit"><i class="fa fa-search"></i></button>
