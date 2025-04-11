@@ -62,6 +62,7 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/', fn() => view('themes.xylo.home'))->name('dashboard');
         Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
+        Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     });
 });
 
