@@ -82,7 +82,9 @@
                         <div class="product-img">
                             <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" 
                                 alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
-                            <button class="wishlist-btn"><i class="fa-solid fa-heart"></i></button>
+                                <button class="wishlist-btn" data-product-id="{{ $product->id }}">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
                         </div>
                         <div class="product-info mt-4">
                             <div class="top-info">
@@ -258,5 +260,43 @@
             let totalCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
             document.getElementById("cart-count").textContent = totalCount;
         }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.wishlist-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-product-id');
+
+            fetch('/customer/wishlist', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({ product_id: productId })
+            })
+            .then(response => {
+                if (response.status === 401) {
+                    // Not logged in
+                    window.location.href = '/customer/login';
+                } else if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
+            .then(data => {
+                if (data?.message) {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
 </script>
 @endsection
