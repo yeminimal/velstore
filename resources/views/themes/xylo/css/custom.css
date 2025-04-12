@@ -131,3 +131,16 @@
 .green{
     background-color: green;
 }
+
+.header-top-bar{   
+    background: var(--cardbg);
+    color: var(--main-color);
+    --bs-text-opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-text-color{
+    color: var(--main-color);
+}
