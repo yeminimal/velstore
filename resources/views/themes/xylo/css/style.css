@@ -1,4 +1,13 @@
 :root {
+    --main-color: #000000;          /* Primary black for accents, text, buttons */
+    --main-color-light: #777777;    /* Lighter black/grey for hover states or secondary elements */
+    --dark-color: #111111;          /* Keeping as-is for deep black backgrounds */
+    --white: #ffffff;               /* Pure white for backgrounds */
+    --cardbg: #f5f5f5;              /* Soft light grey for cards, subtle contrast */
+    --grid-color-1: #333333;        /* Used for section dividers or headers */
+    --grid-color-2: #bbbbbb;        /* Light grey for borders or muted elements */
+}
+/*:root {
     --main-color: #805c98;
     --main-color-light: #da9acb;
     --dark-color: #111111;
@@ -6,7 +15,7 @@
     --cardbg: #ebebeb;
     --grid-color-1: #7e5a96;
     --grid-color-2: #df9ece;
-}
+}*/
 a,
 button {
     text-decoration: none;
