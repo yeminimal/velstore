@@ -10,15 +10,15 @@
         <!-- Row 2: Logo Left / Search Right -->
         <div class="row align-items-center">
             <div class="col-md-4 col-6">
-                <a href="#" class="navbar-brand">
+                <a href="{{ route('xylo.home') }}" class="navbar-brand">
                     <img src="assets/images/logo-main.png" alt="Logo" style="max-width: 180px;">
                 </a>
             </div>
             <div class="col-md-8 col-6 text-end">
                 <form class="d-flex justify-content-end" action="{{ url('/search') }}" method="GET">
-                    <div class="input-group w-50">
+                    <div class="input-group search-input-width">
                         <input type="text" class="form-control" id="search-input"  name="q" placeholder="Search for a product">
-                        <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn-outline-secondary search-style"><i class="fa fa-search"></i></button>
                         <div id="search-suggestions" class="dropdown-menu show w-100 mt-5 d-none"></div>
                     </div>
                 </form>
@@ -49,7 +49,7 @@
                 <!-- Language Selector -->
                 <form action="{{ route('change.store.language') }}" method="POST">
                     @csrf
-                    <select name="lang" class="form-select form-select-sm" onchange="this.form.submit()">
+                    <select name="lang" class="form-select form-select-sm font-style" onchange="this.form.submit()">
                         <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>EN</option>
                         <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>FR</option>
                         <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>ES</option>
@@ -60,22 +60,22 @@
                 <!-- Currency Selector -->
                 <form action="{{ route('change.currency') }}" method="POST">
                     @csrf
-                    <select name="currency_code" class="form-select form-select-sm" onchange="this.form.submit()">
+                    <select name="currency_code" class="form-select form-select-sm font-style" onchange="this.form.submit()">
                         @foreach (\App\Models\Currency::all() as $currency)
                             <option value="{{ $currency->code }}" {{ session('currency', 'USD') == $currency->code ? 'selected' : '' }}>
-                                {{ $currency->code }}
+                                {{ strtoupper($currency->code) }}
                             </option>
                         @endforeach
                     </select>
                 </form>
 
                 <!-- Wishlist Icon -->
-                <a href="{{ auth()->check() ? route('customer.wishlist.index') : route('customer.login') }}" class="text-dark">
+                <a href="{{ auth()->check() ? route('customer.wishlist.index') : route('customer.login') }}" class="text-dark homepage-icon">
                     <i class="fa-regular fa-heart"></i>
                 </a>
 
                 <!-- Account Icon -->
-                <a href="#" class="text-dark dropdown-toggle" data-bs-toggle="dropdown">
+                <a href="#" class="text-dark dropdown-toggle homepage-icon" data-bs-toggle="dropdown">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end p-2">
@@ -96,7 +96,7 @@
                 </ul>
 
                 <!-- Cart Icon -->
-                <a href="{{ route('cart.view') }}" class="text-dark position-relative">
+                <a href="{{ route('cart.view') }}" class="text-dark position-relative homepage-icon">
                     <i class="fa fa-shopping-bag"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ session('cart') ? collect(session('cart'))->sum('quantity') : 0 }}
