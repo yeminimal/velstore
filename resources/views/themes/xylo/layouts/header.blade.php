@@ -93,12 +93,12 @@
                             </form>
                         </li>
                     @endguest
-                </ul>
+                </ul>   
 
                 <!-- Cart Icon -->
                 <a href="{{ route('cart.view') }}" class="text-dark position-relative homepage-icon">
                     <i class="fa fa-shopping-bag"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{ session('cart') ? collect(session('cart'))->sum('quantity') : 0 }}
                     </span>
                 </a>
