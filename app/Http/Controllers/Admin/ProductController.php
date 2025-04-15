@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Shop;
+
+use App\Models\Vendor;
+use App\Models\ProductVariantAttributeValue;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Language;
@@ -20,6 +24,10 @@ use App\Models\ProductVariantTranslation;
 use App\Models\ProductAttributeValue;
 use App\Models\AttributeValue;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+
+
 
 
 class ProductController extends Controller
@@ -52,180 +60,149 @@ class ProductController extends Controller
 
     public function create()
     {
-        $locale = app()->getLocale();
+      /*  $locale = app()->getLocale();
 
         $categories = Category::with('translation')->get();    
 
         $brands = Brand::with('translation')->get();
         
         $attributes = Attribute::with('values.translations')->get();
-  
-        return view('admin.products.create', compact('categories', 'brands', 'attributes'));
+        $languages = Language::where('active', 1)->get();
+
+        $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
+        $colors = Attribute::where('name', 'Color')->first()?->values ?? collect();
+        return view('admin.products.create', compact('sizes', 'colors','categories', 'brands', 'attributes', 'languages'));*/
+
+
+        
+    // Fetch all languages
+    $languages = Language::where('active', 1)->get(); 
+    
+    // Fetch all categories
+    $categories = Category::all(); 
+    
+    // Fetch all brands
+    $brands = Brand::all(); 
+    
+    // Fetch all attributes with their values
+    $attributes = Attribute::with('values.translations')->get(); 
+    
+    // Fetch sizes and colors separately
+    $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
+    $colors = Attribute::where('name', 'Color')->first()?->values ?? collect();
+
+
+    // Optionally map size attributes if needed (example for size attribute ID mapping)
+    $attributeSizeMap = [
+        'small' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Small')->id ?? 0)->pluck('id')->first(),
+        'medium' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Medium')->id ?? 0)->pluck('id')->first(),
+        'large' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Large')->id ?? 0)->pluck('id')->first(),
+    ];
+
+    return view('admin.products.create', compact('languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap'));
 
     }
 
 
 
-    /*public function store(Request $request)
-    {         
-        $request->validate([
-            'category_id' => 'required|exists:categories,id',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-            'translations' => 'required|array', 
-            'translations.*.name' => 'required|string|max:255', 
-            'translations.*.description' => 'nullable|string', 
-        ]);
-
-        $translations = $request->input('translations');
-        $productData = $request->except('translations'); 
-
-        if (isset($translations['en']['name'])) {
-            $productData['name'] = $translations['en']['name'];  
-        }
-
-        if (!$request->has('currency')) {
-            return redirect()->back()->withErrors(['currency' => 'Currency is required.'])->withInput();
-        }
-    
-
-        $result = $this->productService->store($translations, $productData);
-
-        if ($result instanceof \Illuminate\Support\MessageBag) {
-            return redirect()->back()->withErrors($result)->withInput();
-        }
-
-        return redirect()->route('admin.products.index')->with('success', __('cms.products.created'));
-       
-    }*/
+  
 
     public function store(Request $request)
-    {
-        /*dd($request->input('attributes'));
-        dd($request->attributes);*/
+    {    
 
-        $request->validate([
-            'translations' => 'required|array',
-            'translations.*.name' => 'required|string',
-            'translations.*.description' => 'nullable|string',
-            'slug' => 'required|string|unique:products,slug',
-            'category_id' => 'required|exists:categories,id',
-            'brand_id' => 'nullable|exists:brands,id',
-            'product_type' => 'required|in:simple,variable',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'attributes' => 'nullable|array',
-            'attributes.*' => 'nullable|exists:attribute_values,id',
-
-            // Variant validations
-            'variants' => 'nullable|array',
-            'variants.*.translations.*.name' => 'required_with:variants|string',
-            'variants.*.price' => 'required_with:variants|numeric|min:0',
-            'variants.*.stock' => 'required_with:variants|integer|min:0',
-            'variants.*.SKU' => 'required_with:variants|string|unique:product_variants,SKU',
-            'variants.*.barcode' => 'nullable|string',
-            'variants.*.weight' => 'nullable|numeric',
-            'variants.*.dimensions' => 'nullable|string',
-            'variants.*.is_primary' => 'boolean',
-            'variants.*.images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        DB::beginTransaction();
-
-        try {
-            // Create Product
+        DB::transaction(function () use ($request) {
+            // 1. Create product
             $product = Product::create([
-                'vendor_id' => 1,
                 'shop_id' => 1,
-                'slug' => $request->slug,
+                'vendor_id' => 1,
+                'slug' => 'need to dynamuc' . rand(10,1000),
                 'category_id' => $request->category_id,
                 'brand_id' => $request->brand_id,
-                'product_type' => $request->product_type,
+                'product_type' => 'variable',
             ]);
-
-            // Store Translations
-            foreach ($request->translations as $language_code => $translation) {
-                ProductTranslation::create([
-                    'product_id' => $product->id,
-                    'language_code' => $language_code,
-                    'name' => $translation['name'],
-                    'description' => $translation['description'] ?? null,
+    
+            // 2. Store translations
+            foreach ($request->translations as $lang => $data) {
+                $product->translations()->create([
+                    'language_code' => $lang,
+                    'name' => $data['name'],
+                    'description' => $data['description'] ?? null,
+                    'short_description' => $data['short_description'] ?? null,
+                    'tags' => $data['tags'] ?? null,
                 ]);
             }
+    
 
-            // Store Product Images
-            if ($request->hasFile('images')) {
-                foreach ($request->file('images') as $image) {
-                    $imagePath = $image->store('product_images', 'public');
-                    ProductImage::create([
-                        'name' => $image->getClientOriginalName(),
-                        'image_url' => $imagePath,
-                        'type' => 'thumb', // Default type
+            foreach ($request->variants as $variantData) {
+                $variant = $product->variants()->create([
+                    'variant_slug' => Str::slug($variantData['name']) . '-' . uniqid(),
+                    'price' => $variantData['price'],
+                    'discount_price' => $variantData['discount_price'] ?? null,
+                    'stock' => $variantData['stock'],
+                    'SKU' => $variantData['SKU'],
+                    'barcode' => $variantData['barcode'] ?? null,
+                    'weight' => $variantData['weight'] ?? null,
+                    'dimensions' => $variantData['dimensions'] ?? null,
+                    'is_primary' => false,
+                ]);
+            
+                // Variant Translation (optional)
+                $variant->translations()->create([
+                    'language_code' => $variantData['language_code'] ?? 'en',
+                    'name' => $variantData['name'],
+                ]);
+            
+                // --- Handle size ---
+                if (!empty($variantData['size_id'])) {
+                    DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
+                        'product_variant_id' => $variant->id,
+                        'attribute_value_id' => $variantData['size_id'],
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+            
+                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
+                    ProductAttributeValue::firstOrCreate([
+                        'product_id' => $product->id,
+                        'attribute_value_id' => $variantData['size_id'],
+                    ]);
+                }
+            
+                // --- Handle color ---
+                if (!empty($variantData['color_id'])) {
+                    DB::table('product_variant_attribute_values')->insert([
+                        'product_id' => $product->id,
+                        'product_variant_id' => $variant->id,
+                        'attribute_value_id' => $variantData['color_id'],
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+            
+                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
+                    ProductAttributeValue::firstOrCreate([
+                        'product_id' => $product->id,
+                        'attribute_value_id' => $variantData['color_id'],
                     ]);
                 }
             }
+            
+        });
+    
+        return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
 
-            // Store Attributes
-            if ($request->has('attributes')) {
-                $attributes = $request->get('attributes');
-                foreach ($attributes as $attribute_id => $attribute_value_id) {
-                    if (!empty($attribute_value_id)) {
-                        ProductAttributeValue::create([
-                            'product_id' => $product->id,
-                            'attribute_value_id' => $attribute_value_id,
-                        ]);
-                    }
-                }
-            }
 
-            // Store Variants if Product is Variable
-            if ($request->product_type === 'variable' && isset($request->variants)) {
-                foreach ($request->variants as $variantData) {
-                    $variant = ProductVariant::create([
-                        'product_id' => $product->id,
-                        'variant_slug' => \Str::slug($variantData['translations']['en']['name'] ?? uniqid()),
-                        'price' => $variantData['price'],
-                        'discount_price' => $variantData['discount_price'] ?? null,
-                        'stock' => $variantData['stock'],
-                        'SKU' => $variantData['SKU'],
-                        'barcode' => $variantData['barcode'] ?? null,
-                        'weight' => $variantData['weight'] ?? null,
-                        'dimensions' => $variantData['dimensions'] ?? null,
-                        'is_primary' => isset($variantData['is_primary']) ? (bool)$variantData['is_primary'] : false,
-                    ]);
 
-                    // Store Variant Translations
-                    foreach ($variantData['translations'] as $language_code => $variantTranslation) {
-                        ProductVariantTranslation::create([
-                            'product_variant_id' => $variant->id,
-                            'language_code' => $language_code,
-                            'name' => $variantTranslation['name'],
-                        ]);
-                    }
-
-                    // Store Variant Images
-                    if (isset($variantData['images'])) {
-                        foreach ($variantData['images'] as $variantImage) {
-                            $imagePath = $variantImage->store('variant_images', 'public');
-                            ProductImage::create([
-                                'name' => $variantImage->getClientOriginalName(),
-                                'image_url' => $imagePath,
-                                'type' => 'thumb', // Default type
-                                'product_id' => $product->id,
-                                'variant_id' => $variant->id,
-                            ]);
-                        }
-                    }
-                }
-            }
-
-            DB::commit();
-            return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return back()->withErrors(['error' => 'Something went wrong: ' . $e->getMessage()]);
-        }
     }
+
+
+
+
+
+
+
+
+
 
 
 
