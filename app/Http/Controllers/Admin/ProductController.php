@@ -133,6 +133,7 @@ class ProductController extends Controller
             }
     
 
+            $variantIndex = 0;
             foreach ($request->variants as $variantData) {
                 $variant = $product->variants()->create([
                     'variant_slug' => Str::slug($variantData['name']) . '-' . uniqid(),
@@ -185,6 +186,8 @@ class ProductController extends Controller
                         'attribute_value_id' => $variantData['color_id'],
                     ]);
                 }
+
+                $variantIndex++;
             }
             
         });
