@@ -18,10 +18,8 @@
             <thead>
                 <tr>
                     <th>{{ __('cms.products.id') }}</th>
-                    <th>{{ __('cms.products.name') }}</th>
-                    <th>{{ __('cms.products.description') }}</th>
-                    <th>{{ __('cms.products.price') }}</th>
-                    <th>{{ __('cms.products.stock') }}</th>
+                    <th>{{ __('cms.products.name') }}</th>                    
+                    <th>{{ __('cms.products.price') }}</th>                   
                     <th>{{ __('cms.products.status') }}</th>
                     <th>{{ __('cms.products.action') }}</th>
                 </tr>
@@ -85,10 +83,8 @@
             },
             columns: [
                 { data: 'id', name: 'id' },
-                { data: 'name', name: 'name' },
-                { data: 'description', name: 'description' },
-                { data: 'price', name: 'price' },
-                { data: 'stock', name: 'stock' },
+                { data: 'name', name: 'name' },               
+                { data: 'price', name: 'price' },              
                 { 
                     data: 'status', 
                     name: 'status', 
