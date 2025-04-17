@@ -104,6 +104,16 @@
                                 <label>Barcode</label>
                                 <input type="text" name="variants[{{ $index }}][barcode]" class="form-control" value="{{ $variant->barcode }}" />
                             </div>
+
+                            <div class="col-md-4 mt-2">
+                                <label>Weight</label>
+                                <input type="text" name="variants[{{ $index }}][weight]" class="form-control" placeholder="e.g., 1.2 kg" value="{{ old('variants.' . $index . '.weight', $variant->weight) }}" />
+                            </div>
+                    
+                            <div class="col-md-4 mt-2">
+                                <label>Dimensions</label>
+                                <input type="text" name="variants[{{ $index }}][dimension]" class="form-control" placeholder="e.g., 10x20x5" value="{{ old('variants.' . $index . '.dimension', $variant->dimensions) }}" />
+                            </div>
                 
                             <div class="col-md-6 mt-2">
                                 <label>Size</label>

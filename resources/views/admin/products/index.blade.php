@@ -51,7 +51,7 @@
 @section('js')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 @php
-    $datatableLang = __('cms.datatables'); // Load the datatables translation
+    $datatableLang = __('cms.datatables'); 
 @endphp
 
 @if (session('success'))
@@ -91,8 +91,7 @@
                     orderable: false, 
                     searchable: false, 
                     render: function(data, type, row) {
-                        // Render the custom toggle switch with On/Off
-                        var isChecked = data ? 'checked' : ''; // If active, checked
+                        var isChecked = data ? 'checked' : ''; 
                         return `<label class="switch">
                                     <input type="checkbox" class="toggle-status" data-id="${row.id}" ${isChecked}>
                                     <span class="slider round"></span>
@@ -171,7 +170,6 @@
         });
     }
 
-    // Function to handle product status toggle
     function updateProductStatus(id, status) {
         $.ajax({
             url: '{{ route('admin.products.updateStatus') }}',
@@ -183,7 +181,7 @@
             },
             success: function(response) {
                 if (response.success) {
-                    $('#products-table').DataTable().ajax.reload(); // Reload table to reflect changes
+                    $('#products-table').DataTable().ajax.reload(); 
                     toastr.success(response.message, "Success", {
                         closeButton: true,
                         progressBar: true,

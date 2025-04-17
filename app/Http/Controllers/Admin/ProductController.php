@@ -156,8 +156,8 @@ class ProductController extends Controller
                     'SKU' => $variantData['SKU'],
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
-                    'dimensions' => $variantData['dimensions'] ?? null,
-                    'is_primary' => false,
+                    'dimensions' => $variantData['dimension'] ?? null,
+                    'is_primary'     => 1, 
                 ]);
             
                 // Variant Translation (optional)
@@ -331,8 +331,8 @@ class ProductController extends Controller
                     'SKU' => $variantData['SKU'],
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
-                    'dimensions' => $variantData['dimensions'] ?? null,
-                    'is_primary' => false,
+                    'dimensions' => $variantData['dimension'] ?? null,
+                    'is_primary'     => 1,
                 ]);
     
                 $variant->translations()->create([
