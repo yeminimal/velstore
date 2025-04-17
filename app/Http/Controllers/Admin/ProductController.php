@@ -61,9 +61,12 @@ class ProductController extends Controller
         
         $languages = Language::where('active', 1)->get(); 
         
-        $categories = Category::all(); 
+       // $categories = Category::all(); 
         
-        $brands = Brand::all(); 
+       // $brands = Brand::all(); 
+
+        $categories = Category::with('translations')->get();
+        $brands = Brand::with('translations')->get();
         
         $attributes = Attribute::with('values.translations')->get(); 
         
@@ -77,13 +80,12 @@ class ProductController extends Controller
         ];
 
         return view('admin.products.create', compact('languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap'));
-
     }
 
 
     public function store(Request $request)
     {    
-        $defaultLang = config('app.locale');
+          $defaultLang = config('app.locale');
 
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',

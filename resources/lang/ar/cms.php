@@ -158,53 +158,68 @@ return [
     ],
   ],
 
-    'products' =>  [
-        'image_preview' => 'معاينة الصورة',
-        'choose_file' => 'اختر ملف',
-        'no_file_chosen' => 'لم يتم اختيار أي ملف',
-        'image_type' => 'نوع الصورة',
-        'thumbnail' => 'صورة مصغرة',
-        'slide' => 'شريحة',
-        'heading' => 'المنتجات',
-        'id' => 'معرف',
-        'name' => 'اسم المنتج',
-        'description' => 'الوصف',
-        'category' => 'الفئة',
-        'price' => 'السعر',
-        'stock' => 'المخزون',
-        'currency' => 'العملة',
-        'sku' => 'رمز المنتج (وحدة حفظ المخزون)',
-        'weight' => 'الوزن',
-        'dimensions' => 'الأبعاد',
-        'image' => 'صورة المنتج',
-        'add_new' => 'إضافة منتج جديد',
-        'action' => 'العملية',
-        'edit' => 'تعديل',
-        'delete' => 'حذف',
-        'save' => 'حفظ المنتج',
-        'add_translation' => 'إضافة ترجمة',
+    'products' => [
+
+        // Titles
+        'title_create' => 'إنشاء منتج',
+        'title_edit' => 'تعديل المنتج',
+        'title_manage' => 'إدارة المنتجات',
+
+        // Form Fields
+        'product_name' => 'اسم المنتج',
         'product_type' => 'نوع المنتج',
-        'select_category' => 'اختر الفئة',
-        'select_product_type' => 'اختر نوع المنتج',
-        'physical' => 'مادي',
-        'digital' => 'رقمي',
-        'service' => 'خدمة',
-        'update_product' => 'تحديث المنتج',
-        'image_preview' => 'معاينة الصورة',
-        'image_select' => 'اختيار الصورة',
-        'cancel' => 'إلغاء',
-        'submit' => 'إرسال',
+        'description' => 'الوصف',
+        'translations' => 'الترجمات',
+        'translated_value' => 'القيمة المترجمة',
+        'category' => 'الفئة',
+        'brand' => 'العلامة التجارية',
+        'no_brand' => 'بدون علامة تجارية',
         'status' => 'الحالة',
-        'created' => 'تم إنشاء المنتج بنجاح!',
-        'updated' => 'تم تحديث المنتج بنجاح!',
-        'deleted' => 'تم حذف المنتج بنجاح!',
-        'status_updated' => 'تم تحديث حالة المنتج بنجاح!',
-        'massage_confirm' => 'تأكيد الحذف',
-        'confirm_delete' => 'هل أنت متأكد أنك تريد حذف هذا المنتج؟',
-        'massage_cancel' => 'إلغاء',
-        'massage_delete' => 'حذف',
+        'price' => 'السعر',
+        'discount_price' => 'سعر الخصم',
+        'sku' => 'رمز التخزين (SKU)',
+        'barcode' => 'الباركود',
+        'stock' => 'المخزون',
+        'weight' => 'الوزن',
+        'dimension' => 'الأبعاد',
+        'size' => 'الحجم',
+        'color' => 'اللون',
+        'images' => 'صور المنتج',
+        'is_primary' => 'المتغير الأساسي',
+        'variant_name_en' => 'اسم المتغير (إنجليزي)',
+        'attributes' => 'السمات',
+        'attribute_values' => 'قيم السمات',
+        'variants' => 'المتغيرات',
+
+        // Buttons
+        'add_variant' => 'إضافة متغير',
+        'remove_variant' => 'حذف المتغير',
+        'save_product' => 'حفظ المنتج',
+        'update_product' => 'تحديث المنتج',
+        'choose_images' => 'اختر الصور',
+        'choose_file' => 'اختر ملفاً',
+
+        // Messages
+        'success_create' => 'تم إنشاء المنتج بنجاح!',
+        'success_update' => 'تم تحديث المنتج بنجاح!',
+        'success_delete' => 'تم حذف المنتج بنجاح!',
+        'delete_confirmation' => 'هل أنت متأكد أنك تريد حذف هذا المنتج؟',
         'success' => 'نجاح',
-    ],  
+
+        // Table Columns
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'type' => 'النوع',
+        'price_column' => 'السعر',
+        'status_column' => 'الحالة',
+        'action' => 'الإجراء',
+
+        // Confirmation Dialog
+        'confirm_delete' => 'تأكيد الحذف',
+        'delete' => 'حذف',
+        'cancel' => 'إلغاء',
+    ],
+    
 
     
     'brands' => [
@@ -241,7 +256,7 @@ return [
 
     ],
 
-   
+
     'banners' => [
         'button_back' => 'رجوع',
         'description' => 'الوصف',

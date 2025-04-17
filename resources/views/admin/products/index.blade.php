@@ -11,7 +11,7 @@
 
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.products.heading') }}</h6>
+        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.products.title_manage') }}</h6>
     </div>
     <div class="card-body">
         <table id="products-table" class="table table-bordered mt-4">
