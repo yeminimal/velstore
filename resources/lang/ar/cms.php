@@ -200,6 +200,7 @@ return [
         'choose_file' => 'اختر ملفاً',
 
         // Messages
+        'status_updated' => 'تم تحديث حالة المنتج بنجاح!',
         'success_create' => 'تم إنشاء المنتج بنجاح!',
         'success_update' => 'تم تحديث المنتج بنجاح!',
         'success_delete' => 'تم حذف المنتج بنجاح!',

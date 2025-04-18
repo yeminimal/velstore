@@ -207,7 +207,7 @@ class ProductController extends Controller
             
         });
     
-        return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
+        return redirect()->route('admin.products.index')->with('success',  __('cms.products.success_create'));
     }
 
     
@@ -376,7 +376,7 @@ class ProductController extends Controller
             }
         });
     
-        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.products.index')->with('success',  __('cms.products.success_update'));
     }
 
 
@@ -389,7 +389,7 @@ class ProductController extends Controller
             if ($result) {
                 return response()->json([
                     'success' => true,
-                    'message' =>  __('cms.products.deleted'),
+                    'message' =>  __('cms.products.success_delete'),
                 ]);
             }
     

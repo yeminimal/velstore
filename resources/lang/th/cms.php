@@ -198,6 +198,7 @@ return [
         'choose_file' => 'เลือกไฟล์',
 
         // Messages
+        'status_updated' => 'สถานะของผลิตภัณฑ์ได้รับการอัปเดตเรียบร้อยแล้ว!',
         'success_create' => 'สร้างสินค้าสำเร็จ!',
         'success_update' => 'อัปเดตสินค้าสำเร็จ!',
         'success_delete' => 'ลบสินค้าสำเร็จ!',

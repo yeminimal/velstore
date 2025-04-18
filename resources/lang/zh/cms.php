@@ -198,6 +198,7 @@ return [
         'choose_file' => '选择文件',
 
         // Messages
+        'status_updated' => '产品状态已成功更新！',
         'success_create' => '产品创建成功！',
         'success_update' => '产品更新成功！',
         'success_delete' => '产品删除成功！',

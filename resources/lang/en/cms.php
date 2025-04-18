@@ -199,6 +199,7 @@ return [
 
 
         // Messages
+        'status_updated' => 'product status updated successfully!',
         'success_create' => 'Product created successfully!',
         'success_update' => 'Product updated successfully!',
         'success_delete' => 'Product deleted successfully!',

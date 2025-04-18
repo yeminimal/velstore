@@ -198,6 +198,7 @@ return [
         'choose_file' => 'Scegli File',
 
         // Messaggi
+        'status_updated' => 'Status produk berhasil diperbarui!',
         'success_create' => 'Prodotto creato con successo!',
         'success_update' => 'Prodotto aggiornato con successo!',
         'success_delete' => 'Prodotto eliminato con successo!',

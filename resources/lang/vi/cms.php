@@ -226,6 +226,7 @@ return [
         'choose_file' => 'Chọn Tệp',
 
         // Messages
+        'status_updated' => 'Trạng thái sản phẩm đã được cập nhật thành công!',
         'success_create' => 'Sản phẩm đã được tạo thành công!',
         'success_update' => 'Sản phẩm đã được cập nhật thành công!',
         'success_delete' => 'Sản phẩm đã được xóa thành công!',

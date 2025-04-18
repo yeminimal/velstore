@@ -198,6 +198,7 @@ return [
         'choose_file' => '파일 선택',
 
         // 메시지
+        'status_updated' => '상품 상태가 성공적으로 업데이트되었습니다!',
         'success_create' => '상품이 성공적으로 생성되었습니다!',
         'success_update' => '상품이 성공적으로 수정되었습니다!',
         'success_delete' => '상품이 성공적으로 삭제되었습니다!',

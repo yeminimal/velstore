@@ -198,6 +198,7 @@ return [
         'choose_file' => 'انتخاب فایل',
 
         // Messages
+        'status_updated' => 'وضعیت محصول با موفقیت به‌روزرسانی شد!',
         'success_create' => 'محصول با موفقیت ایجاد شد!',
         'success_update' => 'محصول با موفقیت بروزرسانی شد!',
         'success_delete' => 'محصول با موفقیت حذف شد!',

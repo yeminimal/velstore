@@ -199,6 +199,7 @@ return [
         'choose_file' => 'Datei auswählen',
 
         // Messages
+        'status_updated' => 'Produktstatus wurde erfolgreich aktualisiert!',
         'success_create' => 'Produkt erfolgreich erstellt!',
         'success_update' => 'Produkt erfolgreich aktualisiert!',
         'success_delete' => 'Produkt erfolgreich gelöscht!',

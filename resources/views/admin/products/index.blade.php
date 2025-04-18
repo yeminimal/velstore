@@ -33,13 +33,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteProductModalLabel">{{ __('cms.products.massage_confirm') }}</h5>
+                <h5 class="modal-title" id="deleteProductModalLabel">{{ __('cms.products.confirm_delete') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">{{ __('cms.products.confirm_delete') }}</div>
+            <div class="modal-body">{{ __('cms.products.delete_confirmation') }}</div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.products.massage_cancel') }}</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteProduct">{{ __('cms.products.massage_delete') }}</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.products.cancel') }}</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteProduct">{{ __('cms.products.delete') }}</button>
             </div>
         </div>
     </div>

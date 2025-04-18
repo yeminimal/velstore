@@ -198,6 +198,7 @@ return [
         'choose_file' => 'Choisir un fichier',
 
         // Messages
+        'status_updated' => 'Statut du produit mis à jour avec succès !',
         'success_create' => 'Produit créé avec succès !',
         'success_update' => 'Produit mis à jour avec succès !',
         'success_delete' => 'Produit supprimé avec succès !',

@@ -198,6 +198,7 @@ return [
         'choose_file' => 'ファイルを選択',
 
         // メッセージ
+        'status_updated' => '商品のステータスが正常に更新されました！',
         'success_create' => '商品が正常に作成されました！',
         'success_update' => '商品が正常に更新されました！',
         'success_delete' => '商品が正常に削除されました！',

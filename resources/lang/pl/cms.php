@@ -198,6 +198,7 @@ return [
         'choose_file' => 'Wybierz plik',
 
         // Komunikaty
+        'status_updated' => 'Status produktu został pomyślnie zaktualizowany!',
         'success_create' => 'Produkt został pomyślnie utworzony!',
         'success_update' => 'Produkt został pomyślnie zaktualizowany!',
         'success_delete' => 'Produkt został pomyślnie usunięty!',

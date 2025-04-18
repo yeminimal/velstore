@@ -198,6 +198,7 @@ return [
         'choose_file' => 'Dosya Seç',
 
         // Messages
+        'status_updated' => 'Ürün durumu başarıyla güncellendi!',
         'success_create' => 'Ürün başarıyla oluşturuldu!',
         'success_update' => 'Ürün başarıyla güncellendi!',
         'success_delete' => 'Ürün başarıyla silindi!',

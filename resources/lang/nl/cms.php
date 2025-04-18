@@ -197,6 +197,7 @@ return [
         'choose_file' => 'Bestand kiezen',
 
         // Meldingen
+        'status_updated' => 'Productstatus succesvol bijgewerkt!',
         'success_create' => 'Product succesvol aangemaakt!',
         'success_update' => 'Product succesvol bijgewerkt!',
         'success_delete' => 'Product succesvol verwijderd!',

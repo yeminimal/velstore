@@ -197,6 +197,7 @@ return [
         'choose_file' => 'Pilih File',
 
         // Pesan
+        'status_updated' => 'Status produk berhasil diperbarui!',
         'success_create' => 'Produk berhasil dibuat!',
         'success_update' => 'Produk berhasil diperbarui!',
         'success_delete' => 'Produk berhasil dihapus!',
