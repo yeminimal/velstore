@@ -1,3 +1,20 @@
+<p align="center">
+
+  <a href="https://packagist.org/packages/velstorelabs/velstore">
+    <img src="https://poser.pugx.org/velstorelabs/velstore/d/total" alt="Packagist Downloads">
+  </a>
+  <!-- Latest Stable Version Badge -->
+  <a href="https://github.com/velstorelabs/velstore/releases">
+    <img src="https://poser.pugx.org/velstorelabs/velstore/v/stable" alt="Latest Stable Version">
+  </a>
+
+  <!-- License Badge -->
+  <a href="https://github.com/velstorelabs/velstore/blob/master/LICENSE">
+    <img src="https://poser.pugx.org/velstorelabs/velstore/license" alt="License">
+  </a>
+</p>
+
+
 # Velstore
 
 Velstore is a powerful and open-source multi-vendor Laravel eCommerce solution. It is fully customizable and ready to use. It is the perfect choice for launching your online store with ease and efficiency.
