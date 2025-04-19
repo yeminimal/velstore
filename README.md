@@ -1,11 +1,15 @@
 <p align="center">
+  <img src="https://i.ibb.co/dHx2ZR3/velstore.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution">
+</p>
+
+<p align="center">
 
   <a href="https://packagist.org/packages/velstorelabs/velstore">
-    <img src="https://poser.pugx.org/velstorelabs/velstore/d/total" alt="Packagist Downloads">
+    <img src="https://poser.pugx.org/velstorelabs/velstore/d/total" alt="Velstore Packagist Downloads">
   </a>
   <!-- Latest Stable Version Badge -->
   <a href="https://github.com/velstorelabs/velstore/releases">
-    <img src="https://poser.pugx.org/velstorelabs/velstore/v/stable" alt="Latest Stable Version">
+    <img src="https://poser.pugx.org/velstorelabs/velstore/v/stable" alt="Velstore Latest Stable Version">
   </a>
 
   <!-- License Badge -->
