@@ -13,7 +13,7 @@ class AuthController extends Controller
 
     public function showLoginForm()
     {
-        return view('admin.vendor-views.auth.login');
+        return view('vendor.auth.login');
     }
 
     public function login(Request $request)
