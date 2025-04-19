@@ -22,6 +22,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.vendor-views.dashboard'); // ✅ Ensure correct vendor view
+        return view('vendor.dashboard'); // ✅ Ensure correct vendor view
     }
 }
