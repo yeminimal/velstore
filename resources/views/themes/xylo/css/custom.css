@@ -214,3 +214,22 @@ header form  input[type="submit"]{
     border-top-right-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
 }
+
+.price {
+    font-weight: 500;
+}
+
+.price .original {
+    color: var(--main-color);
+}
+
+.price .original.has-discount {
+    color: var(--main-color-light);
+    text-decoration: line-through;
+}
+
+.price .discount {
+    color: red;
+    margin-left: 8px;
+}
+

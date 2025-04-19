@@ -50,6 +50,7 @@
     </section>
 
     {{-- About Section Start --}}
+    @php /*
     <section class="fashion-section animate-on-scroll">
         <div class="container">
             <div class="fashion-content">
@@ -69,6 +70,8 @@
             </div>
         </div>
     </section>
+    */
+    @endphp
     {{-- About Section End --}}
 
 
@@ -100,7 +103,10 @@
                                         </a>
                                     </h3>
                                     <p class="price">
-                                        {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }} 
+                                        <span class="original {{ optional($product->primaryVariant)->converted_discount_price ? 'has-discount' : '' }}">
+                                            {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }}
+                                        </span>
+
                                         @if(optional($product->primaryVariant)->converted_discount_price)
                                             <span class="discount"> 
                                                 {{ $currency->symbol }}{{ $product->primaryVariant->converted_discount_price }}
