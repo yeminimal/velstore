@@ -1,4 +1,3 @@
-
 @extends('themes.xylo.layouts.master')
 @section('css')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> 
@@ -22,9 +21,15 @@
         <div class="row">
             <div class="col-md-6 position-relative">
                 <div class="slider-for">
-                    <div><img src="assets/images/prodict-detailimg.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailimg.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailimg.png" alt=""></div>
+                    @if (!empty($product->images) && count($product->images))
+                        @foreach ($product->images as $image)
+                            <div>
+                                <img src="{{ Storage::url($image['image_url']) }}" alt="{{ $image['name'] }}">
+                            </div>
+                        @endforeach
+                    @else
+                        <p>No images found.</p>
+                    @endif
                 </div>
 
                 <div class="slider-nav imgnav">
