@@ -16,6 +16,8 @@ class ProductVariant extends Model
         'discount_price',
         'stock',
         'SKU',
+        'barcode',
+        'is_primary',
         'weight',
         'dimensions',
     ];
