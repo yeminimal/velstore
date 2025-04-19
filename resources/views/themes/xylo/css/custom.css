@@ -245,5 +245,32 @@ header form  input[type="submit"]{
     object-fit: contain;
     display: block;
 }
+/* Arrow buttons styles */
+.slick-prev,
+.slick-next {
+    background: var(--main-color-light); /* Lighter color for the arrows */
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%; /* Optional: Makes arrows circular */
+}
 
+/* Positioning the arrows */
+.slick-prev {
+    left: 10px; /* Left arrow position */
+}
 
+.slick-next {
+    right: 10px; /* Right arrow position */
+}
+
+/* Optional: Add hover effect */
+.slick-prev:hover,
+.slick-next:hover {
+    background: var(--main-color); /* Darker color on hover */
+}

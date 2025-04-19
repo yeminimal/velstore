@@ -1,12 +1,12 @@
 @extends('themes.xylo.layouts.master')
 @section('css')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 @endsection
 @section('content')
 @php $currency = activeCurrency(); @endphp
 <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
     <div class="container h-100">
-        <div class="row">
+        <div class="row">       
             <div class="col-md-4">
                 <div class="breadcrumbs">
                     <a href="#">Home Page</a> <i class="fa fa-angle-right"></i> <a href="#">Headphone</a> <i
@@ -20,6 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 position-relative">
+                @php /*
                 <div class="slider-for">
                     @if (!empty($product->images) && count($product->images))
                         @foreach ($product->images as $image)
@@ -37,6 +38,16 @@
                     <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
                     <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
                 </div>
+                */
+                @endphp
+                <div class="product-slider">
+                    @foreach ($product->images as $image)
+                        <div>
+                            <img src="{{ Storage::url($image['image_url']) }}" alt="{{ $image['name'] }}" style="width: 100%; height: auto;" />
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
             <div class="col-md-6 pro-textarea">
                 @if ($inStock)
@@ -122,104 +133,88 @@
 @endsection
 
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>  
+    <script>
+        $(document).ready(function() {
+            $('.product-slider').slick({
+                arrows: true, // Enable left/right arrows
+                dots: false,  // Disable dots (bullets)
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev">←</button>',
+                nextArrow: '<button type="button" class="slick-next">→</button>',
+            });
+        });
+    </script>
+
+ 
     <script>
         const variantMap = @json($variantMap);
     </script>
-    <script>
-        /*$(document).ready(function() {
-            const productId = product->id }};
-            $('input[type="radio"]').on('change', function() {
-                var selectedVariantId = $(this).val();
-                $.ajax({
-                    url: '/get-variant-price',
-                    type: 'GET',
-                    data: { variant_id: selectedVariantId,
-                        product_id: productId
-                     },
-                    success: function(response) {
-                        if (response.success) {
-                            $('#variant-price').text(response.price);
-                            $('#product-stock').text(response.stock);
-                            $('#currency-symbol').text(response.currency_symbol);
-                            
-                            if (response.is_out_of_stock) {
-                                $('#product-stock').addClass('text-danger');
-                            } else {
-                                $('#product-stock').removeClass('text-danger');
-                            }
-                        } else {
-                            console.log('Unable to fetch variant price.');
-                        }
-                    },
-                    error: function() {
-                        alert('Something went wrong. Please try again.');
-                    }
-                });
+    <script>    
+
+    $(document).ready(function () {
+        const productId = {{ $product->id }};
+
+        function getSelectedAttributeValueIds() {
+            let selected = [];
+            $('#product-attributes input[type="radio"]:checked').each(function () {
+                selected.push(parseInt($(this).val()));
             });
-        });*/
-
-        $(document).ready(function () {
-    const productId = {{ $product->id }};
-
-    function getSelectedAttributeValueIds() {
-        let selected = [];
-        $('#product-attributes input[type="radio"]:checked').each(function () {
-            selected.push(parseInt($(this).val()));
-        });
-        return selected.sort((a, b) => a - b);
-    }
-
-    function findMatchingVariantId(selectedAttrIds) {
-        for (const variant of variantMap) {
-            const variantAttrIds = variant.attributes.slice().sort((a, b) => a - b);
-            if (JSON.stringify(variantAttrIds) === JSON.stringify(selectedAttrIds)) {
-                return variant.id;
-            }
-        }
-        return null;
-    }
-
-    $('input[type="radio"]').on('change', function () {
-        const selectedAttrIds = getSelectedAttributeValueIds();
-        const variantId = findMatchingVariantId(selectedAttrIds);
-
-        if (!variantId) {
-            alert('Selected variant not available.');
-            return;
+            return selected.sort((a, b) => a - b);
         }
 
-        $.ajax({
-            url: '/get-variant-price',
-            type: 'GET',
-            data: {
-                variant_id: variantId,
-                product_id: productId
-            },
-            success: function (response) {
-                if (response.success) {
-                    $('#variant-price').text(response.price);
-                    $('#product-stock').text(response.stock);
-                    $('#currency-symbol').text(response.currency_symbol);
-
-                    if (response.is_out_of_stock) {
-                        $('#product-stock').addClass('text-danger');
-                    } else {
-                        $('#product-stock').removeClass('text-danger');
-                    }
-                } else {
-                    console.log('Unable to fetch variant price.');
+        function findMatchingVariantId(selectedAttrIds) {
+            for (const variant of variantMap) {
+                const variantAttrIds = variant.attributes.slice().sort((a, b) => a - b);
+                if (JSON.stringify(variantAttrIds) === JSON.stringify(selectedAttrIds)) {
+                    return variant.id;
                 }
-            },
-            error: function () {
-                alert('Something went wrong. Please try again.');
             }
-        });
-    });
+            return null;
+        }
 
-    // Trigger change on load to set default variant
-    $('input[type="radio"]:checked').trigger('change');
-});
+        $('input[type="radio"]').on('change', function () {
+            const selectedAttrIds = getSelectedAttributeValueIds();
+            const variantId = findMatchingVariantId(selectedAttrIds);
+
+            if (!variantId) {
+                alert('Selected variant not available.');
+                return;
+            }
+
+            $.ajax({
+                url: '/get-variant-price',
+                type: 'GET',
+                data: {
+                    variant_id: variantId,
+                    product_id: productId
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#variant-price').text(response.price);
+                        $('#product-stock').text(response.stock);
+                        $('#currency-symbol').text(response.currency_symbol);
+
+                        if (response.is_out_of_stock) {
+                            $('#product-stock').addClass('text-danger');
+                        } else {
+                            $('#product-stock').removeClass('text-danger');
+                        }
+                    } else {
+                        console.log('Unable to fetch variant price.');
+                    }
+                },
+                error: function () {
+                    alert('Something went wrong. Please try again.');
+                }
+            });
+        });
+
+        // Trigger change on load to set default variant
+        $('input[type="radio"]:checked').trigger('change');
+    });
 
     </script>
 
@@ -232,10 +227,15 @@
             if (newQty < 1) newQty = 1;
             qtyInput.value = newQty;
         }
-       /*
 
-        function addToCart(productId, variantId = null) {
-            let quantity = document.getElementById("qty").value;
+        function addToCart(productId, product_type) {
+            const quantity = parseInt(document.getElementById("qty").value);
+            const attributeInputs = document.querySelectorAll('#product-attributes input[type="radio"]:checked');
+
+            let selectedAttributes = [];
+            attributeInputs.forEach(input => {
+                selectedAttributes.push(parseInt(input.value));
+            });
 
             fetch("{{ route('cart.add') }}", {
                 method: "POST",
@@ -246,62 +246,25 @@
                 body: JSON.stringify({
                     product_id: productId,
                     quantity: quantity,
-                    variant_id: variantId // Pass variant_id if available
+                    attribute_value_ids: selectedAttributes,
+                    product_type: product_type
                 })
             })
             .then(response => response.json())
             .then(data => {
-                toastr.success("{{ session('success') }}", data.message, {
-                    closeButton: true,
-                    progressBar: true,
-                    positionClass: "toast-top-right",
-                    timeOut: 5000
-                });
+                toastr.success(data.message);
                 updateCartCount(data.cart);
             })
             .catch(error => console.error("Error:", error));
         }
 
-*/
 
-function addToCart(productId, product_type) {
-    const quantity = parseInt(document.getElementById("qty").value);
-    const attributeInputs = document.querySelectorAll('#product-attributes input[type="radio"]:checked');
-
-    let selectedAttributes = [];
-    attributeInputs.forEach(input => {
-        selectedAttributes.push(parseInt(input.value));
-    });
-
-    fetch("{{ route('cart.add') }}", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-        },
-        body: JSON.stringify({
-            product_id: productId,
-            quantity: quantity,
-            attribute_value_ids: selectedAttributes,
-            product_type: product_type
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        toastr.success(data.message);
-        updateCartCount(data.cart);
-    })
-    .catch(error => console.error("Error:", error));
-}
-
-
-    function getSelectedVariantId(attributes) {
-        // Custom logic to determine the variant ID based on selected attributes (size, color)
-        // This is a simplified version. In practice, you'd likely query the backend to determine the exact variant ID
-        // based on these attributes.
-        return null; // For now, assuming no variant is selected directly
-    }
-
+        function getSelectedVariantId(attributes) {
+            // Custom logic to determine the variant ID based on selected attributes (size, color)
+            // This is a simplified version. In practice, you'd likely query the backend to determine the exact variant ID
+            // based on these attributes.
+            return null; // For now, assuming no variant is selected directly
+        }
 
         function updateCartCount(cart) {
             let totalCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
