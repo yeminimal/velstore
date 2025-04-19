@@ -685,7 +685,7 @@ header {
 }
 
 .cart-btn {
-    background: linear-gradient(45deg, var(--grid-color-1), var(--grid-color-2));
+    background: var(--dark-color);
     border: none;
     /* padding: 10px; */
     border-radius: 50%;
