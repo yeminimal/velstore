@@ -136,7 +136,7 @@
                                     suggestions.append(`
                                         <a href="/product/${product.slug}" class="dropdown-item d-flex align-items-center">
                                             <img src="${product.thumbnail}" alt="${product.name}" class="me-2" width="40" height="40" style="object-fit: cover; border-radius: 5px;">
-                                            <span>${product.name}</span>
+                                            <span class="search-product-title">${product.name}</span>
                                         </a>
                                     `);
                                 });
