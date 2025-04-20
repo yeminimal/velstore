@@ -274,3 +274,24 @@ header form  input[type="submit"]{
 .slick-next:hover {
     background: var(--main-color); /* Darker color on hover */
 }
+
+.product-img {
+    height: 300px; /* Or any height you want for consistency */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img img {  
+    height: 100%;
+    width: auto;
+    object-fit: contain; /* or cover depending on the visual preference */
+    display: block;
+}
+
+.search-product-title{
+    text-transform: capitalize;
+}
+
+    

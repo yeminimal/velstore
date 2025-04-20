@@ -11,7 +11,7 @@
         <div class="row align-items-center">
             <div class="col-md-4 col-6">
                 <a href="{{ route('xylo.home') }}" class="navbar-brand">
-                    <img src="https://i.ibb.co/dHx2ZR3/velstore.png" width="120" alt="Logo" />
+                    <img src="https://i.ibb.co/dHx2ZR3/velstore.png" width="80" alt="Logo" />
                 </a>
             </div>
             <div class="col-md-8 col-6 text-end">
