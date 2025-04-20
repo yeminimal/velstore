@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ibb.co/d81q6jR/velstore-new-logo-1.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution">
+  <img src="https://i.ibb.co/1tRYZP5R/Velstore-logo-v1.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution">
 </p>
 
 <p align="center">
