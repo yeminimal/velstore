@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://i.ibb.co/xKdD1nm5/velstore-demo1.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution demo">
+  <img src="https://i.ibb.co/9mL3YZQV/velstore-demo1-resized.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution demo">
 </p>
 
 
