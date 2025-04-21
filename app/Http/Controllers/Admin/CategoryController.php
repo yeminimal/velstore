@@ -48,7 +48,19 @@ class CategoryController extends Controller
 
     public function store(Request $request )
     {
+
+        $rules = [
+            'translations' => 'required|array',
+        ];
         
+        foreach ($request->input('translations', []) as $lang => $data) {
+            $rules["translations.$lang.name"] = 'required|string|max:255';
+            $rules["translations.$lang.description"] = 'nullable|string';
+            $rules["translations.$lang.image"] = 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048';
+        }
+        
+        $request->validate($rules);
+              
         $translations = $request->all()['translations'];
 
         foreach ($translations as $languageCode => $translation) {
@@ -56,7 +68,7 @@ class CategoryController extends Controller
                 $translations[$languageCode]['image'] = $request->file("translations.$languageCode.image");
             }
         }
-    
+
         $result = $this->categoryService->store($translations);
     
         if ($result instanceof \Illuminate\Support\MessageBag) {
