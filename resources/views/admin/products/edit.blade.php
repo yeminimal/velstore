@@ -139,28 +139,6 @@
 
             <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button>           
 
-            {{--
-            <!-- Product Images -->
-            <div class="mt-3">
-                <label class="form-label">{{ __('cms.products.images') }}</label>
-                <input type="file" name="images[]" class="form-control" multiple>
-            </div>
-            
-            <!-- Show existing images -->
-            @if ($product->images && $product->images->count())
-                <div class="row mt-3">
-                    @foreach ($product->images as $image)
-                        <div class="col-md-3 mb-3">
-                            <div class="border p-2 text-center">
-                                <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" style="max-height: 150px;">
-                                <p class="small text-muted">{{ $image->name }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-                   --}}
-
                                 <!-- Product Images Upload -->
                 <div class="mt-3">
                     <label class="form-label">{{ __('cms.products.images') }}</label>

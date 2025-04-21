@@ -61,10 +61,6 @@ class ProductController extends Controller
         
         $languages = Language::where('active', 1)->get(); 
         
-       // $categories = Category::all(); 
-        
-       // $brands = Brand::all(); 
-
         $categories = Category::with('translations')->get();
         $brands = Brand::with('translations')->get();
         
@@ -229,26 +225,36 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = Product::with(['translations', 'variants', 'images', 'variants.translations'])->findOrFail($id);
+        $product = Product::with([
+            'translations',
+            'variants.translations',
+            'variants.attributeValues', // Load attribute values for each variant
+            'images',
+        ])->findOrFail($id);
     
         $languages = Language::where('active', 1)->get();
-
         $categories = Category::all();
-
         $brands = Brand::all();
-
         $attributes = Attribute::with('values.translations')->get();
-
+    
         $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
         $colors = Attribute::where('name', 'Color')->first()?->values ?? collect();
+    
+        // Loop through each variant and extract size_id and color_id
+        foreach ($product->variants as $variant) {
+            $size = $variant->attributeValues->firstWhere('attribute_id', $sizes->first()?->attribute_id);
+            $color = $variant->attributeValues->firstWhere('attribute_id', $colors->first()?->attribute_id);
+    
+            $variant->size_id = $size?->id;
+            $variant->color_id = $color?->id;
+        }
+    
+        return view('admin.products.edit', compact(
+            'product', 'languages', 'categories', 'brands',
+            'attributes', 'sizes', 'colors'
+        ));
 
-        $attributeSizeMap = [
-            'small' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Small')->id ?? 0)->pluck('id')->first(),
-            'medium' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Medium')->id ?? 0)->pluck('id')->first(),
-            'large' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Large')->id ?? 0)->pluck('id')->first(),
-        ];
 
-        return view('admin.products.edit', compact('product', 'languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap'));
     }
 
   
@@ -256,7 +262,7 @@ class ProductController extends Controller
     {                  
         $product = Product::findOrFail($id);
         $defaultLang = config('app.locale');
-
+    
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
@@ -280,16 +286,21 @@ class ProductController extends Controller
         ]);
     
         DB::transaction(function () use ($request, $product, $defaultLang) {
-            $defaultName = $request->translations[$defaultLang]['name'] ?? 'product';
-            $slug = $this->generateUniqueSlug($defaultName, $product->id);
     
-            $product->update([
-                'slug' => $slug,
-                'category_id' => $request->category_id,
-                'brand_id' => $request->brand_id,
-            ]);
+            // ✅ Delete old attribute values (color and size) not used anymore
+            $newAttrValueIds = collect($request->variants)
+                ->flatMap(function ($v) {
+                    return array_filter([$v['size_id'] ?? null, $v['color_id'] ?? null]);
+                })
+                ->unique()
+                ->values()
+                ->all();
     
-            // Update translations
+            ProductAttributeValue::where('product_id', $product->id)
+                ->whereNotIn('attribute_value_id', $newAttrValueIds)
+                ->delete();
+    
+            // 🔁 Update product translations
             foreach ($request->translations as $lang => $data) {
                 $product->translations()->updateOrCreate(
                     ['language_code' => $lang],
@@ -302,17 +313,15 @@ class ProductController extends Controller
                 );
             }
     
-            // 2. Update images (delete old images if necessary)
+            // 🖼️ Replace images if uploaded
             if ($request->hasFile('images')) {
                 foreach ($product->images as $image) {
-                    // Optionally delete old images
                     Storage::disk('public')->delete($image->image_url);
                     $image->delete();
                 }
     
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('products', 'public'); 
-    
                     $product->images()->create([
                         'name' => $image->getClientOriginalName(),
                         'image_url' => $path,
@@ -321,6 +330,7 @@ class ProductController extends Controller
                 }
             }
     
+            // 🔁 Recreate all variants
             $product->variants()->delete();
             DB::table('product_variant_attribute_values')->where('product_id', $product->id)->delete();
     
@@ -334,49 +344,35 @@ class ProductController extends Controller
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
                     'dimensions' => $variantData['dimension'] ?? null,
-                    'is_primary'     => 1,
+                    'is_primary' => 1,
                 ]);
-    
+
                 $variant->translations()->create([
                     'language_code' => $variantData['language_code'] ?? $defaultLang,
                     'name' => $variantData['name'],
                 ]);
     
-                // --- Size ---
-                if (!empty($variantData['size_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
+                // ✅ Insert size and color into pivot + product_attribute_values
+                foreach (['size_id', 'color_id'] as $attrType) {
+                    if (!empty($variantData[$attrType])) {
+                        DB::table('product_variant_attribute_values')->insert([
+                            'product_id' => $product->id,
+                            'product_variant_id' => $variant->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
     
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                    ]);
-                }
-    
-                // --- Color ---
-                if (!empty($variantData['color_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
-    
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                    ]);
+                        ProductAttributeValue::firstOrCreate([
+                            'product_id' => $product->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                        ]);
+                    }
                 }
             }
         });
     
-        return redirect()->route('admin.products.index')->with('success',  __('cms.products.success_update'));
+        return redirect()->route('admin.products.index')->with('success', __('cms.products.success_update')); 
     }
 
 

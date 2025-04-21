@@ -124,13 +124,6 @@
                     </div>
                 </div>
             </template>
-            {{--
-            <!-- Product Images -->
-            <div class="mt-3">
-                <label class="form-label">{{ __('cms.products.images') }}</label>
-                <input type="file" name="images[]" class="form-control" id="productImages" multiple>
-            </div>  --}}
-
                         <!-- Product Images -->
             <div class="mt-3">
                 <label class="form-label">{{ __('cms.products.images') }}</label>
