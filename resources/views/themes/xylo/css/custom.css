@@ -294,4 +294,29 @@ header form  input[type="submit"]{
     text-transform: capitalize;
 }
 
+/* 6-04-2025 */
+
+.shipping_info .form-control{
+    border: none;
+    background: #f1f1f1;
+    height: 50px;
+}
+.shipping_info .form-select{
+    border: none;
+    background-color: #f1f1f1;
+    height: 45px;
+}
+
+.shipping_info .h-6{
+ height: 25px;
+ width: auto;
+}
+
+.alert-success i{
+    font-size: 34px;
+    color: green;
+}
+
+/* end 6-04-2025 */
+
     

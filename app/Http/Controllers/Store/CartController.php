@@ -57,12 +57,12 @@ class CartController extends Controller
         } else {
             $cart[$key] = [
                 'product_id' => $product->id,
-                'variant_id' => $variant->id, // even for simple product
+                'variant_id' => $variant->id,
                 'variant_name' => $variant->name ?? $product->translation->name,
                 'price' => $variant->converted_discount_price ?? $variant->converted_price,
                 'quantity' => $quantity,
                 'image' => optional($variant->images->first() ?? $product->thumbnail)->image_url,
-                'attributes' => $attributePairs // key: attribute_id => attribute_value_id
+                'attributes' => $attributePairs
             ];
         }
     

@@ -120,7 +120,7 @@
                 </div>
                 @endif
                 <div class="btn-group mt-4">
-                    <a href="#" class="btn-light">Continue Shopping</a>
+                    <a href="{{ route('xylo.home') }}" class="btn-light">Continue Shopping</a>
                     <a href="#" class="read-more update-cart">Update cart</a>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <a href="#" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
+                        <a href="{{ route('checkout.index') }}" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
                     </div>
                 </div>
 
