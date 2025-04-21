@@ -2,7 +2,7 @@
 
     <div class="top-bar w-100 bg-light py-1 header-top-bar">
         <div class="text-center small">
-            Free shipping on orders over $50 | Support | Store Locator
+            {{ __('store.header.top_bar_message') }} 
         </div>
     </div>  
 
@@ -17,7 +17,7 @@
             <div class="col-md-8 col-6 text-end">
                 <form class="d-flex justify-content-end" action="{{ url('/search') }}" method="GET">
                     <div class="input-group search-input-width">
-                        <input type="text" class="form-control" id="search-input"  name="q" placeholder="Search for a product">
+                        <input type="text" class="form-control" id="search-input"  name="q" placeholder="{{ __('store.header.search_placeholder') }}">
                         <button type="submit" class="btn btn-outline-secondary search-style"><i class="fa fa-search"></i></button>
                         <div id="search-suggestions" class="dropdown-menu show w-100 mt-5 d-none"></div>
                     </div>

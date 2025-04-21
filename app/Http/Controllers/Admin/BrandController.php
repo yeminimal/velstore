@@ -43,7 +43,7 @@ class BrandController extends Controller
         $request->validate([
             'logo_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:10000', // Validation for the logo file
         ]);
-    
+
         $result = $this->brandService->store($request->all());
     
         if ($result instanceof \Illuminate\Support\MessageBag) {

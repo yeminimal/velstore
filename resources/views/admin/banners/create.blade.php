@@ -69,7 +69,8 @@
                                         @error('languages.' . $index . '.description') 
                                             <div class="invalid-feedback">{{ $message }}</div> 
                                         @enderror
-                                    </div>                                   
+                                    </div>  
+                                    
                                     <!-- Image Upload -->
                                     <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
 
@@ -90,7 +91,7 @@
                                         <span id="file-name-{{ $language->code }}" class="ms-2 text-muted">                  
                                         </span>
                                     </div>
-
+                                    
                                     @error('languages.' . $index . '.image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -101,7 +102,7 @@
                                             alt="{{ __('cms.banners.image_preview') }}" class="img-thumbnail" style="max-width: 200px;">
                                     </div>
 
-                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
+                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">  
                                 </div>
                             @endforeach
                         </div>
