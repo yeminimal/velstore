@@ -69,7 +69,101 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
-document.querySelectorAll('.filter-input').forEach(input => {
+    const minSlider = document.getElementById('minPrice');
+    const maxSlider = document.getElementById('maxPrice');
+    const minPriceText = document.getElementById('minPriceText');
+    const maxPriceText = document.getElementById('maxPriceText');
+
+    function updatePriceDisplay() {
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        if (minVal > maxVal) {
+            [minVal, maxVal] = [maxVal, minVal];
+        }
+
+        minPriceText.textContent = minVal;
+        maxPriceText.textContent = maxVal;
+
+        // Trigger the filter request after price changes
+        sendFilterRequest();
+    }
+
+    minSlider.addEventListener('input', updatePriceDisplay);
+    maxSlider.addEventListener('input', updatePriceDisplay);
+
+    // Function to send filters including price
+    function sendFilterRequest() {
+        let url = new URL("{{ route('shop.index') }}", window.location.origin);
+        let params = new URLSearchParams();
+
+        // Include all checked filter inputs
+        document.querySelectorAll('.filter-input:checked').forEach(checked => {
+            params.append(checked.name, checked.value);
+        });
+
+        // Include price range
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        if (minVal > maxVal) {
+            [minVal, maxVal] = [maxVal, minVal];
+        }
+
+        params.append('price_min', minVal);
+        params.append('price_max', maxVal);
+
+        url.search = params.toString();
+
+        fetch(url, {
+            method: 'GET',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('productList').innerHTML = html;
+        });
+    }
+
+    // Trigger filter when other inputs change
+    document.querySelectorAll('.filter-input').forEach(input => {
+        input.addEventListener('change', sendFilterRequest);
+    });
+
+    // Optional: Initial load
+    updatePriceDisplay();
+</script>
+
+
+<script>
+   /* const minSlider = document.getElementById('minPrice');
+    const maxSlider = document.getElementById('maxPrice');
+    const minPriceText = document.getElementById('minPriceText');
+    const maxPriceText = document.getElementById('maxPriceText');
+
+    function updatePriceDisplay() {
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+
+        if (minVal > maxVal) {
+            [minVal, maxVal] = [maxVal, minVal];
+        }
+
+        minPriceText.textContent = minVal;
+        maxPriceText.textContent = maxVal;
+    }
+
+    minSlider.addEventListener('input', updatePriceDisplay);
+    maxSlider.addEventListener('input', updatePriceDisplay);
+
+
+    updatePriceDisplay(); */
+</script>
+
+
+<script>
+/*document.querySelectorAll('.filter-input').forEach(input => {
     input.addEventListener('change', function() {
         let url = new URL("{{ route('shop.index') }}", window.location.origin);
         let params = new URLSearchParams();
@@ -89,7 +183,7 @@ document.querySelectorAll('.filter-input').forEach(input => {
             document.getElementById('productList').innerHTML = html;
         });
     });
-});
+});*/
 
 function addToCart(productId) {
 
