@@ -3,7 +3,6 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <!-- Bootstrap Toggle CSS CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 
@@ -28,7 +27,6 @@
     </div>
 </div>
 
-<!-- Delete Product Modal -->
 <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -44,7 +42,6 @@
         </div>
     </div>
 </div>
-<!-- End Delete Product Modal -->
 
 @endsection
 
@@ -70,7 +67,6 @@
 <script>
 
     $(document).ready(function() {
-        // Initialize DataTable
         var table = $('#products-table').DataTable({
             processing: true,
             serverSide: true,
@@ -114,7 +110,6 @@
             language: @json($datatableLang) 
         });
 
-        // Handle status change using the custom toggle
         $(document).on('change', '.toggle-status', function() {
             var productId = $(this).data('id');
             var newStatus = $(this).prop('checked') ? 1 : 0;

@@ -20,7 +20,6 @@
                 </div>
             @endif
             
-            <!-- Product Name & Description -->
             <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                 @foreach($activeLanguages as $language)
                     <li class="nav-item" role="presentation">
@@ -39,7 +38,6 @@
                 @endforeach
             </div>
             
-            <!-- Product Details -->
             <div class="row mt-4">
                 <div class="col-md-6">
                     <label class="form-label">{{ __('cms.products.category') }}</label>
@@ -60,7 +58,6 @@
                 </div>
             </div>
 
-            <!-- Product Variants -->
             <div id="variants-wrapper">
                 @foreach($product->variants as $index => $variant)
                     <div class="card p-3 mt-3 variant-item border rounded" data-index="{{ $index }}">
@@ -138,35 +135,34 @@
             </div>
 
             <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button>           
-
-                                <!-- Product Images Upload -->
-                <div class="mt-3">
-                    <label class="form-label">{{ __('cms.products.images') }}</label>
-                    
-                    <div class="custom-file">
-                        <label class="btn btn-primary" for="productImages">{{ __('cms.products.choose_file') }}</label>
-                        <input type="file" name="images[]" class="form-control d-none" id="productImages" multiple accept="image/*" onchange="previewMultipleImages(this)">
-                    </div>
-
-                    <!-- New Upload Previews -->
-                    <div id="productImagesPreview" class="mt-2 d-flex flex-wrap gap-2"></div>
+                       
+            <div class="mt-3">
+                <label class="form-label">{{ __('cms.products.images') }}</label>
+                <div class="custom-file">
+                    <label class="btn btn-primary" for="productImages">{{ __('cms.products.choose_file') }}</label>
+                    <input type="file" name="images[]" class="form-control d-none" id="productImages" multiple accept="image/*" onchange="previewMultipleImages(this)">
                 </div>
 
-                <!-- Existing Images (Already Saved) -->
-                @if ($product->images && $product->images->count())
-                    <div class="row mt-3">
-                        @foreach ($product->images as $image)
-                            <div class="col-md-3 mb-3">
-                                <div class="border p-2 text-center">
-                                    <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" style="max-height: 150px;">
-                                    <p class="small text-muted">{{ $image->name }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
+                <div id="productImagesPreview" class="mt-2 d-flex flex-wrap gap-2"></div>
+            </div>
 
-            <!-- Submit Button -->
+            <div id="removedImagesInputs"></div>
+
+            @if ($product->images && $product->images->count())
+                <div class="row mt-3">
+                    @foreach ($product->images as $image)
+                        <div class="col-md-3 mb-3" id="image_{{ $image->id }}">
+                            <div class="border p-2 text-center">
+                                <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" style="max-height: 150px;">
+                                <p class="small text-muted">{{ $image->name }}</p>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="removeExistingImage({{ $image->id }})">
+                                    {{ __('Remove') }}
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
             <div class="mt-4 text-start">
                 <button type="submit" class="btn btn-primary">{{ __('cms.products.save_product') }}</button>
             </div>
@@ -188,27 +184,51 @@
 </script>
 
 <script>
+    let selectedFiles = [];
+
     function previewMultipleImages(input) {
+        const files = Array.from(input.files);
+
+        files.forEach(file => {
+            if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                selectedFiles.push(file);
+            }
+        });
+
         const previewContainer = document.getElementById('productImagesPreview');
         previewContainer.innerHTML = '';
-    
-        if (input.files) {
-            Array.from(input.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.className = 'img-thumbnail';
-                    img.style.maxWidth = '150px';
-                    img.style.marginRight = '10px';
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
+
+        selectedFiles.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'img-thumbnail m-1';
+                img.style.maxWidth = '150px';
+                previewContainer.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => dataTransfer.items.add(file));
+        input.files = dataTransfer.files;
     }
-</script>
-    
+
+    function removeExistingImage(imageId) {
+        const imageDiv = document.getElementById('image_' + imageId);
+        if (imageDiv) {
+            imageDiv.remove();
+        }
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'remove_images[]';
+        input.value = imageId;
+        document.getElementById('removedImagesInputs').appendChild(input);
+    }
+</script>    
+
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
     document.querySelectorAll('.ck-editor-multi-languages').forEach((element) => {

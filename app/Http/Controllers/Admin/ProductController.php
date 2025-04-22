@@ -80,7 +80,7 @@ class ProductController extends Controller
 
 
     public function store(Request $request)
-    {    
+    {            
           $defaultLang = config('app.locale');
 
         $validated = $request->validate([
@@ -110,7 +110,6 @@ class ProductController extends Controller
         $slug = $this->generateUniqueSlug($defaultName);
 
 
-            // 1. Create product
             $product = Product::create([
                 'shop_id' => 1,
                 'vendor_id' => 1,
@@ -120,7 +119,6 @@ class ProductController extends Controller
                 'product_type' => 'variable',
             ]);
     
-            // 2. Store translations
             foreach ($request->translations as $lang => $data) {
                 $product->translations()->create([
                     'language_code' => $lang,
@@ -131,7 +129,6 @@ class ProductController extends Controller
                 ]);
             }
 
-            // 3. Store images
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('products', 'public'); 
@@ -142,8 +139,8 @@ class ProductController extends Controller
                         'type' => 'thumb', 
                     ]);
                 }
-            }         
-    
+            }  
+              
             $variantIndex = 0;
             foreach ($request->variants as $variantData) {
                 $variant = $product->variants()->create([
@@ -158,13 +155,11 @@ class ProductController extends Controller
                     'is_primary'     => 1, 
                 ]);
             
-                // Variant Translation (optional)
                 $variant->translations()->create([
                     'language_code' => $variantData['language_code'] ?? 'en',
                     'name' => $variantData['name'],
                 ]);
             
-                // --- Handle size ---
                 if (!empty($variantData['size_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
@@ -174,14 +169,12 @@ class ProductController extends Controller
                         'updated_at' => now(),
                     ]);
             
-                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
                     ProductAttributeValue::firstOrCreate([
                         'product_id' => $product->id,
                         'attribute_value_id' => $variantData['size_id'],
                     ]);
                 }
             
-                // --- Handle color ---
                 if (!empty($variantData['color_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
@@ -191,7 +184,6 @@ class ProductController extends Controller
                         'updated_at' => now(),
                     ]);
             
-                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
                     ProductAttributeValue::firstOrCreate([
                         'product_id' => $product->id,
                         'attribute_value_id' => $variantData['color_id'],
@@ -213,7 +205,6 @@ class ProductController extends Controller
         $originalSlug = $slug;
         $count = 1;
 
-        // Check if the slug exists, if so, append a number to make it unique
         while (Product::where('slug', $slug)->exists()) {
             $slug = $originalSlug . '-' . $count;
             $count++;
@@ -228,7 +219,7 @@ class ProductController extends Controller
         $product = Product::with([
             'translations',
             'variants.translations',
-            'variants.attributeValues', // Load attribute values for each variant
+            'variants.attributeValues', 
             'images',
         ])->findOrFail($id);
     
@@ -240,7 +231,6 @@ class ProductController extends Controller
         $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
         $colors = Attribute::where('name', 'Color')->first()?->values ?? collect();
     
-        // Loop through each variant and extract size_id and color_id
         foreach ($product->variants as $variant) {
             $size = $variant->attributeValues->firstWhere('attribute_id', $sizes->first()?->attribute_id);
             $color = $variant->attributeValues->firstWhere('attribute_id', $colors->first()?->attribute_id);
@@ -287,7 +277,6 @@ class ProductController extends Controller
     
         DB::transaction(function () use ($request, $product, $defaultLang) {
     
-            // ✅ Delete old attribute values (color and size) not used anymore
             $newAttrValueIds = collect($request->variants)
                 ->flatMap(function ($v) {
                     return array_filter([$v['size_id'] ?? null, $v['color_id'] ?? null]);
@@ -300,7 +289,6 @@ class ProductController extends Controller
                 ->whereNotIn('attribute_value_id', $newAttrValueIds)
                 ->delete();
     
-            // 🔁 Update product translations
             foreach ($request->translations as $lang => $data) {
                 $product->translations()->updateOrCreate(
                     ['language_code' => $lang],
@@ -312,25 +300,28 @@ class ProductController extends Controller
                     ]
                 );
             }
-    
-            // 🖼️ Replace images if uploaded
-            if ($request->hasFile('images')) {
-                foreach ($product->images as $image) {
-                    Storage::disk('public')->delete($image->image_url);
-                    $image->delete();
+
+            if ($request->has('remove_images')) {
+                foreach ($request->remove_images as $imageId) {
+                    $image = $product->images()->find($imageId);
+                    if ($image) {
+                        Storage::disk('public')->delete($image->image_url);
+                        $image->delete();
+                    }
                 }
-    
+            }
+            
+            if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('products', 'public'); 
+                    $path = $image->store('products', 'public');
                     $product->images()->create([
                         'name' => $image->getClientOriginalName(),
                         'image_url' => $path,
-                        'type' => 'thumb', 
+                        'type' => 'thumb',
                     ]);
                 }
             }
-    
-            // 🔁 Recreate all variants
+               
             $product->variants()->delete();
             DB::table('product_variant_attribute_values')->where('product_id', $product->id)->delete();
     
@@ -352,7 +343,6 @@ class ProductController extends Controller
                     'name' => $variantData['name'],
                 ]);
     
-                // ✅ Insert size and color into pivot + product_attribute_values
                 foreach (['size_id', 'color_id'] as $attrType) {
                     if (!empty($variantData[$attrType])) {
                         DB::table('product_variant_attribute_values')->insert([
@@ -405,27 +395,26 @@ class ProductController extends Controller
 
     public function updateStatus(Request $request)
     {
-       // Validate the incoming request
-    $request->validate([
-        'id' => 'required|exists:products,id', 
-        'status' => 'required|boolean', 
-    ]);
-
-    $product = Product::find($request->id);
-    $product->status = $request->status;
-    $product->save();
-
-    if ($product) {
-        return response()->json([
-            'success' => true,
-            'message' => __('cms.products.status_updated'),
+        $request->validate([
+            'id' => 'required|exists:products,id', 
+            'status' => 'required|boolean', 
         ]);
-    } else {
-        return response()->json([
-            'success' => false,
-            'message' => 'Product status could not be updated.',
-        ]);
-    }
+
+        $product = Product::find($request->id);
+        $product->status = $request->status;
+        $product->save();
+
+        if ($product) {
+            return response()->json([
+                'success' => true,
+                'message' => __('cms.products.status_updated'),
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Product status could not be updated.',
+            ]);
+        }
 
     }
 }

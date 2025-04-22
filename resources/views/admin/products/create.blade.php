@@ -19,7 +19,6 @@
                 </div>
             @endif
             
-            <!-- Multilingual Product Name & Description -->
             <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                 @foreach($activeLanguages as $language)
                     <li class="nav-item" role="presentation">
@@ -38,7 +37,6 @@
                 @endforeach
             </div>
             
-            <!-- Product Details -->
             <div class="row mt-4">
                 <div class="col-md-6">
                     <label class="form-label">{{ __('cms.products.category') }}</label>
@@ -58,12 +56,8 @@
                     </select>
                 </div>
             </div> 
-
-            <!-- Product Variants NEW -->
             <div id="variants-wrapper">
-                <!-- Variants will be appended here -->
             </div>
-
             <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button> 
             <template id="variant-template">
                 <div class="card p-3 mt-3 variant-item border rounded" data-index="__INDEX__">
@@ -124,7 +118,6 @@
                     </div>
                 </div>
             </template>
-                        <!-- Product Images -->
             <div class="mt-3">
                 <label class="form-label">{{ __('cms.products.images') }}</label>
                 <div class="custom-file">
@@ -132,11 +125,9 @@
                     <input type="file" name="images[]" class="form-control d-none" id="productImages" multiple onchange="previewMultipleImages(this)">
                 </div>
 
-                <!-- Preview Area -->
                 <div id="productImagesPreview" class="mt-2 d-flex flex-wrap"></div>
-            </div>
-          
-            <!-- Submit Button -->
+            </div>  
+         
             <div class="mt-4 text-start">
                 <button type="submit" class="btn btn-primary">{{ __('cms.products.save_product') }}</button>
             </div>
@@ -162,23 +153,35 @@
 </script>
 
 <script>
+    let selectedFiles = []; 
+
     function previewMultipleImages(input) {
+        const files = Array.from(input.files); 
+
+        files.forEach(file => {
+            if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                selectedFiles.push(file); 
+            }
+        });
+
         const previewContainer = document.getElementById('productImagesPreview');
-        previewContainer.innerHTML = '';
-    
-        if (input.files) {
-            Array.from(input.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.className = 'img-thumbnail m-1';
-                    img.style.maxWidth = '150px';
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
+        previewContainer.innerHTML = ''; 
+
+        selectedFiles.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'img-thumbnail m-1';
+                img.style.maxWidth = '150px';
+                previewContainer.appendChild(img);
+            };
+            reader.readAsDataURL(file); 
+        });
+
+        const dataTransfer = new DataTransfer(); 
+        selectedFiles.forEach(file => dataTransfer.items.add(file)); 
+        input.files = dataTransfer.files; 
     }
 </script>
 
