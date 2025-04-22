@@ -156,7 +156,7 @@
                                 <img src="{{ asset('storage/' . $image->image_url) }}" class="img-fluid" style="max-height: 150px;">
                                 <p class="small text-muted">{{ $image->name }}</p>
                                 <button type="button" class="btn btn-danger btn-sm" onclick="removeExistingImage({{ $image->id }})">
-                                    {{ __('Remove') }}
+                                    {{ __('cms.products.remove') }}
                                 </button>
                             </div>
                         </div>

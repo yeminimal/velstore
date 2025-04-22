@@ -196,6 +196,7 @@ return [
         'update_product' => 'Ürünü Güncelle',
         'choose_images' => 'Resimleri Seç',
         'choose_file' => 'Dosya Seç',
+        'remove' => 'Kaldır',
 
         // Messages
         'status_updated' => 'Ürün durumu başarıyla güncellendi!',

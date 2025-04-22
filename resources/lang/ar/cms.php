@@ -198,6 +198,7 @@ return [
         'update_product' => 'تحديث المنتج',
         'choose_images' => 'اختر الصور',
         'choose_file' => 'اختر ملفاً',
+        'remove' => 'حذف',
 
         // Messages
         'status_updated' => 'تم تحديث حالة المنتج بنجاح!',

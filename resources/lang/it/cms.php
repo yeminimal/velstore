@@ -196,6 +196,7 @@ return [
         'update_product' => 'Aggiorna Prodotto',
         'choose_images' => 'Scegli Immagini',
         'choose_file' => 'Scegli File',
+        'remove' => 'Rimuovi',
 
         // Messaggi
         'status_updated' => 'Status produk berhasil diperbarui!',

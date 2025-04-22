@@ -195,6 +195,7 @@ return [
         'update_product' => 'Atualizar Produto',
         'choose_images' => 'Escolher Imagens',
         'choose_file' => 'Escolher Arquivo',
+        'remove' => 'Remover',
 
         // Mensagens
         'status_updated' => 'Status do produto atualizado com sucesso!',

@@ -196,6 +196,7 @@ return [
         'update_product' => '更新产品',
         'choose_images' => '选择图片',
         'choose_file' => '选择文件',
+        'remove' => '删除',
 
         // Messages
         'status_updated' => '产品状态已成功更新！',

@@ -196,6 +196,7 @@ return [
         'update_product' => '商品を更新',
         'choose_images' => '画像を選択',
         'choose_file' => 'ファイルを選択',
+        'remove' => '削除',
 
         // メッセージ
         'status_updated' => '商品のステータスが正常に更新されました！',
