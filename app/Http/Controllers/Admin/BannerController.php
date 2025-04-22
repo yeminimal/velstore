@@ -55,7 +55,7 @@ class BannerController extends Controller
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>';
             })
-            ->rawColumns(['image', 'action']) // Allow HTML in these columns
+            ->rawColumns(['image', 'action']) 
             ->make(true);
     }
     

@@ -8,6 +8,8 @@ use App\Models\Banner;
 use App\Models\BannerTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Language;
+
 
 
 class BannerService
@@ -26,31 +28,38 @@ class BannerService
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
+    {         
+        $activeLanguages = Language::where('active', 1)->pluck('code')->toArray();
+
+        $rules = [
             'type' => 'required|in:promotion,sale,seasonal,featured,announcement',
-            'languages.*.title' => 'required|string|max:255',
-            'languages.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-        ]);
+        ];
+
+        foreach ($activeLanguages as $code) {
+            $rules["languages.$code.title"] = 'required|string|max:255';
+            $rules["languages.$code.image"] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+            $rules["languages.$code.image_title"] = 'nullable|string|max:255';
+        }
+
+        $request->validate($rules);
 
         $banner = $this->bannerRepository->createBanner($request->only('type'));
 
-        foreach ($request->languages as $languageData) {
-            $imageUrl = null;
-            if (isset($languageData['image']) && $languageData['image']) {
-                $imageUrl = $languageData['image']->store('banner_images', 'public');
-                /*$imageUrl = $languageData['image']->store('public/banner_images');*/
-            }
+        foreach ($activeLanguages as $code) {
+            $languageData = $request->input("languages.$code");
+            $image = $request->file("languages.$code.image");
+
+            $imageUrl = $image ? $image->store('banner_images', 'public') : null;
 
             BannerTranslation::create([
                 'banner_id' => $banner->id,
-                'language_code' => $languageData['language_code'],
+                'language_code' => $code,
                 'title' => $languageData['title'],
                 'description' => $languageData['description'] ?? null,
                 'image_title' => $languageData['image_title'] ?? null,
                 'image_url' => $imageUrl,
             ]);
-        } 
+        }
     }
 
     public function update(Request $request, int $id)

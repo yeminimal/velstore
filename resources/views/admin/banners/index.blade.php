@@ -3,18 +3,15 @@
 @section('title', 'All Banners')
 
 @section('css')
-    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 @section('content')
     <div class="container">
 
-        <!-- Card-like Heading for "All Banners" -->
         <div class="card mt-4">
             <div class="card-header card-header-bg text-white">
                 <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.banners.all_banners') }}</h6>
             </div>
         </div>
-        <!-- Banner Table -->
         <div class="card mt-4">
             <div class="card-body">
                 <table id="banners-table" class="table table-bordered">
@@ -23,19 +20,17 @@
                             <th>{{ __('cms.banners.id') }}</th>
                             <th>{{ __('cms.banners.banner_type') }}</th>
                             <th>{{ __('cms.banners.image') }}</th>
-                            <th>{{ __('cms.banners.status') }}</th> <!-- New status column -->
+                            <th>{{ __('cms.banners.status') }}</th> 
                             <th>{{ __('cms.banners.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Rows will be dynamically added by DataTables -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-        <!-- Delete Banner Modal -->
     <div class="modal fade" id="deleteBannerModal" tabindex="-1" aria-labelledby="deleteBannerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -51,11 +46,9 @@
             </div>
         </div>
     </div>
-    <!-- End Delete Banner Modal -->
 @endsection
 
 @section('js')
-<!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 @php
     $datatableLang = __('cms.datatables');
@@ -78,7 +71,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('admin.banners.data') }}", // Adjusted URL for banners
+                url: "{{ route('admin.banners.data') }}", 
                 type: 'POST',
                 data: function(d) {
                     d._token = "{{ csrf_token() }}";
@@ -94,8 +87,7 @@
                     orderable: false, 
                     searchable: false,
                     render: function(data, type, row) {
-                        // Render a toggle switch based on the status value
-                        var isChecked = data ? 'checked' : ''; // If active, checked
+                        var isChecked = data ? 'checked' : ''; 
                         return `<label class="switch">
                                     <input type="checkbox" class="toggle-status" data-id="${row.id}" ${isChecked}>
                                     <span class="slider round"></span>
@@ -119,7 +111,6 @@
             language: @json($datatableLang) 
         });
 
-        // Handle toggle switch (activate/deactivate status)
         $(document).on('change', '.toggle-status', function() {
             var bannerId = $(this).data('id');
             var isActive = $(this).prop('checked') ? 1 : 0; 

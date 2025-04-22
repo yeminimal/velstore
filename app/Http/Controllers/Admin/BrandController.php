@@ -41,7 +41,7 @@ class BrandController extends Controller
     public function store(Request $request)
     {        
         $request->validate([
-            'logo_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:10000', // Validation for the logo file
+            'logo_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:10000', 
         ]);
 
         $result = $this->brandService->store($request->all());
@@ -100,7 +100,6 @@ class BrandController extends Controller
 
     public function updateStatus(Request $request)
     {
-        // Validate the incoming request
         $request->validate([
             'id' => 'required|exists:brands,id', 
             'status' => 'required|boolean', 
