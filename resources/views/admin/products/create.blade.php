@@ -58,7 +58,16 @@
             </div> 
             <div id="variants-wrapper">
             </div>
-            <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button> 
+
+            <div class="d-flex gap-2 mt-3">
+                <button type="button" class="btn btn-sm btn-primary" id="add-variant-btn">
+                    {{ __('cms.products.add_variant') }}
+                </button> 
+                <button type="button" class="btn btn-sm btn-danger" id="remove-variant-btn">
+                    {{ __('cms.products.remove_variant') ?? 'Remove Variant' }}
+                </button>
+            </div>
+        
             <template id="variant-template">
                 <div class="card p-3 mt-3 variant-item border rounded" data-index="__INDEX__">
                     <h5>{{ __('cms.products.variants') }}<span class="variant-number">__INDEX__</span></h5>
@@ -142,13 +151,22 @@
     let variantIndex = 0;
 
     $('#add-variant-btn').click(function () {
-        const template = $('#variant-template').html().replaceAll('__INDEX__', variantIndex);
-        $('#variants-wrapper').append(template);
-        variantIndex++;
-    });
+    const template = $('#variant-template').html().replace(/__INDEX__/g, variantIndex);
+    $('#variants-wrapper').append(template);
+    variantIndex++;
+});
 
     $(document).ready(function () {
     $('#add-variant-btn').click(); 
+
+    $('#remove-variant-btn').click(function () {
+        const $variants = $('#variants-wrapper .variant-item');
+        if ($variants.length > 0) {
+            $variants.last().remove();
+            variantIndex--;
+        }
+    });
+
 });
 </script>
 
