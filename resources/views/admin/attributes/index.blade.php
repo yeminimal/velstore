@@ -28,7 +28,6 @@
     </div>
 </div>
 
-<!-- Delete Attribute Modal -->
 <div class="modal fade" id="deleteAttributeModal" tabindex="-1" aria-labelledby="deleteAttributeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -44,7 +43,6 @@
         </div>
     </div>
 </div>
-<!-- End Delete Attribute Modal -->
 
 @endsection
 
@@ -55,7 +53,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @php
-    $datatableLang = __('cms.datatables'); // Get translation array
+    $datatableLang = __('cms.datatables'); 
 @endphp
 @if (session('success'))
 <script>
@@ -67,6 +65,7 @@
     });
 </script>
 @endif
+
 
 <script>
     $(document).ready(function() {
@@ -117,7 +116,6 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        // Reload the datatable and show success message
                         $('#attributes-table').DataTable().ajax.reload();
                         toastr.error(response.message, "Success", {
                             closeButton: true,
@@ -136,7 +134,6 @@
                     }
                 },
                 error: function(xhr) {
-                    // Ensure the error is properly captured from the server
                     toastr.error("Error deleting attribute! Please try again.", "Error", {
                         closeButton: true,
                         progressBar: true,
