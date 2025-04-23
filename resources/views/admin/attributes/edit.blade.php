@@ -23,7 +23,6 @@
                     @csrf
                     @method('PUT')
 
-                    <!-- Attribute Name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">{{ __('cms.attributes.attribute_name') }}</label>
                         <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
@@ -33,7 +32,6 @@
                         @enderror
                     </div>
 
-                    <!-- Dynamic Attribute Values -->
                     <div class="mb-3">
                         <label class="form-label">{{ __('cms.attributes.attribute_values') }}</label>
                         <div id="attribute-values-container">
@@ -48,21 +46,21 @@
                         <button type="button" id="add-value" class="btn btn-primary mt-2">{{ __('cms.attributes.add_value') }}</button>
                     </div>
 
-                    <!-- Translations Section -->
-                    <div class="mb-3">
-                        <label class="form-label">{{ __('cms.attributes.translations') }}</label>
-                        <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-                            @foreach ($languages as $language)
-                                <li class="nav-item">
-                                    <button class="nav-link {{ $loop->first ? 'active' : '' }}" 
-                                            id="{{ $language->code }}-tab" 
-                                            data-bs-toggle="tab" 
-                                            data-bs-target="#{{ $language->code }}">
-                                        {{ ucwords($language->name) }}
-                                    </button>
-                                </li>
-                            @endforeach
-                        </ul>
+                        <div class="mb-3">
+                            <label class="form-label">{{ __('cms.attributes.translations') }}</label>
+                            <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                                @foreach ($languages as $language)
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ $loop->first ? 'active' : '' }}" 
+                                        id="{{ $language->code }}-tab" 
+                                        data-bs-toggle="tab" 
+                                        href="#{{ $language->code }}">
+                                            {{ ucwords($language->name) }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
                         <div class="tab-content mt-3" id="languageTabContent">
                             @foreach ($languages as $language)
@@ -78,8 +76,9 @@
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success mt-3">{{ __('cms.attributes.update_attribute') }}</button>
+                    <button type="submit" class="btn btn-success mt-3" style="width: auto; max-width: 200px;">
+                        {{ __('cms.attributes.update_attribute') }}
+                    </button>
                 </form>
             </div>
         </div>

@@ -57,81 +57,80 @@
                     </select>
                 </div>
             </div>
-
             <div id="variants-wrapper">
                 @foreach($product->variants as $index => $variant)
-                    <div class="card p-3 mt-3 variant-item border rounded" data-index="{{ $index }}">
-                        <h5>{{ __('cms.products.variants') }} <span class="variant-number">{{ $index + 1 }}</span></h5>
-                        <div class="row">
-
-                            @foreach ($product->variants as $index => $variant)
-                            @php
-                                $enTranslation = $variant->translations->firstWhere('language_code', 'en');
-                            @endphp
+                <div class="variant-item mt-4">
+                    <h5>{{ __('cms.products.variants') }} {{ $index + 1 }}</h5> 
+            
+                    <div class="row">
+                        @php
+                            $enTranslation = $variant->translations->firstWhere('language_code', 'en');
+                        @endphp
+                        <div class="col-md-4">
+                            <label>{{ __('cms.products.variant_name_en') }}</label>
+                            <input type="text"
+                                   name="variants[{{ $index }}][name]"
+                                   class="form-control"
+                                   value="{{ old("variants.{$index}.name", $enTranslation?->name) }}"
+                                   placeholder="Variant Name (EN)">
+                        </div>
+            
+                        <div class="col-md-4">
+                            <label>{{ __('cms.products.price') }}</label>
+                            <input type="number" step="0.01" name="variants[{{ $index }}][price]" class="form-control" value="{{ $variant->price }}" />
+                        </div>
                         
-                            <div class="col-md-4">
-                                <label>{{ __('cms.products.variant_name_en') }}</label>
-                                <input type="text"
-                                       name="variants[{{ $index }}][name]"
-                                       class="form-control"
-                                       value="{{ old("variants.{$index}.name", $enTranslation?->name) }}"
-                                       placeholder="Variant Name (EN)">
-                            </div>
-                            @endforeach
-
-                            <div class="col-md-4">
-                                <label>{{ __('cms.products.price') }}</label>
-                                <input type="number" step="0.01" name="variants[{{ $index }}][price]" class="form-control" value="{{ $variant->price }}" />
-                            </div>
-                            <div class="col-md-4">
-                                <label>{{ __('cms.products.discount_price') }}</label>
-                                <input type="number" step="0.01" name="variants[{{ $index }}][discount_price]" class="form-control" value="{{ $variant->discount_price }}" />
-                            </div>
-                
-                            <div class="col-md-4 mt-2">
-                                <label>{{ __('cms.products.stock') }}</label>
-                                <input type="number" name="variants[{{ $index }}][stock]" class="form-control" value="{{ $variant->stock }}" />
-                            </div>
-                            <div class="col-md-4 mt-2">
-                                <label>{{ __('cms.products.sku') }}</label>
-                                <input type="text" name="variants[{{ $index }}][SKU]" class="form-control" value="{{ $variant->SKU }}" />
-                            </div>
-                           
-                            <div class="col-md-4 mt-2">
-                                <label>{{ __('cms.products.barcode') }}</label>
-                                <input type="text" name="variants[{{ $index }}][barcode]" class="form-control" value="{{ $variant->barcode }}" />
-                            </div>
-
-                            <div class="col-md-4 mt-2">
-                                <label>{{ __('cms.products.weight') }}</label>
-                                <input type="text" name="variants[{{ $index }}][weight]" class="form-control" placeholder="e.g., 1.2 kg" value="{{ old('variants.' . $index . '.weight', $variant->weight) }}" />
-                            </div>
-                    
-                            <div class="col-md-4 mt-2">
-                                <label>{{ __('cms.products.dimension') }}</label>
-                                <input type="text" name="variants[{{ $index }}][dimension]" class="form-control" placeholder="e.g., 10x20x5" value="{{ old('variants.' . $index . '.dimension', $variant->dimensions) }}" />
-                            </div>
-                
-                            <div class="col-md-6 mt-2">
-                                <label>{{ __('cms.products.size') }}</label>
-                                <select name="variants[{{ $index }}][size_id]" class="form-control">
-                                    @foreach($sizes as $size)
-                                        <option value="{{ $size->id }}" {{ $size->id == $variant->size_id ? 'selected' : '' }}>{{ $size->value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                
-                            <div class="col-md-6 mt-2">
-                                <label>{{ __('cms.products.color') }}</label>
-                                <select name="variants[{{ $index }}][color_id]" class="form-control">
-                                    @foreach($colors as $color)
-                                        <option value="{{ $color->id }}" {{ $color->id == $variant->color_id ? 'selected' : '' }}>{{ $color->value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-md-4">
+                            <label>{{ __('cms.products.discount_price') }}</label>
+                            <input type="number" step="0.01" name="variants[{{ $index }}][discount_price]" class="form-control" value="{{ $variant->discount_price }}" />
+                        </div>
+            
+                        <div class="col-md-4 mt-2">
+                            <label>{{ __('cms.products.stock') }}</label>
+                            <input type="number" name="variants[{{ $index }}][stock]" class="form-control" value="{{ $variant->stock }}" />
+                        </div>
+            
+                        <div class="col-md-4 mt-2">
+                            <label>{{ __('cms.products.sku') }}</label>
+                            <input type="text" name="variants[{{ $index }}][SKU]" class="form-control" value="{{ $variant->SKU }}" />
+                        </div>
+            
+                        <div class="col-md-4 mt-2">
+                            <label>{{ __('cms.products.barcode') }}</label>
+                            <input type="text" name="variants[{{ $index }}][barcode]" class="form-control" value="{{ $variant->barcode }}" />
+                        </div>
+            
+                        <div class="col-md-4 mt-2">
+                            <label>{{ __('cms.products.weight') }}</label>
+                            <input type="text" name="variants[{{ $index }}][weight]" class="form-control" placeholder="e.g., 1.2 kg" value="{{ old('variants.' . $index . '.weight', $variant->weight) }}" />
+                        </div>
+            
+                        <div class="col-md-4 mt-2">
+                            <label>{{ __('cms.products.dimension') }}</label>
+                            <input type="text" name="variants[{{ $index }}][dimension]" class="form-control" placeholder="e.g., 10x20x5" value="{{ old('variants.' . $index . '.dimension', $variant->dimensions) }}" />
+                        </div>
+            
+                        <div class="col-md-6 mt-2">
+                            <label>{{ __('cms.products.size') }}</label>
+                            <select name="variants[{{ $index }}][size_id]" class="form-control">
+                                @foreach($sizes as $size)
+                                    <option value="{{ $size->id }}" {{ $size->id == $variant->size_id ? 'selected' : '' }}>{{ $size->value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+            
+                        <div class="col-md-6 mt-2">
+                            <label>{{ __('cms.products.color') }}</label>
+                            <select name="variants[{{ $index }}][color_id]" class="form-control">
+                                @foreach($colors as $color)
+                                    <option value="{{ $color->id }}" {{ $color->id == $variant->color_id ? 'selected' : '' }}>{{ $color->value }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
+           
             </div>
 
             <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button>           
