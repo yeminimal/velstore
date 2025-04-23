@@ -48,7 +48,13 @@ Run the following command to create a new Velstore project:
 composer create-project velstorelabs/velstore
 ```
 
-Create a new database, then rename `.env.example` to `.env` and update the database credentials. Run the following command to install Velstore:
+If you didn't have `.env` you can copy it from `.env.example`.
+
+```sh
+cp .env.example .env
+```
+
+Create a new database and update the database credentials in `.env`. Run the following command to install Velstore:
 ```sh
 php artisan install:velstore --with-import
 ```
@@ -59,6 +65,11 @@ php artisan install:velstore --with-import
 Start the Laravel server:
 ```sh
 php artisan serve
+```
+
+If you found error `Vite manifest not found at`, you should run this in different terminal:
+```sh
+npm run dev
 ```
 
 Your Velstore instance is now running! Open your browser and visit:
