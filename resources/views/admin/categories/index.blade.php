@@ -67,7 +67,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('categories.data') }}",
+                url: "{{ route('admin.categories.data') }}",
                 type: 'POST',
                 data: function(d) {
                     d._token = "{{ csrf_token() }}";
@@ -80,7 +80,7 @@
                     data: 'status', 
                     name: 'status',
                     render: function(data, type, row) {
-                        var isChecked = data ? 'checked' : ''; // If active, checked
+                        var isChecked = data ? 'checked' : ''; 
                         return `<label class="switch">
                                     <input type="checkbox" class="toggle-status" data-id="${row.id}" ${isChecked}>
                                     <span class="slider round"></span>
@@ -102,10 +102,9 @@
             language: @json($datatableLang)
         });
 
-        // Handle toggle switch (activate/deactivate status)
         $(document).on('change', '.toggle-status', function() {
             var categoryId = $(this).data('id');
-            var isActive = $(this).prop('checked') ? 1 : 0; // 1 for active, 0 for inactive
+            var isActive = $(this).prop('checked') ? 1 : 0; 
             $.ajax({
                 url: '{{ route('admin.categories.updateStatus') }}',
                 method: 'POST',
@@ -115,7 +114,6 @@
                     status: isActive
                 },
                 success: function(response) {
-                    // Optionally show a success message
                     if (response.success) {
                         toastr.success(response.message, "Updated", {
                             closeButton: true,
@@ -133,9 +131,7 @@
                     }
                 },
                 error: function() {
-                    // Optionally show an error message
                     alert('Error updating status!');
-                    // Revert the toggle if something goes wrong
                     $(this).prop('checked', !isActive);
                 }
             });
