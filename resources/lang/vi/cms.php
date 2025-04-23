@@ -224,6 +224,7 @@ return [
         'update_product' => 'Cập Nhật Sản Phẩm',
         'choose_images' => 'Chọn Hình Ảnh',
         'choose_file' => 'Chọn Tệp',
+        'remove' => 'Xóa',
 
         // Messages
         'status_updated' => 'Trạng thái sản phẩm đã được cập nhật thành công!',

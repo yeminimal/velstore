@@ -61,10 +61,6 @@ class ProductController extends Controller
         
         $languages = Language::where('active', 1)->get(); 
         
-       // $categories = Category::all(); 
-        
-       // $brands = Brand::all(); 
-
         $categories = Category::with('translations')->get();
         $brands = Brand::with('translations')->get();
         
@@ -84,7 +80,7 @@ class ProductController extends Controller
 
 
     public function store(Request $request)
-    {    
+    {            
           $defaultLang = config('app.locale');
 
         $validated = $request->validate([
@@ -114,7 +110,6 @@ class ProductController extends Controller
         $slug = $this->generateUniqueSlug($defaultName);
 
 
-            // 1. Create product
             $product = Product::create([
                 'shop_id' => 1,
                 'vendor_id' => 1,
@@ -124,7 +119,6 @@ class ProductController extends Controller
                 'product_type' => 'variable',
             ]);
     
-            // 2. Store translations
             foreach ($request->translations as $lang => $data) {
                 $product->translations()->create([
                     'language_code' => $lang,
@@ -135,7 +129,6 @@ class ProductController extends Controller
                 ]);
             }
 
-            // 3. Store images
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('products', 'public'); 
@@ -146,8 +139,8 @@ class ProductController extends Controller
                         'type' => 'thumb', 
                     ]);
                 }
-            }         
-    
+            }  
+              
             $variantIndex = 0;
             foreach ($request->variants as $variantData) {
                 $variant = $product->variants()->create([
@@ -162,13 +155,11 @@ class ProductController extends Controller
                     'is_primary'     => 1, 
                 ]);
             
-                // Variant Translation (optional)
                 $variant->translations()->create([
                     'language_code' => $variantData['language_code'] ?? 'en',
                     'name' => $variantData['name'],
                 ]);
             
-                // --- Handle size ---
                 if (!empty($variantData['size_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
@@ -178,14 +169,12 @@ class ProductController extends Controller
                         'updated_at' => now(),
                     ]);
             
-                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
                     ProductAttributeValue::firstOrCreate([
                         'product_id' => $product->id,
                         'attribute_value_id' => $variantData['size_id'],
                     ]);
                 }
             
-                // --- Handle color ---
                 if (!empty($variantData['color_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
@@ -195,7 +184,6 @@ class ProductController extends Controller
                         'updated_at' => now(),
                     ]);
             
-                    // 👇 Also ensure it's added to product_attribute_values (no duplicate)
                     ProductAttributeValue::firstOrCreate([
                         'product_id' => $product->id,
                         'attribute_value_id' => $variantData['color_id'],
@@ -217,7 +205,6 @@ class ProductController extends Controller
         $originalSlug = $slug;
         $count = 1;
 
-        // Check if the slug exists, if so, append a number to make it unique
         while (Product::where('slug', $slug)->exists()) {
             $slug = $originalSlug . '-' . $count;
             $count++;
@@ -229,26 +216,35 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = Product::with(['translations', 'variants', 'images', 'variants.translations'])->findOrFail($id);
+        $product = Product::with([
+            'translations',
+            'variants.translations',
+            'variants.attributeValues', 
+            'images',
+        ])->findOrFail($id);
     
         $languages = Language::where('active', 1)->get();
-
         $categories = Category::all();
-
         $brands = Brand::all();
-
         $attributes = Attribute::with('values.translations')->get();
-
+    
         $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
         $colors = Attribute::where('name', 'Color')->first()?->values ?? collect();
+    
+        foreach ($product->variants as $variant) {
+            $size = $variant->attributeValues->firstWhere('attribute_id', $sizes->first()?->attribute_id);
+            $color = $variant->attributeValues->firstWhere('attribute_id', $colors->first()?->attribute_id);
+    
+            $variant->size_id = $size?->id;
+            $variant->color_id = $color?->id;
+        }
+    
+        return view('admin.products.edit', compact(
+            'product', 'languages', 'categories', 'brands',
+            'attributes', 'sizes', 'colors'
+        ));
 
-        $attributeSizeMap = [
-            'small' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Small')->id ?? 0)->pluck('id')->first(),
-            'medium' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Medium')->id ?? 0)->pluck('id')->first(),
-            'large' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Large')->id ?? 0)->pluck('id')->first(),
-        ];
 
-        return view('admin.products.edit', compact('product', 'languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap'));
     }
 
   
@@ -256,7 +252,7 @@ class ProductController extends Controller
     {                  
         $product = Product::findOrFail($id);
         $defaultLang = config('app.locale');
-
+    
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
@@ -280,16 +276,19 @@ class ProductController extends Controller
         ]);
     
         DB::transaction(function () use ($request, $product, $defaultLang) {
-            $defaultName = $request->translations[$defaultLang]['name'] ?? 'product';
-            $slug = $this->generateUniqueSlug($defaultName, $product->id);
     
-            $product->update([
-                'slug' => $slug,
-                'category_id' => $request->category_id,
-                'brand_id' => $request->brand_id,
-            ]);
+            $newAttrValueIds = collect($request->variants)
+                ->flatMap(function ($v) {
+                    return array_filter([$v['size_id'] ?? null, $v['color_id'] ?? null]);
+                })
+                ->unique()
+                ->values()
+                ->all();
     
-            // Update translations
+            ProductAttributeValue::where('product_id', $product->id)
+                ->whereNotIn('attribute_value_id', $newAttrValueIds)
+                ->delete();
+    
             foreach ($request->translations as $lang => $data) {
                 $product->translations()->updateOrCreate(
                     ['language_code' => $lang],
@@ -301,26 +300,28 @@ class ProductController extends Controller
                     ]
                 );
             }
-    
-            // 2. Update images (delete old images if necessary)
-            if ($request->hasFile('images')) {
-                foreach ($product->images as $image) {
-                    // Optionally delete old images
-                    Storage::disk('public')->delete($image->image_url);
-                    $image->delete();
+
+            if ($request->has('remove_images')) {
+                foreach ($request->remove_images as $imageId) {
+                    $image = $product->images()->find($imageId);
+                    if ($image) {
+                        Storage::disk('public')->delete($image->image_url);
+                        $image->delete();
+                    }
                 }
-    
+            }
+            
+            if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('products', 'public'); 
-    
+                    $path = $image->store('products', 'public');
                     $product->images()->create([
                         'name' => $image->getClientOriginalName(),
                         'image_url' => $path,
-                        'type' => 'thumb', 
+                        'type' => 'thumb',
                     ]);
                 }
             }
-    
+               
             $product->variants()->delete();
             DB::table('product_variant_attribute_values')->where('product_id', $product->id)->delete();
     
@@ -334,49 +335,34 @@ class ProductController extends Controller
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
                     'dimensions' => $variantData['dimension'] ?? null,
-                    'is_primary'     => 1,
+                    'is_primary' => 1,
                 ]);
-    
+
                 $variant->translations()->create([
                     'language_code' => $variantData['language_code'] ?? $defaultLang,
                     'name' => $variantData['name'],
                 ]);
     
-                // --- Size ---
-                if (!empty($variantData['size_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
+                foreach (['size_id', 'color_id'] as $attrType) {
+                    if (!empty($variantData[$attrType])) {
+                        DB::table('product_variant_attribute_values')->insert([
+                            'product_id' => $product->id,
+                            'product_variant_id' => $variant->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
     
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                    ]);
-                }
-    
-                // --- Color ---
-                if (!empty($variantData['color_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
-    
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                    ]);
+                        ProductAttributeValue::firstOrCreate([
+                            'product_id' => $product->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                        ]);
+                    }
                 }
             }
         });
     
-        return redirect()->route('admin.products.index')->with('success',  __('cms.products.success_update'));
+        return redirect()->route('admin.products.index')->with('success', __('cms.products.success_update')); 
     }
 
 
@@ -409,27 +395,26 @@ class ProductController extends Controller
 
     public function updateStatus(Request $request)
     {
-       // Validate the incoming request
-    $request->validate([
-        'id' => 'required|exists:products,id', 
-        'status' => 'required|boolean', 
-    ]);
-
-    $product = Product::find($request->id);
-    $product->status = $request->status;
-    $product->save();
-
-    if ($product) {
-        return response()->json([
-            'success' => true,
-            'message' => __('cms.products.status_updated'),
+        $request->validate([
+            'id' => 'required|exists:products,id', 
+            'status' => 'required|boolean', 
         ]);
-    } else {
-        return response()->json([
-            'success' => false,
-            'message' => 'Product status could not be updated.',
-        ]);
-    }
+
+        $product = Product::find($request->id);
+        $product->status = $request->status;
+        $product->save();
+
+        if ($product) {
+            return response()->json([
+                'success' => true,
+                'message' => __('cms.products.status_updated'),
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Product status could not be updated.',
+            ]);
+        }
 
     }
 }

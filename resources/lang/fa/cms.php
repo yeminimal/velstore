@@ -196,6 +196,7 @@ return [
         'update_product' => 'بروزرسانی محصول',
         'choose_images' => 'انتخاب تصاویر',
         'choose_file' => 'انتخاب فایل',
+        'remove' => 'حذف',
 
         // Messages
         'status_updated' => 'وضعیت محصول با موفقیت به‌روزرسانی شد!',

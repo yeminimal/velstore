@@ -196,6 +196,7 @@ return [
         'update_product' => 'Update Product',
         'choose_images' => 'Choose Images',
         'choose_file' => 'Choose File',
+        'remove' => 'Remove',
 
 
         // Messages

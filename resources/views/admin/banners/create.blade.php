@@ -9,6 +9,7 @@
         <div class="card-body">
             <form action="{{ route('admin.banners.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -18,8 +19,7 @@
                         </ul>
                     </div>
                 @endif
-                  
-                <!-- Banner Type Select -->
+
                 <div class="form-group">
                     <label for="type">{{ __('cms.banners.banner_type') }}</label>
                     <select name="type" class="form-control" required>
@@ -29,17 +29,17 @@
                         <option value="featured">{{ __('cms.banners.featured') }}</option>
                         <option value="announcement">{{ __('cms.banners.announcement') }}</option>
                     </select>
-                </div>           
-                <!-- Language Sections -->
-                <div id="languages-container">
+                </div>
+
+                <div id="languages-container" class="mt-4">
                     @if(!empty($languages) && count($languages) > 0)
                         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-                            @foreach($languages as $index => $language)
+                            @foreach($languages as $language)
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link {{ $loop->first ? 'active' : '' }}" 
-                                            id="{{ $language->name }}-tab" 
+                                            id="{{ $language->code }}-tab" 
                                             data-bs-toggle="tab" 
-                                            data-bs-target="#{{ $language->name }}" 
+                                            data-bs-target="#{{ $language->code }}" 
                                             type="button" role="tab">
                                         {{ ucwords($language->name) }}
                                     </button>
@@ -48,60 +48,54 @@
                         </ul>
 
                         <div class="tab-content mt-3" id="languageTabContent">
-                            @foreach($languages as $index => $language)
+                            @foreach($languages as $language)
                                 <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" 
-                                     id="{{ $language->name }}" role="tabpanel">
+                                     id="{{ $language->code }}" role="tabpanel">
+                                     
                                     <div class="form-group">
-                                        <label for="languages[{{ $index }}][title]">{{ __('cms.banners.title') }}</label>
-                                        <input type="text" name="languages[{{ $index }}][title]" 
-                                               class="form-control @error('languages.' . $index . '.title') is-invalid @enderror"
-                                               value="{{ old('languages.' . $index . '.title') }}" required>
-                                        @error('languages.' . $index . '.title') 
+                                        <label for="languages[{{ $language->code }}][title]">{{ __('cms.banners.title') }}</label>
+                                        <input type="text" name="languages[{{ $language->code }}][title]" 
+                                               class="form-control @error('languages.' . $language->code . '.title') is-invalid @enderror"
+                                               value="{{ old('languages.' . $language->code . '.title') }}" required>
+                                        @error('languages.' . $language->code . '.title') 
                                             <div class="invalid-feedback">{{ $message }}</div> 
                                         @enderror
-                                    </div>                                   
-                                    <!-- Description Field -->
-                                    <div class="form-group">
-                                        <label for="languages[{{ $index }}][description]">{{ __('cms.banners.description') }}</label>
-                                        <textarea name="languages[{{ $index }}][description]" 
-                                                  class="form-control @error('languages.' . $index . '.description') is-invalid @enderror"
-                                                  rows="3">{{ old('languages.' . $index . '.description') }}</textarea>
-                                        @error('languages.' . $index . '.description') 
-                                            <div class="invalid-feedback">{{ $message }}</div> 
-                                        @enderror
-                                    </div>                                   
-                                    <!-- Image Upload -->
-                                    <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
+                                    </div>
 
-                                    <!-- Custom File Input -->
+                                    <div class="form-group">
+                                        <label for="languages[{{ $language->code }}][description]">{{ __('cms.banners.description') }}</label>
+                                        <textarea name="languages[{{ $language->code }}][description]" 
+                                                  class="form-control @error('languages.' . $language->code . '.description') is-invalid @enderror"
+                                                  rows="3">{{ old('languages.' . $language->code . '.description') }}</textarea>
+                                        @error('languages.' . $language->code . '.description') 
+                                            <div class="invalid-feedback">{{ $message }}</div> 
+                                        @enderror
+                                    </div>
+
+                                    <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
                                     <div class="input-group">
-                                        <!-- Translated Choose File Button -->
                                         <label for="image_file_{{ $language->code }}" class="btn btn-primary">
                                             {{ __('cms.banners.choose_file') }}
                                         </label>
 
-                                        <!-- Hidden File Input -->
-                                        <input type="file" id="image_file_{{ $language->code }}" name="languages[{{ $index }}][image]" 
-                                            class="d-none form-control @error('languages.' . $index . '.image') is-invalid @enderror"
-                                            accept="image/*"
-                                            onchange="updateFileName(this, '{{ $language->code }}'); previewImage(this, '{{ $language->code }}')">
-
-                                        <!-- Display Selected File Name -->
-                                        <span id="file-name-{{ $language->code }}" class="ms-2 text-muted">                  
-                                        </span>
+                                        <input type="file" id="image_file_{{ $language->code }}" 
+                                               name="languages[{{ $language->code }}][image]" 
+                                               class="d-none form-control @error('languages.' . $language->code . '.image') is-invalid @enderror"
+                                               accept="image/*"
+                                               onchange="updateFileName(this, '{{ $language->code }}'); previewImage(this, '{{ $language->code }}')"> 
+                                        
+                                        <span id="file-name-{{ $language->code }}" class="ms-2 text-muted"></span>
                                     </div>
-
-                                    @error('languages.' . $index . '.image')
+                                    
+                                    @error('languages.' . $language->code . '.image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
 
-                                    <!-- Image Preview -->
                                     <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: none;">
                                         <img id="image_preview_img_{{ $language->code }}" src="#" 
-                                            alt="{{ __('cms.banners.image_preview') }}" class="img-thumbnail" style="max-width: 200px;">
+                                             alt="{{ __('cms.banners.image_preview') }}" 
+                                             class="img-thumbnail" style="max-width: 200px;">
                                     </div>
-
-                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
                                 </div>
                             @endforeach
                         </div>
@@ -109,36 +103,36 @@
                         <p class="text-danger">{{ __('cms.banners.no_languages_available') }}</p>
                     @endif
                 </div>
+
                 <button type="submit" class="btn btn-primary mt-3">{{ __('cms.banners.save') }}</button>
             </form>
         </div>
     </div>
-<script>
-function updateFileName(input, langCode) {
-    let fileNameSpan = document.getElementById('file-name-' + langCode);
-    if (input.files.length > 0) {
-        fileNameSpan.textContent = input.files[0].name;
-    } else {
-        fileNameSpan.textContent = '{{ __("cms.banners.no_file_chosen") }}';
-    }
-}
 
-function previewImage(input, langCode) {
-    let previewDiv = document.getElementById('image_preview_' + langCode);
-    let previewImg = document.getElementById('image_preview_img_' + langCode);
+    <script>
+        function updateFileName(input, langCode) {
+            let fileNameSpan = document.getElementById('file-name-' + langCode);
+            if (input.files.length > 0) {
+                fileNameSpan.textContent = input.files[0].name;
+            } else {
+                fileNameSpan.textContent = '{{ __("cms.banners.no_file_chosen") }}';
+            }
+        }
 
-    if (input.files && input.files[0]) {
-        let reader = new FileReader();
-        reader.onload = function (e) {
-            previewImg.src = e.target.result;
-            previewDiv.style.display = 'block';
-        };
-        reader.readAsDataURL(input.files[0]);
-    } else {
-        previewDiv.style.display = 'none';
-    }
-}
+        function previewImage(input, langCode) {
+            let previewDiv = document.getElementById('image_preview_' + langCode);
+            let previewImg = document.getElementById('image_preview_img_' + langCode);
 
-</script>
-
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImg.src = e.target.result;
+                    previewDiv.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                previewDiv.style.display = 'none';
+            }
+        }
+    </script>
 @endsection

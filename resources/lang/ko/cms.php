@@ -196,6 +196,7 @@ return [
         'update_product' => '상품 수정',
         'choose_images' => '이미지 선택',
         'choose_file' => '파일 선택',
+        'remove' => '제거',
 
         // 메시지
         'status_updated' => '상품 상태가 성공적으로 업데이트되었습니다!',

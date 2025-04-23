@@ -20,7 +20,6 @@
                     </div>
                 @endif
 
-                <!-- Banner Type Select -->
                 <div class="form-group">
                     <label for="type">{{ __('cms.banners.banner_type') }}</label>
                     <select name="type" class="form-control" required>
@@ -32,8 +31,7 @@
                     </select>
                 </div>
 
-                <!-- Language Sections -->
-                <div id="languages-container">
+                <div id="languages-container" class="mt-4">
                     @if(!empty($languages) && count($languages) > 0)
                         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                             @foreach($languages as $index => $language)
@@ -66,7 +64,6 @@
                                         @enderror
                                     </div>
                                     
-                                    <!-- Description Field -->
                                     <div class="form-group">
                                         <label for="languages[{{ $index }}][description]">{{ __('cms.banners.description') }}</label>
                                         <textarea name="languages[{{ $index }}][description]" 
@@ -77,7 +74,6 @@
                                         @enderror
                                     </div> 
                                                                  
-                                    <!-- Image Upload -->
                                     <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
 
                                     <div class="input-group">
@@ -105,7 +101,8 @@
                                         src="{{ !empty($bannerTranslation->image_url) ? Storage::url($bannerTranslation->image_url) : asset('images/placeholder.png') }}" 
                                         alt="{{ __('cms.banners.image_preview') }}" 
                                         class="img-thumbnail" style="max-width: 100px;">                                  
-                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}">
+                                    <input type="hidden" name="languages[{{ $index }}][language_code]" value="{{ $language->code }}"> 
+
                                 </div>
                             @endforeach
                         </div>
@@ -123,6 +120,7 @@ function updateFileName(input, langCode) {
     let fileNameSpan = document.getElementById('file-name-' + langCode);
     fileNameSpan.textContent = input.files.length > 0 ? input.files[0].name : '{{ __("cms.banners.no_file_chosen") }}';
 }
+
 function previewImage(input, langCode) {
     let previewDiv = document.getElementById('image_preview_' + langCode);
     let previewImg = document.getElementById('image_preview_img_' + langCode);

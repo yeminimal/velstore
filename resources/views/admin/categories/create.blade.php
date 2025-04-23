@@ -62,27 +62,31 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
 
-                                                    <!-- Image Upload Field -->
-                            <label class="form-label mt-2">{{ __('cms.categories.image') }} ({{ $language->code }})</label>
-                            <div class="custom-file">
-                                <label class="btn btn-primary" for="image_file_{{ $language->code }}">{{ __('cms.categories.choose_file') }}</label>
-                                <input type="file" name="translations[{{ $language->code }}][image]" 
-                                    accept="image/*" 
-                                    class="form-control d-none @error('translations.{{ $language->code }}.image') is-invalid @enderror" 
-                                    id="image_file_{{ $language->code }}" 
-                                    onchange="previewImage(this, '{{ $language->code }}')">
-                            </div>
+                                <!-- Image Upload Field -->
+                                <label class="form-label mt-2">{{ __('cms.categories.image') }} ({{ $language->code }})</label>
+                                <div class="custom-file">
+                                    <label class="btn btn-primary" for="image_file_{{ $language->code }}">
+                                        {{ __('cms.categories.choose_file') }}
+                                    </label>
+                                    <input type="file"
+                                        name="translations[{{ $language->code }}][image]"
+                                        accept="image/*"
+                                        class="form-control d-none @error("translations.$language->code.image") is-invalid @enderror"
+                                        id="image_file_{{ $language->code }}"
+                                        onchange="previewImage(this, '{{ $language->code }}')">
+                                </div>
 
-                            <!-- Image Preview -->
-                            <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: none;">
-                                <img id="image_preview_img_{{ $language->code }}" src="#" 
-                                    alt="{{ __('cms.categories.image_preview') }}" class="img-thumbnail" style="max-width: 200px;">
-                            </div>
+                                <!-- Image Preview -->
+                                <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: none;">
+                                    <img id="image_preview_img_{{ $language->code }}" src="#"
+                                        alt="{{ __('cms.categories.image_preview') }}"
+                                        class="img-thumbnail" style="max-width: 200px;">
+                                </div>
 
-                            @error('translations.{{ $language->code }}.image')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-
+                                <!-- Validation Error Message -->
+                                @error("translations.$language->code.image")
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div> 
                             @endforeach
                         </div>
@@ -132,6 +136,7 @@
             });
     });
 </script>
+
 @endsection
 
 

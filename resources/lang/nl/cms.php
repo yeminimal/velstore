@@ -195,6 +195,7 @@ return [
         'update_product' => 'Product bijwerken',
         'choose_images' => 'Afbeeldingen kiezen',
         'choose_file' => 'Bestand kiezen',
+        'remove' => 'Verwijderen',
 
         // Meldingen
         'status_updated' => 'Productstatus succesvol bijgewerkt!',
