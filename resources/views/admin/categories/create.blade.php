@@ -1,5 +1,4 @@
 
-
 @extends('admin.layouts.admin')
 
 @section('content')
@@ -11,7 +10,6 @@
             <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
-                <!-- Display Validation Errors -->
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -43,26 +41,25 @@
                                  id="{{ $language->name }}" 
                                  role="tabpanel">
                                 
-                                <!-- Name Field -->
                                 <label class="form-label">{{ __('cms.categories.name') }} ({{ $language->code }})</label>
                                 <input type="text" 
                                        name="translations[{{ $language->code }}][name]" 
                                        class="form-control @error('translations.{{ $language->code }}.name') is-invalid @enderror" 
+                                        value="{{ old('translations.' . $language->code . '.name') }}"
                                        required>
                                 @error('translations.{{ $language->code }}.name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                                 
-                                <!-- Description Field -->
                                 <label class="form-label mt-2">{{ __('cms.categories.description') }} ({{ $language->code }})</label>
                                 <textarea name="translations[{{ $language->code }}][description]" 
                                           class="form-control ck-editor-multi-languages @error('translations.{{ $language->code }}.description') is-invalid @enderror">
+                                          {{ old('translations.' . $language->code . '.description') }}
                                 </textarea>
                                 @error('translations.{{ $language->code }}.description')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
 
-                                <!-- Image Upload Field -->
                                 <label class="form-label mt-2">{{ __('cms.categories.image') }} ({{ $language->code }})</label>
                                 <div class="custom-file">
                                     <label class="btn btn-primary" for="image_file_{{ $language->code }}">
@@ -76,19 +73,17 @@
                                         onchange="previewImage(this, '{{ $language->code }}')">
                                 </div>
 
-                                <!-- Image Preview -->
                                 <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: none;">
                                     <img id="image_preview_img_{{ $language->code }}" src="#"
                                         alt="{{ __('cms.categories.image_preview') }}"
                                         class="img-thumbnail" style="max-width: 200px;">
-                                </div>
-
-                                <!-- Validation Error Message -->
+                                </div>  
+                          
                                 @error("translations.$language->code.image")
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                            </div> 
-                            @endforeach
+                            </div>   
+                            @endforeach 
                         </div>
                     </div>
                 <button type="submit" class="mt-3 btn btn-primary">{{ __('cms.categories.button') }}</button>
@@ -116,7 +111,6 @@
         }
     }
 
-    // Initialize CKEditor for each description field
     document.querySelectorAll('.ck-editor-multi-languages').forEach((element) => {
         ClassicEditor
             .create(element)
@@ -127,7 +121,6 @@
 </script>
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-    // Select all elements with the class 'ck-editor-multi-languages' and apply CKEditor to each
     document.querySelectorAll('.ck-editor-multi-languages').forEach((element) => {
         ClassicEditor
             .create(element)

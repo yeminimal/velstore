@@ -18,9 +18,6 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
        
@@ -28,9 +25,7 @@ class CategoryController extends Controller
     }
 
      
-    /**
-     * Fetch categories for DataTables with server-side processing.
-     */
+    
     public function getCategories(Request $request)
     {
         if ($request->ajax()) {
@@ -38,9 +33,7 @@ class CategoryController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         return view('admin.categories.create');
@@ -76,21 +69,16 @@ class CategoryController extends Controller
         }
     
         return redirect()->route('admin.categories.index')->with('success', __('cms.categories.created'));
-       
     }
 
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
         
@@ -102,9 +90,7 @@ class CategoryController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, $id)
     {
 
@@ -122,9 +108,7 @@ class CategoryController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy($id)
     {
         $result = $this->categoryService->destroy($id);
@@ -144,10 +128,9 @@ class CategoryController extends Controller
 
     public function updateCategoryStatus(Request $request)
     {
-        // Validate the incoming request
         $request->validate([
             'id' => 'required|exists:categories,id',
-            'status' => 'required|boolean',  // 1 for active, 0 for inactive
+            'status' => 'required|boolean',  
         ]);
 
         $category = Category::find($request->id);
