@@ -7,12 +7,11 @@
   <a href="https://packagist.org/packages/velstorelabs/velstore">
     <img src="https://poser.pugx.org/velstorelabs/velstore/d/total" alt="Velstore Packagist Downloads">
   </a>
-  <!-- Latest Stable Version Badge -->
+  
   <a href="https://github.com/velstorelabs/velstore/releases">
     <img src="https://poser.pugx.org/velstorelabs/velstore/v/stable" alt="Velstore Latest Stable Version">
   </a>
 
-  <!-- License Badge -->
   <a href="https://github.com/velstorelabs/velstore/blob/master/LICENSE">
     <img src="https://poser.pugx.org/velstorelabs/velstore/license" alt="License">
   </a>
