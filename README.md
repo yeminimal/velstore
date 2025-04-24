@@ -31,6 +31,35 @@ Velstore is a powerful and open-source multi-vendor Laravel eCommerce solution. 
 - Multi lingual support  
 - Dedicated Admin, Seller, and Customer panels 
 - Modular and extensible architecture
+- Translated to 19 languages
+
+### Supported Languages
+
+<p align="center" style="display: inline;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/us.svg" title="English" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" title="German" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" title="French" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/es.svg" title="Spanish" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" title="Dutch" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" title="Italian" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" title="Portuguese" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/in.svg" title="Hindi" width="24">
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" title="Polish" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" title="Russian" width="24">
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://flagicons.lipis.dev/flags/4x3/tr.svg" title="Turkish" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/sa.svg" title="Arabic" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/ir.svg" title="Persian" width="24">
+    &nbsp;&nbsp;&nbsp;
+    <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" title="Chinese" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" title="Japanese" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/id.svg" title="Indonesian" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/vi.svg" title="Vietnamese" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/kr.svg" title="Korean" width="24">
+    <img src="https://flagicons.lipis.dev/flags/4x3/th.svg" title="Thai" width="24">
+</p>
+
 
 ## Trending Products
 
