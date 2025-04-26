@@ -248,8 +248,8 @@ header form  input[type="submit"]{
 /* Arrow buttons styles */
 .slick-prev,
 .slick-next {
-    background: var(--main-color-light); /* Lighter color for the arrows */
-    color: white;
+    /*background: var(--main-color-light);
+    color: white;*/
     font-size: 24px;
     padding: 10px;
     border: none;
@@ -260,6 +260,10 @@ header form  input[type="submit"]{
     border-radius: 50%; /* Optional: Makes arrows circular */
 }
 
+.slick-prev:before, .slick-next:before{
+    color: var(--main-color);
+}
+
 /* Positioning the arrows */
 .slick-prev {
     left: 10px; /* Left arrow position */
@@ -267,12 +271,6 @@ header form  input[type="submit"]{
 
 .slick-next {
     right: 10px; /* Right arrow position */
-}
-
-/* Optional: Add hover effect */
-.slick-prev:hover,
-.slick-next:hover {
-    background: var(--main-color); /* Darker color on hover */
 }
 
 .product-img {
