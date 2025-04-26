@@ -3,6 +3,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 @endsection
 @section('content')
+
 @php $currency = activeCurrency(); @endphp
 <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
     <div class="container h-100">
@@ -20,26 +21,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 position-relative">
-                @php /*
-                <div class="slider-for">
-                    @if (!empty($product->images) && count($product->images))
-                        @foreach ($product->images as $image)
-                            <div>
-                                <img src="{{ Storage::url($image['image_url']) }}" alt="{{ $image['name'] }}">
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No images found.</p>
-                    @endif
-                </div>
-
-                <div class="slider-nav imgnav">
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                </div>
-                */
-                @endphp
                 <div class="product-slider">
                     @foreach ($product->images as $image)
                         <div>
@@ -127,6 +108,37 @@
             </div>
         </div>
     </div>
+</div>
+<div class="reviewbox py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
+                    type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (5)</button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content pt-3" id="myTabContent">
+          <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+            {!! $product->translation->description !!}
+          </div>
+          <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+            <p>No reviews yet. Be the first to review this product!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
