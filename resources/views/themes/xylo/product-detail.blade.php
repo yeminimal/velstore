@@ -137,8 +137,8 @@
     <script>
         $(document).ready(function() {
             $('.product-slider').slick({
-                arrows: true, // Enable left/right arrows
-                dots: false,  // Disable dots (bullets)
+                arrows: true,
+                dots: false,
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,

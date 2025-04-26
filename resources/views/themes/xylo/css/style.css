@@ -563,9 +563,8 @@ header {
 }
 
 .read-more {
-    background: linear-gradient(to right, #6d3faa, #d08dc3);
+    background: var(--dark-color);
     color: white;
-    border: none;
     padding: 11px 32px !important;
     font-size: 16px;
     border-radius: 20px;
@@ -575,7 +574,9 @@ header {
 }
 
 .read-more:hover {
-    background: linear-gradient(to right, #5b2d89, #b06ca4);
+    background: white;
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
 }
 
 
@@ -1589,11 +1590,9 @@ img.blog-img.deactive {
 
 /* Active State */
 .product-options input[type="radio"]:checked + .color-circle {
-    /* border: 3px solid black; */
     position: relative;
 }
 .product-options input[type="radio"]:checked + .color-circle:after{
-    content: "✔ ";
     color: var(--white);
     font-size: 13px;
     position: absolute;
