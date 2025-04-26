@@ -122,7 +122,7 @@
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (5)</button>
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (0)</button>
           </li>
         </ul>
 
