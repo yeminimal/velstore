@@ -39,10 +39,18 @@ class BrandController extends Controller
     }
 
     public function store(Request $request)
-    {        
-        $request->validate([
-            'logo_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg|max:10000', 
-        ]);
+    {               
+        $rules = [
+            'logo_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10000',
+            'translations' => 'required|array',
+        ];
+    
+        foreach ($request->input('translations', []) as $lang => $data) {
+            $rules["translations.$lang.name"] = 'required|string|max:255';
+            $rules["translations.$lang.description"] = 'nullable|string';
+        }
+    
+        $validated = $request->validate($rules);
 
         $result = $this->brandService->store($request->all());
     
