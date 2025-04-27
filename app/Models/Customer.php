@@ -38,4 +38,9 @@ class Customer extends Authenticatable
     {
         return $this->belongsToMany(Product::class, 'wishlists');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class);
+    }
 }

@@ -3,7 +3,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 @endsection
 @section('content')
-
 @php $currency = activeCurrency(); @endphp
 <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
     <div class="container h-100">
@@ -122,7 +121,7 @@
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (0)</button>
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviews_count }})</button>
           </li>
         </ul>
 
@@ -132,7 +131,66 @@
             {!! $product->translation->description !!}
           </div>
           <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-            <p>No reviews yet. Be the first to review this product!</p>
+            <div class="product-detail-customer-review">
+                @if($product->reviews->isEmpty())
+                    <p>No reviews for this product yet.</p>
+                @else
+                    <ul>
+                        @foreach($product->reviews as $review)
+                            @if($review->is_approved)
+                                <li>
+                                    <!-- Display Customer's Image -->
+                                    <div class="review-customer-info">
+                                        <img src="https://i.ibb.co/HTv1bQrD/customer.jpg" alt="Customer Avatar" class="review-customer-avatar" />
+                                        <strong>{{ ucwords($review->customer->name) }}</strong>
+                                    </div>
+
+                                    <!-- Display Rating with Stars -->
+                                    <div class="review-rating">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <span class="star {{ $i <= $review->rating ? 'filled' : 'unfilled' }}">&#9733;</span>
+                                        @endfor
+                                        <span class="review-time">
+                                            @php
+                                                $created_at = \Carbon\Carbon::parse($review->created_at);
+                                                $diffInDays = $created_at->diffInDays(\Carbon\Carbon::now());
+                                            @endphp
+                                            ({{ $diffInDays }} {{ $diffInDays == 1 ? 'day' : 'days' }} ago)
+                                        </span>
+                                    </div>
+
+                                    <!-- Display Review Text -->
+                                    @if($review->review)
+                                        <p>{{ $review->review }}</p>
+                                    @else
+                                        <p>No review written.</p>
+                                    @endif
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+
+                        <!-- Display Average Rating -->
+                        <div class="average-rating">
+                            
+
+                            <div class="review-rating">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($i <= floor($product->reviews_avg_rating))
+                                        <span class="star filled">★</span>
+                                    @elseif($i == ceil($product->reviews_avg_rating) && ($product->reviews_avg_rating - floor($product->reviews_avg_rating)) >= 0.5)
+                                        <span class="star half-filled">★</span>
+                                    @else
+                                        <span class="star unfilled">★</span>
+                                    @endif
+                                @endfor
+
+                                {{ number_format($product->reviews_avg_rating, 1) }} <span> Average Rating</span> 
+                            </div>
+                        </div>
+                @endif
+                </div> <!-- End div.product-detail-customer-review -->
+            </div>
           </div>
         </div>
 

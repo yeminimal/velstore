@@ -1,5 +1,4 @@
 @extends('themes.xylo.layouts.master')
-
 @section('content')
     @php $currency = activeCurrency(); @endphp
     {{-- Banner Section Start --}}
