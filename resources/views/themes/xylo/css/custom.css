@@ -316,4 +316,89 @@ header form  input[type="submit"]{
 }
 
 /* end 6-04-2025 */
-  
+
+
+/* Scoped CSS for product review section */
+.product-detail-customer-review {
+    margin-top: 30px;
+}
+
+.product-detail-customer-review h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-detail-customer-review ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-detail-customer-review li {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-detail-customer-review .review-customer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-detail-customer-review .review-customer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.product-detail-customer-review .review-customer-info strong {
+    font-weight: bold;
+}
+
+.product-detail-customer-review .review-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-detail-customer-review .star {
+    font-size: 30px;
+    margin-right: 5px;
+    color: var(--main-color);
+}
+
+.product-detail-customer-review .star.filled {
+    color: var(--main-color);
+}
+.product-detail-customer-review .star.unfilled {
+    color: #ccc; /* Lighter color for unfilled stars */
+}
+.product-detail-customer-review .review-time {
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: 10px;
+}
+
+.product-detail-customer-review .average-rating {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.product-detail-customer-review .average-rating strong {
+    color: #333;
+}
+
+.product-detail-customer-review p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.product-detail-customer-review small {
+    font-size: 0.9rem;
+    color: #777;
+}
