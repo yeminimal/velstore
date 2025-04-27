@@ -31,7 +31,7 @@ Route::post('/change-store-language', [LanguageController::class, 'changeLanguag
 Route::post('/cart/apply-coupon', [CartController::class, 'applyCoupon'])->name('cart.applyCoupon');
 Route::post('/cart/remove-coupon', [CartController::class, 'removeCoupon'])->name('cart.removeCoupon');
 
-Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/products', [ShopController::class, 'index'])->name('shop.index');
 
 Route::get('/search-suggestions', [SearchController::class, 'suggestions']);
 Route::get('/search', [SearchController::class, 'searchResults']);
