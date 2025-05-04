@@ -5,9 +5,9 @@
                 <!-- Left Links -->
                 <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
                     <ul class="footer-links list-unstyled d-flex mb-0">
-                        <li><a href="#">TERMS & CONDITION</a></li>
-                        <li><a href="#">PRIVACY POLICY</a></li>
-                        <li><a href="#">DISCLAIMER</a></li>
+                        <li><a href="#">{{ __('store.footer.terms') }}</a></li>
+                        <li><a href="#">{{ __('store.footer.privacy_policy') }}</a></li>
+                        <li><a href="#">{{ __('store.footer.disclaimer') }}</a></li>
                     </ul>
                 </div>
 
@@ -19,8 +19,8 @@
                 <!-- Right Links & Icons -->
                 <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
                     <ul class="footer-links list-unstyled d-flex mb-0">
-                        <li><a href="#">SIGN UP</a></li>
-                        <li><a href="#">LOGIN</a></li>
+                        <li><a href="#">{{ __('store.footer.sign_up') }}</a></li>
+                        <li><a href="#">{{ __('store.footer.login') }}</a></li>
                         <li>
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                         </li>
@@ -37,13 +37,13 @@
             <!-- Bottom Bar -->
             <div class="row mt-3">
                 <div class="col-md-3 text-center text-md-start">
-                    <p class="m-0">&copy; 2025 Xylo. All Rights Reserved</p>
+                    <p class="m-0">&copy; {{ __('store.footer.copyright') }}</p>
                 </div>
                 <div class="col-md-7">
                     <img src="assets/images/footerbotom-line.png" alt="" class="w-100">
                 </div>
                 <div class="col-md-2 text-center text-md-end">
-                    <p class="m-0">Are You Interested?</p>
+                    <p class="m-0">{{ __('store.footer.bottom_line') }}</p>
                 </div>
             </div>
         </div>
