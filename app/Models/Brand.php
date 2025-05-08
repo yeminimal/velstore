@@ -24,5 +24,11 @@ class Brand extends Model
         return $this->hasOne(BrandTranslation::class)
                     ->where('locale', App::getLocale());
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
    
 }

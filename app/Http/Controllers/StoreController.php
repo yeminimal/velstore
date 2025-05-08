@@ -29,7 +29,7 @@ class StoreController extends Controller
         ->get();
             
         $products = Product::where('status', 1)
-        ->with(['translation', 'thumbnail', 'primaryVariant', 'reviews'])
+        ->with(['translation', 'thumbnail', 'primaryVariant'])
         ->withCount('reviews')
         ->orderBy('id', 'desc')
         ->take(10)

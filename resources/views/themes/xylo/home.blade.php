@@ -1,5 +1,4 @@
 @extends('themes.xylo.layouts.master')
-
 @section('content')
     @php $currency = activeCurrency(); @endphp
     {{-- Banner Section Start --}}
@@ -48,32 +47,6 @@
             </div>
         </div>
     </section>
-
-    {{-- About Section Start --}}
-    @php /*
-    <section class="fashion-section animate-on-scroll">
-        <div class="container">
-            <div class="fashion-content">
-                <div class="fashion-image">
-                    <img src="assets/images/fashionarea-img.png" alt="Fashion Models">
-                </div>
-                <div class="fashion-text">
-                    <div class="about-tag">ABOUT US</div>
-                    <h2>Exclusive Fashion Offers Await</h2>
-                    <p>
-                        Diam integer turpis tristique integer cursusw dignissim. Euismod libero
-                        pellentesq suspendisseit an amet, consectetur adipiscing elitmperdiet
-                        nisvunc imperdras eliten ameoemusa dummy text.
-                    </p>
-                    <a href="#" class="read-more">READ MORE</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    */
-    @endphp
-    {{-- About Section End --}}
-
 
     <section class="trending-products animate-on-scroll">
         <div class="container position-relative">
@@ -155,13 +128,15 @@
                                 <div class="left">
                                     <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
                                     <p class="price">
-                                        {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }} 
+                                        <span class="original {{ optional($product->primaryVariant)->converted_discount_price ? 'has-discount' : '' }}">
+                                            {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }}
+                                        </span>
+
                                         @if(optional($product->primaryVariant)->converted_discount_price)
                                             <span class="discount"> 
                                                 {{ $currency->symbol }}{{ $product->primaryVariant->converted_discount_price }}
                                             </span>
-                                        @endif    
-                                        <span class="sold-out">Sold Out 85%</span>
+                                        @endif
                                     </p>
                                 </div>
                                 <button class="cart-btn" onclick="addToCart({{ $product->id }})">

@@ -20,26 +20,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 position-relative">
-                @php /*
-                <div class="slider-for">
-                    @if (!empty($product->images) && count($product->images))
-                        @foreach ($product->images as $image)
-                            <div>
-                                <img src="{{ Storage::url($image['image_url']) }}" alt="{{ $image['name'] }}">
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No images found.</p>
-                    @endif
-                </div>
-
-                <div class="slider-nav imgnav">
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                    <div><img src="assets/images/prodict-detailthumb.png" alt=""></div>
-                </div>
-                */
-                @endphp
                 <div class="product-slider">
                     @foreach ($product->images as $image)
                         <div>
@@ -128,6 +108,96 @@
         </div>
     </div>
 </div>
+<div class="reviewbox py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
+                    type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviews_count }})</button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content pt-3" id="myTabContent">
+          <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+            {!! $product->translation->description !!}
+          </div>
+          <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+            <div class="product-detail-customer-review">
+                @if($product->reviews->isEmpty())
+                    <p>No reviews for this product yet.</p>
+                @else
+                    <ul>
+                        @foreach($product->reviews as $review)
+                            @if($review->is_approved)
+                                <li>
+                                    <!-- Display Customer's Image -->
+                                    <div class="review-customer-info">
+                                        <img src="https://i.ibb.co/HTv1bQrD/customer.jpg" alt="Customer Avatar" class="review-customer-avatar" />
+                                        <strong>{{ ucwords($review->customer->name) }}</strong>
+                                    </div>
+
+                                    <!-- Display Rating with Stars -->
+                                    <div class="review-rating">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            <span class="star {{ $i <= $review->rating ? 'filled' : 'unfilled' }}">&#9733;</span>
+                                        @endfor
+                                        <span class="review-time">
+                                            @php
+                                                $created_at = \Carbon\Carbon::parse($review->created_at);
+                                                $diffInDays = $created_at->diffInDays(\Carbon\Carbon::now());
+                                            @endphp
+                                            ({{ $diffInDays }} {{ $diffInDays == 1 ? 'day' : 'days' }} ago)
+                                        </span>
+                                    </div>
+
+                                    <!-- Display Review Text -->
+                                    @if($review->review)
+                                        <p>{{ $review->review }}</p>
+                                    @else
+                                        <p>No review written.</p>
+                                    @endif
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+
+                        <!-- Display Average Rating -->
+                        <div class="average-rating">
+                            
+
+                            <div class="review-rating">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($i <= floor($product->reviews_avg_rating))
+                                        <span class="star filled">★</span>
+                                    @elseif($i == ceil($product->reviews_avg_rating) && ($product->reviews_avg_rating - floor($product->reviews_avg_rating)) >= 0.5)
+                                        <span class="star half-filled">★</span>
+                                    @else
+                                        <span class="star unfilled">★</span>
+                                    @endif
+                                @endfor
+
+                                {{ number_format($product->reviews_avg_rating, 1) }} <span> Average Rating</span> 
+                            </div>
+                        </div>
+                @endif
+                </div> <!-- End div.product-detail-customer-review -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 @endsection
@@ -137,8 +207,8 @@
     <script>
         $(document).ready(function() {
             $('.product-slider').slick({
-                arrows: true, // Enable left/right arrows
-                dots: false,  // Disable dots (bullets)
+                arrows: true,
+                dots: false,
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
