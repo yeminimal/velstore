@@ -26,17 +26,30 @@
                     </li>
                 @endforeach
             </ul>
+     
             <div class="tab-content mt-3" id="languageTabContent">
                 @foreach($activeLanguages as $language)
                     <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->name }}" role="tabpanel">
                         <label class="form-label">{{ __('cms.products.product_name') }} ({{ $language->code }})</label>
-                        <input type="text" name="translations[{{ $language->code }}][name]" class="form-control" required>
-                        <label class="form-label">{{ __('cms.products.description') }} ({{ $language->code }})</label>
-                        <textarea name="translations[{{ $language->code }}][description]" class="form-control ck-editor-multi-languages"></textarea>
+                        <input type="text"
+                               name="translations[{{ $language->code }}][name]"
+                               class="form-control @error("translations.{$language->code}.name") is-invalid @enderror"
+                               value="{{ old("translations.{$language->code}.name") }}"
+                               required>
+                        @error("translations.{$language->code}.name")
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+            
+                        <label class="form-label mt-3">{{ __('cms.products.description') }} ({{ $language->code }})</label>
+                        <textarea name="translations[{{ $language->code }}][description]"
+                                  class="form-control ck-editor-multi-languages @error("translations.{$language->code}.description") is-invalid @enderror">{{ old("translations.{$language->code}.description") }}</textarea>
+                        @error("translations.{$language->code}.description")
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
                     </div>
                 @endforeach
             </div>
-            
+                       
             <div class="row mt-4">
                 <div class="col-md-6">
                     <label class="form-label">{{ __('cms.products.category') }}</label>
@@ -66,8 +79,8 @@
                 <button type="button" class="btn btn-sm btn-danger" id="remove-variant-btn">
                     {{ __('cms.products.remove_variant') ?? 'Remove Variant' }}
                 </button>
-            </div>
-        
+            </div> 
+                   
             <template id="variant-template">
                 <div class="card p-3 mt-3 variant-item border rounded" data-index="__INDEX__">
                     <h5>{{ __('cms.products.variants') }}<span class="variant-number">__INDEX__</span></h5>
