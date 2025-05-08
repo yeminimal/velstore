@@ -7,13 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => 'TERMS & CONDITION',
-        'privacy_policy' => 'PRIVACY POLICY',
-        'disclaimer' => 'DISCLAIMER',
-        'sign_up' => 'SIGN UP',
-        'login' => 'LOGIN',
-        'footer_logo_alt' => 'Xylo Footer Logo',
-        'copyright' => '&copy; 2025 Xylo. All Rights Reserved',
-        'bottom_line' => 'Are You Interested?',
+        'account' => 'Account',
+        'my_account' => 'My Account',
+        'wishlist' => 'Wishlist',
+        'pages' => 'Pages',
+        'privacy_policy' => 'Privacy Policy',
+        'terms_of_service' => 'Terms of Service',
+        'follow_us' => 'Follow Us',
+        'footer_logo_alt' => 'Velstore Footer Logo',
+        'copyright' => '© 2025 Velstore Demo. All Rights Reserved.',
+        'powered_by' => 'Powered by Velstore Labs',
     ],
 ];

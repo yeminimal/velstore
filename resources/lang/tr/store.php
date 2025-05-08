@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => 'Şartlar ve Koşullar',
+        'account' => 'Hesap',
+        'my_account' => 'Hesabım',
+        'wishlist' => 'İstek Listesi',
+        'pages' => 'Sayfalar',
         'privacy_policy' => 'Gizlilik Politikası',
-        'disclaimer' => 'Feragatname',
-        'sign_up' => 'Kayıt Ol',
-        'login' => 'Giriş Yap',
-        'footer_logo_alt' => 'Xylo Footer Logosu',
-        'copyright' => '&copy; 2025 Xylo. Tüm Hakları Saklıdır',
-        'bottom_line' => 'İlginizi Çeker Mi?',
+        'terms_of_service' => 'Hizmet Şartları',
+        'follow_us' => 'Bizi Takip Et',
+        'footer_logo_alt' => 'Velstore Alt Bilgi Logo',
+        'copyright' => '© 2025 Velstore Demo. Tüm hakları saklıdır.',
+        'powered_by' => 'Velstore Labs tarafından sağlanmaktadır',
     ],
-
 ];

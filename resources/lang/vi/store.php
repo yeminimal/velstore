@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => 'Điều khoản & Điều kiện',
+        'account' => 'Tài khoản',
+        'my_account' => 'Tài khoản của tôi',
+        'wishlist' => 'Danh sách mong muốn',
+        'pages' => 'Trang',
         'privacy_policy' => 'Chính sách bảo mật',
-        'disclaimer' => 'Tuyên bố từ chối trách nhiệm',
-        'sign_up' => 'Đăng ký',
-        'login' => 'Đăng nhập',
-        'footer_logo_alt' => 'Logo chân trang Xylo',
-        'copyright' => '&copy; 2025 Xylo. Bảo lưu mọi quyền',
-        'bottom_line' => 'Bạn có quan tâm không?',
+        'terms_of_service' => 'Điều khoản dịch vụ',
+        'follow_us' => 'Theo dõi chúng tôi',
+        'footer_logo_alt' => 'Logo chân trang Velstore',
+        'copyright' => '© 2025 Velstore Demo. Bảo lưu mọi quyền.',
+        'powered_by' => 'Phát triển bởi Velstore Labs',
     ],
-
 ];

@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => '利用規約',
+        'account' => 'アカウント',
+        'my_account' => 'マイアカウント',
+        'wishlist' => 'ウィッシュリスト',
+        'pages' => 'ページ',
         'privacy_policy' => 'プライバシーポリシー',
-        'disclaimer' => '免責事項',
-        'sign_up' => 'サインアップ',
-        'login' => 'ログイン',
-        'footer_logo_alt' => 'Xylo フッターロゴ',
-        'copyright' => '&copy; 2025 Xylo. 無断転載を禁じます',
-        'bottom_line' => 'ご興味がありますか？',
+        'terms_of_service' => '利用規約',
+        'follow_us' => 'フォローする',
+        'footer_logo_alt' => 'Velstore フッターロゴ',
+        'copyright' => '© 2025 Velstore Demo. 全著作権所有。',
+        'powered_by' => 'Velstore Labsによって提供',
     ],
-
 ];

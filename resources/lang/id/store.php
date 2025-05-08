@@ -6,15 +6,16 @@ return [
         'search_placeholder' => 'Cari produk',
     ],
 
-    'footer' => [
-        'terms' => 'Syarat & Ketentuan',
+   'footer' => [
+        'account' => 'Akun',
+        'my_account' => 'Akun Saya',
+        'wishlist' => 'Daftar Keinginan',
+        'pages' => 'Halaman',
         'privacy_policy' => 'Kebijakan Privasi',
-        'disclaimer' => 'Penafian',
-        'sign_up' => 'Daftar',
-        'login' => 'Masuk',
-        'footer_logo_alt' => 'Logo Footer Xylo',
-        'copyright' => '&copy; 2025 Xylo. Hak cipta dilindungi',
-        'bottom_line' => 'Apakah Anda tertarik?',
+        'terms_of_service' => 'Syarat Layanan',
+        'follow_us' => 'Ikuti Kami',
+        'footer_logo_alt' => 'Logo Footer Velstore',
+        'copyright' => '© 2025 Demo Velstore. Semua Hak Dilindungi.',
+        'powered_by' => 'Ditenagai oleh Velstore Labs',
     ],
-
 ];

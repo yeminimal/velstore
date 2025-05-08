@@ -6,15 +6,16 @@ return [
         'search_placeholder' => 'Rechercher un produit',
     ],
 
-    'footer' => [
-        'terms' => 'Conditions générales',
+   'footer' => [
+        'account' => 'Compte',
+        'my_account' => 'Mon compte',
+        'wishlist' => 'Liste de souhaits',
+        'pages' => 'Pages',
         'privacy_policy' => 'Politique de confidentialité',
-        'disclaimer' => 'Avertissement',
-        'sign_up' => 'S’inscrire',
-        'login' => 'Se connecter',
-        'footer_logo_alt' => 'Logo de pied de page Xylo',
-        'copyright' => '&copy; 2025 Xylo. Tous droits réservés',
-        'bottom_line' => 'Êtes-vous intéressé ?',
+        'terms_of_service' => 'Conditions d\'utilisation',
+        'follow_us' => 'Suivez-nous',
+        'footer_logo_alt' => 'Logo du pied de page Velstore',
+        'copyright' => '© 2025 Démo Velstore. Tous droits réservés.',
+        'powered_by' => 'Propulsé par Velstore Labs',
     ],
-
 ];

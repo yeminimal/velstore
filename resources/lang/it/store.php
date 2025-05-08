@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => 'Termini e condizioni',
-        'privacy_policy' => 'Informativa sulla privacy',
-        'disclaimer' => 'Esclusione di responsabilità',
-        'sign_up' => 'Registrati',
-        'login' => 'Accedi',
-        'footer_logo_alt' => 'Logo del footer di Xylo',
-        'copyright' => '&copy; 2025 Xylo. Tutti i diritti riservati',
-        'bottom_line' => 'Sei interessato?',
+        'account' => 'Account',
+        'my_account' => 'Il mio account',
+        'wishlist' => 'Lista dei desideri',
+        'pages' => 'Pagine',
+        'privacy_policy' => 'Politica sulla privacy',
+        'terms_of_service' => 'Termini di servizio',
+        'follow_us' => 'Seguici',
+        'footer_logo_alt' => 'Logo del footer Velstore',
+        'copyright' => '© 2025 Velstore Demo. Tutti i diritti riservati.',
+        'powered_by' => 'Sviluppato da Velstore Labs',
     ],
-
 ];

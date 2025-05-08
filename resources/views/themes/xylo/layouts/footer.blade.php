@@ -8,25 +8,25 @@
 
       <!-- Column 2: Account -->
       <div class="col-6 col-md-3 mb-4">
-        <h5>Account</h5>
+        <h5> {{ __('store.footer.account') }}</h5>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">My Account</a></li>
-          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Wishlist</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">{{ __('store.footer.my_account') }}</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">{{ __('store.footer.wishlist') }}</a></li>
         </ul>
       </div>
 
       <!-- Column 3: Other Pages -->
       <div class="col-6 col-md-3 mb-4">
-        <h5>Pages</h5>
+        <h5>{{ __('store.footer.pages') }}</h5>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
-          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Terms of Service</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">{{ __('store.footer.privacy_policy') }}</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">{{ __('store.footer.terms_of_service') }}</a></li>
         </ul>
       </div>
 
       <!-- Column 4: Social Links -->
     <div class="col-12 col-md-3 mb-4">
-    <h5>Follow Us</h5>
+    <h5>{{ __('store.footer.follow_us') }}</h5>
     <div class="d-flex gap-3">
         <a href="#" class="text-dark fs-5"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="text-dark fs-5"><i class="fab fa-twitter"></i></a>
@@ -43,8 +43,8 @@
     <div class="container">
       <div class="row">
         <div class="col-12 d-flex justify-content-between flex-wrap small">
-          <span>© 2025 Velstore Demo. All Rights Reserved.</span>
-          <span>Powered by Velstore Labs</span>
+          <span>{{ __('store.footer.copyright') }}</span>
+          <span>{{ __('store.footer.powered_by') }}</span>
         </div>
       </div>
     </div>

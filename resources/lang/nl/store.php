@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => 'Algemene voorwaarden',
+        'account' => 'Account',
+        'my_account' => 'Mijn Account',
+        'wishlist' => 'Verlanglijst',
+        'pages' => 'Pagina\'s',
         'privacy_policy' => 'Privacybeleid',
-        'disclaimer' => 'Disclaimer',
-        'sign_up' => 'Aanmelden',
-        'login' => 'Inloggen',
-        'footer_logo_alt' => 'Xylo Footer Logo',
-        'copyright' => '&copy; 2025 Xylo. Alle rechten voorbehouden',
-        'bottom_line' => 'Ben je geïnteresseerd?',
+        'terms_of_service' => 'Algemene Voorwaarden',
+        'follow_us' => 'Volg ons',
+        'footer_logo_alt' => 'Velstore Voettekst Logo',
+        'copyright' => '© 2025 Velstore Demo. Alle rechten voorbehouden.',
+        'powered_by' => 'Aangedreven door Velstore Labs',
     ],
-
 ];
