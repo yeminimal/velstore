@@ -1,4 +1,4 @@
-@extends('themes.xylo.layouts.master')
+@extends('vendor.layouts.master')
 
 @section('css')
 <style>
