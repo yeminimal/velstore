@@ -1,4 +1,4 @@
-@extends('admin.vendor-views.layouts.master')
+@extends('themes.xylo.layouts.master')
 
 @section('css')
 <style>

@@ -6,15 +6,16 @@ return [
         'search_placeholder' => '搜索产品',
     ],
 
-    'footer' => [
-        'terms' => '条款与条件',
+   'footer' => [
+        'account' => '账户',
+        'my_account' => '我的账户',
+        'wishlist' => '愿望清单',
+        'pages' => '页面',
         'privacy_policy' => '隐私政策',
-        'disclaimer' => '免责声明',
-        'sign_up' => '注册',
-        'login' => '登录',
-        'footer_logo_alt' => 'Xylo 页脚 logo',
-        'copyright' => '&copy; 2025 Xylo. 保留所有权利',
-        'bottom_line' => '你感兴趣吗？',
+        'terms_of_service' => '服务条款',
+        'follow_us' => '关注我们',
+        'footer_logo_alt' => 'Velstore 底部logo',
+        'copyright' => '© 2025 Velstore Demo. 保留所有权利。',
+        'powered_by' => '由 Velstore Labs 提供技术支持',
     ],
-
 ];

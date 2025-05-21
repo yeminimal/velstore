@@ -7,14 +7,15 @@ return [
     ],
 
    'footer' => [
-        'terms' => 'شرایط و ضوابط',
+        'account' => 'حساب کاربری',
+        'my_account' => 'حساب من',
+        'wishlist' => 'لیست علاقه‌مندی‌ها',
+        'pages' => 'صفحات',
         'privacy_policy' => 'سیاست حفظ حریم خصوصی',
-        'disclaimer' => 'سلب مسئولیت',
-        'sign_up' => 'ثبت‌نام',
-        'login' => 'ورود',
-        'footer_logo_alt' => 'لوگوی پابرگ زایلو',
-        'copyright' => '&copy; 2025 زایلو. تمامی حقوق محفوظ است',
-        'bottom_line' => 'آیا علاقه‌مند هستید؟',
+        'terms_of_service' => 'شرایط خدمات',
+        'follow_us' => 'ما را دنبال کنید',
+        'footer_logo_alt' => 'لوگوی پاورقی Velstore',
+        'copyright' => '© ۲۰۲۵ نسخه نمایشی Velstore. تمامی حقوق محفوظ است.',
+        'powered_by' => 'قدرت گرفته از Velstore Labs',
     ],
-
 ];

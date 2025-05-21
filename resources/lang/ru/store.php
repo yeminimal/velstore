@@ -6,15 +6,16 @@ return [
         'search_placeholder' => 'Поиск продукта',
     ],
 
-    'footer' => [
-        'terms' => 'Условия использования',
+  'footer' => [
+        'account' => 'Аккаунт',
+        'my_account' => 'Мой аккаунт',
+        'wishlist' => 'Список желаемого',
+        'pages' => 'Страницы',
         'privacy_policy' => 'Политика конфиденциальности',
-        'disclaimer' => 'Отказ от ответственности',
-        'sign_up' => 'Зарегистрироваться',
-        'login' => 'Войти',
-        'footer_logo_alt' => 'Логотип подвала Xylo',
-        'copyright' => '&copy; 2025 Xylo. Все права защищены',
-        'bottom_line' => 'Вы заинтересованы?',
+        'terms_of_service' => 'Условия обслуживания',
+        'follow_us' => 'Подписывайтесь на нас',
+        'footer_logo_alt' => 'Логотип подвала Velstore',
+        'copyright' => '© 2025 Velstore Demo. Все права защищены.',
+        'powered_by' => 'Разработано Velstore Labs',
     ],
-
 ];

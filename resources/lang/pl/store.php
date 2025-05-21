@@ -6,15 +6,16 @@ return [
         'search_placeholder' => 'Szukaj produktu',
     ],
 
-    'footer' => [
-        'terms' => 'Warunki użytkowania',
+   'footer' => [
+        'account' => 'Konto',
+        'my_account' => 'Moje Konto',
+        'wishlist' => 'Lista życzeń',
+        'pages' => 'Strony',
         'privacy_policy' => 'Polityka prywatności',
-        'disclaimer' => 'Zrzeczenie się odpowiedzialności',
-        'sign_up' => 'Zarejestruj się',
-        'login' => 'Zaloguj się',
-        'footer_logo_alt' => 'Logo stopki Xylo',
-        'copyright' => '&copy; 2025 Xylo. Wszelkie prawa zastrzeżone',
-        'bottom_line' => 'Jesteś zainteresowany?',
+        'terms_of_service' => 'Regulamin',
+        'follow_us' => 'Śledź nas',
+        'footer_logo_alt' => 'Logo stopki Velstore',
+        'copyright' => '© 2025 Velstore Demo. Wszelkie prawa zastrzeżone.',
+        'powered_by' => 'Zasilane przez Velstore Labs',
     ],
-
 ];

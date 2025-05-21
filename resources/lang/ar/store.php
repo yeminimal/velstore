@@ -6,15 +6,16 @@ return [
         'search_placeholder' => 'ابحث عن منتج',
     ],
 
-    'footer' => [
-        'terms' => 'الشروط والأحكام',
+   'footer' => [
+        'account' => 'الحساب',
+        'my_account' => 'حسابي',
+        'wishlist' => 'قائمة الرغبات',
+        'pages' => 'الصفحات',
         'privacy_policy' => 'سياسة الخصوصية',
-        'disclaimer' => 'إخلاء المسؤولية',
-        'sign_up' => 'إنشاء حساب',
-        'login' => 'تسجيل الدخول',
-        'footer_logo_alt' => 'شعار تذييل زيلو',
-        'copyright' => '&copy; 2025 زيلو. جميع الحقوق محفوظة',
-        'bottom_line' => 'هل أنت مهتم؟',
+        'terms_of_service' => 'شروط الخدمة',
+        'follow_us' => 'تابعنا',
+        'footer_logo_alt' => 'شعار ذيل صفحة فيلستور',
+        'copyright' => '© 2025 متجر فيلستور التجريبي. جميع الحقوق محفوظة.',
+        'powered_by' => 'بدعم من فيلستور لابز',
     ],
-
 ];

@@ -7,14 +7,15 @@ return [
     ],
 
     'footer' => [
-        'terms' => '이용 약관',
+        'account' => '계정',
+        'my_account' => '내 계정',
+        'wishlist' => '위시리스트',
+        'pages' => '페이지',
         'privacy_policy' => '개인정보 처리방침',
-        'disclaimer' => '면책 조항',
-        'sign_up' => '회원가입',
-        'login' => '로그인',
-        'footer_logo_alt' => '자일로 푸터 로고',
-        'copyright' => '&copy; 2025 자일로. 모든 권리 보유',
-        'bottom_line' => '관심 있으신가요?',
+        'terms_of_service' => '이용약관',
+        'follow_us' => '팔로우하기',
+        'footer_logo_alt' => 'Velstore 푸터 로고',
+        'copyright' => '© 2025 Velstore Demo. 모든 권리 보유.',
+        'powered_by' => 'Velstore Labs 제공',
     ],
-
 ];
