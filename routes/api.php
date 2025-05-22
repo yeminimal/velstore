@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CustomerAuthController;
+use App\Http\Controllers\Api\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,6 @@ Route::prefix('customer')->group(function () {
         Route::post('logout', [CustomerAuthController::class, 'logout']);
     });
 });
+
+Route::get('/banners', [BannerController::class, 'index']);
 
