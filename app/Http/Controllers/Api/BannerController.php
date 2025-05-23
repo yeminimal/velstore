@@ -32,6 +32,6 @@ class BannerController extends Controller
         return response()->json([
             'status' => true,
             'data' => $banners,
-        ]);
-    }
+        ]); 
+    } 
 }
