@@ -15,7 +15,7 @@
     @yield('css')
 </head>
 <body>
-    @include('admin.vendor-views.layouts.sidebar')
+    @include('vendor.layouts.sidebar') 
     
     <!-- Content Area -->
     <div id="content" class="w-100">
