@@ -38,12 +38,12 @@ jobs:
         run: |
           chmod -R 775 storage bootstrap/cache
 
-      - name: Install Laravel Pint globally
-        run: composer global require laravel/pint
+      - name: Install Pint (PHP 8.1 compatible)
+        run: composer global require laravel/pint:^1.12
         env:
           COMPOSER_HOME: ${{ runner.temp }}/composer
 
-      - name: Run Pint (Laravel code style check)
+      - name: Run Pint
         run: ${{ runner.temp }}/composer/vendor/bin/pint --test
 
       - name: Run tests with SQLite
