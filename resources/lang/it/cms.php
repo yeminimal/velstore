@@ -8,116 +8,115 @@ return [
         'remember_me' => 'Ricordami',
         'forgot_password' => 'Hai dimenticato la password?',
     ],
-    
+
     'profile' => [
         'profile' => 'Profilo',
         'setting' => 'Impostazioni',
-        'logout' => 'Disconnettersi',       
+        'logout' => 'Disconnettersi',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Cerca...',
-    'dashboard' => 'Dashboard',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Cerca...',
+        'dashboard' => 'Dashboard',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Categorie',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
+        'categories' => [
+            'title' => 'Categorie',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'brands' => [
+            'title' => 'Marche',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'products' => [
+            'title' => 'Prodotti',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'attributes' => [
+            'title' => 'Attributi',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Lista',
+        ],
+        'customers' => [
+            'title' => 'Clienti',
+            'list' => 'Elenco',
+        ],
+        'sellers' => [
+            'title' => 'Venditori',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'product_reviews' => [
+            'title' => 'Recensioni Prodotti',
+            'list' => 'Elenco',
+        ],
+        'banners' => [
+            'title' => 'Banner',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'menu' => [
+            'title' => 'Menu',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'menu_items' => [
+            'title' => 'Elementi del Menu',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'social_media_links' => [
+            'title' => 'Link ai Social Media',
+            'add_new' => 'Aggiungi Nuovo',
+            'list' => 'Elenco',
+        ],
+        'site_settings' => [
+            'title' => 'Impostazioni del Sito',
+            'manage' => 'Gestisci Impostazioni',
+        ],
+        'orders' => [
+            'title' => 'Ordini',
+            'all_orders' => 'Tutti gli Ordini',
+            'pending_orders' => 'Ordini in Attesa',
+            'completed_orders' => 'Ordini Completati',
+        ],
     ],
-    'brands' => [
-        'title' => 'Marche',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'products' => [
-        'title' => 'Prodotti',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'attributes' => [
-    'title' => 'Attributi',
-    'add_new' => 'Aggiungi Nuovo',
-    'list' => 'Lista',
-    ],
-    'customers' => [
-        'title' => 'Clienti',
-        'list' => 'Elenco',
-    ],
-    'sellers' => [
-        'title' => 'Venditori',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'product_reviews' => [
-        'title' => 'Recensioni Prodotti',
-        'list' => 'Elenco',
-    ],
-    'banners' => [
-        'title' => 'Banner',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'menu' => [
-        'title' => 'Menu',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'menu_items' => [
-        'title' => 'Elementi del Menu',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'social_media_links' => [
-        'title' => 'Link ai Social Media',
-        'add_new' => 'Aggiungi Nuovo',
-        'list' => 'Elenco',
-    ],
-    'site_settings' => [
-        'title' => 'Impostazioni del Sito',
-        'manage' => 'Gestisci Impostazioni',
-    ],
-    'orders' => [
-        'title' => 'Ordini',
-        'all_orders' => 'Tutti gli Ordini',
-        'pending_orders' => 'Ordini in Attesa',
-        'completed_orders' => 'Ordini Completati',
-    ],
-],
 
-    'languages'=> [   
-    'english' => 'Inglese',
-    'spanish' => 'Spagnolo',
-    'french' => 'Francese',
-    'arabic' => 'Arabo',
-    'german' => 'Tedesco',
-    'persian' => 'Persiano (Farsi)',
-    'hindi' => 'Hindi',
-    'indonesian' => 'Indonesiano',
-    'italian' => 'Italiano',
-    'japanese' => 'Giapponese',
-    'korean' => 'Coreano',
-    'dutch' => 'Olandese',
-    'polish' => 'Polacco',
-    'portuguese' => 'Portoghese',
-    'russian' => 'Russo',
-    'thai' => 'Thailandese',
-    'turkish' => 'Turco',
-    'vietnamese' => 'Vietnamita',
-    'chinese' => 'Cinese',
+    'languages' => [
+        'english' => 'Inglese',
+        'spanish' => 'Spagnolo',
+        'french' => 'Francese',
+        'arabic' => 'Arabo',
+        'german' => 'Tedesco',
+        'persian' => 'Persiano (Farsi)',
+        'hindi' => 'Hindi',
+        'indonesian' => 'Indonesiano',
+        'italian' => 'Italiano',
+        'japanese' => 'Giapponese',
+        'korean' => 'Coreano',
+        'dutch' => 'Olandese',
+        'polish' => 'Polacco',
+        'portuguese' => 'Portoghese',
+        'russian' => 'Russo',
+        'thai' => 'Thailandese',
+        'turkish' => 'Turco',
+        'vietnamese' => 'Vietnamita',
+        'chinese' => 'Cinese',
 
-    'language_change' => 'Cambio Lingua',
-    'change_language' => 'Cambia Lingua',
-    'confirm_language_change' => 'Sei sicuro di voler cambiare lingua?',
-    'cancel' => 'Annulla',
-    'yes_change' => 'Sì, Cambia',
-],
-
+        'language_change' => 'Cambio Lingua',
+        'change_language' => 'Cambia Lingua',
+        'confirm_language_change' => 'Sei sicuro di voler cambiare lingua?',
+        'cancel' => 'Annulla',
+        'yes_change' => 'Sì, Cambia',
+    ],
 
     'categories' => [
         'heading' => 'Categorie',
-        'image' => 'Immagine',  
-        'choose_file' => 'Scegli file',  
+        'image' => 'Immagine',
+        'choose_file' => 'Scegli file',
         'id' => 'ID',
         'name' => 'Nome della categoria',
         'description' => 'Descrizione',
@@ -139,23 +138,23 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Nessun dato disponibile nella tabella',
-        'sInfo'           => 'Mostrando da _START_ a _END_ di _TOTAL_ voci',
-        'sInfoEmpty'      => 'Mostrando da 0 a 0 di 0 voci',
-        'sInfoFiltered'   => '(filtrato da _MAX_ voci totali)',
-        'sLengthMenu'     => 'Mostra _MENU_ voci',
+        'sEmptyTable' => 'Nessun dato disponibile nella tabella',
+        'sInfo' => 'Mostrando da _START_ a _END_ di _TOTAL_ voci',
+        'sInfoEmpty' => 'Mostrando da 0 a 0 di 0 voci',
+        'sInfoFiltered' => '(filtrato da _MAX_ voci totali)',
+        'sLengthMenu' => 'Mostra _MENU_ voci',
         'sLoadingRecords' => 'Caricamento...',
-        'sProcessing'     => 'Elaborazione...',
-        'sSearch'         => 'Cerca:',
-        'sZeroRecords'    => 'Nessun record trovato',
-    'oPaginate' => [
-        'sFirst'    => 'Primo',
-        'sLast'     => 'Ultimo',
-        'sNext'     => 'Successivo',
-        'sPrevious' => 'Precedente',
+        'sProcessing' => 'Elaborazione...',
+        'sSearch' => 'Cerca:',
+        'sZeroRecords' => 'Nessun record trovato',
+        'oPaginate' => [
+            'sFirst' => 'Primo',
+            'sLast' => 'Ultimo',
+            'sNext' => 'Successivo',
+            'sPrevious' => 'Precedente',
+        ],
     ],
-],
-    
+
     'products' => [
 
         // Titoli
@@ -253,7 +252,6 @@ return [
         'success' => 'Successo',
     ],
 
-
     'banners' => [
         'button_back' => 'Indietro',
         'description' => 'Descrizione',
@@ -313,7 +311,7 @@ return [
         'edit' => 'Modifica',
         'action' => 'Azione',
         'delete' => 'Elimina',
-        'created_at'=> 'Creato il',
+        'created_at' => 'Creato il',
         'no_menus' => 'Nessun menu disponibile',
         'delete_confirmation' => 'Sei sicuro di voler eliminare questo menu?',
         'menu_deleted' => 'Menu eliminato con successo!',
@@ -335,9 +333,9 @@ return [
         'massage_delete' => 'Elimina',
         'success' => 'Successo',
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Tutti gli Elementi del Menu',
+        'heading' => 'Tutti gli Elementi del Menu',
         'id' => 'ID',
         'create' => 'Crea Elemento del Menu',
         'choose_an_option' => 'Scegli un\'Opzione',
@@ -399,7 +397,6 @@ return [
         'home' => 'Home',
         'view_details' => 'Visualizza Dettagli',
     ],
-   
 
     'social_media_links' => [
         'type' => 'Tipo di social network',
@@ -503,8 +500,4 @@ return [
         'error' => 'Errore',
     ],
 
-
-
 ];
-
-

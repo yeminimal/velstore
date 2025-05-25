@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Language;
-use Carbon\Carbon;
+use Illuminate\Database\Seeder;
+
 class LanguageSeeder extends Seeder
 {
     /**
@@ -34,7 +33,6 @@ class LanguageSeeder extends Seeder
             ['code' => 'vi', 'name' => 'Vietnamese', 'translated_text' => 'Tiếng Việt', 'active' => false],
             ['code' => 'zh', 'name' => 'Chinese', 'translated_text' => '中文', 'active' => false],
         ];
-        
 
         foreach ($languages as $lang) {
             Language::updateOrCreate(['code' => $lang['code']], [

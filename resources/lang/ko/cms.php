@@ -8,7 +8,7 @@ return [
         'remember_me' => '로그인 상태 유지',
         'forgot_password' => '비밀번호를 잊으셨나요?',
     ],
-    
+
     'profile' => [
         'profile' => '프로필',
         'setting' => '설정',
@@ -16,108 +16,107 @@ return [
     ],
 
     'sidebar' => [
-    'search_placeholder' => '검색...',
-    'dashboard' => '대시보드',
-    'logo' => '로고',
+        'search_placeholder' => '검색...',
+        'dashboard' => '대시보드',
+        'logo' => '로고',
 
-    'categories' => [
-        'title' => '카테고리',
-        'add_new' => '새로 추가',
-        'list' => '목록',
+        'categories' => [
+            'title' => '카테고리',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'brands' => [
+            'title' => '브랜드',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'products' => [
+            'title' => '제품',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'attributes' => [
+            'title' => '속성',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'customers' => [
+            'title' => '고객',
+            'list' => '목록',
+        ],
+        'sellers' => [
+            'title' => '판매자',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'product_reviews' => [
+            'title' => '제품 리뷰',
+            'list' => '목록',
+        ],
+        'banners' => [
+            'title' => '배너',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'menu' => [
+            'title' => '메뉴',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'menu_items' => [
+            'title' => '메뉴 항목',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'social_media_links' => [
+            'title' => '소셜 미디어 링크',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+        'site_settings' => [
+            'title' => '사이트 설정',
+            'manage' => '설정 관리',
+        ],
+        'orders' => [
+            'title' => '주문',
+            'all_orders' => '전체 주문',
+            'pending_orders' => '보류 중인 주문',
+            'completed_orders' => '완료된 주문',
+        ],
     ],
-    'brands' => [
-        'title' => '브랜드',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'products' => [
-        'title' => '제품',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'attributes' => [
-    'title' => '속성',
-    'add_new' => '새로 추가',
-    'list' => '목록',
-    ],
-    'customers' => [
-        'title' => '고객',
-        'list' => '목록',
-    ],
-    'sellers' => [
-        'title' => '판매자',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'product_reviews' => [
-        'title' => '제품 리뷰',
-        'list' => '목록',
-    ],
-    'banners' => [
-        'title' => '배너',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'menu' => [
-        'title' => '메뉴',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'menu_items' => [
-        'title' => '메뉴 항목',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'social_media_links' => [
-        'title' => '소셜 미디어 링크',
-        'add_new' => '새로 추가',
-        'list' => '목록',
-    ],
-    'site_settings' => [
-        'title' => '사이트 설정',
-        'manage' => '설정 관리',
-    ],
-    'orders' => [
-        'title' => '주문',
-        'all_orders' => '전체 주문',
-        'pending_orders' => '보류 중인 주문',
-        'completed_orders' => '완료된 주문',
-    ],
-],
 
-    'languages'=> [   
-    'english' => '영어',
-    'spanish' => '스페인어',
-    'french' => '프랑스어',
-    'arabic' => '아랍어',
-    'german' => '독일어',
-    'persian' => '페르시아어 (파르시)',
-    'hindi' => '힌디어',
-    'indonesian' => '인도네시아어',
-    'italian' => '이탈리아어',
-    'japanese' => '일본어',
-    'korean' => '한국어',
-    'dutch' => '네덜란드어',
-    'polish' => '폴란드어',
-    'portuguese' => '포르투갈어',
-    'russian' => '러시아어',
-    'thai' => '태국어',
-    'turkish' => '터키어',
-    'vietnamese' => '베트남어',
-    'chinese' => '중국어',
+    'languages' => [
+        'english' => '영어',
+        'spanish' => '스페인어',
+        'french' => '프랑스어',
+        'arabic' => '아랍어',
+        'german' => '독일어',
+        'persian' => '페르시아어 (파르시)',
+        'hindi' => '힌디어',
+        'indonesian' => '인도네시아어',
+        'italian' => '이탈리아어',
+        'japanese' => '일본어',
+        'korean' => '한국어',
+        'dutch' => '네덜란드어',
+        'polish' => '폴란드어',
+        'portuguese' => '포르투갈어',
+        'russian' => '러시아어',
+        'thai' => '태국어',
+        'turkish' => '터키어',
+        'vietnamese' => '베트남어',
+        'chinese' => '중국어',
 
-    'language_change' => '언어 변경',
-    'change_language' => '언어 변경하기',
-    'confirm_language_change' => '정말 언어를 변경하시겠습니까?',
-    'cancel' => '취소',
-    'yes_change' => '예, 변경하기',
-],
-
+        'language_change' => '언어 변경',
+        'change_language' => '언어 변경하기',
+        'confirm_language_change' => '정말 언어를 변경하시겠습니까?',
+        'cancel' => '취소',
+        'yes_change' => '예, 변경하기',
+    ],
 
     'categories' => [
         'heading' => '카테고리',
-        'image' => '이미지',  
-        'choose_file' => '파일 선택',  
+        'image' => '이미지',
+        'choose_file' => '파일 선택',
         'id' => '아이디',
         'name' => '카테고리 이름',
         'description' => '설명',
@@ -139,24 +138,24 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => '테이블에 데이터가 없습니다',
-        'sInfo'           => '_START_ 부터 _END_ 까지 _TOTAL_ 항목을 표시합니다',
-        'sInfoEmpty'      => '0 부터 0 까지 0 항목을 표시합니다',
-        'sInfoFiltered'   => '(총 _MAX_ 항목에서 필터링됨)',
-        'sLengthMenu'     => '_MENU_ 항목을 표시',
+        'sEmptyTable' => '테이블에 데이터가 없습니다',
+        'sInfo' => '_START_ 부터 _END_ 까지 _TOTAL_ 항목을 표시합니다',
+        'sInfoEmpty' => '0 부터 0 까지 0 항목을 표시합니다',
+        'sInfoFiltered' => '(총 _MAX_ 항목에서 필터링됨)',
+        'sLengthMenu' => '_MENU_ 항목을 표시',
         'sLoadingRecords' => '로드 중...',
-        'sProcessing'     => '처리 중...',
-        'sSearch'         => '검색:',
-        'sZeroRecords'    => '일치하는 기록이 없습니다',
-    'oPaginate' => [
-        'sFirst'    => '처음',
-        'sLast'     => '마지막',
-        'sNext'     => '다음',
-        'sPrevious' => '이전',
-    ],
+        'sProcessing' => '처리 중...',
+        'sSearch' => '검색:',
+        'sZeroRecords' => '일치하는 기록이 없습니다',
+        'oPaginate' => [
+            'sFirst' => '처음',
+            'sLast' => '마지막',
+            'sNext' => '다음',
+            'sPrevious' => '이전',
+        ],
     ],
 
-        'products' => [
+    'products' => [
 
         // 제목
         'title_create' => '상품 생성',
@@ -220,7 +219,6 @@ return [
         'cancel' => '취소',
     ],
 
-
     'brands' => [
         'heading' => '브랜드',
         'id' => '아이디',
@@ -253,7 +251,6 @@ return [
         'massage_delete' => '삭제',
         'success' => '성공',
     ],
-
 
     'banners' => [
         'button_back' => '뒤로',
@@ -304,7 +301,6 @@ return [
         'success' => '성공',
     ],
 
-    
     'menus' => [
         'all_menus' => '모든 메뉴',
         'id' => '아이디',
@@ -315,7 +311,7 @@ return [
         'edit' => '편집',
         'action' => '작업',
         'delete' => '삭제',
-        'created_at'=> '생성일',
+        'created_at' => '생성일',
         'no_menus' => '사용 가능한 메뉴가 없습니다',
         'delete_confirmation' => '이 메뉴를 삭제하시겠습니까?',
         'menu_deleted' => '메뉴가 성공적으로 삭제되었습니다!',
@@ -338,9 +334,9 @@ return [
         'success' => '성공',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> '모든 메뉴 항목',
+        'heading' => '모든 메뉴 항목',
         'id' => '아이디',
         'create' => '메뉴 항목 생성',
         'choose_an_option' => '옵션 선택',
@@ -402,7 +398,6 @@ return [
         'home' => '홈',
         'view_details' => '세부사항 보기',
     ],
-   
 
     'social_media_links' => [
         'type' => '소셜 네트워크 유형',
@@ -506,10 +501,4 @@ return [
         'error' => '오류',
     ],
 
-
-
-
 ];
-
-
-

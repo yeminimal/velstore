@@ -6,7 +6,7 @@ return [
         'search_placeholder' => '搜索产品',
     ],
 
-   'footer' => [
+    'footer' => [
         'account' => '账户',
         'my_account' => '我的账户',
         'wishlist' => '愿望清单',

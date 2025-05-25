@@ -17,7 +17,6 @@ class Menu extends Model
     }
 
     protected $casts = [
-        'date' => 'datetime', 
+        'date' => 'datetime',
     ];
-    
 }

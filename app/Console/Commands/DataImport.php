@@ -2,15 +2,12 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Vendor;
 use App\Models\Shop;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
 use App\Models\StoreSetting;
+use App\Models\Vendor;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DataImport extends Command
 {
@@ -55,11 +52,10 @@ class DataImport extends Command
         $this->call('db:seed', ['--class' => 'CategorySeeder']);
 
         $this->info('Running product seeder');
-        //$this->call('db:seed', ['--class' => 'ProductSeeder']);
-        
+        // $this->call('db:seed', ['--class' => 'ProductSeeder']);
+
         $this->info('Running attribute seeder');
         $this->call('db:seed', ['--class' => 'AttributeSeeder']);
-        
 
         $this->info('Data import completed successfully!');
     }
@@ -82,16 +78,16 @@ class DataImport extends Command
                 'vendor_id' => 1,
                 'name' => 'Soft Shoes',
                 'logo' => 'N/A',
-                'description' => 'Luxurious comfort in every step. Crafted with premium materials for a soft, stylish, and effortless walking experience. '
+                'description' => 'Luxurious comfort in every step. Crafted with premium materials for a soft, stylish, and effortless walking experience. ',
             ]
         );
-        
+
         StoreSetting::insert([
             ['key' => 'default_currency', 'value' => 'USD'],
             ['key' => 'meta_title', 'value' => 'Welcome to Velstore - Your Laravel eCommerce Journey Begins!'],
             ['key' => 'meta_description', 'value' => 'Welcome to Velstore! You have successfully installed the ultimate Laravel eCommerce boilerplate. Set up your store, configure settings, and start selling with a powerful multi-vendor, multilingual platform.'],
             ['key' => 'phone_number', 'value' => '+1 234 567 890'],
         ]);
-        
-    } 
+
+    }
 }

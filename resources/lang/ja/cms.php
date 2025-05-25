@@ -8,116 +8,115 @@ return [
         'remember_me' => 'ログイン状態を保持する',
         'forgot_password' => 'パスワードをお忘れですか？',
     ],
-    
+
     'profile' => [
         'profile' => 'プロフィール',
         'setting' => '設定',
-        'logout' => 'ログアウト',       
+        'logout' => 'ログアウト',
     ],
 
     'sidebar' => [
-    'search_placeholder' => '検索...',
-    'dashboard' => 'ダッシュボード',
-    'logo' => 'ロゴ',
+        'search_placeholder' => '検索...',
+        'dashboard' => 'ダッシュボード',
+        'logo' => 'ロゴ',
 
-    'categories' => [
-        'title' => 'カテゴリー',
-        'add_new' => '新規追加',
-        'list' => '一覧',
+        'categories' => [
+            'title' => 'カテゴリー',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'brands' => [
+            'title' => 'ブランド',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'products' => [
+            'title' => '商品',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'attributes' => [
+            'title' => '属性',
+            'add_new' => '新規追加',
+            'list' => 'リスト',
+        ],
+        'customers' => [
+            'title' => '顧客',
+            'list' => '一覧',
+        ],
+        'sellers' => [
+            'title' => '販売者',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'product_reviews' => [
+            'title' => '商品レビュー',
+            'list' => '一覧',
+        ],
+        'banners' => [
+            'title' => 'バナー',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'menu' => [
+            'title' => 'メニュー',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'menu_items' => [
+            'title' => 'メニュー項目',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'social_media_links' => [
+            'title' => 'ソーシャルメディアリンク',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+        'site_settings' => [
+            'title' => 'サイト設定',
+            'manage' => '設定を管理',
+        ],
+        'orders' => [
+            'title' => '注文',
+            'all_orders' => 'すべての注文',
+            'pending_orders' => '保留中の注文',
+            'completed_orders' => '完了した注文',
+        ],
     ],
-    'brands' => [
-        'title' => 'ブランド',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'products' => [
-        'title' => '商品',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'attributes' => [
-    'title' => '属性',
-    'add_new' => '新規追加',
-    'list' => 'リスト',
-    ],
-    'customers' => [
-        'title' => '顧客',
-        'list' => '一覧',
-    ],
-    'sellers' => [
-        'title' => '販売者',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'product_reviews' => [
-        'title' => '商品レビュー',
-        'list' => '一覧',
-    ],
-    'banners' => [
-        'title' => 'バナー',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'menu' => [
-        'title' => 'メニュー',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'menu_items' => [
-        'title' => 'メニュー項目',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'social_media_links' => [
-        'title' => 'ソーシャルメディアリンク',
-        'add_new' => '新規追加',
-        'list' => '一覧',
-    ],
-    'site_settings' => [
-        'title' => 'サイト設定',
-        'manage' => '設定を管理',
-    ],
-    'orders' => [
-        'title' => '注文',
-        'all_orders' => 'すべての注文',
-        'pending_orders' => '保留中の注文',
-        'completed_orders' => '完了した注文',
-    ],
-],
 
-    'languages'=> [   
-    'english' => '英語',
-    'spanish' => 'スペイン語',
-    'french' => 'フランス語',
-    'arabic' => 'アラビア語',
-    'german' => 'ドイツ語',
-    'persian' => 'ペルシャ語（ファルシ）',
-    'hindi' => 'ヒンディー語',
-    'indonesian' => 'インドネシア語',
-    'italian' => 'イタリア語',
-    'japanese' => '日本語',
-    'korean' => '韓国語',
-    'dutch' => 'オランダ語',
-    'polish' => 'ポーランド語',
-    'portuguese' => 'ポルトガル語',
-    'russian' => 'ロシア語',
-    'thai' => 'タイ語',
-    'turkish' => 'トルコ語',
-    'vietnamese' => 'ベトナム語',
-    'chinese' => '中国語',
+    'languages' => [
+        'english' => '英語',
+        'spanish' => 'スペイン語',
+        'french' => 'フランス語',
+        'arabic' => 'アラビア語',
+        'german' => 'ドイツ語',
+        'persian' => 'ペルシャ語（ファルシ）',
+        'hindi' => 'ヒンディー語',
+        'indonesian' => 'インドネシア語',
+        'italian' => 'イタリア語',
+        'japanese' => '日本語',
+        'korean' => '韓国語',
+        'dutch' => 'オランダ語',
+        'polish' => 'ポーランド語',
+        'portuguese' => 'ポルトガル語',
+        'russian' => 'ロシア語',
+        'thai' => 'タイ語',
+        'turkish' => 'トルコ語',
+        'vietnamese' => 'ベトナム語',
+        'chinese' => '中国語',
 
-    'language_change' => '言語変更',
-    'change_language' => '言語を変更する',
-    'confirm_language_change' => '本当に言語を変更しますか？',
-    'cancel' => 'キャンセル',
-    'yes_change' => 'はい、変更する',
-],
-
+        'language_change' => '言語変更',
+        'change_language' => '言語を変更する',
+        'confirm_language_change' => '本当に言語を変更しますか？',
+        'cancel' => 'キャンセル',
+        'yes_change' => 'はい、変更する',
+    ],
 
     'categories' => [
         'heading' => 'カテゴリ',
-        'image' => '画像',  
-        'choose_file' => 'ファイルを選択',  
+        'image' => '画像',
+        'choose_file' => 'ファイルを選択',
         'id' => '識別子',
         'name' => 'カテゴリ名',
         'description' => '説明',
@@ -139,22 +138,22 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'テーブルにデータはありません',
-        'sInfo'           => '_START_ から _END_ まで、合計 _TOTAL_ 件のエントリ',
-        'sInfoEmpty'      => '0 から 0 まで、合計 0 件のエントリ',
-        'sInfoFiltered'   => '(合計 _MAX_ 件のエントリからフィルタリング)',
-        'sLengthMenu'     => '_MENU_ 件を表示',
+        'sEmptyTable' => 'テーブルにデータはありません',
+        'sInfo' => '_START_ から _END_ まで、合計 _TOTAL_ 件のエントリ',
+        'sInfoEmpty' => '0 から 0 まで、合計 0 件のエントリ',
+        'sInfoFiltered' => '(合計 _MAX_ 件のエントリからフィルタリング)',
+        'sLengthMenu' => '_MENU_ 件を表示',
         'sLoadingRecords' => '読み込み中...',
-        'sProcessing'     => '処理中...',
-        'sSearch'         => '検索:',
-        'sZeroRecords'    => '一致するレコードはありません',
-    'oPaginate' => [
-        'sFirst'    => '最初',
-        'sLast'     => '最後',
-        'sNext'     => '次',
-        'sPrevious' => '前',
+        'sProcessing' => '処理中...',
+        'sSearch' => '検索:',
+        'sZeroRecords' => '一致するレコードはありません',
+        'oPaginate' => [
+            'sFirst' => '最初',
+            'sLast' => '最後',
+            'sNext' => '次',
+            'sPrevious' => '前',
+        ],
     ],
-],
 
     'products' => [
 
@@ -219,8 +218,6 @@ return [
         'delete' => '削除',
         'cancel' => 'キャンセル',
     ],
-
-    
 
     'brands' => [
         'heading' => 'ブランド',
@@ -304,7 +301,6 @@ return [
         'success' => '成功',
     ],
 
-
     'menus' => [
         'all_menus' => 'すべてのメニュー',
         'id' => '識別子',
@@ -315,7 +311,7 @@ return [
         'edit' => '編集',
         'action' => 'アクション',
         'delete' => '削除',
-        'created_at'=> '作成日',
+        'created_at' => '作成日',
         'no_menus' => 'メニューはありません',
         'delete_confirmation' => '本当にこのメニューを削除してもよろしいですか？',
         'menu_deleted' => 'メニューは正常に削除されました！',
@@ -338,9 +334,9 @@ return [
         'success' => '成功',
 
     ],
-    
+
     'menu_items' => [
-        'heading'=> 'すべてのメニューアイテム',
+        'heading' => 'すべてのメニューアイテム',
         'id' => '識別子',
         'create' => 'メニューアイテム作成',
         'choose_an_option' => 'オプションを選択',
@@ -402,7 +398,6 @@ return [
         'home' => 'ホーム',
         'view_details' => '詳細を見る',
     ],
-    
 
     'social_media_links' => [
         'type' => 'ソーシャルネットワークの種類',
@@ -505,7 +500,4 @@ return [
         'error' => 'エラー',
     ],
 
-
-
 ];
-

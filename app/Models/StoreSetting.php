@@ -10,6 +10,8 @@ class StoreSetting extends Model
     use HasFactory;
 
     protected $table = 'store_settings';
-    public $timestamps = false; 
-    protected $fillable = ['key', 'value']; 
+
+    public $timestamps = false;
+
+    protected $fillable = ['key', 'value'];
 }

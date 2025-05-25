@@ -6,7 +6,7 @@ return [
         'search_placeholder' => 'Szukaj produktu',
     ],
 
-   'footer' => [
+    'footer' => [
         'account' => 'Konto',
         'my_account' => 'Moje Konto',
         'wishlist' => 'Lista życzeń',

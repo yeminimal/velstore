@@ -8,18 +8,18 @@ return [
         'remember_me' => 'Remember Me',
         'forgot_password' => 'Forgot Your Password?',
     ],
-    
+
     'profile' => [
         'profile' => 'profile',
         'setting' => 'setting',
-        'logout' => 'logout',       
+        'logout' => 'logout',
     ],
 
     'sidebar' => [
         'search_placeholder' => 'Search...',
         'dashboard' => 'Dashboard',
         'logo' => 'Logo',
-        
+
         'categories' => [
             'title' => 'Categories',
             'add_new' => 'Add New',
@@ -85,7 +85,7 @@ return [
         ],
     ],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'English',
         'spanish' => 'Spanish',
         'french' => 'French',
@@ -112,12 +112,11 @@ return [
         'cancel' => 'Cancel',
         'yes_change' => 'Yes, Change',
     ],
-    
-       
+
     'categories' => [
         'heading' => 'Categories',
         'image' => 'Image',
-        'choose_file' => 'Choose File',  
+        'choose_file' => 'Choose File',
         'id' => 'Id',
         'name' => 'Category Name',
         'description' => 'Description',
@@ -125,7 +124,7 @@ return [
         'edit' => 'edit',
         'delete' => 'delete',
         'button' => 'Save',
-        'add_new' => 'Add New', 
+        'add_new' => 'Add New',
         'status' => 'Status',
         'created' => 'Category created successfully!',
         'updated' => 'Category updated successfully!',
@@ -135,26 +134,26 @@ return [
         'confirm_delete' => 'Are you sure you want to delete this category?',
         'massage_cancel' => 'Cancel',
         'massage_delete' => 'Delete',
-        'success' => 'Success',       
+        'success' => 'Success',
     ],
-     
+
     'datatables' => [
-        'sEmptyTable'     => 'No data available in table',
-        'sInfo'           => 'Showing _START_ to _END_ of _TOTAL_ entries',
-        'sInfoEmpty'      => 'Showing 0 to 0 of 0 entries',
-        'sInfoFiltered'   => '(filtered from _MAX_ total entries)',
-        'sLengthMenu'     => 'Show _MENU_ entries',
+        'sEmptyTable' => 'No data available in table',
+        'sInfo' => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'sInfoEmpty' => 'Showing 0 to 0 of 0 entries',
+        'sInfoFiltered' => '(filtered from _MAX_ total entries)',
+        'sLengthMenu' => 'Show _MENU_ entries',
         'sLoadingRecords' => 'Loading...',
-        'sProcessing'     => 'Processing...',
-        'sSearch'         => 'Search:',
-        'sZeroRecords'    => 'No matching records found',
-    'oPaginate' => [
-        'sFirst'    => 'First',
-        'sLast'     => 'Last',
-        'sNext'     => 'Next',
-        'sPrevious' => 'Previous',
+        'sProcessing' => 'Processing...',
+        'sSearch' => 'Search:',
+        'sZeroRecords' => 'No matching records found',
+        'oPaginate' => [
+            'sFirst' => 'First',
+            'sLast' => 'Last',
+            'sNext' => 'Next',
+            'sPrevious' => 'Previous',
+        ],
     ],
-],
 
     'products' => [
 
@@ -198,7 +197,6 @@ return [
         'choose_file' => 'Choose File',
         'remove' => 'Remove',
 
-
         // Messages
         'status_updated' => 'product status updated successfully!',
         'success_create' => 'Product created successfully!',
@@ -221,88 +219,88 @@ return [
         'cancel' => 'Cancel',
     ],
 
-        'brands' => [
-            'heading' => 'Brands',
-            'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'logo' => 'Logo',
-            'status' => 'Status',
-            'action' => 'Action',
-            'edit' => 'Edit',
-            'delete' => 'Delete',
-            'create' => 'Create',
-            'update' => 'Update',
-            'add_new' => 'Add New',
-            'button' => 'Save',
-            'form_title' => 'Create or Edit Brand',
-            'file_upload' => 'Upload Logo',
-            'no_logo' => 'No Logo',
-            'choose_file' => 'Choose file',
-            'image_preview' => 'Image Preview',
-            'delete_confirmation' => 'Are you sure you want to delete this brand?',
-            'brand_deleted' => 'Brand deleted successfully!',
-            'error_delete' => 'Error deleting brand!',
-           'created' => 'Brand created successfully!',
-            'updated' => 'Brand updated successfully!',
-            'deleted' => 'Brand deleted successfully!',
-            'status_updated' => 'Brand status updated successfully!',
-            'massage_confirm' => 'Confirm Deletion',
-            'confirm_delete' => 'Are you sure you want to delete this brand?',
-            'massage_cancel' => 'Cancel',
-            'massage_delete' => 'Delete',
-            'success' => 'Success',
-        ],
+    'brands' => [
+        'heading' => 'Brands',
+        'id' => 'ID',
+        'name' => 'Name',
+        'description' => 'Description',
+        'logo' => 'Logo',
+        'status' => 'Status',
+        'action' => 'Action',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'create' => 'Create',
+        'update' => 'Update',
+        'add_new' => 'Add New',
+        'button' => 'Save',
+        'form_title' => 'Create or Edit Brand',
+        'file_upload' => 'Upload Logo',
+        'no_logo' => 'No Logo',
+        'choose_file' => 'Choose file',
+        'image_preview' => 'Image Preview',
+        'delete_confirmation' => 'Are you sure you want to delete this brand?',
+        'brand_deleted' => 'Brand deleted successfully!',
+        'error_delete' => 'Error deleting brand!',
+        'created' => 'Brand created successfully!',
+        'updated' => 'Brand updated successfully!',
+        'deleted' => 'Brand deleted successfully!',
+        'status_updated' => 'Brand status updated successfully!',
+        'massage_confirm' => 'Confirm Deletion',
+        'confirm_delete' => 'Are you sure you want to delete this brand?',
+        'massage_cancel' => 'Cancel',
+        'massage_delete' => 'Delete',
+        'success' => 'Success',
+    ],
 
-        'banners' => [
-            'button_back' => 'Back',
-            'description' => 'Description',
-            'choose_file' => 'Choose file',
-            'all_banners' => 'All Banners',
-            'id' => 'Id',
-            'add_new' => 'Add New',
-            'banner_type' => 'Banner Type',
-            'promotion' => 'Promotion',
-            'sale' => 'Sale',
-            'seasonal' => 'Seasonal',
-            'featured' => 'Featured',
-            'announcement' => 'Announcement',
-            'actions' => 'Actions',
-            'edit' => 'Edit',
-            'delete' => 'Delete',
-            'no_image' => 'No image available',
-            'delete_confirmation' => 'Are you sure you want to delete this banner?',
-            'banner_deleted' => 'Banner deleted successfully!',
-            'error_delete' => 'Error deleting banner!',
-            'image_preview' => 'Image Preview',
-            'create_banner' => 'Create Banner',
-            'edit_banner' => 'Edit Banner Translations',
-            'save' => 'Save',
-            'languages' => 'Languages',
-            'status' => 'Status',
-            'image' => 'Image',
-            'image_title' => 'Image Title',
-            'title' => 'Title',
-            'select_language' => 'Select Language',
-            'file_upload' => 'Upload Image',
-            'choose_file' => 'Choose File',
-            'existing_image' => 'Existing Image',
-            'banner_saved' => 'Banner saved successfully!',
-            'banner_updated' => 'Banner updated successfully!',
-            'form_title' => 'Create or Edit Banner',
-            'form_description' => 'Please provide all the necessary information for the banner.',
-            'back_to_list' => 'Back to Banner List',
-            'created' => 'Banner created successfully!',
-            'updated' => 'Banner updated successfully!',
-            'deleted' => 'Banner deleted successfully!',
-            'status_updated' => 'Banner status updated successfully!',
-            'massage_confirm' => 'Confirm Deletion',
-            'confirm_delete' => 'Are you sure you want to delete this banner?',
-            'massage_cancel' => 'Cancel',
-            'massage_delete' => 'Delete',
-            'success' => 'Success',
-        ],
-        
+    'banners' => [
+        'button_back' => 'Back',
+        'description' => 'Description',
+        'choose_file' => 'Choose file',
+        'all_banners' => 'All Banners',
+        'id' => 'Id',
+        'add_new' => 'Add New',
+        'banner_type' => 'Banner Type',
+        'promotion' => 'Promotion',
+        'sale' => 'Sale',
+        'seasonal' => 'Seasonal',
+        'featured' => 'Featured',
+        'announcement' => 'Announcement',
+        'actions' => 'Actions',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'no_image' => 'No image available',
+        'delete_confirmation' => 'Are you sure you want to delete this banner?',
+        'banner_deleted' => 'Banner deleted successfully!',
+        'error_delete' => 'Error deleting banner!',
+        'image_preview' => 'Image Preview',
+        'create_banner' => 'Create Banner',
+        'edit_banner' => 'Edit Banner Translations',
+        'save' => 'Save',
+        'languages' => 'Languages',
+        'status' => 'Status',
+        'image' => 'Image',
+        'image_title' => 'Image Title',
+        'title' => 'Title',
+        'select_language' => 'Select Language',
+        'file_upload' => 'Upload Image',
+        'choose_file' => 'Choose File',
+        'existing_image' => 'Existing Image',
+        'banner_saved' => 'Banner saved successfully!',
+        'banner_updated' => 'Banner updated successfully!',
+        'form_title' => 'Create or Edit Banner',
+        'form_description' => 'Please provide all the necessary information for the banner.',
+        'back_to_list' => 'Back to Banner List',
+        'created' => 'Banner created successfully!',
+        'updated' => 'Banner updated successfully!',
+        'deleted' => 'Banner deleted successfully!',
+        'status_updated' => 'Banner status updated successfully!',
+        'massage_confirm' => 'Confirm Deletion',
+        'confirm_delete' => 'Are you sure you want to delete this banner?',
+        'massage_cancel' => 'Cancel',
+        'massage_delete' => 'Delete',
+        'success' => 'Success',
+    ],
+
     'menus' => [
         'all_menus' => 'All Menus',
         'id' => 'Id',
@@ -313,7 +311,7 @@ return [
         'edit' => 'Edit',
         'action' => 'Action',
         'delete' => 'Delete',
-        'created_at'=> 'Created At',
+        'created_at' => 'Created At',
         'no_menus' => 'No menus available',
         'delete_confirmation' => 'Are you sure you want to delete this menu?',
         'menu_deleted' => 'Menu deleted successfully!',
@@ -337,9 +335,8 @@ return [
 
     ],
 
-
     'menu_items' => [
-        'heading'=> 'All Menu Items',
+        'heading' => 'All Menu Items',
         'id' => 'Id',
         'create' => 'Create Menu Item',
         'choose_an_option' => 'Choose an Option',
@@ -385,7 +382,7 @@ return [
         'success' => 'Success',
 
     ],
-    
+
     'errors' => [
         'validation_failed' => 'Validation failed! Please correct the errors and try again.',
         'csrf_token_invalid' => 'Invalid CSRF token. Please refresh the page and try again.',
@@ -404,7 +401,6 @@ return [
         'view_details' => 'View Details',
     ],
 
-
     'social_media_links' => [
         'type' => 'Social Media Type',
         'select_type' => 'Select Social Media Type',
@@ -419,7 +415,7 @@ return [
         'create' => 'Create Social Media Link',
         'edit' => 'Edit Social Media Link',
         'platform' => 'Platform Name',
-        'link' => 'Social Media Link',   
+        'link' => 'Social Media Link',
         'created' => 'Social media link created successfully!',
         'updated' => 'Social media link updated successfully!',
         'deleted' => 'Social media link deleted successfully!',
@@ -431,7 +427,7 @@ return [
         'success' => 'Success',
 
         'translations' => [
-        'platform_name' => 'Platform Name (translated)',       
+            'platform_name' => 'Platform Name (translated)',
         ],
         'save' => 'Save',
         'update' => 'Update',
@@ -450,7 +446,7 @@ return [
         'delete' => 'Delete',
         'action' => 'Action',
     ],
-    
+
     'attributes' => [
         'title_create' => 'Create Attribute',
         'title_edit' => 'Edit Attribute',
@@ -506,7 +502,4 @@ return [
         'error' => 'Error',
     ],
 
-
-
 ];
-

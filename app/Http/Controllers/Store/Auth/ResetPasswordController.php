@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Store\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-use App\Models\Customer;
 
 class ResetPasswordController extends Controller
 {
@@ -15,7 +14,7 @@ class ResetPasswordController extends Controller
     {
         return view('customer.auth.passwords.reset', [
             'token' => $token,
-            'email' => $request->email
+            'email' => $request->email,
         ]);
     }
 
@@ -42,4 +41,3 @@ class ResetPasswordController extends Controller
             : back()->withErrors(['email' => [__($status)]]);
     }
 }
-

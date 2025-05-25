@@ -17,7 +17,7 @@ class MenuItemService
     public function getAllMenuItems()
     {
         return $this->menuItemRepository->getAll();
-       
+
     }
 
     public function getMenuItemsByMenuId($menuId)
@@ -33,7 +33,7 @@ class MenuItemService
     public function updateMenuItem(Request $request, $menuId, $menuItemId)
     {
         return $this->menuItemRepository->updateMenuItem($request, $menuId, $menuItemId);
-    }    
+    }
 
     public function deleteMenuItem($menuItemId)
     {

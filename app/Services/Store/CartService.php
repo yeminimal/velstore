@@ -11,7 +11,7 @@ class CartService
     {
         $coupon = Coupon::where('code', $code)->first();
 
-        if (!$coupon) {
+        if (! $coupon) {
             return ['success' => false, 'message' => 'Invalid coupon code.'];
         }
 
@@ -28,7 +28,7 @@ class CartService
     {
         $coupon = Session::get('cart_coupon');
 
-        if (!$coupon) {
+        if (! $coupon) {
             return $total;
         }
 

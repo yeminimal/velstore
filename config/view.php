@@ -34,7 +34,7 @@ return [
     ),*/
 
     'paths' => [
-        resource_path('views/themes/' . env('APP_THEME', 'xylo')),
+        resource_path('views/themes/'.env('APP_THEME', 'xylo')),
         resource_path('views'),
     ],
     'compiled' => realpath(storage_path('framework/views')),

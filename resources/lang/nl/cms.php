@@ -11,80 +11,80 @@ return [
     'profile' => [
         'profile' => 'Profiel',
         'setting' => 'Instellingen',
-        'logout' => 'Uitloggen',       
+        'logout' => 'Uitloggen',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Zoeken...',
-    'dashboard' => 'Dashboard',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Zoeken...',
+        'dashboard' => 'Dashboard',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Categorieën',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
+        'categories' => [
+            'title' => 'Categorieën',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'brands' => [
+            'title' => 'Merken',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'products' => [
+            'title' => 'Producten',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'attributes' => [
+            'title' => 'Attributen',
+            'add_new' => 'Nieuw Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'customers' => [
+            'title' => 'Klanten',
+            'list' => 'Lijst',
+        ],
+        'sellers' => [
+            'title' => 'Verkopers',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'product_reviews' => [
+            'title' => 'Productbeoordelingen',
+            'list' => 'Lijst',
+        ],
+        'banners' => [
+            'title' => 'Banners',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'menu' => [
+            'title' => 'Menu',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'menu_items' => [
+            'title' => 'Menu-items',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'social_media_links' => [
+            'title' => 'Sociale Media Links',
+            'add_new' => 'Nieuwe Toevoegen',
+            'list' => 'Lijst',
+        ],
+        'site_settings' => [
+            'title' => 'Website-instellingen',
+            'manage' => 'Instellingen Beheren',
+        ],
+        'orders' => [
+            'title' => 'Bestellingen',
+            'all_orders' => 'Alle Bestellingen',
+            'pending_orders' => 'In Behandeling',
+            'completed_orders' => 'Voltooide Bestellingen',
+        ],
     ],
-    'brands' => [
-        'title' => 'Merken',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'products' => [
-        'title' => 'Producten',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'attributes' => [
-    'title' => 'Attributen',
-    'add_new' => 'Nieuw Toevoegen',
-    'list' => 'Lijst',
-    ],
-    'customers' => [
-        'title' => 'Klanten',
-        'list' => 'Lijst',
-    ],
-    'sellers' => [
-        'title' => 'Verkopers',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'product_reviews' => [
-        'title' => 'Productbeoordelingen',
-        'list' => 'Lijst',
-    ],
-    'banners' => [
-        'title' => 'Banners',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'menu' => [
-        'title' => 'Menu',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'menu_items' => [
-        'title' => 'Menu-items',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'social_media_links' => [
-        'title' => 'Sociale Media Links',
-        'add_new' => 'Nieuwe Toevoegen',
-        'list' => 'Lijst',
-    ],
-    'site_settings' => [
-        'title' => 'Website-instellingen',
-        'manage' => 'Instellingen Beheren',
-    ],
-    'orders' => [
-        'title' => 'Bestellingen',
-        'all_orders' => 'Alle Bestellingen',
-        'pending_orders' => 'In Behandeling',
-        'completed_orders' => 'Voltooide Bestellingen',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'Engels',
         'spanish' => 'Spaans',
         'french' => 'Frans',
@@ -112,11 +112,10 @@ return [
         'yes_change' => 'Ja, wijzigen',
     ],
 
-
     'categories' => [
         'heading' => 'Categorieën',
-        'image' => 'Afbeelding',  
-        'choose_file' => 'Kies bestand',  
+        'image' => 'Afbeelding',
+        'choose_file' => 'Kies bestand',
         'id' => 'ID',
         'name' => 'Categorie naam',
         'description' => 'Beschrijving',
@@ -138,21 +137,21 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Geen gegevens beschikbaar in de tabel',
-        'sInfo'           => 'Weergeven van _START_ tot _END_ van _TOTAL_ vermeldingen',
-        'sInfoEmpty'      => 'Weergeven van 0 tot 0 van 0 vermeldingen',
-        'sInfoFiltered'   => '(gefilterd uit _MAX_ totale vermeldingen)',
-        'sLengthMenu'     => 'Toon _MENU_ vermeldingen',
+        'sEmptyTable' => 'Geen gegevens beschikbaar in de tabel',
+        'sInfo' => 'Weergeven van _START_ tot _END_ van _TOTAL_ vermeldingen',
+        'sInfoEmpty' => 'Weergeven van 0 tot 0 van 0 vermeldingen',
+        'sInfoFiltered' => '(gefilterd uit _MAX_ totale vermeldingen)',
+        'sLengthMenu' => 'Toon _MENU_ vermeldingen',
         'sLoadingRecords' => 'Laden...',
-        'sProcessing'     => 'Bezig met verwerken...',
-        'sSearch'         => 'Zoeken:',
-        'sZeroRecords'    => 'Geen overeenkomende records gevonden',
-    'oPaginate' => [
-        'sFirst'    => 'Eerste',
-        'sLast'     => 'Laatste',
-        'sNext'     => 'Volgende',
-        'sPrevious' => 'Vorige',
-    ],
+        'sProcessing' => 'Bezig met verwerken...',
+        'sSearch' => 'Zoeken:',
+        'sZeroRecords' => 'Geen overeenkomende records gevonden',
+        'oPaginate' => [
+            'sFirst' => 'Eerste',
+            'sLast' => 'Laatste',
+            'sNext' => 'Volgende',
+            'sPrevious' => 'Vorige',
+        ],
     ],
 
     'products' => [
@@ -219,7 +218,6 @@ return [
         'cancel' => 'Annuleren',
     ],
 
-
     'brands' => [
         'heading' => 'Merken',
         'id' => 'ID',
@@ -252,7 +250,7 @@ return [
         'massage_delete' => 'Verwijderen',
         'success' => 'Succes',
     ],
-        
+
     'banners' => [
         'button_back' => 'Terug',
         'description' => 'Beschrijving',
@@ -302,7 +300,6 @@ return [
         'success' => 'Succes',
     ],
 
-
     'menus' => [
         'all_menus' => 'Alle Menu\'s',
         'id' => 'ID',
@@ -313,7 +310,7 @@ return [
         'edit' => 'Bewerken',
         'action' => 'Actie',
         'delete' => 'Verwijderen',
-        'created_at'=> 'Aangemaakt op',
+        'created_at' => 'Aangemaakt op',
         'no_menus' => 'Geen menu\'s beschikbaar',
         'delete_confirmation' => 'Weet je zeker dat je dit menu wilt verwijderen?',
         'menu_deleted' => 'Menu succesvol verwijderd!',
@@ -336,9 +333,9 @@ return [
         'success' => 'Succes',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Alle Menu Items',
+        'heading' => 'Alle Menu Items',
         'id' => 'ID',
         'create' => 'Menu Item Maken',
         'choose_an_option' => 'Kies een Optie',
@@ -400,7 +397,7 @@ return [
         'home' => 'Home',
         'view_details' => 'Bekijk Details',
     ],
-    
+
     'social_media_links' => [
         'type' => 'Type sociaal netwerk',
         'select_type' => 'Selecteer het type sociaal netwerk',
@@ -503,7 +500,4 @@ return [
         'error' => 'Fout',
     ],
 
-
-
 ];
-

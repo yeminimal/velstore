@@ -10,7 +10,6 @@ class AuthController extends Controller
 {
     protected $vendorService;
 
-
     public function showLoginForm()
     {
         return view('vendor.auth.login');
@@ -33,6 +32,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('vendor')->logout();
+
         return redirect()->route('vendor.login');
     }
 

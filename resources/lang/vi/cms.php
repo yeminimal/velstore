@@ -12,80 +12,80 @@ return [
     'profile' => [
         'profile' => 'Hồ sơ',
         'setting' => 'Cài đặt',
-        'logout' => 'Đăng xuất',       
+        'logout' => 'Đăng xuất',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Tìm kiếm...',
-    'dashboard' => 'Bảng điều khiển',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Tìm kiếm...',
+        'dashboard' => 'Bảng điều khiển',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Danh mục',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
+        'categories' => [
+            'title' => 'Danh mục',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'brands' => [
+            'title' => 'Thương hiệu',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'products' => [
+            'title' => 'Sản phẩm',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'attributes' => [
+            'title' => 'Thuộc tính',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'customers' => [
+            'title' => 'Khách hàng',
+            'list' => 'Danh sách',
+        ],
+        'sellers' => [
+            'title' => 'Người bán',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'product_reviews' => [
+            'title' => 'Đánh giá sản phẩm',
+            'list' => 'Danh sách',
+        ],
+        'banners' => [
+            'title' => 'Biểu ngữ',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'menu' => [
+            'title' => 'Menu',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'menu_items' => [
+            'title' => 'Mục menu',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'social_media_links' => [
+            'title' => 'Liên kết mạng xã hội',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+        'site_settings' => [
+            'title' => 'Cài đặt trang web',
+            'manage' => 'Quản lý cài đặt',
+        ],
+        'orders' => [
+            'title' => 'Đơn hàng',
+            'all_orders' => 'Tất cả đơn hàng',
+            'pending_orders' => 'Đơn hàng đang chờ',
+            'completed_orders' => 'Đơn hàng đã hoàn thành',
+        ],
     ],
-    'brands' => [
-        'title' => 'Thương hiệu',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'products' => [
-        'title' => 'Sản phẩm',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'attributes' => [
-    'title' => 'Thuộc tính',
-    'add_new' => 'Thêm mới',
-    'list' => 'Danh sách',
-    ],
-    'customers' => [
-        'title' => 'Khách hàng',
-        'list' => 'Danh sách',
-    ],
-    'sellers' => [
-        'title' => 'Người bán',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'product_reviews' => [
-        'title' => 'Đánh giá sản phẩm',
-        'list' => 'Danh sách',
-    ],
-    'banners' => [
-        'title' => 'Biểu ngữ',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'menu' => [
-        'title' => 'Menu',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'menu_items' => [
-        'title' => 'Mục menu',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'social_media_links' => [
-        'title' => 'Liên kết mạng xã hội',
-        'add_new' => 'Thêm mới',
-        'list' => 'Danh sách',
-    ],
-    'site_settings' => [
-        'title' => 'Cài đặt trang web',
-        'manage' => 'Quản lý cài đặt',
-    ],
-    'orders' => [
-        'title' => 'Đơn hàng',
-        'all_orders' => 'Tất cả đơn hàng',
-        'pending_orders' => 'Đơn hàng đang chờ',
-        'completed_orders' => 'Đơn hàng đã hoàn thành',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'Tiếng Anh',
         'spanish' => 'Tiếng Tây Ban Nha',
         'french' => 'Tiếng Pháp',
@@ -113,47 +113,46 @@ return [
         'yes_change' => 'Có, thay đổi',
     ],
 
-    'languages'=> [   
-    'english' => 'Tiếng Anh',
-    'spanish' => 'Tiếng Tây Ban Nha',
-    'french' => 'Tiếng Pháp',
-    'arabic' => 'Tiếng Ả Rập',
-    'german' => 'Tiếng Đức',
-    'persian' => 'Tiếng Ba Tư (Farsi)',
-    'hindi' => 'Tiếng Hindi',
-    'indonesian' => 'Tiếng Indonesia',
-    'italian' => 'Tiếng Ý',
-    'japanese' => 'Tiếng Nhật',
-    'korean' => 'Tiếng Hàn',
-    'dutch' => 'Tiếng Hà Lan',
-    'polish' => 'Tiếng Ba Lan',
-    'portuguese' => 'Tiếng Bồ Đào Nha',
-    'russian' => 'Tiếng Nga',
-    'thai' => 'Tiếng Thái',
-    'turkish' => 'Tiếng Thổ Nhĩ Kỳ',
-    'vietnamese' => 'Tiếng Việt',
-    'chinese' => 'Tiếng Trung',
+    'languages' => [
+        'english' => 'Tiếng Anh',
+        'spanish' => 'Tiếng Tây Ban Nha',
+        'french' => 'Tiếng Pháp',
+        'arabic' => 'Tiếng Ả Rập',
+        'german' => 'Tiếng Đức',
+        'persian' => 'Tiếng Ba Tư (Farsi)',
+        'hindi' => 'Tiếng Hindi',
+        'indonesian' => 'Tiếng Indonesia',
+        'italian' => 'Tiếng Ý',
+        'japanese' => 'Tiếng Nhật',
+        'korean' => 'Tiếng Hàn',
+        'dutch' => 'Tiếng Hà Lan',
+        'polish' => 'Tiếng Ba Lan',
+        'portuguese' => 'Tiếng Bồ Đào Nha',
+        'russian' => 'Tiếng Nga',
+        'thai' => 'Tiếng Thái',
+        'turkish' => 'Tiếng Thổ Nhĩ Kỳ',
+        'vietnamese' => 'Tiếng Việt',
+        'chinese' => 'Tiếng Trung',
 
-    'language_change' => 'Thay đổi ngôn ngữ',
-    'change_language' => 'Thay đổi ngôn ngữ',
-    'confirm_language_change' => 'Bạn có chắc chắn muốn thay đổi ngôn ngữ không?',
-    'cancel' => 'Hủy',
-    'yes_change' => 'Có, thay đổi',
-],
-
+        'language_change' => 'Thay đổi ngôn ngữ',
+        'change_language' => 'Thay đổi ngôn ngữ',
+        'confirm_language_change' => 'Bạn có chắc chắn muốn thay đổi ngôn ngữ không?',
+        'cancel' => 'Hủy',
+        'yes_change' => 'Có, thay đổi',
+    ],
 
     'categories' => [
         'heading' => 'Danh mục',
-        'image' => 'Hình ảnh',  
-        'choose_file' => 'Chọn tệp',  
+        'image' => 'Hình ảnh',
+        'choose_file' => 'Chọn tệp',
         'id' => 'ID',
         'name' => 'Tên danh mục',
         'description' => 'Mô tả',
         'action' => 'Hành động',
         'edit' => 'Chỉnh sửa',
         'delete' => 'Xóa',
-        'button' => 'Lưu', 
-        'add_new' => 'Thêm Mới',    
+        'button' => 'Lưu',
+        'add_new' => 'Thêm Mới',
         'status' => 'Trạng thái',
         'created' => 'Danh mục đã được tạo thành công!',
         'updated' => 'Danh mục đã được cập nhật thành công!',
@@ -163,25 +162,25 @@ return [
         'confirm_delete' => 'Bạn có chắc chắn muốn xóa danh mục này?',
         'massage_cancel' => 'Hủy',
         'massage_delete' => 'Xóa',
-        'success' => 'Thành công',   
+        'success' => 'Thành công',
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Không có dữ liệu trong bảng',
-        'sInfo'           => 'Đang hiển thị từ _START_ đến _END_ của _TOTAL_ mục',
-        'sInfoEmpty'      => 'Đang hiển thị từ 0 đến 0 của 0 mục',
-        'sInfoFiltered'   => '(lọc từ _MAX_ tổng số mục)',
-        'sLengthMenu'     => 'Hiển thị _MENU_ mục',
+        'sEmptyTable' => 'Không có dữ liệu trong bảng',
+        'sInfo' => 'Đang hiển thị từ _START_ đến _END_ của _TOTAL_ mục',
+        'sInfoEmpty' => 'Đang hiển thị từ 0 đến 0 của 0 mục',
+        'sInfoFiltered' => '(lọc từ _MAX_ tổng số mục)',
+        'sLengthMenu' => 'Hiển thị _MENU_ mục',
         'sLoadingRecords' => 'Đang tải...',
-        'sProcessing'     => 'Đang xử lý...',
-        'sSearch'         => 'Tìm kiếm:',
-        'sZeroRecords'    => 'Không tìm thấy bản ghi nào',
-    'oPaginate' => [
-        'sFirst'    => 'Đầu tiên',
-        'sLast'     => 'Cuối cùng',
-        'sNext'     => 'Tiếp theo',
-        'sPrevious' => 'Trước đó',
-    ],
+        'sProcessing' => 'Đang xử lý...',
+        'sSearch' => 'Tìm kiếm:',
+        'sZeroRecords' => 'Không tìm thấy bản ghi nào',
+        'oPaginate' => [
+            'sFirst' => 'Đầu tiên',
+            'sLast' => 'Cuối cùng',
+            'sNext' => 'Tiếp theo',
+            'sPrevious' => 'Trước đó',
+        ],
     ],
 
     'products' => [
@@ -247,7 +246,6 @@ return [
         'delete' => 'Xóa',
         'cancel' => 'Hủy',
     ],
-
 
     'brands' => [
         'heading' => 'Thương hiệu',
@@ -342,7 +340,7 @@ return [
         'edit' => 'Chỉnh Sửa',
         'action' => 'Hành Động',
         'delete' => 'Xóa',
-        'created_at'=> 'Được Tạo Vào',
+        'created_at' => 'Được Tạo Vào',
         'no_menus' => 'Không có menu nào',
         'delete_confirmation' => 'Bạn có chắc chắn muốn xóa menu này?',
         'menu_deleted' => 'Menu đã được xóa thành công!',
@@ -365,9 +363,9 @@ return [
         'success' => 'Thành công',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Tất cả các Mục Menu',
+        'heading' => 'Tất cả các Mục Menu',
         'id' => 'ID',
         'create' => 'Tạo Mục Menu',
         'choose_an_option' => 'Chọn một tùy chọn',
@@ -429,7 +427,6 @@ return [
         'home' => 'Trang Chủ',
         'view_details' => 'Xem Chi Tiết',
     ],
-    
 
     'social_media_links' => [
         'type' => 'Loại mạng xã hội',
@@ -532,7 +529,5 @@ return [
         'success' => 'Thành công',
         'error' => 'Lỗi',
     ],
-
-
 
 ];

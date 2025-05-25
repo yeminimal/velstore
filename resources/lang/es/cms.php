@@ -8,84 +8,84 @@ return [
         'remember_me' => 'Recuérdame',
         'forgot_password' => '¿Olvidaste tu contraseña?',
     ],
-    
+
     'profile' => [
         'profile' => 'Perfil',
         'setting' => 'Configuración',
-        'logout' => 'Cerrar sesión',       
+        'logout' => 'Cerrar sesión',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Buscar...',
-    'dashboard' => 'Panel de control',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Buscar...',
+        'dashboard' => 'Panel de control',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Categorías',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
+        'categories' => [
+            'title' => 'Categorías',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'brands' => [
+            'title' => 'Marcas',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'products' => [
+            'title' => 'Productos',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'attributes' => [
+            'title' => 'Atributos',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'customers' => [
+            'title' => 'Clientes',
+            'list' => 'Lista',
+        ],
+        'sellers' => [
+            'title' => 'Vendedores',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'product_reviews' => [
+            'title' => 'Reseñas de productos',
+            'list' => 'Lista',
+        ],
+        'banners' => [
+            'title' => 'Banners',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'menu' => [
+            'title' => 'Menú',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'menu_items' => [
+            'title' => 'Elementos del menú',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'social_media_links' => [
+            'title' => 'Enlaces de redes sociales',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+        'site_settings' => [
+            'title' => 'Configuración del sitio',
+            'manage' => 'Administrar configuración',
+        ],
+        'orders' => [
+            'title' => 'Pedidos',
+            'all_orders' => 'Todos los pedidos',
+            'pending_orders' => 'Pedidos pendientes',
+            'completed_orders' => 'Pedidos completados',
+        ],
     ],
-    'brands' => [
-        'title' => 'Marcas',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'products' => [
-        'title' => 'Productos',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'attributes' => [
-    'title' => 'Atributos',
-    'add_new' => 'Agregar nuevo',
-    'list' => 'Lista',
-    ],
-    'customers' => [
-        'title' => 'Clientes',
-        'list' => 'Lista',
-    ],
-    'sellers' => [
-        'title' => 'Vendedores',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'product_reviews' => [
-        'title' => 'Reseñas de productos',
-        'list' => 'Lista',
-    ],
-    'banners' => [
-        'title' => 'Banners',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'menu' => [
-        'title' => 'Menú',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'menu_items' => [
-        'title' => 'Elementos del menú',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'social_media_links' => [
-        'title' => 'Enlaces de redes sociales',
-        'add_new' => 'Agregar nuevo',
-        'list' => 'Lista',
-    ],
-    'site_settings' => [
-        'title' => 'Configuración del sitio',
-        'manage' => 'Administrar configuración',
-    ],
-    'orders' => [
-        'title' => 'Pedidos',
-        'all_orders' => 'Todos los pedidos',
-        'pending_orders' => 'Pedidos pendientes',
-        'completed_orders' => 'Pedidos completados',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'Inglés',
         'spanish' => 'Español',
         'french' => 'Francés',
@@ -113,11 +113,10 @@ return [
         'yes_change' => 'Sí, cambiar',
     ],
 
-
     'categories' => [
         'heading' => 'Categorías',
-        'image' => 'Imagen',  
-        'choose_file' => 'Elegir archivo',  
+        'image' => 'Imagen',
+        'choose_file' => 'Elegir archivo',
         'id' => 'ID',
         'name' => 'Nombre de la categoría',
         'description' => 'Descripción',
@@ -139,22 +138,22 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'No hay datos disponibles en la tabla',
-        'sInfo'           => 'Mostrando de _START_ a _END_ de un total de _TOTAL_ entradas',
-        'sInfoEmpty'      => 'Mostrando de 0 a 0 de un total de 0 entradas',
-        'sInfoFiltered'   => '(filtrado de _MAX_ entradas totales)',
-        'sLengthMenu'     => 'Mostrar _MENU_ entradas',
+        'sEmptyTable' => 'No hay datos disponibles en la tabla',
+        'sInfo' => 'Mostrando de _START_ a _END_ de un total de _TOTAL_ entradas',
+        'sInfoEmpty' => 'Mostrando de 0 a 0 de un total de 0 entradas',
+        'sInfoFiltered' => '(filtrado de _MAX_ entradas totales)',
+        'sLengthMenu' => 'Mostrar _MENU_ entradas',
         'sLoadingRecords' => 'Cargando...',
-        'sProcessing'     => 'Procesando...',
-        'sSearch'         => 'Buscar:',
-        'sZeroRecords'    => 'No se encontraron registros coincidentes',
-    'oPaginate' => [
-        'sFirst'    => 'Primero',
-        'sLast'     => 'Último',
-        'sNext'     => 'Siguiente',
-        'sPrevious' => 'Anterior',
+        'sProcessing' => 'Procesando...',
+        'sSearch' => 'Buscar:',
+        'sZeroRecords' => 'No se encontraron registros coincidentes',
+        'oPaginate' => [
+            'sFirst' => 'Primero',
+            'sLast' => 'Último',
+            'sNext' => 'Siguiente',
+            'sPrevious' => 'Anterior',
+        ],
     ],
-  ],
 
     'products' => [
 
@@ -220,7 +219,6 @@ return [
         'cancel' => 'Cancelar',
     ],
 
-
     'banners' => [
         'button_back' => 'Volver',
         'description' => 'Descripción',
@@ -280,7 +278,7 @@ return [
         'edit' => 'Editar',
         'action' => 'Acción',
         'delete' => 'Eliminar',
-        'created_at'=> 'Creado en',
+        'created_at' => 'Creado en',
         'no_menus' => 'No hay menús disponibles',
         'delete_confirmation' => '¿Está seguro de que desea eliminar este menú?',
         'menu_deleted' => '¡Menú eliminado con éxito!',
@@ -303,9 +301,9 @@ return [
         'success' => 'Éxito',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Todos los Elementos del Menú',
+        'heading' => 'Todos los Elementos del Menú',
         'id' => 'ID',
         'create' => 'Crear Elemento del Menú',
         'choose_an_option' => 'Elija una opción',
@@ -367,7 +365,6 @@ return [
         'home' => 'Inicio',
         'view_details' => 'Ver detalles',
     ],
-    
 
     'social_media_links' => [
         'type' => 'Tipo de red social',
@@ -471,7 +468,4 @@ return [
         'error' => 'Error',
     ],
 
-
 ];
-
-

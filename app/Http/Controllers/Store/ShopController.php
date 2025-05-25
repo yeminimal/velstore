@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
@@ -24,10 +24,10 @@ class ShopController extends Controller
         ];
 
         $products = Product::with(['translation', 'variants.attributeValues'])
-            ->when(!empty($filters['category']), function ($query) use ($filters) {
+            ->when(! empty($filters['category']), function ($query) use ($filters) {
                 $query->whereIn('category_id', $filters['category']);
             })
-            ->when(!empty($filters['brand']), function ($query) use ($filters) {
+            ->when(! empty($filters['brand']), function ($query) use ($filters) {
                 $query->whereIn('brand_id', $filters['brand']);
             })
             ->whereHas('variants', function ($variantQuery) use ($filters) {
@@ -38,20 +38,20 @@ class ShopController extends Controller
                     ->when($filters['price_max'], function ($q) use ($filters) {
                         $q->where('price', '<=', $filters['price_max']);
                     })
-                    ->when(!empty($filters['color']), function ($q) use ($filters) {
+                    ->when(! empty($filters['color']), function ($q) use ($filters) {
                         $q->whereHas('attributeValues', function ($avQuery) use ($filters) {
                             $avQuery->whereIn('value', $filters['color'])
-                                    ->whereHas('attribute', function ($aQuery) {
-                                        $aQuery->where('name', 'Color');
-                                    });
+                                ->whereHas('attribute', function ($aQuery) {
+                                    $aQuery->where('name', 'Color');
+                                });
                         });
                     })
-                    ->when(!empty($filters['size']), function ($q) use ($filters) {
+                    ->when(! empty($filters['size']), function ($q) use ($filters) {
                         $q->whereHas('attributeValues', function ($avQuery) use ($filters) {
                             $avQuery->whereIn('value', $filters['size'])
-                                    ->whereHas('attribute', function ($aQuery) {
-                                        $aQuery->where('name', 'Size');
-                                    });
+                                ->whereHas('attribute', function ($aQuery) {
+                                    $aQuery->where('name', 'Size');
+                                });
                         });
                     });
             })

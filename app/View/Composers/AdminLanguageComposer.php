@@ -1,10 +1,11 @@
 <?php
+
 namespace App\View\Composers;
 
-use Illuminate\View\View;
-use Illuminate\Support\Facades\Schema;
 use App\Models\Language;
 use App\Models\Menu;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\View\View;
 
 class AdminLanguageComposer
 {
@@ -13,10 +14,10 @@ class AdminLanguageComposer
         if (Schema::hasTable('menus')) {
             $view->with('menu', Menu::first());
         }
-    
+
         if (Schema::hasTable('languages')) {
             $activeLanguages = Language::where('active', 1)->get();
-            $view->with('activeLanguages', $activeLanguages); 
+            $view->with('activeLanguages', $activeLanguages);
         }
 
     }

@@ -8,84 +8,84 @@ return [
         'remember_me' => 'Запомнить меня',
         'forgot_password' => 'Забыли пароль?',
     ],
-    
+
     'profile' => [
         'profile' => 'Профиль',
         'setting' => 'Настройки',
-        'logout' => 'Выйти',       
+        'logout' => 'Выйти',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Поиск...',
-    'dashboard' => 'Панель управления',
-    'logo' => 'Логотип',
+        'search_placeholder' => 'Поиск...',
+        'dashboard' => 'Панель управления',
+        'logo' => 'Логотип',
 
-    'categories' => [
-        'title' => 'Категории',
-        'add_new' => 'Добавить новую',
-        'list' => 'Список',
+        'categories' => [
+            'title' => 'Категории',
+            'add_new' => 'Добавить новую',
+            'list' => 'Список',
+        ],
+        'brands' => [
+            'title' => 'Бренды',
+            'add_new' => 'Добавить новый',
+            'list' => 'Список',
+        ],
+        'products' => [
+            'title' => 'Товары',
+            'add_new' => 'Добавить новый',
+            'list' => 'Список',
+        ],
+        'attributes' => [
+            'title' => 'Атрибуты',
+            'add_new' => 'Добавить новый',
+            'list' => 'Список',
+        ],
+        'customers' => [
+            'title' => 'Клиенты',
+            'list' => 'Список',
+        ],
+        'sellers' => [
+            'title' => 'Продавцы',
+            'add_new' => 'Добавить нового',
+            'list' => 'Список',
+        ],
+        'product_reviews' => [
+            'title' => 'Отзывы о товарах',
+            'list' => 'Список',
+        ],
+        'banners' => [
+            'title' => 'Баннеры',
+            'add_new' => 'Добавить новый',
+            'list' => 'Список',
+        ],
+        'menu' => [
+            'title' => 'Меню',
+            'add_new' => 'Добавить новое',
+            'list' => 'Список',
+        ],
+        'menu_items' => [
+            'title' => 'Элементы меню',
+            'add_new' => 'Добавить новый',
+            'list' => 'Список',
+        ],
+        'social_media_links' => [
+            'title' => 'Ссылки на соцсети',
+            'add_new' => 'Добавить новую',
+            'list' => 'Список',
+        ],
+        'site_settings' => [
+            'title' => 'Настройки сайта',
+            'manage' => 'Управление настройками',
+        ],
+        'orders' => [
+            'title' => 'Заказы',
+            'all_orders' => 'Все заказы',
+            'pending_orders' => 'Ожидающие заказы',
+            'completed_orders' => 'Завершенные заказы',
+        ],
     ],
-    'brands' => [
-        'title' => 'Бренды',
-        'add_new' => 'Добавить новый',
-        'list' => 'Список',
-    ],
-    'products' => [
-        'title' => 'Товары',
-        'add_new' => 'Добавить новый',
-        'list' => 'Список',
-    ],
-    'attributes' => [
-    'title' => 'Атрибуты',
-    'add_new' => 'Добавить новый',
-    'list' => 'Список',
-    ],
-    'customers' => [
-        'title' => 'Клиенты',
-        'list' => 'Список',
-    ],
-    'sellers' => [
-        'title' => 'Продавцы',
-        'add_new' => 'Добавить нового',
-        'list' => 'Список',
-    ],
-    'product_reviews' => [
-        'title' => 'Отзывы о товарах',
-        'list' => 'Список',
-    ],
-    'banners' => [
-        'title' => 'Баннеры',
-        'add_new' => 'Добавить новый',
-        'list' => 'Список',
-    ],
-    'menu' => [
-        'title' => 'Меню',
-        'add_new' => 'Добавить новое',
-        'list' => 'Список',
-    ],
-    'menu_items' => [
-        'title' => 'Элементы меню',
-        'add_new' => 'Добавить новый',
-        'list' => 'Список',
-    ],
-    'social_media_links' => [
-        'title' => 'Ссылки на соцсети',
-        'add_new' => 'Добавить новую',
-        'list' => 'Список',
-    ],
-    'site_settings' => [
-        'title' => 'Настройки сайта',
-        'manage' => 'Управление настройками',
-    ],
-    'orders' => [
-        'title' => 'Заказы',
-        'all_orders' => 'Все заказы',
-        'pending_orders' => 'Ожидающие заказы',
-        'completed_orders' => 'Завершенные заказы',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'Английский',
         'spanish' => 'Испанский',
         'french' => 'Французский',
@@ -113,11 +113,10 @@ return [
         'yes_change' => 'Да, изменить',
     ],
 
-
     'categories' => [
         'heading' => 'Категории',
-        'image' => 'Изображение',  
-        'choose_file' => 'Выбрать файл',  
+        'image' => 'Изображение',
+        'choose_file' => 'Выбрать файл',
         'id' => 'ID',
         'name' => 'Название категории',
         'description' => 'Описание',
@@ -139,21 +138,21 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Данные в таблице отсутствуют',
-        'sInfo'           => 'Показано с _START_ по _END_ из _TOTAL_ записей',
-        'sInfoEmpty'      => 'Показано с 0 по 0 из 0 записей',
-        'sInfoFiltered'   => '(отфильтровано из _MAX_ записей всего)',
-        'sLengthMenu'     => 'Показать _MENU_ записей',
+        'sEmptyTable' => 'Данные в таблице отсутствуют',
+        'sInfo' => 'Показано с _START_ по _END_ из _TOTAL_ записей',
+        'sInfoEmpty' => 'Показано с 0 по 0 из 0 записей',
+        'sInfoFiltered' => '(отфильтровано из _MAX_ записей всего)',
+        'sLengthMenu' => 'Показать _MENU_ записей',
         'sLoadingRecords' => 'Загрузка...',
-        'sProcessing'     => 'Обработка...',
-        'sSearch'         => 'Поиск:',
-        'sZeroRecords'    => 'Соответствующие записи не найдены',
-    'oPaginate' => [
-        'sFirst'    => 'Первый',
-        'sLast'     => 'Последний',
-        'sNext'     => 'Следующий',
-        'sPrevious' => 'Предыдущий',
-    ],
+        'sProcessing' => 'Обработка...',
+        'sSearch' => 'Поиск:',
+        'sZeroRecords' => 'Соответствующие записи не найдены',
+        'oPaginate' => [
+            'sFirst' => 'Первый',
+            'sLast' => 'Последний',
+            'sNext' => 'Следующий',
+            'sPrevious' => 'Предыдущий',
+        ],
     ],
 
     'products' => [
@@ -219,7 +218,6 @@ return [
         'delete' => 'Удалить',
         'cancel' => 'Отмена',
     ],
-
 
     'brands' => [
         'heading' => 'Бренды',
@@ -303,7 +301,6 @@ return [
         'success' => 'Успех',
     ],
 
-
     'menus' => [
         'all_menus' => 'Все меню',
         'id' => 'ID',
@@ -314,7 +311,7 @@ return [
         'edit' => 'Редактировать',
         'action' => 'Действие',
         'delete' => 'Удалить',
-        'created_at'=> 'Создано',
+        'created_at' => 'Создано',
         'no_menus' => 'Меню недоступны',
         'delete_confirmation' => 'Вы уверены, что хотите удалить это меню?',
         'menu_deleted' => 'Меню успешно удалено!',
@@ -336,9 +333,9 @@ return [
         'massage_delete' => 'Удалить',
         'success' => 'Успех',
     ],
-    
+
     'menu_items' => [
-        'heading'=> 'Все элементы меню',
+        'heading' => 'Все элементы меню',
         'id' => 'ID',
         'create' => 'Создать элемент меню',
         'choose_an_option' => 'Выберите опцию',
@@ -400,8 +397,7 @@ return [
         'home' => 'Главная',
         'view_details' => 'Посмотреть детали',
     ],
-   
-        
+
     'social_media_links' => [
         'type' => 'Тип социальной сети',
         'select_type' => 'Выберите тип социальной сети',
@@ -504,8 +500,4 @@ return [
         'error' => 'Ошибка',
     ],
 
-
-
 ];
-
-
