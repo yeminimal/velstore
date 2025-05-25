@@ -12,6 +12,10 @@
     <img src="https://poser.pugx.org/velstorelabs/velstore/v/stable" alt="Velstore Latest Stable Version">
   </a>
 
+  <a href="https://github.com/velstorelabs/velstore/actions/workflows/ci.yml">
+    <img src="https://github.com/velstorelabs/velstore/actions/workflows/ci.yml/badge.svg" alt="CI status for Velstore">
+  </a>
+
   <a href="https://github.com/velstorelabs/velstore/blob/master/LICENSE">
     <img src="https://poser.pugx.org/velstorelabs/velstore/license" alt="License">
   </a>
