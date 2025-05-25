@@ -1,0 +1,53 @@
+name: Laravel CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, bcmath, sqlite, pdo_sqlite
+          coverage: none
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Copy .env and generate app key
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Set Laravel permissions
+        run: |
+          chmod -R 775 storage bootstrap/cache
+
+      - name: Install Laravel Pint globally
+        run: composer global require laravel/pint
+        env:
+          COMPOSER_HOME: ${{ runner.temp }}/composer
+
+      - name: Run Pint (Laravel code style check)
+        run: ${{ runner.temp }}/composer/vendor/bin/pint --test
+
+      - name: Run tests with SQLite
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+        run: php artisan test
