@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\ProductVariant;
+use App\Services\Store\CartService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Models\Product;
-use App\Services\Store\CartService;
-use App\Models\ProductVariant;
 
 class CartController extends Controller
 {
@@ -23,19 +23,19 @@ class CartController extends Controller
         $productId = $request->product_id;
         $quantity = (int) ($request->quantity ?? 1);
         $attributeValueIds = $request->attribute_value_ids ?? [];
-    
+
         $product = Product::with('thumbnail')->findOrFail($productId);
-    
+
         $variant = null;
         if ($product->product_type == 'simple') {
             $variant = $product->variants()->where('is_primary', 1)->first();
         } else {
             $variant = $this->matchVariant($productId, $attributeValueIds);
         }
-    
-        if (!$variant) {
+
+        if (! $variant) {
             return response()->json([
-                'message' => 'Selected variant is not available.'
+                'message' => 'Selected variant is not available.',
             ], 422);
         }
 
@@ -46,12 +46,12 @@ class CartController extends Controller
                 $attributePairs[$attributeValue->attribute->id] = $attributeValue->id;
             }
         }
-    
+
         $cart = Session::get('cart', []);
-    
+
         $attributeValueIdsSorted = collect($attributeValueIds)->sort()->values()->implode('_');
         $key = "cart_{$productId}_{$attributeValueIdsSorted}";
-    
+
         if (isset($cart[$key])) {
             $cart[$key]['quantity'] += $quantity;
         } else {
@@ -62,27 +62,27 @@ class CartController extends Controller
                 'price' => $variant->converted_discount_price ?? $variant->converted_price,
                 'quantity' => $quantity,
                 'image' => optional($variant->images->first() ?? $product->thumbnail)->image_url,
-                'attributes' => $attributePairs
+                'attributes' => $attributePairs,
             ];
         }
-    
+
         Session::put('cart', $cart);
         Session::put('cart_count', array_sum(array_column($cart, 'quantity')));
-    
+
         return response()->json([
             'message' => 'Product added to cart successfully.',
             'cart' => $cart,
-            'cart_count' => Session::get('cart_count')
+            'cart_count' => Session::get('cart_count'),
         ]);
     }
-    
+
     private function matchVariant($productId, array $attributeValueIds)
     {
-        
+
         if (empty($attributeValueIds)) {
             return ProductVariant::where('product_id', $productId)->where('is_primary', true)->first();
         }
-        
+
         $variants = ProductVariant::with('attributeValues')
             ->where('product_id', $productId)
             ->get();
@@ -96,26 +96,24 @@ class CartController extends Controller
 
         return null;
     }
-    
-
 
     public function updateCart(Request $request)
     {
         $cart = Session::get('cart', []);
-    
+
         foreach ($request->cart as $item) {
             if (isset($cart[$item['product_id']])) {
                 $cart[$item['product_id']]['quantity'] = max(1, intval($item['quantity']));
             }
         }
-    
+
         Session::put('cart', $cart);
         Session::put('cart_count', array_sum(array_column($cart, 'quantity')));
-    
+
         return response()->json([
             'success' => true,
             'message' => 'Cart updated successfully!',
-            'cart' => $cart
+            'cart' => $cart,
         ]);
     }
 
@@ -145,7 +143,7 @@ class CartController extends Controller
     public function applyCoupon(Request $request)
     {
         $request->validate(['code' => 'required|string']);
-        
+
         $result = $this->cartService->applyCoupon($request->code);
 
         return response()->json($result);
@@ -154,6 +152,7 @@ class CartController extends Controller
     public function removeCoupon()
     {
         $this->cartService->removeCoupon();
+
         return response()->json(['success' => true, 'message' => 'Coupon removed successfully!']);
     }
 }

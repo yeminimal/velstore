@@ -3,13 +3,12 @@
 namespace App\Repositories\Admin\Menu;
 
 use App\Models\Menu;
-use App\Models\MenuTranslation;
 
 class MenuRepository implements MenuRepositoryInterface
 {
     public function all()
     {
-        return Menu::all(); 
+        return Menu::all();
     }
 
     public function find($id)
@@ -25,12 +24,14 @@ class MenuRepository implements MenuRepositoryInterface
     public function update($id, array $data)
     {
         $menu = $this->find($id);
+
         return $menu->update($data);
     }
 
     public function delete($id)
     {
         $menu = $this->find($id);
+
         return $menu->delete();
     }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('image_url');
             $table->timestamps();
-            
+
             $table->unique(['category_id', 'language_code']);
         });
     }

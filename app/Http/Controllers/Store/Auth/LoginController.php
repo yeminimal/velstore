@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Store\Auth;  
+namespace App\Http\Controllers\Store\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,6 +22,7 @@ class LoginController extends Controller
 
         if (Auth::guard('customer')->attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
+
             return redirect()->intended(route('xylo.home'));
         }
 
@@ -32,7 +33,7 @@ class LoginController extends Controller
     {
         Auth::guard('customer')->logout();
         $request->session()->invalidate();
-        $request->session()->regenerateToken(); 
+        $request->session()->regenerateToken();
 
         return redirect()->route('themes.xylo.auth.login');
     }

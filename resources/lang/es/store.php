@@ -6,7 +6,7 @@ return [
         'search_placeholder' => 'Buscar un producto',
     ],
 
-   'footer' => [
+    'footer' => [
         'account' => 'Cuenta',
         'my_account' => 'Mi cuenta',
         'wishlist' => 'Lista de deseos',
@@ -19,4 +19,3 @@ return [
         'powered_by' => 'Desarrollado por Velstore Labs',
     ],
 ];
-

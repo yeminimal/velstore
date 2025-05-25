@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerAuthController extends Controller
 {
-     public function register(Request $request)
+    public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|unique:customers',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:customers',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -23,17 +23,17 @@ class CustomerAuthController extends Controller
         }
 
         $customer = Customer::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
+            'name' => $request->name,
+            'email' => $request->email,
             'password' => bcrypt($request->password),
-            'status'   => 'active',
+            'status' => 'active',
         ]);
 
         $token = $customer->createToken('CustomerToken')->plainTextToken;
 
         return response()->json([
             'message' => 'Registration successful',
-            'token'   => $token,
+            'token' => $token,
             'customer' => $customer,
         ], 201);
     }
@@ -42,7 +42,7 @@ class CustomerAuthController extends Controller
     {
         $customer = Customer::where('email', $request->email)->first();
 
-        if (!$customer || !Hash::check($request->password, $customer->password)) {
+        if (! $customer || ! Hash::check($request->password, $customer->password)) {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
 
@@ -50,7 +50,7 @@ class CustomerAuthController extends Controller
 
         return response()->json([
             'message' => 'Login successful',
-            'token'   => $token,
+            'token' => $token,
             'customer' => $customer,
         ]);
     }

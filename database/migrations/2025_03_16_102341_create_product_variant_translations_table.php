@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('language_code', 5); // e.g., 'en', 'fr', 'es'
             $table->string('name');  // Translated name of the variant
             $table->timestamps();
-        
+
             // Shorter custom index name
             $table->unique(['product_variant_id', 'language_code'], 'pv_translations_lang_unique');
             $table->index('language_code');
-        });        
-        
+        });
+
     }
 
     /**

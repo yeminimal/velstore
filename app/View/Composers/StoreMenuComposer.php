@@ -1,9 +1,10 @@
 <?php
+
 namespace App\View\Composers;
 
-use Illuminate\View\View;
-use Illuminate\Support\Facades\Schema;
 use App\Models\Menu;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\View\View;
 
 class StoreMenuComposer
 {
@@ -19,7 +20,7 @@ class StoreMenuComposer
                             ->with(['translation' => function ($query) use ($locale) {
                                 $query->where('language_code', $locale);
                             }]);
-                    }
+                    },
                 ])
                 ->first();
 

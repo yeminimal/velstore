@@ -7,5 +7,5 @@ return [
         'seasonal' => 'Seasonal',
         'featured' => 'Featured',
         'announcement' => 'Announcement',
-    ]
+    ],
 ];

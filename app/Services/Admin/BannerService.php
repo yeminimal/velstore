@@ -2,19 +2,14 @@
 
 namespace App\Services\Admin;
 
-
-use App\Repositories\Admin\Banner\BannerRepositoryInterface;
-use App\Models\Banner;
 use App\Models\BannerTranslation;
+use App\Models\Language;
+use App\Repositories\Admin\Banner\BannerRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Language;
-
-
 
 class BannerService
 {
-    
     protected $bannerRepository;
 
     public function __construct(BannerRepositoryInterface $bannerRepository)
@@ -24,11 +19,11 @@ class BannerService
 
     public function getAllBanners()
     {
-        return $this->bannerRepository->getAllBanners();  
+        return $this->bannerRepository->getAllBanners();
     }
 
     public function store(Request $request)
-    {         
+    {
         $activeLanguages = Language::where('active', 1)->pluck('code')->toArray();
 
         $rules = [
@@ -114,5 +109,4 @@ class BannerService
         $banner = $this->bannerRepository->getBannerById($id);
         $this->bannerRepository->deleteBanner($banner);
     }
-    
 }

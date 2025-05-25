@@ -15,7 +15,7 @@ class MenuService
 
     public function getAllMenus()
     {
-        return $this->menuRepository->all();  
+        return $this->menuRepository->all();
     }
 
     public function getMenuById($id)

@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique(); 
+            $table->string('code')->unique();
             $table->string('name');
             $table->string('translated_text')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
-        });     
+        });
     }
-    
+
     /**
      * Reverse the migrations.
      */

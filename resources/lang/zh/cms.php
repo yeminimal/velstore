@@ -8,84 +8,84 @@ return [
         'remember_me' => '记住我',
         'forgot_password' => '忘记密码？',
     ],
-    
+
     'profile' => [
         'profile' => '个人资料',
         'setting' => '设置',
-        'logout' => '登出',       
+        'logout' => '登出',
     ],
 
     'sidebar' => [
-    'search_placeholder' => '搜索...',
-    'dashboard' => '控制面板',
-    'logo' => '标志',
+        'search_placeholder' => '搜索...',
+        'dashboard' => '控制面板',
+        'logo' => '标志',
 
-    'categories' => [
-        'title' => '分类',
-        'add_new' => '新增',
-        'list' => '列表',
+        'categories' => [
+            'title' => '分类',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'brands' => [
+            'title' => '品牌',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'products' => [
+            'title' => '产品',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'attributes' => [
+            'title' => '属性',
+            'add_new' => '添加新项',
+            'list' => '列表',
+        ],
+        'customers' => [
+            'title' => '客户',
+            'list' => '列表',
+        ],
+        'sellers' => [
+            'title' => '卖家',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'product_reviews' => [
+            'title' => '产品评价',
+            'list' => '列表',
+        ],
+        'banners' => [
+            'title' => '横幅',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'menu' => [
+            'title' => '菜单',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'menu_items' => [
+            'title' => '菜单项',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'social_media_links' => [
+            'title' => '社交媒体链接',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+        'site_settings' => [
+            'title' => '网站设置',
+            'manage' => '管理设置',
+        ],
+        'orders' => [
+            'title' => '订单',
+            'all_orders' => '所有订单',
+            'pending_orders' => '待处理订单',
+            'completed_orders' => '已完成订单',
+        ],
     ],
-    'brands' => [
-        'title' => '品牌',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'products' => [
-        'title' => '产品',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'attributes' => [
-    'title' => '属性',
-    'add_new' => '添加新项',
-    'list' => '列表',
-    ],
-    'customers' => [
-        'title' => '客户',
-        'list' => '列表',
-    ],
-    'sellers' => [
-        'title' => '卖家',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'product_reviews' => [
-        'title' => '产品评价',
-        'list' => '列表',
-    ],
-    'banners' => [
-        'title' => '横幅',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'menu' => [
-        'title' => '菜单',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'menu_items' => [
-        'title' => '菜单项',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'social_media_links' => [
-        'title' => '社交媒体链接',
-        'add_new' => '新增',
-        'list' => '列表',
-    ],
-    'site_settings' => [
-        'title' => '网站设置',
-        'manage' => '管理设置',
-    ],
-    'orders' => [
-        'title' => '订单',
-        'all_orders' => '所有订单',
-        'pending_orders' => '待处理订单',
-        'completed_orders' => '已完成订单',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => '英语',
         'spanish' => '西班牙语',
         'french' => '法语',
@@ -113,11 +113,10 @@ return [
         'yes_change' => '是的，更改',
     ],
 
-
     'categories' => [
         'heading' => '类别',
-        'image' => '图片',  
-        'choose_file' => '选择文件',  
+        'image' => '图片',
+        'choose_file' => '选择文件',
         'id' => '身份证号',
         'name' => '类别名称',
         'description' => '描述',
@@ -139,21 +138,21 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => '表中没有数据',
-        'sInfo'           => '显示 _START_ 到 _END_，共 _TOTAL_ 条记录',
-        'sInfoEmpty'      => '显示 0 到 0，共 0 条记录',
-        'sInfoFiltered'   => '(从 _MAX_ 条记录中过滤)',
-        'sLengthMenu'     => '显示 _MENU_ 条记录',
+        'sEmptyTable' => '表中没有数据',
+        'sInfo' => '显示 _START_ 到 _END_，共 _TOTAL_ 条记录',
+        'sInfoEmpty' => '显示 0 到 0，共 0 条记录',
+        'sInfoFiltered' => '(从 _MAX_ 条记录中过滤)',
+        'sLengthMenu' => '显示 _MENU_ 条记录',
         'sLoadingRecords' => '加载中...',
-        'sProcessing'     => '处理中...',
-        'sSearch'         => '搜索:',
-        'sZeroRecords'    => '没有找到匹配的记录',
-    'oPaginate' => [
-        'sFirst'    => '首页',
-        'sLast'     => '最后一页',
-        'sNext'     => '下一页',
-        'sPrevious' => '上一页',
-    ],
+        'sProcessing' => '处理中...',
+        'sSearch' => '搜索:',
+        'sZeroRecords' => '没有找到匹配的记录',
+        'oPaginate' => [
+            'sFirst' => '首页',
+            'sLast' => '最后一页',
+            'sNext' => '下一页',
+            'sPrevious' => '上一页',
+        ],
     ],
 
     'products' => [
@@ -220,7 +219,6 @@ return [
         'cancel' => '取消',
     ],
 
-   
     'brands' => [
         'heading' => '品牌',
         'id' => '身份证号',
@@ -253,7 +251,6 @@ return [
         'massage_delete' => '删除',
         'success' => '成功',
     ],
-
 
     'banners' => [
         'button_back' => '返回',
@@ -305,7 +302,6 @@ return [
 
     ],
 
-   
     'menus' => [
         'all_menus' => '所有菜单',
         'id' => '身份证号',
@@ -316,7 +312,7 @@ return [
         'edit' => '编辑',
         'action' => '操作',
         'delete' => '删除',
-        'created_at'=> '创建时间',
+        'created_at' => '创建时间',
         'no_menus' => '没有可用的菜单',
         'delete_confirmation' => '您确定要删除这个菜单吗？',
         'menu_deleted' => '菜单已成功删除！',
@@ -339,9 +335,9 @@ return [
         'success' => '成功',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> '所有菜单项',
+        'heading' => '所有菜单项',
         'id' => '身份证号',
         'create' => '创建菜单项',
         'choose_an_option' => '选择一个选项',
@@ -403,7 +399,6 @@ return [
         'home' => '首页',
         'view_details' => '查看详情',
     ],
-   
 
     'social_media_links' => [
         'type' => '社交媒体类型',
@@ -507,7 +502,4 @@ return [
         'error' => '错误',
     ],
 
-
 ];
-
-

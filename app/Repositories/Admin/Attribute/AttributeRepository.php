@@ -3,7 +3,6 @@
 namespace App\Repositories\Admin\Attribute;
 
 use App\Models\Attribute;
-use App\Models\AttributeValue;
 use App\Models\AttributeValueTranslation;
 
 class AttributeRepository implements AttributeRepositoryInterface
@@ -27,7 +26,7 @@ class AttributeRepository implements AttributeRepositoryInterface
 
             if (isset($data['translations'])) {
                 foreach ($data['translations'] as $languageCode => $translatedValue) {
-                    if (!empty($translatedValue)) {
+                    if (! empty($translatedValue)) {
                         AttributeValueTranslation::create([
                             'attribute_value_id' => $attributeValue->id,
                             'language_code' => $languageCode,
@@ -55,7 +54,7 @@ class AttributeRepository implements AttributeRepositoryInterface
 
             if (isset($data['translations'])) {
                 foreach ($data['translations'] as $languageCode => $translatedValue) {
-                    if (!empty($translatedValue)) {
+                    if (! empty($translatedValue)) {
                         AttributeValueTranslation::updateOrCreate(
                             [
                                 'attribute_value_id' => $attributeValue->id ?? $valueId,
@@ -74,6 +73,7 @@ class AttributeRepository implements AttributeRepositoryInterface
     public function delete($id)
     {
         $attribute = Attribute::findOrFail($id);
+
         return $attribute->delete();
     }
 }

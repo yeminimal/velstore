@@ -10,7 +10,7 @@ class SiteSetting extends Model
     use HasFactory;
 
     // The table associated with the model (optional if it's singular version of the model name)
-    protected $table = 'site_settings'; 
+    protected $table = 'site_settings';
 
     // The attributes that are mass assignable
     protected $fillable = [
@@ -22,7 +22,7 @@ class SiteSetting extends Model
         'contact_email',
         'contact_phone',
         'address',
-        'footer_text'
+        'footer_text',
     ];
 
     // The attributes that should be cast to native types

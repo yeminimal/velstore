@@ -9,11 +9,10 @@ class CategoryTranslation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'language_code', 'name', 'description','image_url'];
+    protected $fillable = ['category_id', 'language_code', 'name', 'description', 'image_url'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-
 }

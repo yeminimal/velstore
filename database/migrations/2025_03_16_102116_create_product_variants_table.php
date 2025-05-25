@@ -25,7 +25,7 @@ return new class extends Migration
             $table->boolean('is_primary')->default(false);
             $table->timestamps();
         });
-               
+
     }
 
     /**

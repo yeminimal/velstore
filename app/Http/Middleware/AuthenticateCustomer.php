@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticateCustomer
 {
@@ -20,12 +20,12 @@ class AuthenticateCustomer
             return redirect()->route('customer.login');
         }*/
 
-        if (!auth('customer')->check()) {
+        if (! auth('customer')->check()) {
             // Detect if this is an AJAX/JS call expecting JSON
             if ($request->expectsJson() || $request->isJson()) {
                 return response()->json(['message' => 'Unauthenticated.'], 401);
             }
-    
+
             return redirect()->route('customer.login');
         }
 

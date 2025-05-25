@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductVariant;
-use App\Models\ProductImage;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -29,11 +28,11 @@ class ProductController extends Controller
             'reviews',
             'primaryVariant',
             'variants.attributeValues',
-            'images'
+            'images',
         ])->withAvg('reviews', 'rating')
-          ->withCount('reviews')
-          ->where('slug', $slug)
-          ->firstOrFail();
+            ->withCount('reviews')
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         $primaryVariant = $product->variants()->where('is_primary', true)->first();
         $inStock = $primaryVariant && $primaryVariant->stock > 0;
@@ -41,9 +40,10 @@ class ProductController extends Controller
         $variantMap = $product->variants->map(function ($variant) {
             return [
                 'id' => $variant->id,
-                'attributes' => $variant->attributeValues->pluck('id')->sort()->values()->toArray()
+                'attributes' => $variant->attributeValues->pluck('id')->sort()->values()->toArray(),
             ];
         });
+
         return view('themes.xylo.product-detail', compact('product', 'inStock', 'variantMap'));
     }
 
@@ -52,13 +52,14 @@ class ProductController extends Controller
         $variantId = $request->input('variant_id');
         $productId = $request->input('product_id');
         $variant = ProductVariant::with('product')
-                    ->where('id', $variantId)
-                    ->where('product_id', $productId)
-                    ->first();
+            ->where('id', $variantId)
+            ->where('product_id', $productId)
+            ->first();
 
         if ($variant) {
             $stockStatus = $variant->stock > 0 ? 'IN STOCK' : 'OUT OF STOCK';
             $isOutOfStock = $variant->stock <= 0;
+
             return response()->json([
                 'success' => true,
                 'price' => number_format($variant->converted_price, 2),
@@ -70,5 +71,4 @@ class ProductController extends Controller
             return response()->json(['success' => false]);
         }
     }
-
 }

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class MenuSeeder extends Seeder
 {
@@ -14,7 +13,7 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-         $menuId = DB::table('menus')->insertGetId([
+        $menuId = DB::table('menus')->insertGetId([
             'title' => 'Main Menu',
             'status' => true,
             'date' => Carbon::now(),

@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\BannerController;
+use App\Http\Controllers\Api\CustomerAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CustomerAuthController;
-use App\Http\Controllers\Api\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::prefix('customer')->group(function () {
     Route::post('register', [CustomerAuthController::class, 'register']);
     Route::post('login', [CustomerAuthController::class, 'login']);
@@ -32,4 +31,3 @@ Route::prefix('customer')->group(function () {
 });
 
 Route::get('/banners', [BannerController::class, 'index']);
-

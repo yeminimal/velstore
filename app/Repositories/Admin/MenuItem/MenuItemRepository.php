@@ -3,10 +3,9 @@
 namespace App\Repositories\Admin\MenuItem;
 
 use App\Models\MenuItem;
-use App\Models\Language;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class MenuItemRepository implements MenuItemRepositoryInterface
 {
@@ -23,48 +22,48 @@ class MenuItemRepository implements MenuItemRepositoryInterface
     }
 
     public function createMenuItem(Request $request, $menuId)
-    { 
-        
+    {
+
         return DB::transaction(function () use ($request, $menuId) {
-        $defaultLang = array_key_first($request->title);
-        $defaultTitle = $request->title[$defaultLang] ?? 'menu-item';
+            $defaultLang = array_key_first($request->title);
+            $defaultTitle = $request->title[$defaultLang] ?? 'menu-item';
 
-        $slug = Str::slug($defaultTitle);
-        $slugCount = MenuItem::where('slug', 'like', "{$slug}%")->count();
-        if ($slugCount > 0) {
-            $slug .= '-' . ($slugCount + 1);
-        }
+            $slug = Str::slug($defaultTitle);
+            $slugCount = MenuItem::where('slug', 'like', "{$slug}%")->count();
+            if ($slugCount > 0) {
+                $slug .= '-'.($slugCount + 1);
+            }
 
-        $menuItem = MenuItem::create([
-            'menu_id' => $menuId,
-            'slug' => $slug,
-            'order_number' => $request->order_number,
-            'parent_id' => $request->parent_id ?? null,
-        ]);
-
-        foreach ($request->title as $lang => $title) {
-            $menuItem->translations()->create([
-                'language_code' => $lang,
-                'title' => $title,
+            $menuItem = MenuItem::create([
+                'menu_id' => $menuId,
+                'slug' => $slug,
+                'order_number' => $request->order_number,
+                'parent_id' => $request->parent_id ?? null,
             ]);
-        }
 
-        return $menuItem;
-    });
+            foreach ($request->title as $lang => $title) {
+                $menuItem->translations()->create([
+                    'language_code' => $lang,
+                    'title' => $title,
+                ]);
+            }
+
+            return $menuItem;
+        });
     }
 
     public function updateMenuItem(Request $request, $menuId, $menuItemId)
     {
         $menuItem = MenuItem::with('translations')->findOrFail($menuItemId);
         $slug = Str::slug($request->title[array_key_first($request->title)]);
-    
+
         $menuItem->update([
             'menu_id' => $request->menu_id,
             'parent_id' => $request->parent_id,
             'order_number' => $request->order_number,
-            'slug' => $slug
+            'slug' => $slug,
         ]);
-    
+
         foreach ($request->title as $languageCode => $title) {
             $translation = $menuItem->translations()->where('language_code', $languageCode)->first();
             if ($translation) {
@@ -76,15 +75,16 @@ class MenuItemRepository implements MenuItemRepositoryInterface
                 ]);
             }
         }
-    
+
         $menuItem->translations()->whereNotIn('language_code', array_keys($request->title))->delete();
-    
+
         return $menuItem;
     }
 
     public function deleteMenuItem($menuItemId)
     {
         $menuItem = MenuItem::findOrFail($menuItemId);
+
         return $menuItem->delete();
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
-
+use Illuminate\Support\Facades\Hash;
 
 class Velstore extends Command
 {
@@ -48,8 +47,9 @@ class Velstore extends Command
             'en'
         );
 
-        if (!array_key_exists($locale, $availableLocales)) {
-            $this->error("Invalid locale '{$locale}'. Supported locales are: " . implode(', ', array_keys($availableLocales)));
+        if (! array_key_exists($locale, $availableLocales)) {
+            $this->error("Invalid locale '{$locale}'. Supported locales are: ".implode(', ', array_keys($availableLocales)));
+
             return 1;
         }
 
@@ -76,7 +76,6 @@ class Velstore extends Command
 
         return Command::SUCCESS;
     }
-
 
     /**
      * Create the admin user.
@@ -115,11 +114,10 @@ class Velstore extends Command
             if (preg_match($pattern, $content)) {
                 $content = preg_replace($pattern, "{$key}={$value}", $content);
             } else {
-                $content .= PHP_EOL . "{$key}={$value}";
+                $content .= PHP_EOL."{$key}={$value}";
             }
 
             file_put_contents($path, $content);
         }
     }
 }
-

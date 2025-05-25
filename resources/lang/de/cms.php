@@ -8,85 +8,84 @@ return [
         'remember_me' => 'Angemeldet bleiben',
         'forgot_password' => 'Passwort vergessen?',
     ],
-    
+
     'profile' => [
         'profile' => 'Profil',
         'setting' => 'Einstellungen',
-        'logout' => 'Abmelden',       
+        'logout' => 'Abmelden',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Suche...',
-    'dashboard' => 'Dashboard',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Suche...',
+        'dashboard' => 'Dashboard',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Kategorien',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
+        'categories' => [
+            'title' => 'Kategorien',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'brands' => [
+            'title' => 'Marken',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'products' => [
+            'title' => 'Produkte',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'attributes' => [
+            'title' => 'Attribute',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'customers' => [
+            'title' => 'Kunden',
+            'list' => 'Liste',
+        ],
+        'sellers' => [
+            'title' => 'Verkäufer',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'product_reviews' => [
+            'title' => 'Produktbewertungen',
+            'list' => 'Liste',
+        ],
+        'banners' => [
+            'title' => 'Banner',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'menu' => [
+            'title' => 'Menü',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'menu_items' => [
+            'title' => 'Menüeinträge',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'social_media_links' => [
+            'title' => 'Soziale Medien Links',
+            'add_new' => 'Neu hinzufügen',
+            'list' => 'Liste',
+        ],
+        'site_settings' => [
+            'title' => 'Seiteneinstellungen',
+            'manage' => 'Einstellungen verwalten',
+        ],
+        'orders' => [
+            'title' => 'Bestellungen',
+            'all_orders' => 'Alle Bestellungen',
+            'pending_orders' => 'Ausstehende Bestellungen',
+            'completed_orders' => 'Abgeschlossene Bestellungen',
+        ],
     ],
-    'brands' => [
-        'title' => 'Marken',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'products' => [
-        'title' => 'Produkte',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'attributes' => [
-    'title' => 'Attribute',
-    'add_new' => 'Neu hinzufügen',
-    'list' => 'Liste',
-    ],
-    'customers' => [
-        'title' => 'Kunden',
-        'list' => 'Liste',
-    ],
-    'sellers' => [
-        'title' => 'Verkäufer',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'product_reviews' => [
-        'title' => 'Produktbewertungen',
-        'list' => 'Liste',
-    ],
-    'banners' => [
-        'title' => 'Banner',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'menu' => [
-        'title' => 'Menü',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'menu_items' => [
-        'title' => 'Menüeinträge',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'social_media_links' => [
-        'title' => 'Soziale Medien Links',
-        'add_new' => 'Neu hinzufügen',
-        'list' => 'Liste',
-    ],
-    'site_settings' => [
-        'title' => 'Seiteneinstellungen',
-        'manage' => 'Einstellungen verwalten',
-    ],
-    'orders' => [
-        'title' => 'Bestellungen',
-        'all_orders' => 'Alle Bestellungen',
-        'pending_orders' => 'Ausstehende Bestellungen',
-        'completed_orders' => 'Abgeschlossene Bestellungen',
-    ],
-],
 
-
-    'languages'=> [   
+    'languages' => [
         'english' => 'Englisch',
         'spanish' => 'Spanisch',
         'french' => 'Französisch',
@@ -114,11 +113,10 @@ return [
         'yes_change' => 'Ja, ändern',
     ],
 
-
     'categories' => [
         'heading' => 'Kategorien',
-        'image' => 'Bild',  
-        'choose_file' => 'Datei auswählen',  
+        'image' => 'Bild',
+        'choose_file' => 'Datei auswählen',
         'id' => 'ID',
         'name' => 'Kategoriename',
         'description' => 'Beschreibung',
@@ -140,23 +138,23 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Keine Daten in der Tabelle verfügbar',
-        'sInfo'           => 'Anzeige von _START_ bis _END_ von insgesamt _TOTAL_ Einträgen',
-        'sInfoEmpty'      => 'Anzeige von 0 bis 0 von insgesamt 0 Einträgen',
-        'sInfoFiltered'   => '(gefiltert aus _MAX_ Gesamteinträgen)',
-        'sLengthMenu'     => 'Zeige _MENU_ Einträge',
+        'sEmptyTable' => 'Keine Daten in der Tabelle verfügbar',
+        'sInfo' => 'Anzeige von _START_ bis _END_ von insgesamt _TOTAL_ Einträgen',
+        'sInfoEmpty' => 'Anzeige von 0 bis 0 von insgesamt 0 Einträgen',
+        'sInfoFiltered' => '(gefiltert aus _MAX_ Gesamteinträgen)',
+        'sLengthMenu' => 'Zeige _MENU_ Einträge',
         'sLoadingRecords' => 'Laden...',
-        'sProcessing'     => 'Verarbeite...',
-        'sSearch'         => 'Suche:',
-        'sZeroRecords'    => 'Keine passenden Einträge gefunden',
-    'oPaginate' => [
-        'sFirst'    => 'Erste',
-        'sLast'     => 'Letzte',
-        'sNext'     => 'Nächste',
-        'sPrevious' => 'Vorherige',
+        'sProcessing' => 'Verarbeite...',
+        'sSearch' => 'Suche:',
+        'sZeroRecords' => 'Keine passenden Einträge gefunden',
+        'oPaginate' => [
+            'sFirst' => 'Erste',
+            'sLast' => 'Letzte',
+            'sNext' => 'Nächste',
+            'sPrevious' => 'Vorherige',
+        ],
     ],
-  ],
-        
+
     'products' => [
 
         // Titles
@@ -220,7 +218,7 @@ return [
         'delete' => 'Löschen',
         'cancel' => 'Abbrechen',
     ],
-    
+
     'brands' => [
         'heading' => 'Marken',
         'id' => 'ID',
@@ -314,7 +312,7 @@ return [
         'edit' => 'Bearbeiten',
         'action' => 'Aktion',
         'delete' => 'Löschen',
-        'created_at'=> 'Erstellt am',
+        'created_at' => 'Erstellt am',
         'no_menus' => 'Keine Menüs verfügbar',
         'delete_confirmation' => 'Sind Sie sicher, dass Sie dieses Menü löschen möchten?',
         'menu_deleted' => 'Menü erfolgreich gelöscht!',
@@ -336,9 +334,9 @@ return [
         'massage_delete' => 'Löschen',
         'success' => 'Erfolg',
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Alle Menüeinträge',
+        'heading' => 'Alle Menüeinträge',
         'id' => 'ID',
         'create' => 'Menüeintrag erstellen',
         'choose_an_option' => 'Wählen Sie eine Option',
@@ -412,8 +410,8 @@ return [
             'first' => 'Erste',
             'last' => 'Letzte',
             'next' => 'Nächste',
-            'previous' => 'Vorherige'
-        ]
+            'previous' => 'Vorherige',
+        ],
     ],
 
     'social_media_links' => [
@@ -493,32 +491,28 @@ return [
         'cancel' => 'Abbrechen',
     ],
 
-'product_reviews' => [
-    'title_manage' => 'Produktbewertungen',
+    'product_reviews' => [
+        'title_manage' => 'Produktbewertungen',
 
-    'review_id' => 'Bewertungs-ID',
-    'customer_name' => 'Kundenname',
-    'product_name' => 'Produktname',
-    'rating' => 'Bewertung',
-    'status' => 'Status',
-    'actions' => 'Aktionen',
+        'review_id' => 'Bewertungs-ID',
+        'customer_name' => 'Kundenname',
+        'product_name' => 'Produktname',
+        'rating' => 'Bewertung',
+        'status' => 'Status',
+        'actions' => 'Aktionen',
 
-    'confirm_delete' => 'Löschen bestätigen',
-    'delete_message' => 'Möchten Sie diese Produktbewertung wirklich löschen?',
-    'delete' => 'Löschen',
-    'cancel' => 'Abbrechen',
+        'confirm_delete' => 'Löschen bestätigen',
+        'delete_message' => 'Möchten Sie diese Produktbewertung wirklich löschen?',
+        'delete' => 'Löschen',
+        'cancel' => 'Abbrechen',
 
-    'success_create' => 'Produktbewertung erfolgreich erstellt!',
-    'success_update' => 'Produktbewertung erfolgreich aktualisiert!',
-    'success_delete' => 'Produktbewertung erfolgreich gelöscht!',
-    'error_delete' => 'Fehler beim Löschen der Produktbewertung! Bitte versuchen Sie es erneut.',
+        'success_create' => 'Produktbewertung erfolgreich erstellt!',
+        'success_update' => 'Produktbewertung erfolgreich aktualisiert!',
+        'success_delete' => 'Produktbewertung erfolgreich gelöscht!',
+        'error_delete' => 'Fehler beim Löschen der Produktbewertung! Bitte versuchen Sie es erneut.',
 
-    'success' => 'Erfolg',
-    'error' => 'Fehler',
-],
-
-
+        'success' => 'Erfolg',
+        'error' => 'Fehler',
+    ],
 
 ];
-
-

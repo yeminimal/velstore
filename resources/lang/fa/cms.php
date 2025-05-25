@@ -8,84 +8,84 @@ return [
         'remember_me' => 'مرا به خاطر بسپار',
         'forgot_password' => 'رمز عبور خود را فراموش کرده‌اید؟',
     ],
-    
+
     'profile' => [
         'profile' => 'پروفایل',
         'setting' => 'تنظیمات',
-        'logout' => 'خروج',       
+        'logout' => 'خروج',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'جستجو...',
-    'dashboard' => 'داشبورد',
-    'logo' => 'لوگو',
+        'search_placeholder' => 'جستجو...',
+        'dashboard' => 'داشبورد',
+        'logo' => 'لوگو',
 
-    'categories' => [
-        'title' => 'دسته‌بندی‌ها',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
+        'categories' => [
+            'title' => 'دسته‌بندی‌ها',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'brands' => [
+            'title' => 'برندها',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'products' => [
+            'title' => 'محصولات',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'customers' => [
+            'title' => 'مشتریان',
+            'list' => 'لیست',
+        ],
+        'sellers' => [
+            'title' => 'فروشندگان',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'product_reviews' => [
+            'title' => 'نظرات محصولات',
+            'list' => 'لیست',
+        ],
+        'attributes' => [
+            'title' => 'ویژگی‌ها',
+            'add_new' => 'افزودن جدید',
+            'list' => 'فهرست',
+        ],
+        'banners' => [
+            'title' => 'بنرها',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'menu' => [
+            'title' => 'منو',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'menu_items' => [
+            'title' => 'آیتم‌های منو',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'social_media_links' => [
+            'title' => 'لینک‌های شبکه‌های اجتماعی',
+            'add_new' => 'افزودن جدید',
+            'list' => 'لیست',
+        ],
+        'site_settings' => [
+            'title' => 'تنظیمات سایت',
+            'manage' => 'مدیریت تنظیمات',
+        ],
+        'orders' => [
+            'title' => 'سفارشات',
+            'all_orders' => 'همه سفارشات',
+            'pending_orders' => 'سفارشات در انتظار',
+            'completed_orders' => 'سفارشات تکمیل شده',
+        ],
     ],
-    'brands' => [
-        'title' => 'برندها',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'products' => [
-        'title' => 'محصولات',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'customers' => [
-        'title' => 'مشتریان',
-        'list' => 'لیست',
-    ],
-    'sellers' => [
-        'title' => 'فروشندگان',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'product_reviews' => [
-        'title' => 'نظرات محصولات',
-        'list' => 'لیست',
-    ],
-    'attributes' => [
-    'title' => 'ویژگی‌ها',
-    'add_new' => 'افزودن جدید',
-    'list' => 'فهرست',
-    ],
-    'banners' => [
-        'title' => 'بنرها',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'menu' => [
-        'title' => 'منو',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'menu_items' => [
-        'title' => 'آیتم‌های منو',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'social_media_links' => [
-        'title' => 'لینک‌های شبکه‌های اجتماعی',
-        'add_new' => 'افزودن جدید',
-        'list' => 'لیست',
-    ],
-    'site_settings' => [
-        'title' => 'تنظیمات سایت',
-        'manage' => 'مدیریت تنظیمات',
-    ],
-    'orders' => [
-        'title' => 'سفارشات',
-        'all_orders' => 'همه سفارشات',
-        'pending_orders' => 'سفارشات در انتظار',
-        'completed_orders' => 'سفارشات تکمیل شده',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'انگلیسی',
         'spanish' => 'اسپانیایی',
         'french' => 'فرانسوی',
@@ -113,11 +113,10 @@ return [
         'yes_change' => 'بله، تغییر بده',
     ],
 
-
     'categories' => [
         'heading' => 'دسته‌ها',
-        'image' => 'تصویر',  
-        'choose_file' => 'انتخاب فایل',  
+        'image' => 'تصویر',
+        'choose_file' => 'انتخاب فایل',
         'id' => 'شناسه',
         'name' => 'نام دسته',
         'description' => 'توضیحات',
@@ -139,22 +138,22 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'هیچ داده‌ای در جدول موجود نیست',
-        'sInfo'           => 'نمایش _START_ تا _END_ از _TOTAL_ ورودی',
-        'sInfoEmpty'      => 'نمایش 0 تا 0 از 0 ورودی',
-        'sInfoFiltered'   => '(فیلتر شده از _MAX_ ورودی کل)',
-        'sLengthMenu'     => 'نمایش _MENU_ ورودی',
+        'sEmptyTable' => 'هیچ داده‌ای در جدول موجود نیست',
+        'sInfo' => 'نمایش _START_ تا _END_ از _TOTAL_ ورودی',
+        'sInfoEmpty' => 'نمایش 0 تا 0 از 0 ورودی',
+        'sInfoFiltered' => '(فیلتر شده از _MAX_ ورودی کل)',
+        'sLengthMenu' => 'نمایش _MENU_ ورودی',
         'sLoadingRecords' => 'در حال بارگذاری...',
-        'sProcessing'     => 'در حال پردازش...',
-        'sSearch'         => 'جستجو:',
-        'sZeroRecords'    => 'هیچ رکوردی یافت نشد',
-    'oPaginate' => [
-        'sFirst'    => 'اولین',
-        'sLast'     => 'آخرین',
-        'sNext'     => 'بعدی',
-        'sPrevious' => 'قبلی',
+        'sProcessing' => 'در حال پردازش...',
+        'sSearch' => 'جستجو:',
+        'sZeroRecords' => 'هیچ رکوردی یافت نشد',
+        'oPaginate' => [
+            'sFirst' => 'اولین',
+            'sLast' => 'آخرین',
+            'sNext' => 'بعدی',
+            'sPrevious' => 'قبلی',
+        ],
     ],
-],
 
     'products' => [
 
@@ -220,7 +219,6 @@ return [
         'cancel' => 'لغو',
     ],
 
-   
     'brands' => [
         'heading' => 'برندها',
         'id' => 'شناسه',
@@ -255,9 +253,8 @@ return [
 
     ],
 
-   
     'banners' => [
-        'button_back' => 'بازگشت',       
+        'button_back' => 'بازگشت',
         'description' => 'توضیحات',
         'choose_file' => 'انتخاب فایل',
         'all_banners' => 'تمام بنرها',
@@ -305,7 +302,6 @@ return [
         'success' => 'موفقیت',
     ],
 
-   
     'menus' => [
         'all_menus' => 'تمام منوها',
         'id' => 'شناسه',
@@ -316,7 +312,7 @@ return [
         'edit' => 'ویرایش',
         'action' => 'عملیات',
         'delete' => 'حذف',
-        'created_at'=> 'ایجاد شده در',
+        'created_at' => 'ایجاد شده در',
         'no_menus' => 'هیچ منویی موجود نیست',
         'delete_confirmation' => 'آیا مطمئن هستید که می‌خواهید این منو را حذف کنید؟',
         'menu_deleted' => 'منو با موفقیت حذف شد!',
@@ -339,9 +335,9 @@ return [
         'success' => 'موفقیت',
 
     ],
-    
+
     'menu_items' => [
-        'heading'=> 'تمام اقلام منو',
+        'heading' => 'تمام اقلام منو',
         'id' => 'شناسه',
         'create' => 'ایجاد آیتم منو',
         'choose_an_option' => 'یک گزینه انتخاب کنید',
@@ -402,7 +398,6 @@ return [
         'home' => 'خانه',
         'view_details' => 'مشاهده جزئیات',
     ],
-    
 
     'social_media_links' => [
         'type' => 'نوع شبکه اجتماعی',
@@ -431,7 +426,7 @@ return [
         'success' => 'موفقیت',
 
         'translations' => [
-        'platform_name' => 'نام پلتفرم (ترجمه‌شده)',
+            'platform_name' => 'نام پلتفرم (ترجمه‌شده)',
         ],
         'save' => 'ذخیره',
         'update' => 'به‌روزرسانی',
@@ -506,7 +501,4 @@ return [
         'error' => 'خطا',
     ],
 
-
 ];
-
-

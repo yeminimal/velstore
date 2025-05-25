@@ -16,6 +16,7 @@ class SellerController extends Controller
     public function index()
     {
         $sellers = Seller::latest()->paginate(10);
+
         return view('admin.sellers.index', compact('sellers'));
     }
 
@@ -89,6 +90,7 @@ class SellerController extends Controller
     public function destroy(Seller $seller)
     {
         $seller->delete();
+
         return redirect()->route('admin.sellers.index')->with('success', 'Seller deleted successfully.');
     }
 }
