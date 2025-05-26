@@ -1,10 +1,13 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CustomerAuthController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\SocialMediaLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +36,6 @@ Route::prefix('customer')->group(function () {
 
 Route::get('/banners', [BannerController::class, 'index']);
 Route::apiResource('brands', BrandController::class);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/social-media-links', [SocialMediaLinkController::class, 'index']);
