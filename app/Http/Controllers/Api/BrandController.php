@@ -13,12 +13,12 @@ class BrandController extends Controller
     {
         $language = $request->get('lang', App::getLocale());
 
-        $brands = Brand::with(['translations' => function ($query) use ($language) {
-            $query->where('locale', $language);
+        $brands = Brand::with(['translations' => function ($query) {
+            $query->where('locale', App::getLocale());
         }])
             ->where('status', 'active')
             ->get()
-            ->map(function ($brand) use ($language) {
+            ->map(function ($brand) {
                 $translation = $brand->translations->first();
 
                 return [
