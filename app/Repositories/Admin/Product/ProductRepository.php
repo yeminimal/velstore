@@ -3,12 +3,10 @@
 namespace App\Repositories\Admin\Product;
 
 use App\Models\Product;
-use App\Models\ProductTranslation;
-use App\Services\Admin\ImageService;
 use App\Models\ProductImage;
-use Illuminate\Support\Str;
-use App\Models\StoreSetting;
 use App\Models\Shop;
+use App\Services\Admin\ImageService;
+use Illuminate\Support\Str;
 
 class ProductRepository implements ProductRepositoryInterface
 {
@@ -19,7 +17,7 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $this->imageService = $imageService;
     }
-   
+
     public function all()
     {
         return Product::all();
@@ -34,9 +32,9 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $sku = $data['SKU'];
         $skuCounter = 1;
-        
+
         while (Product::where('SKU', $sku)->exists()) {
-            $sku = $data['SKU'] . '-' . $skuCounter;
+            $sku = $data['SKU'].'-'.$skuCounter;
             $skuCounter++;
         }
 
@@ -44,13 +42,13 @@ class ProductRepository implements ProductRepositoryInterface
 
         $shop = Shop::where('vendor_id', 1)->first();
 
-        if (!$shop) {
+        if (! $shop) {
             throw new Exception('No shop found for this vendor.');
         }
 
         $product = Product::create([
             'vendor_id' => 1,
-            'shop_id' => $shop->id, 
+            'shop_id' => $shop->id,
             'category_id' => $data['category_id'],
             'price' => currency_to_usd($data['price'], $defaultCurrencyCode),
             'stock' => $data['stock'],
@@ -64,44 +62,43 @@ class ProductRepository implements ProductRepositoryInterface
         ]);
 
         if (isset($data['product_image_url']) && $data['product_image_url'] instanceof \Illuminate\Http\UploadedFile) {
-            $imagePath = $this->imageService->uploadImage($data['product_image_url'], 'products'); 
-            
+            $imagePath = $this->imageService->uploadImage($data['product_image_url'], 'products');
+
             $productImage = new ProductImage([
-                'name' => basename($imagePath), 
-                'image_url' => $imagePath,                
-                'product_id' => $product->id, 
+                'name' => basename($imagePath),
+                'image_url' => $imagePath,
+                'product_id' => $product->id,
                 'type' => $data['image_type'] ?? 'thumb',
             ]);
-            
+
             $productImage->save();
         }
 
-        return $product; 
-
+        return $product;
 
     }
 
     public function update($id, array $data)
-    {       
-        \Log::info('Attempting to update product with ID ' . $id, ['data' => $data]);
+    {
+        \Log::info('Attempting to update product with ID '.$id, ['data' => $data]);
 
         $product = Product::findOrFail($id);
-    
+
         if (isset($data['image_url']) && $data['image_url'] instanceof \Illuminate\Http\UploadedFile) {
             if ($product->images->isNotEmpty()) {
                 $this->imageService->deleteImage($product->images->first()->image_url);
-                $product->images->first()->delete();  
+                $product->images->first()->delete();
             }
-    
+
             $imagePath = $this->imageService->uploadImage($data['image_url'], 'products');
-    
+
             $productImage = new ProductImage([
-                'name' => basename($imagePath), 
-                'image_url' => $imagePath, 
-                'product_id' => $product->id, 
+                'name' => basename($imagePath),
+                'image_url' => $imagePath,
+                'product_id' => $product->id,
                 'type' => $data['image_type'] ?? 'thumb',
             ]);
-    
+
             $productImage->save();
         } else {
             // If no new image is uploaded, update the image type of existing image
@@ -109,22 +106,22 @@ class ProductRepository implements ProductRepositoryInterface
                 $product->images->first()->update(['type' => $data['image_type']]);
             }
         }
-    
+
         $slug = Str::slug($data['name'] ?? $product->name);
         $slugBase = $slug;
         $counter = 1;
         while (Product::where('slug', $slug)->where('id', '!=', $id)->exists()) {
-            $slug = $slugBase . '-' . $counter;
+            $slug = $slugBase.'-'.$counter;
             $counter++;
         }
-    
+
         $sku = $data['SKU'];
         $skuCounter = 1;
         while (Product::where('SKU', $sku)->where('id', '!=', $id)->exists()) {
-            $sku = $data['SKU'] . '-' . $skuCounter;
+            $sku = $data['SKU'].'-'.$skuCounter;
             $skuCounter++;
         }
-    
+
         $updated = $product->update([
             'category_id' => $data['category_id'],
             'price' => $data['price'],
@@ -137,19 +134,19 @@ class ProductRepository implements ProductRepositoryInterface
             'dimensions' => $data['dimensions'],
             'product_type' => $data['product_type'],
         ]);
-    
+
         if ($updated) {
-            \Log::info('Product updated successfully with ID ' . $id);
+            \Log::info('Product updated successfully with ID '.$id);
         } else {
-            \Log::error('Failed to update product with ID ' . $id);
+            \Log::error('Failed to update product with ID '.$id);
         }
-    
-        return $product;  
+
+        return $product;
 
     }
 
     public function destroy($id)
-    {      
+    {
         $product = $this->find($id);
 
         $productImages = $product->images;
@@ -163,8 +160,5 @@ class ProductRepository implements ProductRepositoryInterface
         }
 
         return $product->delete();
-    } 
-
+    }
 }
-
-

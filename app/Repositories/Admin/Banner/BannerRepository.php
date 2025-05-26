@@ -8,7 +8,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class BannerRepository implements BannerRepositoryInterface
-{// Get all banners with translations
+{
+    // Get all banners with translations
     public function getAllBanners(): Collection
     {
         return Banner::with('translations')->orderBy('created_at', 'desc')->get();
@@ -33,6 +34,7 @@ class BannerRepository implements BannerRepositoryInterface
     {
         $banner->type = $data['type'];
         $banner->save();
+
         return $banner;
     }
 

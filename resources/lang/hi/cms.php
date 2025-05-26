@@ -8,7 +8,7 @@ return [
         'remember_me' => 'मुझे याद रखें',
         'forgot_password' => 'क्या आप पासवर्ड भूल गए हैं?',
     ],
-    
+
     'profile' => [
         'profile' => 'प्रोफाइल',
         'setting' => 'सेटिंग',
@@ -16,77 +16,76 @@ return [
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'खोजें...',
-    'dashboard' => 'डैशबोर्ड',
-    'logo' => 'लोगो',
+        'search_placeholder' => 'खोजें...',
+        'dashboard' => 'डैशबोर्ड',
+        'logo' => 'लोगो',
 
-    'categories' => [
-        'title' => 'श्रेणियाँ',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
+        'categories' => [
+            'title' => 'श्रेणियाँ',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'brands' => [
+            'title' => 'ब्रांड्स',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'products' => [
+            'title' => 'उत्पाद',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'attributes' => [
+            'title' => 'गुण',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'customers' => [
+            'title' => 'ग्राहक',
+            'list' => 'सूची',
+        ],
+        'sellers' => [
+            'title' => 'विक्रेता',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'product_reviews' => [
+            'title' => 'उत्पाद समीक्षाएँ',
+            'list' => 'सूची',
+        ],
+        'banners' => [
+            'title' => 'बैनर',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'menu' => [
+            'title' => 'मेनू',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'menu_items' => [
+            'title' => 'मेनू आइटम्स',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'social_media_links' => [
+            'title' => 'सोशल मीडिया लिंक',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+        'site_settings' => [
+            'title' => 'साइट सेटिंग्स',
+            'manage' => 'सेटिंग्स प्रबंधित करें',
+        ],
+        'orders' => [
+            'title' => 'ऑर्डर',
+            'all_orders' => 'सभी ऑर्डर',
+            'pending_orders' => 'लंबित ऑर्डर',
+            'completed_orders' => 'पूर्ण ऑर्डर',
+        ],
     ],
-    'brands' => [
-        'title' => 'ब्रांड्स',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'products' => [
-        'title' => 'उत्पाद',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'attributes' => [
-    'title' => 'गुण',
-    'add_new' => 'नया जोड़ें',
-    'list' => 'सूची',
-    ],
-    'customers' => [
-        'title' => 'ग्राहक',
-        'list' => 'सूची',
-    ],
-    'sellers' => [
-        'title' => 'विक्रेता',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'product_reviews' => [
-        'title' => 'उत्पाद समीक्षाएँ',
-        'list' => 'सूची',
-    ],
-    'banners' => [
-        'title' => 'बैनर',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'menu' => [
-        'title' => 'मेनू',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'menu_items' => [
-        'title' => 'मेनू आइटम्स',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'social_media_links' => [
-        'title' => 'सोशल मीडिया लिंक',
-        'add_new' => 'नया जोड़ें',
-        'list' => 'सूची',
-    ],
-    'site_settings' => [
-        'title' => 'साइट सेटिंग्स',
-        'manage' => 'सेटिंग्स प्रबंधित करें',
-    ],
-    'orders' => [
-        'title' => 'ऑर्डर',
-        'all_orders' => 'सभी ऑर्डर',
-        'pending_orders' => 'लंबित ऑर्डर',
-        'completed_orders' => 'पूर्ण ऑर्डर',
-    ],
-],
 
-
-    'languages'=> [   
+    'languages' => [
         'english' => 'अंग्रेज़ी',
         'spanish' => 'स्पेनिश',
         'french' => 'फ्रेंच',
@@ -114,11 +113,10 @@ return [
         'yes_change' => 'हाँ, बदलें',
     ],
 
-       
     'categories' => [
         'heading' => 'श्रेणियाँ',
-       'image' => 'छवि',  
-        'choose_file' => 'फ़ाइल चुनें',  
+        'image' => 'छवि',
+        'choose_file' => 'फ़ाइल चुनें',
         'id' => 'पहचान',
         'name' => 'श्रेणी का नाम',
         'description' => 'विवरण',
@@ -140,22 +138,22 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'टेबल में कोई डेटा उपलब्ध नहीं है',
-        'sInfo'           => '_START_ से _END_ तक _TOTAL_ प्रविष्टियाँ दिखा रहे हैं',
-        'sInfoEmpty'      => '0 से 0 तक 0 प्रविष्टियाँ दिखा रहे हैं',
-        'sInfoFiltered'   => '(कुल _MAX_ प्रविष्टियों से फ़िल्टर किया गया)',
-        'sLengthMenu'     => '_MENU_ प्रविष्टियाँ दिखाएँ',
+        'sEmptyTable' => 'टेबल में कोई डेटा उपलब्ध नहीं है',
+        'sInfo' => '_START_ से _END_ तक _TOTAL_ प्रविष्टियाँ दिखा रहे हैं',
+        'sInfoEmpty' => '0 से 0 तक 0 प्रविष्टियाँ दिखा रहे हैं',
+        'sInfoFiltered' => '(कुल _MAX_ प्रविष्टियों से फ़िल्टर किया गया)',
+        'sLengthMenu' => '_MENU_ प्रविष्टियाँ दिखाएँ',
         'sLoadingRecords' => 'लोड हो रहा है...',
-        'sProcessing'     => 'प्रसंस्करण हो रहा है...',
-        'sSearch'         => 'खोज:',
-        'sZeroRecords'    => 'कोई मेल खाता हुआ रिकॉर्ड नहीं मिला',
-    'oPaginate' => [
-        'sFirst'    => 'पहला',
-        'sLast'     => 'अंतिम',
-        'sNext'     => 'अगला',
-        'sPrevious' => 'पिछला',
+        'sProcessing' => 'प्रसंस्करण हो रहा है...',
+        'sSearch' => 'खोज:',
+        'sZeroRecords' => 'कोई मेल खाता हुआ रिकॉर्ड नहीं मिला',
+        'oPaginate' => [
+            'sFirst' => 'पहला',
+            'sLast' => 'अंतिम',
+            'sNext' => 'अगला',
+            'sPrevious' => 'पिछला',
+        ],
     ],
-],
 
     'products' => [
 
@@ -221,7 +219,6 @@ return [
         'cancel' => 'रद्द करें',
     ],
 
-
     'brands' => [
         'heading' => 'ब्रांड्स',
         'id' => 'पहचान',
@@ -258,7 +255,7 @@ return [
     'banners' => [
         'button_back' => 'वापस',
         'description' => 'विवरण',
-        'choose_file' => 'फ़ाइल चुनें',  
+        'choose_file' => 'फ़ाइल चुनें',
         'all_banners' => 'सभी बैनर',
         'id' => 'पहचान',
         'add_new' => 'नया जोड़ें',
@@ -314,7 +311,7 @@ return [
         'edit' => 'संपादित करें',
         'action' => 'क्रिया',
         'delete' => 'हटाएं',
-        'created_at'=> 'बनाया गया',
+        'created_at' => 'बनाया गया',
         'no_menus' => 'कोई मेनू उपलब्ध नहीं है',
         'delete_confirmation' => 'क्या आप वाकई इस मेनू को हटाना चाहते हैं?',
         'menu_deleted' => 'मेनू सफलतापूर्वक हटा दिया गया!',
@@ -325,7 +322,7 @@ return [
         'menu_title' => 'मेनू का शीर्षक',
         'form_title' => 'मेनू बनाएँ या संपादित करें',
         'form_description' => 'कृपया मेनू के लिए सभी आवश्यक जानकारी प्रदान करें।',
-        'back_to_list' => 'मेनू सूची में वापस जाएं','created' => 'मेनू को सफलतापूर्वक बनाया गया!',
+        'back_to_list' => 'मेनू सूची में वापस जाएं', 'created' => 'मेनू को सफलतापूर्वक बनाया गया!',
         'updated' => 'मेनू को सफलतापूर्वक अपडेट किया गया!',
         'deleted' => 'मेनू को सफलतापूर्वक हटाया गया!',
         'status_updated' => 'मेनू की स्थिति को सफलतापूर्वक अपडेट किया गया!',
@@ -335,9 +332,9 @@ return [
         'massage_delete' => 'हटाएं',
         'success' => 'सफलता',
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'सभी मेनू आइटम',
+        'heading' => 'सभी मेनू आइटम',
         'id' => 'पहचान',
         'create' => 'मेनू आइटम बनाएं',
         'choose_an_option' => 'एक विकल्प चुनें',
@@ -399,7 +396,6 @@ return [
         'home' => 'मुख्य पृष्ठ',
         'view_details' => 'विवरण देखें',
     ],
-    
 
     'social_media_links' => [
         'type' => 'सोशल नेटवर्क प्रकार',
@@ -502,7 +498,5 @@ return [
         'success' => 'सफलता',
         'error' => 'त्रुटि',
     ],
-
-
 
 ];

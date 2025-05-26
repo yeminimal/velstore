@@ -8,85 +8,84 @@ return [
         'remember_me' => 'تذكرني',
         'forgot_password' => 'نسيت كلمة المرور؟',
     ],
-    
-    'profile' =>[
+
+    'profile' => [
         'profile' => 'الملف الشخصي',
         'setting' => 'الإعدادات',
-        'logout' => 'تسجيل الخروج',    
+        'logout' => 'تسجيل الخروج',
     ],
 
-  'sidebar' => [
-    'search_placeholder' => 'بحث...',
-    'dashboard' => 'لوحة التحكم',
-    'logo' => 'الشعار',
+    'sidebar' => [
+        'search_placeholder' => 'بحث...',
+        'dashboard' => 'لوحة التحكم',
+        'logo' => 'الشعار',
 
-    'categories' => [
-        'title' => 'الفئات',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
+        'categories' => [
+            'title' => 'الفئات',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'brands' => [
+            'title' => 'العلامات التجارية',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'products' => [
+            'title' => 'المنتجات',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'attributes' => [
+            'title' => 'السمات',
+            'add_new' => 'إضافة جديد',
+            'list' => 'قائمة',
+        ],
+        'customers' => [
+            'title' => 'العملاء',
+            'list' => 'القائمة',
+        ],
+        'sellers' => [
+            'title' => 'البائعون',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'product_reviews' => [
+            'title' => 'تقييمات المنتجات',
+            'list' => 'القائمة',
+        ],
+        'banners' => [
+            'title' => 'اللافتات',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'menu' => [
+            'title' => 'القائمة',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'menu_items' => [
+            'title' => 'عناصر القائمة',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'social_media_links' => [
+            'title' => 'روابط وسائل التواصل الاجتماعي',
+            'add_new' => 'إضافة جديد',
+            'list' => 'القائمة',
+        ],
+        'site_settings' => [
+            'title' => 'إعدادات الموقع',
+            'manage' => 'إدارة الإعدادات',
+        ],
+        'orders' => [
+            'title' => 'الطلبات',
+            'all_orders' => 'جميع الطلبات',
+            'pending_orders' => 'الطلبات المعلقة',
+            'completed_orders' => 'الطلبات المكتملة',
+        ],
     ],
-    'brands' => [
-        'title' => 'العلامات التجارية',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'products' => [
-        'title' => 'المنتجات',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'attributes' => [
-    'title' => 'السمات',
-    'add_new' => 'إضافة جديد',
-    'list' => 'قائمة',
-    ],
-    'customers' => [
-        'title' => 'العملاء',
-        'list' => 'القائمة',
-    ],
-    'sellers' => [
-        'title' => 'البائعون',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'product_reviews' => [
-        'title' => 'تقييمات المنتجات',
-        'list' => 'القائمة',
-    ],
-    'banners' => [
-        'title' => 'اللافتات',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'menu' => [
-        'title' => 'القائمة',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'menu_items' => [
-        'title' => 'عناصر القائمة',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'social_media_links' => [
-        'title' => 'روابط وسائل التواصل الاجتماعي',
-        'add_new' => 'إضافة جديد',
-        'list' => 'القائمة',
-    ],
-    'site_settings' => [
-        'title' => 'إعدادات الموقع',
-        'manage' => 'إدارة الإعدادات',
-    ],
-    'orders' => [
-        'title' => 'الطلبات',
-        'all_orders' => 'جميع الطلبات',
-        'pending_orders' => 'الطلبات المعلقة',
-        'completed_orders' => 'الطلبات المكتملة',
-    ],
-],
 
-
-    'languages' => [   
+    'languages' => [
         'english' => 'الإنجليزية',
         'spanish' => 'الإسبانية',
         'french' => 'الفرنسية',
@@ -114,17 +113,16 @@ return [
         'yes_change' => 'نعم، قم بالتغيير',
     ],
 
-    
     'categories' => [
         'heading' => 'الفئات',
-        'image' => 'صورة', 
-        'choose_file' => 'اختر ملف', 
+        'image' => 'صورة',
+        'choose_file' => 'اختر ملف',
         'id' => 'معرف',
         'name' => 'اسم الفئة',
         'description' => 'الوصف',
-        'action' => 'الإجراء', 
-        'edit' => 'تعديل', 
-        'delete' => 'حذف', 
+        'action' => 'الإجراء',
+        'edit' => 'تعديل',
+        'delete' => 'حذف',
         'button' => 'حفظ',
         'add_new' => 'إضافة جديدة',
         'status' => 'الحالة',
@@ -137,26 +135,26 @@ return [
         'massage_cancel' => 'إلغاء',
         'massage_delete' => 'حذف',
         'success' => 'نجاح',
-       
+
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'لا توجد بيانات في الجدول',
-        'sInfo'           => 'عرض من _START_ إلى _END_ من إجمالي _TOTAL_ مدخل',
-        'sInfoEmpty'      => 'عرض من 0 إلى 0 من إجمالي 0 مدخل',
-        'sInfoFiltered'   => '(تم تصفيتها من إجمالي _MAX_ مدخل)',
-        'sLengthMenu'     => 'عرض _MENU_ مدخلات',
+        'sEmptyTable' => 'لا توجد بيانات في الجدول',
+        'sInfo' => 'عرض من _START_ إلى _END_ من إجمالي _TOTAL_ مدخل',
+        'sInfoEmpty' => 'عرض من 0 إلى 0 من إجمالي 0 مدخل',
+        'sInfoFiltered' => '(تم تصفيتها من إجمالي _MAX_ مدخل)',
+        'sLengthMenu' => 'عرض _MENU_ مدخلات',
         'sLoadingRecords' => 'جاري التحميل...',
-        'sProcessing'     => 'جاري المعالجة...',
-        'sSearch'         => 'بحث:',
-        'sZeroRecords'    => 'لم يتم العثور على سجلات مطابقة',
-    'oPaginate' => [
-        'sFirst'    => 'الأول',
-        'sLast'     => 'الأخير',
-        'sNext'     => 'التالي',
-        'sPrevious' => 'السابق',
+        'sProcessing' => 'جاري المعالجة...',
+        'sSearch' => 'بحث:',
+        'sZeroRecords' => 'لم يتم العثور على سجلات مطابقة',
+        'oPaginate' => [
+            'sFirst' => 'الأول',
+            'sLast' => 'الأخير',
+            'sNext' => 'التالي',
+            'sPrevious' => 'السابق',
+        ],
     ],
-  ],
 
     'products' => [
 
@@ -221,9 +219,7 @@ return [
         'delete' => 'حذف',
         'cancel' => 'إلغاء',
     ],
-    
 
-    
     'brands' => [
         'heading' => 'العلامات التجارية',
         'id' => 'معرف',
@@ -257,7 +253,6 @@ return [
         'success' => 'نجاح',
 
     ],
-
 
     'banners' => [
         'button_back' => 'رجوع',
@@ -318,7 +313,7 @@ return [
         'edit' => 'تعديل',
         'action' => 'العملية',
         'delete' => 'حذف',
-        'created_at'=> 'تم الإنشاء في',
+        'created_at' => 'تم الإنشاء في',
         'no_menus' => 'لا توجد قوائم متاحة',
         'delete_confirmation' => 'هل أنت متأكد أنك تريد حذف هذه القائمة؟',
         'menu_deleted' => 'تم حذف القائمة بنجاح!',
@@ -340,9 +335,9 @@ return [
         'massage_delete' => 'حذف',
         'success' => 'نجاح',
     ],
-    
+
     'menu_items' => [
-        'heading'=> 'جميع عناصر القائمة',
+        'heading' => 'جميع عناصر القائمة',
         'id' => 'معرف',
         'create' => 'إنشاء عنصر قائمة',
         'choose_an_option' => 'اختر خيارًا',
@@ -404,7 +399,7 @@ return [
         'home' => 'الصفحة الرئيسية',
         'view_details' => 'عرض التفاصيل',
     ],
-    
+
     'social_media_links' => [
         'type' => 'نوع وسائل التواصل الاجتماعي',
         'select_type' => 'اختر نوع وسائل التواصل الاجتماعي',
@@ -507,9 +502,4 @@ return [
         'error' => 'خطأ',
     ],
 
-
-
 ];
-
-
-

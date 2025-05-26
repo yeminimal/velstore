@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\StoreSetting;
+use Illuminate\Http\Request;
 
 class StoreSettingController extends Controller
 {
@@ -18,9 +18,10 @@ class StoreSettingController extends Controller
 
         if ($setting) {
             $setting->update(['value' => $request->value]);
+
             return response()->json(['message' => 'Setting updated']);
         }
-            
+
         return response()->json(['message' => 'Setting not found'], 404);
     }
 }

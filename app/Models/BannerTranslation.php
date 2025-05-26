@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BannerTranslation extends Model
 {
-    
     use HasFactory;
 
     // Define the fillable attributes

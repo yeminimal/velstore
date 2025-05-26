@@ -11,7 +11,7 @@ class ProductReview extends Model
     use HasFactory;
 
     protected $fillable = [
-        'customer_id', 'product_id', 'rating', 'review', 'is_approved'
+        'customer_id', 'product_id', 'rating', 'review', 'is_approved',
     ];
 
     protected $casts = [

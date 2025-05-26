@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AttributeValue extends Model
 {
-    
     use HasFactory;
 
     protected $fillable = ['attribute_id', 'value'];
@@ -26,11 +25,11 @@ class AttributeValue extends Model
     {
         return $this->belongsToMany(Product::class, 'product_attribute_values', 'attribute_value_id', 'product_id');
     }
-    
 
     public function getTranslatedValueAttribute()
     {
         $locale = app()->getLocale(); // or however you’re managing languages
+
         return $this->translations->firstWhere('language_code', $locale)?->translated_value ?? $this->value;
     }
 }

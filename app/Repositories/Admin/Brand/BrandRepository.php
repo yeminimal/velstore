@@ -3,8 +3,6 @@
 namespace App\Repositories\Admin\Brand;
 
 use App\Models\Brand;
-use App\Models\BrandTranslation;
-use Illuminate\Support\Str;
 
 class BrandRepository implements BrandRepositoryInterface
 {
@@ -31,12 +29,14 @@ class BrandRepository implements BrandRepositoryInterface
     {
         $brand = Brand::findOrFail($id);
         $brand->update($data);
+
         return $brand;
     }
 
     public function delete($id)
     {
         $brand = Brand::findOrFail($id);
-        return $brand->delete();       
+
+        return $brand->delete();
     }
 }

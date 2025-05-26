@@ -26,6 +26,7 @@ class SocialMediaLinkRepository implements SocialMediaLinkRepositoryInterface
     {
         $socialMediaLink = $this->find($id);
         $socialMediaLink->update($data);
+
         return $socialMediaLink;
     }
 
@@ -53,8 +54,8 @@ class SocialMediaLinkRepository implements SocialMediaLinkRepositoryInterface
     public function updateTranslation($socialMediaLinkId, $languageCode, $name)
     {
         $translation = SocialMediaLinkTranslation::where('social_media_link_id', $socialMediaLinkId)
-                                                  ->where('language_code', $languageCode)
-                                                  ->first();
+            ->where('language_code', $languageCode)
+            ->first();
 
         if ($translation) {
             $translation->update(['name' => $name]);

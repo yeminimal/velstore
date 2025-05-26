@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\Product;
 use App\Models\ProductVariant;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -26,14 +25,13 @@ class CheckoutController extends Controller
                 : ProductVariant::where('product_id', $item['product_id'])->where('is_primary', true)->first();
 
             $subtotal += $item['price'] * $item['quantity'];
-        }   
-        
+        }
+
         $shipping = null;
         $total = $subtotal + ($shipping ?? 0);
 
         return view('themes.xylo.checkout', compact('cart', 'subtotal', 'shipping', 'total'));
     }
-
 
     public function store(Request $request)
     {

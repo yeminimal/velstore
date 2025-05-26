@@ -11,10 +11,10 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',  'brand_id', 'seller_id', 'shop_id','price', 'stock', 'status', 'slug', 'currency', 'SKU',
+        'category_id',  'brand_id', 'seller_id', 'shop_id', 'price', 'stock', 'status', 'slug', 'currency', 'SKU',
         'weight', 'dimensions', 'product_type',  'image_url', 'vendor_id',
-        
-    ]; 
+
+    ];
 
     /**
      * Get the translations for the product.
@@ -27,7 +27,7 @@ class Product extends Model
     public function translation()
     {
         return $this->hasOne(ProductTranslation::class)
-                ->where('language_code', App::getLocale());
+            ->where('language_code', App::getLocale());
     }
 
     /**
@@ -38,12 +38,11 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-     // One-to-many relationship with ProductImage
-     public function images()
-     {
-         return $this->hasMany(ProductImage::class);
-     } 
-
+    // One-to-many relationship with ProductImage
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 
     /**
      * Get the brand for the product.
@@ -102,7 +101,7 @@ class Product extends Model
     public function attributeValues()
     {
         return $this->belongsToMany(AttributeValue::class, 'product_attribute_values')
-                    ->with('attribute', 'translations');
+            ->with('attribute', 'translations');
     }
 
     public function primaryVariant()

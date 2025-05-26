@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends Controller
@@ -18,21 +18,20 @@ class OrderController extends Controller
 
     public function getData(Request $request)
     {
-       // Query orders and join any related tables if necessary
-    $orders = Order::query();
+        // Query orders and join any related tables if necessary
+        $orders = Order::query();
 
-    return DataTables::of($orders)
-        ->addColumn('action', function ($order) {
-            return '<form action="' . route('admin.orders.destroy', $order->id) . '" method="POST" style="display:inline;">
-                        ' . csrf_field() . '
-                        ' . method_field('DELETE') . '
+        return DataTables::of($orders)
+            ->addColumn('action', function ($order) {
+                return '<form action="'.route('admin.orders.destroy', $order->id).'" method="POST" style="display:inline;">
+                        '.csrf_field().'
+                        '.method_field('DELETE').'
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure you want to delete this order?\')">Delete</button>
                     </form>';
-        })
-        ->rawColumns(['action']) // Allow raw HTML in the action column
-        ->make(true);
+            })
+            ->rawColumns(['action']) // Allow raw HTML in the action column
+            ->make(true);
     }
-
 
     public function destroy($id)
     {

@@ -10,9 +10,10 @@ class AuthenticateVendor
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::guard('vendor')->check()) {
+        if (! Auth::guard('vendor')->check()) {
             return redirect()->route('vendor.login');
         }
+
         return $next($request);
     }
 }

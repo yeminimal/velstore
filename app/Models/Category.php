@@ -24,7 +24,7 @@ class Category extends Model
     public function translation()
     {
         return $this->hasOne(CategoryTranslation::class)
-                    ->where('language_code', App::getLocale());
+            ->where('language_code', App::getLocale());
     }
 
     public function parent()

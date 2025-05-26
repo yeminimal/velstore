@@ -22,13 +22,11 @@ class Brand extends Model
     public function translation()
     {
         return $this->hasOne(BrandTranslation::class)
-                    ->where('locale', App::getLocale());
+            ->where('locale', App::getLocale());
     }
 
     public function products()
     {
         return $this->hasMany(Product::class);
     }
-
-   
 }

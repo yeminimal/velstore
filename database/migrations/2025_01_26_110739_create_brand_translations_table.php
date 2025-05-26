@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::dropIfExists('brand_translations');
         Schema::create('brand_translations', function (Blueprint $table) {
-            $table->id();  
-            $table->unsignedBigInteger('brand_id');  
-            $table->string('locale'); 
-            $table->string('name');  
-            $table->text('description')->nullable();  
-            $table->timestamps(); 
-        
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade'); 
-        
-            
+            $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table->string('locale');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->timestamps();
+
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+
             $table->unique(['brand_id', 'locale']);
         });
     }

@@ -3,11 +3,8 @@
 namespace App\Services\Admin;
 
 use App\Repositories\Admin\Brand\BrandRepositoryInterface;
-use App\Models\Brand;
-use App\Repositories\Admin\Brand\BrandRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
 
 class BrandService
 {
@@ -21,11 +18,11 @@ class BrandService
     public function getAllBrands()
     {
         return $this->brandRepository->getAll();
-       
+
     }
 
     public function store($data)
-    { 
+    {
         if (isset($data['translations'])) {
             foreach ($data['translations'] as $locale => $translation) {
                 if (empty($data['slug'])) {
@@ -45,7 +42,7 @@ class BrandService
         $brandData = [
             'slug' => $data['slug'],
             'logo_url' => $logoPath,
-            'status' => $status, 
+            'status' => $status,
         ];
 
         $brand = $this->brandRepository->store($brandData);
@@ -64,16 +61,15 @@ class BrandService
     }
 
     public function updateBrand($id, $data)
-  {
-  
-    
+    {
+
         $brand = $this->brandRepository->find($id);
 
         if (isset($data['logo_url']) && $data['logo_url'] instanceof \Illuminate\Http\UploadedFile) {
-            if ($brand->logo_url && Storage::exists('public/' . $brand->logo_url)) {
-                Storage::delete('public/' . $brand->logo_url); 
+            if ($brand->logo_url && Storage::exists('public/'.$brand->logo_url)) {
+                Storage::delete('public/'.$brand->logo_url);
             }
-            
+
             $logoPath = $data['logo_url']->store('brands/logos', 'public');
             $brand->logo_url = $logoPath;
         }
@@ -111,16 +107,16 @@ class BrandService
 
     public function deleteBrand($id)
     {
-    
+
         $brand = $this->brandRepository->find($id);
 
-        if ($brand->logo_url && Storage::exists('public/' . $brand->logo_url)) {
-            Storage::delete('public/' . $brand->logo_url); 
+        if ($brand->logo_url && Storage::exists('public/'.$brand->logo_url)) {
+            Storage::delete('public/'.$brand->logo_url);
         }
 
         $brand->translations()->delete();
 
-        return $brand->delete(); 
+        return $brand->delete();
     }
 
     public function getBrandById($id)
@@ -132,6 +128,4 @@ class BrandService
     {
         return $this->brandRepository->create($data);
     }
-
-
 }

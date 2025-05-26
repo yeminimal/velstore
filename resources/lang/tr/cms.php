@@ -8,84 +8,84 @@ return [
         'remember_me' => 'Beni Hatırla',
         'forgot_password' => 'Parolanızı mı unuttunuz?',
     ],
-    
+
     'profile' => [
         'profile' => 'Profil',
         'setting' => 'Ayarlar',
-        'logout' => 'Çıkış',       
+        'logout' => 'Çıkış',
     ],
 
     'sidebar' => [
-    'search_placeholder' => 'Ara...',
-    'dashboard' => 'Kontrol Paneli',
-    'logo' => 'Logo',
+        'search_placeholder' => 'Ara...',
+        'dashboard' => 'Kontrol Paneli',
+        'logo' => 'Logo',
 
-    'categories' => [
-        'title' => 'Kategoriler',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
+        'categories' => [
+            'title' => 'Kategoriler',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'brands' => [
+            'title' => 'Markalar',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'products' => [
+            'title' => 'Ürünler',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'attributes' => [
+            'title' => 'Özellikler',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'customers' => [
+            'title' => 'Müşteriler',
+            'list' => 'Liste',
+        ],
+        'sellers' => [
+            'title' => 'Satıcılar',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'product_reviews' => [
+            'title' => 'Ürün İncelemeleri',
+            'list' => 'Liste',
+        ],
+        'banners' => [
+            'title' => 'Afişler',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'menu' => [
+            'title' => 'Menü',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'menu_items' => [
+            'title' => 'Menü Öğeleri',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'social_media_links' => [
+            'title' => 'Sosyal Medya Bağlantıları',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+        'site_settings' => [
+            'title' => 'Site Ayarları',
+            'manage' => 'Ayarları Yönet',
+        ],
+        'orders' => [
+            'title' => 'Siparişler',
+            'all_orders' => 'Tüm Siparişler',
+            'pending_orders' => 'Bekleyen Siparişler',
+            'completed_orders' => 'Tamamlanan Siparişler',
+        ],
     ],
-    'brands' => [
-        'title' => 'Markalar',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'products' => [
-        'title' => 'Ürünler',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'attributes' => [
-    'title' => 'Özellikler',
-    'add_new' => 'Yeni Ekle',
-    'list' => 'Liste',
-    ],
-    'customers' => [
-        'title' => 'Müşteriler',
-        'list' => 'Liste',
-    ],
-    'sellers' => [
-        'title' => 'Satıcılar',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'product_reviews' => [
-        'title' => 'Ürün İncelemeleri',
-        'list' => 'Liste',
-    ],
-    'banners' => [
-        'title' => 'Afişler',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'menu' => [
-        'title' => 'Menü',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'menu_items' => [
-        'title' => 'Menü Öğeleri',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'social_media_links' => [
-        'title' => 'Sosyal Medya Bağlantıları',
-        'add_new' => 'Yeni Ekle',
-        'list' => 'Liste',
-    ],
-    'site_settings' => [
-        'title' => 'Site Ayarları',
-        'manage' => 'Ayarları Yönet',
-    ],
-    'orders' => [
-        'title' => 'Siparişler',
-        'all_orders' => 'Tüm Siparişler',
-        'pending_orders' => 'Bekleyen Siparişler',
-        'completed_orders' => 'Tamamlanan Siparişler',
-    ],
-],
 
-    'languages'=> [   
+    'languages' => [
         'english' => 'İngilizce',
         'spanish' => 'İspanyolca',
         'french' => 'Fransızca',
@@ -113,11 +113,10 @@ return [
         'yes_change' => 'Evet, Değiştir',
     ],
 
-
     'categories' => [
         'heading' => 'Kategoriler',
-        'image' => 'Görsel',  
-        'choose_file' => 'Dosya Seç',  
+        'image' => 'Görsel',
+        'choose_file' => 'Dosya Seç',
         'id' => 'ID',
         'name' => 'Kategori Adı',
         'description' => 'Açıklama',
@@ -139,21 +138,21 @@ return [
     ],
 
     'datatables' => [
-        'sEmptyTable'     => 'Tabloda veri yok',
-        'sInfo'           => '_START_ ile _END_ arasında _TOTAL_ giriş gösteriliyor',
-        'sInfoEmpty'      => '0 ile 0 arasında 0 giriş gösteriliyor',
-        'sInfoFiltered'   => '(toplam _MAX_ girişten filtrelendi)',
-        'sLengthMenu'     => '_MENU_ giriş göster',
+        'sEmptyTable' => 'Tabloda veri yok',
+        'sInfo' => '_START_ ile _END_ arasında _TOTAL_ giriş gösteriliyor',
+        'sInfoEmpty' => '0 ile 0 arasında 0 giriş gösteriliyor',
+        'sInfoFiltered' => '(toplam _MAX_ girişten filtrelendi)',
+        'sLengthMenu' => '_MENU_ giriş göster',
         'sLoadingRecords' => 'Yükleniyor...',
-        'sProcessing'     => 'İşleniyor...',
-        'sSearch'         => 'Ara:',
-        'sZeroRecords'    => 'Eşleşen kayıt bulunamadı',
-    'oPaginate' => [
-        'sFirst'    => 'İlk',
-        'sLast'     => 'Son',
-        'sNext'     => 'Sonraki',
-        'sPrevious' => 'Önceki',
-    ],
+        'sProcessing' => 'İşleniyor...',
+        'sSearch' => 'Ara:',
+        'sZeroRecords' => 'Eşleşen kayıt bulunamadı',
+        'oPaginate' => [
+            'sFirst' => 'İlk',
+            'sLast' => 'Son',
+            'sNext' => 'Sonraki',
+            'sPrevious' => 'Önceki',
+        ],
     ],
 
     'products' => [
@@ -219,7 +218,6 @@ return [
         'delete' => 'Sil',
         'cancel' => 'İptal',
     ],
-  
 
     'brands' => [
         'heading' => 'Markalar',
@@ -253,7 +251,6 @@ return [
         'massage_delete' => 'Sil',
         'success' => 'Başarı',
     ],
-
 
     'banners' => [
         'button_back' => 'Geri',
@@ -315,7 +312,7 @@ return [
         'edit' => 'Düzenle',
         'action' => 'Eylem',
         'delete' => 'Sil',
-        'created_at'=> 'Oluşturulma Tarihi',
+        'created_at' => 'Oluşturulma Tarihi',
         'no_menus' => 'Mevcut menü yok',
         'delete_confirmation' => 'Bu menüyü silmek istediğinizden emin misiniz?',
         'menu_deleted' => 'Menü başarıyla silindi!',
@@ -338,9 +335,9 @@ return [
         'success' => 'Başarı',
 
     ],
-   
+
     'menu_items' => [
-        'heading'=> 'Tüm Menü Öğeleri',
+        'heading' => 'Tüm Menü Öğeleri',
         'id' => 'ID',
         'create' => 'Menü Öğesi Oluştur',
         'choose_an_option' => 'Bir Seçenek Seçin',
@@ -402,7 +399,6 @@ return [
         'home' => 'Anasayfa',
         'view_details' => 'Detayları Görüntüle',
     ],
-   
 
     'social_media_links' => [
         'type' => 'Sosyal ağ türü',
@@ -506,7 +502,4 @@ return [
         'error' => 'Hata',
     ],
 
-
 ];
-
-

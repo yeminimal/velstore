@@ -19,7 +19,8 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     public function store($data)
-    {    $slug = \Str::slug($data['name']); 
+    {
+        $slug = \Str::slug($data['name']);
 
         $category = $this->create([
             'slug' => $slug,
@@ -28,17 +29,15 @@ class CategoryRepository implements CategoryRepositoryInterface
             'status' => $data['status'] ?? true,
             'parent_category_id' => $data['parent_category_id'] ?? null,
         ]);
-    
-        return $category; 
+
+        return $category;
 
     }
-
-    
 
     public function update($id, array $data)
     {
         $category = $this->find($id);
-        $slug = \Str::slug($data['name']); 
+        $slug = \Str::slug($data['name']);
 
         $category->update([
             'slug' => $slug,
@@ -47,29 +46,28 @@ class CategoryRepository implements CategoryRepositoryInterface
             'status' => $data['status'] ?? true,
             'parent_category_id' => $data['parent_category_id'] ?? null,
         ]);
-        
+
         return $category;
 
     }
 
     public function destroy($id)
     {
-       
-       $category = $this->find($id);
-    
-    foreach ($category->translations as $translation) {
-        if ($translation->image_url) {
-            \Storage::disk('public')->delete($translation->image_url);
-        }
-    }
 
-    return $category->delete();
+        $category = $this->find($id);
+
+        foreach ($category->translations as $translation) {
+            if ($translation->image_url) {
+                \Storage::disk('public')->delete($translation->image_url);
+            }
+        }
+
+        return $category->delete();
     }
 
     public function storeWithTranslations(array $translations)
     {
-       
-      
+
         $slug = Str::slug($translations['en']['name']);
 
         $category = Category::create([
@@ -88,35 +86,32 @@ class CategoryRepository implements CategoryRepositoryInterface
                 'language_code' => $languageCode,
                 'name' => $translation['name'],
                 'description' => $translation['description'] ?? null,
-                'image_url' => $imagePath, 
+                'image_url' => $imagePath,
             ]);
         }
 
         return $category;
     }
 
-
     public function updateWithTranslations(Category $category, array $translations)
-{
-    foreach ($translations as $languageCode => $translation) {
-        $imagePath = $category->translations()->where('language_code', $languageCode)->value('image_url');
+    {
+        foreach ($translations as $languageCode => $translation) {
+            $imagePath = $category->translations()->where('language_code', $languageCode)->value('image_url');
 
-        if (isset($translation['image']) && $translation['image'] instanceof \Illuminate\Http\UploadedFile) {
-            $imagePath = $translation['image']->store('categories', 'public');
+            if (isset($translation['image']) && $translation['image'] instanceof \Illuminate\Http\UploadedFile) {
+                $imagePath = $translation['image']->store('categories', 'public');
+            }
+
+            $category->translations()->updateOrCreate(
+                ['language_code' => $languageCode],
+                [
+                    'name' => $translation['name'],
+                    'description' => $translation['description'] ?? null,
+                    'image_url' => $imagePath,
+                ]
+            );
         }
 
-        $category->translations()->updateOrCreate(
-            ['language_code' => $languageCode],
-            [
-                'name' => $translation['name'],
-                'description' => $translation['description'] ?? null,
-                'image_url' => $imagePath, 
-            ]
-        );
+        return $category;
     }
-
-    return $category;
-}
-
-
 }

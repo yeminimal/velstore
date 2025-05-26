@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Models\Attribute;
+use App\Models\AttributeValue;
+use App\Models\AttributeValueTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantTranslation;
-use App\Models\Attribute;
-use App\Models\AttributeValue;
-use App\Models\AttributeValueTranslation;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class ProductSeeder extends Seeder
@@ -31,18 +31,18 @@ class ProductSeeder extends Seeder
                 'status' => 1,
                 'translations' => [
                     'en' => ['name' => 'Cool T-Shirt', 'description' => 'Stylish and comfortable.'],
-                    'fr' => ['name' => 'T-shirt Cool', 'description' => 'Élégant et confortable.']
+                    'fr' => ['name' => 'T-shirt Cool', 'description' => 'Élégant et confortable.'],
                 ],
                 'attributes' => [
                     'Color' => ['en' => ['Red', 'Black'], 'fr' => ['Rouge', 'Noir']],
-                    'Size' => ['en' => ['Small', 'Large'], 'fr' => ['Petit', 'Grand']]
+                    'Size' => ['en' => ['Small', 'Large'], 'fr' => ['Petit', 'Grand']],
                 ],
                 'variants' => [
                     ['variant_slug' => 'cool-tshirt-red-small', 'price' => 25.99, 'stock' => 30, 'SKU' => 'TSH-RED-SMALL',
                         'translations' => ['en' => 'Cool T-Shirt - Red Small', 'fr' => 'T-shirt Cool - Rouge Petit']],
                     ['variant_slug' => 'cool-tshirt-black-large', 'price' => 29.99, 'stock' => 20, 'SKU' => 'TSH-BLACK-LARGE',
-                        'translations' => ['en' => 'Cool T-Shirt - Black Large', 'fr' => 'T-shirt Cool - Noir Grand']]
-                ]
+                        'translations' => ['en' => 'Cool T-Shirt - Black Large', 'fr' => 'T-shirt Cool - Noir Grand']],
+                ],
             ],
             [
                 'vendor_id' => 1,
@@ -58,16 +58,16 @@ class ProductSeeder extends Seeder
                 'status' => 1,
                 'translations' => [
                     'en' => ['name' => 'Sport Shoes', 'description' => 'Perfect for running.'],
-                    'fr' => ['name' => 'Chaussures de sport', 'description' => 'Idéales pour courir.']
+                    'fr' => ['name' => 'Chaussures de sport', 'description' => 'Idéales pour courir.'],
                 ],
                 'attributes' => [
                     'Size' => ['en' => ['7', '8', '9'], 'fr' => ['7', '8', '9']],
-                    'Color' => ['en' => ['White', 'Blue'], 'fr' => ['Blanc', 'Bleu']]
+                    'Color' => ['en' => ['White', 'Blue'], 'fr' => ['Blanc', 'Bleu']],
                 ],
                 'variants' => [
                     ['variant_slug' => 'sport-shoes-white-7', 'price' => 50.99, 'stock' => 10, 'SKU' => 'SHOE-WHITE-7',
-                        'translations' => ['en' => 'Sport Shoes - White 7', 'fr' => 'Chaussures de sport - Blanc 7']]
-                ]
+                        'translations' => ['en' => 'Sport Shoes - White 7', 'fr' => 'Chaussures de sport - Blanc 7']],
+                ],
             ],
             [
                 'vendor_id' => 1,
@@ -83,13 +83,13 @@ class ProductSeeder extends Seeder
                 'status' => 1,
                 'translations' => [
                     'en' => ['name' => 'Wireless Headphones', 'description' => 'Noise-canceling audio.'],
-                    'fr' => ['name' => 'Casque sans fil', 'description' => 'Audio avec suppression de bruit.']
+                    'fr' => ['name' => 'Casque sans fil', 'description' => 'Audio avec suppression de bruit.'],
                 ],
                 'attributes' => [
-                    'Color' => ['en' => ['Black', 'White'], 'fr' => ['Noir', 'Blanc']]
+                    'Color' => ['en' => ['Black', 'White'], 'fr' => ['Noir', 'Blanc']],
                 ],
-                'variants' => []
-            ]
+                'variants' => [],
+            ],
         ];
 
         foreach ($products as $productData) {
@@ -104,7 +104,7 @@ class ProductSeeder extends Seeder
             // Insert translations
             foreach ($translations as $languageCode => $translationData) {
                 ProductTranslation::updateOrCreate(
-                    ['product_id' => $product->id, 'language_code' => $languageCode], 
+                    ['product_id' => $product->id, 'language_code' => $languageCode],
                     $translationData
                 );
             }
@@ -117,21 +117,21 @@ class ProductSeeder extends Seeder
                     // Create attribute value
                     $attributeValue = AttributeValue::firstOrCreate([
                         'attribute_id' => $attribute->id,
-                        'value' => $value
+                        'value' => $value,
                     ]);
 
                     // Insert translations
                     foreach ($values as $langCode => $translations) {
                         AttributeValueTranslation::updateOrCreate([
                             'attribute_value_id' => $attributeValue->id,
-                            'language_code' => $langCode
+                            'language_code' => $langCode,
                         ], ['translated_value' => $translations[$index]]);
                     }
 
                     // Insert into product_attribute_values pivot table
                     DB::table('product_attribute_values')->updateOrInsert([
                         'product_id' => $product->id,
-                        'attribute_value_id' => $attributeValue->id
+                        'attribute_value_id' => $attributeValue->id,
                     ]);
                 }
             }
@@ -142,13 +142,13 @@ class ProductSeeder extends Seeder
                 unset($variantData['translations']);
 
                 $variant = ProductVariant::updateOrCreate(
-                    ['variant_slug' => $variantData['variant_slug']], 
+                    ['variant_slug' => $variantData['variant_slug']],
                     array_merge($variantData, ['product_id' => $product->id])
                 );
 
                 foreach ($variantTranslations as $languageCode => $variantName) {
                     ProductVariantTranslation::updateOrCreate(
-                        ['product_variant_id' => $variant->id, 'language_code' => $languageCode], 
+                        ['product_variant_id' => $variant->id, 'language_code' => $languageCode],
                         ['name' => $variantName]
                     );
                 }

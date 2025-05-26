@@ -1,22 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\SiteSettingsController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\MenuController;
-use App\Http\Controllers\Admin\SocialMediaLinkController;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\MenuItemController;
-use App\Http\Controllers\Admin\ProductVariantController;
-use App\Http\Controllers\Admin\LanguageController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\SellerController;
-use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\AttributeController;
-
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\MenuItemController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductReviewController;
+use App\Http\Controllers\Admin\ProductVariantController;
+use App\Http\Controllers\Admin\SellerController;
+use App\Http\Controllers\Admin\SocialMediaLinkController;
+use App\Http\Controllers\SiteSettingsController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +36,11 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    
+
     /* Dashboard */
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-    
+
     /* Categiries */
     Route::resource('categories', CategoryController::class);
     Route::post('/categories/data', [CategoryController::class, 'getCategories'])->name('categories.data');
@@ -52,12 +50,12 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::post('products/data', [ProductController::class, 'getProducts'])->name('products.data');
     Route::post('admin/products/updateStatus', [ProductController::class, 'updateStatus'])->name('products.updateStatus');
-    
+
     /* Brands */
     Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
     Route::get('admin/brands/getdata', [BrandController::class, 'getData'])->name('brands.getData');
     Route::get('brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
-    Route::put('brands/{brand}', [BrandController::class, 'update'])->name('brands.update'); 
+    Route::put('brands/{brand}', [BrandController::class, 'update'])->name('brands.update');
     Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
     Route::post('brands', [BrandController::class, 'store'])->name('brands.store');
     Route::delete('brands/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
@@ -73,7 +71,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('menus-items', [MenuItemController::class, 'index'])->name('menus.item.index');
     Route::post('menus-items/getdata', [MenuItemController::class, 'getData'])->name('menus.item.getData');
 
-    
     /* Banners */
     Route::resource('banners', BannerController::class);
     Route::post('banners/data', [BannerController::class, 'getData'])->name('banners.data');
@@ -83,7 +80,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     /* Social Media Links */
     Route::resource('social-media-links', SocialMediaLinkController::class);
     Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('social-media-links.data');
-   
+
     /* Orders */
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::delete('orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
@@ -97,7 +94,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::get('admin/customers/data', [CustomerController::class, 'getCustomerData'])->name('customers.data');
 
-    
     /* Reviews */
     Route::get('/reviews/data', [ProductReviewController::class, 'getData'])->name('reviews.data');
     Route::resource('reviews', ProductReviewController::class)->except(['create', 'store']);
@@ -107,7 +103,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     /* Attributes */
     Route::resource('attributes', AttributeController::class);
-    
+
     /* Attribute Value Management */
     Route::post('attributes/{attribute}/values', [AttributeController::class, 'storeValue'])->name('attributes.values.store');
     Route::delete('values/{value}', [AttributeController::class, 'destroyValue'])->name('values.destroy');
@@ -116,11 +112,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     /* Attribute Value Translations Management */
     Route::post('values/{value}/translations', [AttributeController::class, 'storeTranslation'])->name('values.translations.store');
     Route::delete('translations/{translation}', [AttributeController::class, 'destroyTranslation'])->name('translations.destroy');
-    
+
 });
 
-
-    Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
-    Route::get('site-settings/edit', [SiteSettingsController::class, 'edit'])->name('admin.site-settings.edit');
-    Route::put('site-settings/update', [SiteSettingsController::class, 'update'])->name('admin.site-settings.update');
-
+Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
+Route::get('site-settings/edit', [SiteSettingsController::class, 'edit'])->name('admin.site-settings.edit');
+Route::put('site-settings/update', [SiteSettingsController::class, 'update'])->name('admin.site-settings.update');

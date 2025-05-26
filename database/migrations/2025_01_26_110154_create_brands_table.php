@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('brands', function (Blueprint $table) {
-            $table->id();  
-            $table->string('slug')->unique()->nullable(false);  
-            $table->string('logo_url')->nullable();  
+            $table->id();
+            $table->string('slug')->unique()->nullable(false);
+            $table->string('logo_url')->nullable();
             $table->enum('status', ['active', 'inactive', 'discontinued'])->default('active');  // Brand status
-            $table->timestamps();  
+            $table->timestamps();
         });
     }
 

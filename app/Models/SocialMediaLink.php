@@ -9,7 +9,7 @@ class SocialMediaLink extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['type','platform', 'link'];
+    protected $fillable = ['type', 'platform', 'link'];
 
     // Relationship with translations
     public function translations()

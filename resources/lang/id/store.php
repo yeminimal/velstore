@@ -6,7 +6,7 @@ return [
         'search_placeholder' => 'Cari produk',
     ],
 
-   'footer' => [
+    'footer' => [
         'account' => 'Akun',
         'my_account' => 'Akun Saya',
         'wishlist' => 'Daftar Keinginan',

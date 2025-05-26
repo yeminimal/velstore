@@ -9,15 +9,11 @@ class ImageService
 {
     /**
      * Upload the image and return the file path.
-     *
-     * @param UploadedFile $image
-     * @param string $folder
-     * @return string
      */
     public function uploadImage(UploadedFile $image, string $folder): string
     {
         $imagePath = $image->store($folder, 'public');
-        
+
         return $imagePath;
     }
 
@@ -27,8 +23,7 @@ class ImageService
         $imagePath = str_replace('storage/', '', $imageUrl);
 
         // Delete the image from public disk
-        return Storage::disk('public')->delete($imagePath); 
-        
+        return Storage::disk('public')->delete($imagePath);
+
     }
 }
-

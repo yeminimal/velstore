@@ -6,7 +6,7 @@ return [
         'search_placeholder' => 'جستجو برای یک محصول',
     ],
 
-   'footer' => [
+    'footer' => [
         'account' => 'حساب کاربری',
         'my_account' => 'حساب من',
         'wishlist' => 'لیست علاقه‌مندی‌ها',

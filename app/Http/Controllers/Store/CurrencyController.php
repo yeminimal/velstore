@@ -15,6 +15,6 @@ class CurrencyController extends Controller
 
         session(['currency' => $request->currency_code]);
 
-        return back()->with('success', 'Currency changed to ' . $request->currency_code);
+        return back()->with('success', 'Currency changed to '.$request->currency_code);
     }
 }
