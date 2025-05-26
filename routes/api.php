@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BannerController;
+use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CustomerAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,4 @@ Route::prefix('customer')->group(function () {
 });
 
 Route::get('/banners', [BannerController::class, 'index']);
+Route::apiResource('brands', BrandController::class);
