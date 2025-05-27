@@ -14,13 +14,13 @@ class SocialMediaLinkController extends Controller
         $lang = $request->get('lang', App::getLocale());
 
         $links = SocialMediaLink::with([
-                'translations' => function ($query) use ($lang) {
-                    $query->where('language_code', $lang);
-                },
-            ])
+            'translations' => function ($query) use ($lang) {
+                $query->where('language_code', $lang);
+            },
+        ])
             ->get();
 
-        $data = $links->map(function ($link) use ($lang) {
+        $data = $links->map(function ($link) {
             $translation = $link->translations->first();
 
             return [
