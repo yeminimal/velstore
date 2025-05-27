@@ -9,23 +9,26 @@ use Illuminate\Support\Facades\App;
 
 class SocialMediaLinkController extends Controller
 {
-     public function index(Request $request)
+    public function index(Request $request)
     {
         $lang = $request->get('lang', App::getLocale());
 
-        $links = SocialMediaLink::with(['translations' => function ($query) use ($lang) {
-            $query->where('language_code', $lang);
-        }])->get();
+        $links = SocialMediaLink::with([
+                'translations' => function ($query) use ($lang) {
+                    $query->where('language_code', $lang);
+                },
+            ])
+            ->get();
 
         $data = $links->map(function ($link) use ($lang) {
             $translation = $link->translations->first();
 
             return [
-                'id'       => $link->id,
-                'type'     => $link->type,
+                'id' => $link->id,
+                'type' => $link->type,
                 'platform' => $link->platform,
-                'link'     => $link->link,
-                'name'     => $translation ? $translation->name : null,
+                'link' => $link->link,
+                'name' => $translation ? $translation->name : null,
             ];
         });
 
