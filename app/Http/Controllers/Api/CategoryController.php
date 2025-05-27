@@ -14,15 +14,15 @@ class CategoryController extends Controller
         $language = $request->get('lang', App::getLocale());
 
         $categories = Category::with([
-                'translations' => function ($query) use ($language) {
-                    $query->where('language_code', $language);
-                },
-                'children.translations',
-            ])
+            'translations' => function ($query) use ($language) {
+                $query->where('language_code', $language);
+            },
+            'children.translations',
+        ])
             ->where('status', true)
             ->whereNull('parent_category_id')
             ->get()
-            ->map(function ($category) use ($language) {
+            ->map(function ($category) {
                 $translation = $category->translations->first();
 
                 return [
