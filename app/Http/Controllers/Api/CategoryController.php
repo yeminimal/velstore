@@ -31,7 +31,7 @@ class CategoryController extends Controller
                     'name' => $translation->name ?? 'N/A',
                     'description' => $translation->description ?? null,
                     'image_url' => $translation->image_url ?? null,
-                    'children' => $category->children->map(function ($child) use ($language) {
+                    'children' => $category->children->map(function ($child) {
                         $childTranslation = $child->translations->first();
 
                         return [
