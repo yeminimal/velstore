@@ -13,11 +13,14 @@ class CategoryController extends Controller
     {
         $language = $request->get('lang', App::getLocale());
 
-        $categories = Category::with(['translations' => function ($query) use ($language) {
-                $query->where('language_code', $language);
-            }, 'children.translations'])
+        $categories = Category::with([
+                'translations' => function ($query) use ($language) {
+                    $query->where('language_code', $language);
+                },
+                'children.translations',
+            ])
             ->where('status', true)
-            ->whereNull('parent_category_id') 
+            ->whereNull('parent_category_id')
             ->get()
             ->map(function ($category) use ($language) {
                 $translation = $category->translations->first();
@@ -30,6 +33,7 @@ class CategoryController extends Controller
                     'image_url' => $translation->image_url ?? null,
                     'children' => $category->children->map(function ($child) use ($language) {
                         $childTranslation = $child->translations->first();
+
                         return [
                             'id' => $child->id,
                             'slug' => $child->slug,
