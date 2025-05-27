@@ -24,7 +24,7 @@ class ProductController extends Controller
             ])
             ->where('status', 1)
             ->get()
-            ->map(function ($product) use ($lang) {
+            ->map(function ($product) {
                 $translation = $product->translations->first();
 
                 return [
