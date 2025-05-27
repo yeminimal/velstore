@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\BrandController;
-use App\Http\Controllers\Api\CustomerAuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CustomerAuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SocialMediaLinkController;
 use Illuminate\Http\Request;
@@ -28,7 +28,7 @@ Route::prefix('customer')->group(function () {
     Route::post('register', [CustomerAuthController::class, 'register']);
     Route::post('login', [CustomerAuthController::class, 'login']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
         Route::get('profile', [CustomerAuthController::class, 'profile']);
         Route::post('logout', [CustomerAuthController::class, 'logout']);
     });
