@@ -13,15 +13,15 @@ class ProductController extends Controller
         $lang = $request->get('lang', app()->getLocale());
 
         $products = Product::with([
-                'translations' => function ($q) use ($lang) {
-                    $q->where('language_code', $lang);
-                },
-                'category.translations' => function ($q) use ($lang) {
-                    $q->where('language_code', $lang);
-                },
-                'brand',
-                'thumbnail',
-            ])
+            'translations' => function ($q) use ($lang) {
+                $q->where('language_code', $lang);
+            },
+            'category.translations' => function ($q) use ($lang) {
+                $q->where('language_code', $lang);
+            },
+            'brand',
+            'thumbnail',
+        ])
             ->where('status', 1)
             ->get()
             ->map(function ($product) {
