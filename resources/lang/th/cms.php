@@ -44,9 +44,8 @@ return [
             'title' => 'ลูกค้า',
             'list' => 'รายการ',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'ผู้ขาย',
-            'add_new' => 'เพิ่มใหม่',
             'list' => 'รายการ',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'คำสั่งซื้อที่รอดำเนินการ',
             'completed_orders' => 'คำสั่งซื้อที่เสร็จสมบูรณ์',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'รายชื่อผู้ขาย',
+        'id' => 'รหัส',
+        'name' => 'ชื่อ',
+        'email' => 'อีเมล',
+        'phone' => 'โทรศัพท์',
+        'status' => 'สถานะ',
+        'actions' => 'การดำเนินการ',
+
+        'active' => 'ใช้งาน',
+        'inactive' => 'ไม่ใช้งาน',
+
+        'modal_confirm_delete_title' => 'ยืนยันการลบ',
+        'modal_confirm_delete_body' => 'คุณแน่ใจหรือไม่ว่าต้องการลบผู้ขายนี้?',
+        'delete' => 'ลบ',
+        'cancel' => 'ยกเลิก',
+
+        'success' => 'สำเร็จ',
+        'success_delete' => 'ลบผู้ขายเรียบร้อยแล้ว!',
+        'error_delete' => 'เกิดข้อผิดพลาดในการลบผู้ขาย! กรุณาลองอีกครั้ง',
     ],
 
     'languages' => [

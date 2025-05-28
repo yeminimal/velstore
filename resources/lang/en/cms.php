@@ -44,9 +44,8 @@ return [
             'title' => 'Customers',
             'list' => 'List',
         ],
-        'sellers' => [
-            'title' => 'Sellers',
-            'add_new' => 'Add New',
+        'vendors' => [
+            'title' => 'Vendors',
             'list' => 'List',
         ],
         'product_reviews' => [
@@ -83,6 +82,27 @@ return [
             'pending_orders' => 'Pending Orders',
             'completed_orders' => 'Completed Orders',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Vendor List',
+        'id' => 'Id',
+        'name' => 'Name',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'status' => 'Status',
+        'actions' => 'Actions',
+
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+
+        'modal_confirm_delete_title' => 'Confirm Delete',
+        'modal_confirm_delete_body' => 'Are you sure you want to delete this vendor?',
+        'delete' => 'Delete',
+        'cancel' => 'Cancel',
+
+        'success' => 'Success',
+        'error_delete' => 'Error deleting vendor! Please try again.',
     ],
 
     'languages' => [

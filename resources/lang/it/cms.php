@@ -44,10 +44,9 @@ return [
             'title' => 'Clienti',
             'list' => 'Elenco',
         ],
-        'sellers' => [
-            'title' => 'Venditori',
-            'add_new' => 'Aggiungi Nuovo',
-            'list' => 'Elenco',
+        'vendors' => [
+            'title' => 'Penjual',
+            'list' => 'Daftar',
         ],
         'product_reviews' => [
             'title' => 'Recensioni Prodotti',
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Ordini in Attesa',
             'completed_orders' => 'Ordini Completati',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Elenco Fornitori',
+        'id' => 'ID',
+        'name' => 'Nome',
+        'email' => 'Email',
+        'phone' => 'Telefono',
+        'status' => 'Stato',
+        'actions' => 'Azioni',
+
+        'active' => 'Attivo',
+        'inactive' => 'Inattivo',
+
+        'modal_confirm_delete_title' => 'Conferma Eliminazione',
+        'modal_confirm_delete_body' => 'Sei sicuro di voler eliminare questo fornitore?',
+        'delete' => 'Elimina',
+        'cancel' => 'Annulla',
+
+        'success' => 'Successo',
+        'success_delete' => 'Fornitore eliminato con successo!',
+        'error_delete' => 'Errore durante l\'eliminazione del fornitore! Riprova.',
     ],
 
     'languages' => [

@@ -44,9 +44,8 @@ return [
             'title' => '고객',
             'list' => '목록',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => '판매자',
-            'add_new' => '새로 추가',
             'list' => '목록',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => '보류 중인 주문',
             'completed_orders' => '완료된 주문',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => '판매자 목록',
+        'id' => 'ID',
+        'name' => '이름',
+        'email' => '이메일',
+        'phone' => '전화번호',
+        'status' => '상태',
+        'actions' => '작업',
+
+        'active' => '활성',
+        'inactive' => '비활성',
+
+        'modal_confirm_delete_title' => '삭제 확인',
+        'modal_confirm_delete_body' => '이 판매자를 삭제하시겠습니까?',
+        'delete' => '삭제',
+        'cancel' => '취소',
+
+        'success' => '성공',
+        'success_delete' => '판매자가 성공적으로 삭제되었습니다!',
+        'error_delete' => '판매자 삭제 중 오류가 발생했습니다. 다시 시도해 주세요.',
     ],
 
     'languages' => [

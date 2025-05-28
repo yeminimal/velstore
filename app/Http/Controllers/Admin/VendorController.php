@@ -30,7 +30,9 @@ class VendorController extends Controller
         $vendor = Vendor::findOrFail($id);
         $vendor->delete();
 
-        return response()->json(['success' => true, 'message' => 'Vendor deleted successfully.']);
-
+        return response()->json([
+            'success' => true,
+            'message' => __('cms.vendors.success_delete'),
+        ]);
     }
 }

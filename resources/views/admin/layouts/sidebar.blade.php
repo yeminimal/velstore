@@ -70,14 +70,14 @@
                 
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#vendorMenu" role="button" aria-expanded="false" aria-controls="vendorMenu">
-                    <span><i class="fas fa-user-tag me-2"></i> <span>Vendors</span></span>
+                    <span><i class="fas fa-user-tag me-2"></i> <span>{{ __('cms.sidebar.vendors.title') }}</span></span>
                     <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="collapse {{ Route::currentRouteName() == 'admin.vendors.index' ? 'show' : '' }}" id="vendorMenu">
                     <ul class="nav flex-column ms-3">
                         <li>
                             <a class="nav-link {{ Route::currentRouteName() == 'admin.vendors.index' ? 'active' : '' }}" href="{{ route('admin.vendors.index') }}">
-                            List
+                            {{ __('cms.sidebar.vendors.list') }}
                             </a>
                         </li>
                     </ul>

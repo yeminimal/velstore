@@ -44,9 +44,8 @@ return [
             'title' => 'Kunden',
             'list' => 'Liste',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Verkäufer',
-            'add_new' => 'Neu hinzufügen',
             'list' => 'Liste',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Ausstehende Bestellungen',
             'completed_orders' => 'Abgeschlossene Bestellungen',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Lieferantenliste',
+        'id' => 'ID',
+        'name' => 'Name',
+        'email' => 'E-Mail',
+        'phone' => 'Telefon',
+        'status' => 'Status',
+        'actions' => 'Aktionen',
+
+        'active' => 'Aktiv',
+        'inactive' => 'Inaktiv',
+
+        'modal_confirm_delete_title' => 'Löschen bestätigen',
+        'modal_confirm_delete_body' => 'Sind Sie sicher, dass Sie diesen Lieferanten löschen möchten?',
+        'delete' => 'Löschen',
+        'cancel' => 'Abbrechen',
+
+        'success' => 'Erfolg',
+        'success_delete' => 'Lieferant erfolgreich gelöscht!',
+        'error_delete' => 'Fehler beim Löschen des Lieferanten! Bitte versuchen Sie es erneut.',
     ],
 
     'languages' => [

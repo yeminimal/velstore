@@ -44,9 +44,8 @@ return [
             'title' => 'Клиенты',
             'list' => 'Список',
         ],
-        'sellers' => [
-            'title' => 'Продавцы',
-            'add_new' => 'Добавить нового',
+        'vendors' => [
+            'title' => 'Поставщики',
             'list' => 'Список',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Ожидающие заказы',
             'completed_orders' => 'Завершенные заказы',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Список поставщиков',
+        'id' => 'ID',
+        'name' => 'Имя',
+        'email' => 'Электронная почта',
+        'phone' => 'Телефон',
+        'status' => 'Статус',
+        'actions' => 'Действия',
+
+        'active' => 'Активен',
+        'inactive' => 'Неактивен',
+
+        'modal_confirm_delete_title' => 'Подтверждение удаления',
+        'modal_confirm_delete_body' => 'Вы уверены, что хотите удалить этого поставщика?',
+        'delete' => 'Удалить',
+        'cancel' => 'Отмена',
+
+        'success' => 'Успех',
+        'success_delete' => 'Поставщик успешно удалён!',
+        'error_delete' => 'Ошибка при удалении поставщика! Пожалуйста, попробуйте снова.',
     ],
 
     'languages' => [

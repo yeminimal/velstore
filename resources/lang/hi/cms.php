@@ -44,9 +44,8 @@ return [
             'title' => 'ग्राहक',
             'list' => 'सूची',
         ],
-        'sellers' => [
-            'title' => 'विक्रेता',
-            'add_new' => 'नया जोड़ें',
+        'vendors' => [
+            'title' => 'विक्रेताओं',
             'list' => 'सूची',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'लंबित ऑर्डर',
             'completed_orders' => 'पूर्ण ऑर्डर',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'विक्रेता सूची',
+        'id' => 'आईडी',
+        'name' => 'नाम',
+        'email' => 'ईमेल',
+        'phone' => 'फोन',
+        'status' => 'स्थिति',
+        'actions' => 'क्रियाएं',
+
+        'active' => 'सक्रिय',
+        'inactive' => 'निष्क्रिय',
+
+        'modal_confirm_delete_title' => 'हटाने की पुष्टि करें',
+        'modal_confirm_delete_body' => 'क्या आप वाकई इस विक्रेता को हटाना चाहते हैं?',
+        'delete' => 'हटाएं',
+        'cancel' => 'रद्द करें',
+
+        'success' => 'सफलता',
+        'success_delete' => 'विक्रेता को सफलतापूर्वक हटाया गया!',
+        'error_delete' => 'विक्रेता को हटाने में त्रुटि! कृपया पुनः प्रयास करें।',
     ],
 
     'languages' => [

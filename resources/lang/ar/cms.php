@@ -44,9 +44,8 @@ return [
             'title' => 'العملاء',
             'list' => 'القائمة',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'البائعون',
-            'add_new' => 'إضافة جديد',
             'list' => 'القائمة',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'الطلبات المعلقة',
             'completed_orders' => 'الطلبات المكتملة',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'قائمة البائعين',
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'email' => 'البريد الإلكتروني',
+        'phone' => 'رقم الهاتف',
+        'status' => 'الحالة',
+        'actions' => 'الإجراءات',
+
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+
+        'modal_confirm_delete_title' => 'تأكيد الحذف',
+        'modal_confirm_delete_body' => 'هل أنت متأكد أنك تريد حذف هذا البائع؟',
+        'delete' => 'حذف',
+        'cancel' => 'إلغاء',
+
+        'success' => 'تم بنجاح',
+        'success_delete' => 'تم حذف البائع بنجاح!',
+        'error_delete' => 'حدث خطأ أثناء حذف البائع! يرجى المحاولة مرة أخرى.',
     ],
 
     'languages' => [

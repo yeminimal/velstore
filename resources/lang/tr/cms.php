@@ -44,9 +44,8 @@ return [
             'title' => 'Müşteriler',
             'list' => 'Liste',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Satıcılar',
-            'add_new' => 'Yeni Ekle',
             'list' => 'Liste',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Bekleyen Siparişler',
             'completed_orders' => 'Tamamlanan Siparişler',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Satıcı Listesi',
+        'id' => 'ID',
+        'name' => 'İsim',
+        'email' => 'E-posta',
+        'phone' => 'Telefon',
+        'status' => 'Durum',
+        'actions' => 'İşlemler',
+
+        'active' => 'Aktif',
+        'inactive' => 'Pasif',
+
+        'modal_confirm_delete_title' => 'Silme Onayı',
+        'modal_confirm_delete_body' => 'Bu satıcıyı silmek istediğinize emin misiniz?',
+        'delete' => 'Sil',
+        'cancel' => 'İptal',
+
+        'success' => 'Başarılı',
+        'success_delete' => 'Satıcı başarıyla silindi!',
+        'error_delete' => 'Satıcı silinirken hata oluştu! Lütfen tekrar deneyin.',
     ],
 
     'languages' => [
