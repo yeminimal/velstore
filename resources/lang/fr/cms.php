@@ -44,9 +44,8 @@ return [
             'title' => 'Clients',
             'list' => 'Liste',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Vendeurs',
-            'add_new' => 'Ajouter nouveau',
             'list' => 'Liste',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Commandes en attente',
             'completed_orders' => 'Commandes terminées',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Liste des vendeurs',
+        'id' => 'ID',
+        'name' => 'Nom',
+        'email' => 'Email',
+        'phone' => 'Téléphone',
+        'status' => 'Statut',
+        'actions' => 'Actions',
+
+        'active' => 'Actif',
+        'inactive' => 'Inactif',
+
+        'modal_confirm_delete_title' => 'Confirmer la suppression',
+        'modal_confirm_delete_body' => 'Êtes-vous sûr de vouloir supprimer ce vendeur ?',
+        'delete' => 'Supprimer',
+        'cancel' => 'Annuler',
+
+        'success' => 'Succès',
+        'success_delete' => 'Vendeur supprimé avec succès !',
+        'error_delete' => 'Erreur lors de la suppression du vendeur ! Veuillez réessayer.',
     ],
 
     'languages' => [

@@ -44,9 +44,8 @@ return [
             'title' => 'Pelanggan',
             'list' => 'Daftar',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Penjual',
-            'add_new' => 'Tambah Baru',
             'list' => 'Daftar',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Pesanan Tertunda',
             'completed_orders' => 'Pesanan Selesai',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Daftar Vendor',
+        'id' => 'ID',
+        'name' => 'Nama',
+        'email' => 'Email',
+        'phone' => 'Telepon',
+        'status' => 'Status',
+        'actions' => 'Aksi',
+
+        'active' => 'Aktif',
+        'inactive' => 'Tidak Aktif',
+
+        'modal_confirm_delete_title' => 'Konfirmasi Hapus',
+        'modal_confirm_delete_body' => 'Apakah Anda yakin ingin menghapus vendor ini?',
+        'delete' => 'Hapus',
+        'cancel' => 'Batal',
+
+        'success' => 'Berhasil',
+        'success_delete' => 'Vendor berhasil dihapus!',
+        'error_delete' => 'Gagal menghapus vendor! Silakan coba lagi.',
     ],
 
     'languages' => [
