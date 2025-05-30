@@ -8,6 +8,7 @@ use App\Models\Page;
 use App\Models\PageTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class PageController extends Controller
@@ -68,7 +69,6 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'slug' => 'required|unique:pages,slug',
             'translations' => 'required|array',
         ];
 
@@ -80,13 +80,25 @@ class PageController extends Controller
 
         $request->validate($rules);
 
+        $defaultLang = config('app.locale');
+        $title = $request->translations[$defaultLang]['title'] ?? null;
+
+        $baseSlug = Str::slug($title);
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (Page::where('slug', $slug)->exists()) {
+            $slug = $baseSlug.'-'.$counter++;
+        }
+
         $page = Page::create([
-            'slug' => $request->slug,
+            'slug' => $slug,
             'status' => $request->status ?? 1,
         ]);
 
         foreach ($request->translations as $lang => $data) {
             $imagePath = null;
+
             if (isset($data['image']) && $data['image'] instanceof \Illuminate\Http\UploadedFile) {
                 $imagePath = $data['image']->store('pages', 'public');
             }
@@ -116,7 +128,6 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
 
         $rules = [
-            'slug' => 'required|unique:pages,slug,'.$page->id,
             'translations' => 'required|array',
         ];
 
@@ -129,7 +140,6 @@ class PageController extends Controller
         $request->validate($rules);
 
         $page->update([
-            'slug' => $request->slug,
             'status' => $request->status ?? 1,
         ]);
 

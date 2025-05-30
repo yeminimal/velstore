@@ -10,8 +10,6 @@
             <h6 class="mb-0">Pages</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route('admin.pages.create') }}" class="btn btn-success mb-3">Create Page</a>
-
             <table id="pagesTable" class="table table-bordered mt-4 dt-style">
                 <thead>
                     <tr>
@@ -45,6 +43,8 @@
 
 @section('js')
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+      <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @if (session('success'))
         <script>

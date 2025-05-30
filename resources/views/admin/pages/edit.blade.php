@@ -9,12 +9,6 @@
         <form action="{{ route('admin.pages.update', $page->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
-            <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" name="slug" value="{{ old('slug', $page->slug) }}" required>
-            </div>
-
             <ul class="nav nav-tabs" role="tablist">
                 @foreach($activeLanguages as $language)
                     <li class="nav-item" role="presentation">

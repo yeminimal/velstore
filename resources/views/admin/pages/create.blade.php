@@ -8,12 +8,6 @@
     <div class="card-body">
         <form action="{{ route('admin.pages.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
-            <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" required>
-            </div>
-
             <ul class="nav nav-tabs" role="tablist">
                 @foreach($activeLanguages as $language)
                     <li class="nav-item" role="presentation">
