@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\ProductVariantController;
@@ -114,6 +115,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('vendors', [VendorController::class, 'index'])->name('vendors.index');
     Route::get('vendors/data', [VendorController::class, 'getVendorData'])->name('vendors.data');
     Route::delete('vendors/{id}', [VendorController::class, 'destroy'])->name('vendors.destroy');
+
+    /* Pages */
+    Route::resource('pages', PageController::class);
+    Route::post('pages/update-status', [PageController::class, 'updatePageStatus'])->name('pages.updateStatus');
+    Route::post('pages/data', [PageController::class, 'data'])->name('pages.data');
 
 });
 

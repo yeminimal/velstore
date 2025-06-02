@@ -168,5 +168,25 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#pageMenu" role="button" aria-expanded="false" aria-controls="pageMenu">
+            <span><i class="fas fa-file-alt me-2"></i> <span>Pages</span></span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="collapse {{ Route::currentRouteName() == 'admin.pages.create' || Route::currentRouteName() == 'admin.pages.index' ? 'show' : '' }}" id="pageMenu">
+            <ul class="nav flex-column ms-3">
+                <li>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.pages.create' ? 'active' : '' }}" href="{{ route('admin.pages.create') }}">
+                    Add New
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.pages.index' ? 'active' : '' }}" href="{{ route('admin.pages.index') }}">
+                    List
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
     </ul>
 </nav>
