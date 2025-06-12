@@ -751,7 +751,7 @@ header {
 }
 
 .feature-icon {
-    background: linear-gradient(to right, #6d3faa, #d08dc3);
+    background: linear-gradient(to right, var(--main-color), var(--dark-color));
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -772,14 +772,13 @@ header {
 .why-choose-us h3 {
     font-size: 20px;
     font-weight: bold;
-    color: var(--white);
+    color: var(--main-color);
     margin-bottom: 13px;
     margin-top: 10px;
 }
 
 .why-choose-us p {
-    font-size: 14px;
-    color: #ccc;
+    color: var(--main-color);
 }
 
 .feature-box:before {
@@ -792,7 +791,7 @@ header {
     border-radius: 15px;
     z-index: 0;
     left: 29px;
-    border: 1px solid #cd8bc2;
+    border: 1px solid var(--main-color);
     z-index: 0;
 }
 
