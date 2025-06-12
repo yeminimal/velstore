@@ -43,9 +43,8 @@ return [
             'title' => 'Clientes',
             'list' => 'Lista',
         ],
-        'sellers' => [
-            'title' => 'Vendedores',
-            'add_new' => 'Adicionar Novo',
+        'vendors' => [
+            'title' => 'Fornecedores',
             'list' => 'Lista',
         ],
         'product_reviews' => [
@@ -82,6 +81,28 @@ return [
             'pending_orders' => 'Pedidos Pendentes',
             'completed_orders' => 'Pedidos Concluídos',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Lista de Fornecedores',
+        'id' => 'ID',
+        'name' => 'Nome',
+        'email' => 'Email',
+        'phone' => 'Telefone',
+        'status' => 'Status',
+        'actions' => 'Ações',
+
+        'active' => 'Ativo',
+        'inactive' => 'Inativo',
+
+        'modal_confirm_delete_title' => 'Confirmar Exclusão',
+        'modal_confirm_delete_body' => 'Tem certeza de que deseja excluir este fornecedor?',
+        'delete' => 'Excluir',
+        'cancel' => 'Cancelar',
+
+        'success' => 'Sucesso',
+        'success_delete' => 'Fornecedor excluído com sucesso!',
+        'error_delete' => 'Erro ao excluir fornecedor! Por favor, tente novamente.',
     ],
 
     'languages' => [

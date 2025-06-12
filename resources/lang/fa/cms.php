@@ -39,9 +39,8 @@ return [
             'title' => 'مشتریان',
             'list' => 'لیست',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'فروشندگان',
-            'add_new' => 'افزودن جدید',
             'list' => 'لیست',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'سفارشات در انتظار',
             'completed_orders' => 'سفارشات تکمیل شده',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'لیست فروشندگان',
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'email' => 'ایمیل',
+        'phone' => 'تلفن',
+        'status' => 'وضعیت',
+        'actions' => 'اقدامات',
+
+        'active' => 'فعال',
+        'inactive' => 'غیرفعال',
+
+        'modal_confirm_delete_title' => 'تأیید حذف',
+        'modal_confirm_delete_body' => 'آیا مطمئن هستید که می‌خواهید این فروشنده را حذف کنید؟',
+        'delete' => 'حذف',
+        'cancel' => 'لغو',
+
+        'success' => 'موفقیت',
+        'success_delete' => 'فروشنده با موفقیت حذف شد!',
+        'error_delete' => 'خطا در حذف فروشنده! لطفاً دوباره تلاش کنید.',
     ],
 
     'languages' => [

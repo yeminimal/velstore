@@ -9,11 +9,12 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\ProductVariantController;
-use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\SocialMediaLinkController;
+use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\SiteSettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -98,9 +99,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/reviews/data', [ProductReviewController::class, 'getData'])->name('reviews.data');
     Route::resource('reviews', ProductReviewController::class)->except(['create', 'store']);
 
-    /* Sellers */
-    Route::resource('sellers', SellerController::class);
-
     /* Attributes */
     Route::resource('attributes', AttributeController::class);
 
@@ -112,6 +110,16 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     /* Attribute Value Translations Management */
     Route::post('values/{value}/translations', [AttributeController::class, 'storeTranslation'])->name('values.translations.store');
     Route::delete('translations/{translation}', [AttributeController::class, 'destroyTranslation'])->name('translations.destroy');
+
+    /* Vendors */
+    Route::get('vendors', [VendorController::class, 'index'])->name('vendors.index');
+    Route::get('vendors/data', [VendorController::class, 'getVendorData'])->name('vendors.data');
+    Route::delete('vendors/{id}', [VendorController::class, 'destroy'])->name('vendors.destroy');
+
+    /* Pages */
+    Route::resource('pages', PageController::class);
+    Route::post('pages/update-status', [PageController::class, 'updatePageStatus'])->name('pages.updateStatus');
+    Route::post('pages/data', [PageController::class, 'data'])->name('pages.data');
 
 });
 

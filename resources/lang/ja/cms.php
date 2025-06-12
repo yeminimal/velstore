@@ -44,10 +44,9 @@ return [
             'title' => '顧客',
             'list' => '一覧',
         ],
-        'sellers' => [
-            'title' => '販売者',
-            'add_new' => '新規追加',
-            'list' => '一覧',
+        'vendors' => [
+            'title' => 'ベンダー',
+            'list' => 'リスト',
         ],
         'product_reviews' => [
             'title' => '商品レビュー',
@@ -83,6 +82,28 @@ return [
             'pending_orders' => '保留中の注文',
             'completed_orders' => '完了した注文',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'ベンダーリスト',
+        'id' => 'ID',
+        'name' => '名前',
+        'email' => 'メール',
+        'phone' => '電話番号',
+        'status' => 'ステータス',
+        'actions' => '操作',
+
+        'active' => 'アクティブ',
+        'inactive' => '非アクティブ',
+
+        'modal_confirm_delete_title' => '削除の確認',
+        'modal_confirm_delete_body' => 'このベンダーを削除してもよろしいですか？',
+        'delete' => '削除',
+        'cancel' => 'キャンセル',
+
+        'success' => '成功',
+        'success_delete' => 'ベンダーが正常に削除されました！',
+        'error_delete' => 'ベンダーの削除中にエラーが発生しました。もう一度お試しください。',
     ],
 
     'languages' => [

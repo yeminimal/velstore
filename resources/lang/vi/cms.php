@@ -44,9 +44,8 @@ return [
             'title' => 'Khách hàng',
             'list' => 'Danh sách',
         ],
-        'sellers' => [
-            'title' => 'Người bán',
-            'add_new' => 'Thêm mới',
+        'vendors' => [
+            'title' => 'Nhà cung cấp',
             'list' => 'Danh sách',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Đơn hàng đang chờ',
             'completed_orders' => 'Đơn hàng đã hoàn thành',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Danh sách nhà cung cấp',
+        'id' => 'ID',
+        'name' => 'Tên',
+        'email' => 'Email',
+        'phone' => 'Số điện thoại',
+        'status' => 'Trạng thái',
+        'actions' => 'Hành động',
+
+        'active' => 'Hoạt động',
+        'inactive' => 'Không hoạt động',
+
+        'modal_confirm_delete_title' => 'Xác nhận xóa',
+        'modal_confirm_delete_body' => 'Bạn có chắc chắn muốn xóa nhà cung cấp này không?',
+        'delete' => 'Xóa',
+        'cancel' => 'Hủy',
+
+        'success' => 'Thành công',
+        'success_delete' => 'Xóa nhà cung cấp thành công!',
+        'error_delete' => 'Lỗi khi xóa nhà cung cấp! Vui lòng thử lại.',
     ],
 
     'languages' => [

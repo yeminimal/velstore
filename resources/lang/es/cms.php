@@ -44,9 +44,8 @@ return [
             'title' => 'Clientes',
             'list' => 'Lista',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Vendedores',
-            'add_new' => 'Agregar nuevo',
             'list' => 'Lista',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => 'Pedidos pendientes',
             'completed_orders' => 'Pedidos completados',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Lista de Vendedores',
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'email' => 'Correo Electrónico',
+        'phone' => 'Teléfono',
+        'status' => 'Estado',
+        'actions' => 'Acciones',
+
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+
+        'modal_confirm_delete_title' => 'Confirmar Eliminación',
+        'modal_confirm_delete_body' => '¿Está seguro de que desea eliminar este vendedor?',
+        'delete' => 'Eliminar',
+        'cancel' => 'Cancelar',
+
+        'success' => 'Éxito',
+        'success_delete' => '¡Vendedor eliminado con éxito!',
+        'error_delete' => '¡Error al eliminar el vendedor! Por favor, inténtelo de nuevo.',
     ],
 
     'languages' => [

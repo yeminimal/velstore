@@ -44,9 +44,8 @@ return [
             'title' => '客户',
             'list' => '列表',
         ],
-        'sellers' => [
-            'title' => '卖家',
-            'add_new' => '新增',
+        'vendors' => [
+            'title' => '供应商',
             'list' => '列表',
         ],
         'product_reviews' => [
@@ -83,6 +82,28 @@ return [
             'pending_orders' => '待处理订单',
             'completed_orders' => '已完成订单',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => '供应商列表',
+        'id' => '编号',
+        'name' => '名称',
+        'email' => '电子邮件',
+        'phone' => '电话',
+        'status' => '状态',
+        'actions' => '操作',
+
+        'active' => '激活',
+        'inactive' => '未激活',
+
+        'modal_confirm_delete_title' => '确认删除',
+        'modal_confirm_delete_body' => '您确定要删除此供应商吗？',
+        'delete' => '删除',
+        'cancel' => '取消',
+
+        'success' => '成功',
+        'success_delete' => '供应商删除成功！',
+        'error_delete' => '删除供应商时出错！请重试。',
     ],
 
     'languages' => [

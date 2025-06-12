@@ -43,9 +43,8 @@ return [
             'title' => 'Klanten',
             'list' => 'Lijst',
         ],
-        'sellers' => [
+        'vendors' => [
             'title' => 'Verkopers',
-            'add_new' => 'Nieuwe Toevoegen',
             'list' => 'Lijst',
         ],
         'product_reviews' => [
@@ -82,6 +81,28 @@ return [
             'pending_orders' => 'In Behandeling',
             'completed_orders' => 'Voltooide Bestellingen',
         ],
+    ],
+
+    'vendors' => [
+        'title_list' => 'Leverancierslijst',
+        'id' => 'ID',
+        'name' => 'Naam',
+        'email' => 'E-mail',
+        'phone' => 'Telefoon',
+        'status' => 'Status',
+        'actions' => 'Acties',
+
+        'active' => 'Actief',
+        'inactive' => 'Inactief',
+
+        'modal_confirm_delete_title' => 'Bevestig verwijderen',
+        'modal_confirm_delete_body' => 'Weet u zeker dat u deze leverancier wilt verwijderen?',
+        'delete' => 'Verwijderen',
+        'cancel' => 'Annuleren',
+
+        'success' => 'Succes',
+        'success_delete' => 'Leverancier succesvol verwijderd!',
+        'error_delete' => 'Fout bij het verwijderen van leverancier! Probeer het opnieuw.',
     ],
 
     'languages' => [
