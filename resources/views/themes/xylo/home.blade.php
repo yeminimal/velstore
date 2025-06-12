@@ -126,7 +126,11 @@
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
-                                    <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
+                                    <h3>
+                                        <a href="{{ route('product.show', $product->slug) }}" class="product-title">
+                                            {{ $product->translation->name ?? 'Product Name Not Available' }}
+                                        </a>
+                                    </h3>
                                     <p class="price">
                                         <span class="original {{ optional($product->primaryVariant)->converted_discount_price ? 'has-discount' : '' }}">
                                             {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }}
