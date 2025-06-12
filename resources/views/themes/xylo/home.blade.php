@@ -126,7 +126,11 @@
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
-                                    <h3>{{ $product->translation->name ?? 'Product Name Not Available' }}</h3>
+                                    <h3>
+                                        <a href="{{ route('product.show', $product->slug) }}" class="product-title">
+                                            {{ $product->translation->name ?? 'Product Name Not Available' }}
+                                        </a>
+                                    </h3>
                                     <p class="price">
                                         <span class="original {{ optional($product->primaryVariant)->converted_discount_price ? 'has-discount' : '' }}">
                                             {{ $currency->symbol }}{{ optional($product->primaryVariant)->converted_price ?? 'N/A' }}
@@ -158,13 +162,13 @@
 
     <section class="why-choose-us py-5 animate-on-scroll">
         <div class="container">
-            <h1 class="sec-heading text-white text-start mb-5">Why Choose Us</h1>
+            <h1 class="sec-heading text-start mb-5">Why Choose Us</h1>
             <div class="row">
                 <!-- Feature Box 1 -->
                 <div class="col-md-3">
                     <div class="feature-box text-start">
                         <div class="feature-icon">
-                            <img src="assets/images/choose-icon1.png" alt="">
+                            <img src="https://i.ibb.co/WNQXhLnP/choose-icon1.png" alt="">
                         </div>
                         <h3>Fast Delivery</h3>
                         <p>Diam integer turpis tristique integer cursusw dignissim. Euismod libero pellentesq
@@ -175,7 +179,7 @@
                 <div class="col-md-3">
                     <div class="feature-box text-start">
                         <div class="feature-icon">
-                            <img src="assets/images/choose-icon2.png" alt="">
+                            <img src="https://i.ibb.co/FkmgGPrr/choose-icon2.png" alt="">
                         </div>
                         <h3>24/7 Online Support</h3>
                         <p>Diam integer turpis tristique integer cursusw dignissim. Euismod libero pellentesq
@@ -186,7 +190,7 @@
                 <div class="col-md-3">
                     <div class="feature-box text-start">
                         <div class="feature-icon">
-                            <img src="assets/images/choose-icon3.png" alt="">
+                            <img src="https://i.ibb.co/CffNqX9/choose-icon3.png" alt="">
                         </div>
                         <h3>4.9 Ratings</h3>
                         <p>Diam integer turpis tristique integer cursusw dignissim. Euismod libero pellentesq
@@ -197,7 +201,7 @@
                 <div class="col-md-3">
                     <div class="feature-box text-start">
                         <div class="feature-icon">
-                            <img src="assets/images/choose-icon4.png" alt="">
+                            <img src="https://i.ibb.co/XPvjQGG/choose-icon4.png" alt="">
                         </div>
                         <h3>10 Years Services</h3>
                         <p>Diam integer turpis tristique integer cursusw dignissim. Euismod libero pellentesq
