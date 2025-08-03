@@ -1436,21 +1436,41 @@ img.blog-img.deactive {
     padding-bottom: 16px;
     min-height: 101px;
 }
-.breadcrumbs{
-    font-size: 15px;
+.breadcrumb-section {
+    background-color: var(--cardbg);
+    padding: 0.7rem 0;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    color: var(--main-color-light);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
 }
-.breadcrumbs a{
-    color: rgb(17 17 17 / 50%);
-}
-.breadcrumbs a:hover{
+
+.breadcrumbs a {
     color: var(--main-color);
+    text-decoration: none;
+    font-weight: 500;
 }
-.breadcrumbs i{
-    font-size: 11px;
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+    color: var(--main-color-light);
 }
+
+.breadcrumbs i {
+    color: var(--grid-color-2);
+}
+
+.breadcrumbs span {
+    color: var(--main-color-light);
+}
+
+
+
 .pro-textarea h2{
     font-size: 45px;
     font-weight: 700;
