@@ -27,7 +27,6 @@ class ProductController extends Controller
     {
         $this->categoryService = $categoryService;
         $this->productService = $productService;
-
     }
 
     public function index()
@@ -48,7 +47,6 @@ class ProductController extends Controller
 
     public function create()
     {
-
         $languages = Language::where('active', 1)->get();
 
         $categories = Category::with('translations')->get();
@@ -94,7 +92,6 @@ class ProductController extends Controller
         ]);
 
         DB::transaction(function () use ($request, $defaultLang) {
-
             $defaultName = $request->translations[$defaultLang]['name'] ?? 'product';
             $slug = $this->generateUniqueSlug($defaultName);
 
@@ -180,7 +177,6 @@ class ProductController extends Controller
 
                 $variantIndex++;
             }
-
         });
 
         return redirect()->route('admin.products.index')->with('success', __('cms.products.success_create'));
@@ -229,7 +225,6 @@ class ProductController extends Controller
             'product', 'languages', 'categories', 'brands',
             'attributes', 'sizes', 'colors'
         ));
-
     }
 
     public function update(Request $request, $id)
@@ -260,7 +255,6 @@ class ProductController extends Controller
         ]);
 
         DB::transaction(function () use ($request, $product, $defaultLang) {
-
             $newAttrValueIds = collect($request->variants)
                 ->flatMap(function ($v) {
                     return array_filter([$v['size_id'] ?? null, $v['color_id'] ?? null]);
@@ -351,7 +345,6 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-
         try {
             $result = $this->productService->destroy($id);
 
@@ -398,6 +391,5 @@ class ProductController extends Controller
                 'message' => 'Product status could not be updated.',
             ]);
         }
-
     }
 }

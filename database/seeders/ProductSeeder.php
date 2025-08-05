@@ -39,9 +39,9 @@ class ProductSeeder extends Seeder
                 ],
                 'variants' => [
                     ['variant_slug' => 'cool-tshirt-red-small', 'price' => 25.99, 'stock' => 30, 'SKU' => 'TSH-RED-SMALL',
-                        'translations' => ['en' => 'Cool T-Shirt - Red Small', 'fr' => 'T-shirt Cool - Rouge Petit']],
+                        'translations' => ['en' => 'Cool T-Shirt - Red Small', 'fr' => 'T-shirt Cool - Rouge Petit'], ],
                     ['variant_slug' => 'cool-tshirt-black-large', 'price' => 29.99, 'stock' => 20, 'SKU' => 'TSH-BLACK-LARGE',
-                        'translations' => ['en' => 'Cool T-Shirt - Black Large', 'fr' => 'T-shirt Cool - Noir Grand']],
+                        'translations' => ['en' => 'Cool T-Shirt - Black Large', 'fr' => 'T-shirt Cool - Noir Grand'], ],
                 ],
             ],
             [
@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
                 ],
                 'variants' => [
                     ['variant_slug' => 'sport-shoes-white-7', 'price' => 50.99, 'stock' => 10, 'SKU' => 'SHOE-WHITE-7',
-                        'translations' => ['en' => 'Sport Shoes - White 7', 'fr' => 'Chaussures de sport - Blanc 7']],
+                        'translations' => ['en' => 'Sport Shoes - White 7', 'fr' => 'Chaussures de sport - Blanc 7'], ],
                 ],
             ],
             [

@@ -6,12 +6,16 @@
 @php $currency = activeCurrency(); @endphp
 <section class="breadcrumb-section">
     <div class="container">
-        <div class="breadcrumbs">
-            <a href="#">Home</a> 
-            <i class="fa fa-angle-right"></i> 
-            <a href="#">Headphone</a> 
-            <i class="fa fa-angle-right"></i> 
-            <span>Espresso decaffeinato</span>
+        <div class="breadcrumbs" aria-label="breadcrumb">
+            <a href="{{ url('/') }}">Home</a>
+            <i class="fa fa-angle-right"></i>
+            @foreach($breadcrumbs as $category)
+                <a href="{{ url('category/' . $category->slug) }}">
+                    {{ $category->translation->name ?? $category->slug }}
+                </a>
+                <i class="fa fa-angle-right"></i>
+            @endforeach
+            <span>{{ $product->translation->name }}</span>
         </div>
     </div>
 </section>

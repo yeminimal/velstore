@@ -62,7 +62,6 @@ class MenuController extends Controller
 
         return redirect()->route('admin.menus.items.create', ['menu' => $menu->id])
             ->with('success', __('cms.menus.created'));
-
     }
 
     public function edit($id)
