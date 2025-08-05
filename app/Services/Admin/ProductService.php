@@ -72,7 +72,6 @@ class ProductService
         }
 
         return $product;
-
     }
 
     public function update($id, array $data, array $translations)
@@ -96,7 +95,6 @@ class ProductService
         } catch (\Exception $e) {
             return ['error' => 'Error updating product: '.$e->getMessage()];
         }
-
     }
 
     public function destroy($id)
@@ -110,7 +108,6 @@ class ProductService
 
             return false;  // Indicate failure
         }
-
     }
 
     private function createSlug($slug)

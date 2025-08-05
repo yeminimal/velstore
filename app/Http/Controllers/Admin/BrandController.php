@@ -59,12 +59,10 @@ class BrandController extends Controller
         }
 
         return redirect()->route('admin.brands.index')->with('success', __('cms.brands.created'));
-
     }
 
     public function edit($id)
     {
-
         $brand = Brand::with('translations')->findOrFail($id);
 
         $languages = Language::active()->get();
@@ -103,7 +101,6 @@ class BrandController extends Controller
                 'message' => 'Error deleting brand.',
             ]);
         }
-
     }
 
     public function updateStatus(Request $request)

@@ -36,7 +36,6 @@ class MenuItemController extends Controller
 
     public function create($menuId)
     {
-
         $menu = Menu::findOrFail($menuId);
         $menus = Menu::all();
         $languages = Language::where('active', 1)->get();
@@ -46,7 +45,6 @@ class MenuItemController extends Controller
 
     public function store(Request $request, $menuId)
     {
-
         $request->validate([
             'menu_id' => 'required|exists:menus,id',
             'order_number' => 'required|integer',
@@ -63,7 +61,6 @@ class MenuItemController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', __('cms.menu_items.creation_failed'));
         }
-
     }
 
     public function edit($id)
@@ -77,7 +74,6 @@ class MenuItemController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'menu_id' => 'required|exists:menus,id',
             'parent_id' => 'nullable|exists:menu_items,id',
@@ -90,7 +86,6 @@ class MenuItemController extends Controller
 
         return redirect()->route('admin.menus.item.index')
             ->with('success', __('cms.menu_items.updated'));
-
     }
 
     public function destroy($id)

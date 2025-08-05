@@ -51,7 +51,6 @@ class ProductController extends Controller
         });
 
         return view('vendor.products.create', compact('activeLanguages', 'categories'));
-
     }
 
     public function store(Request $request)
@@ -83,7 +82,6 @@ class ProductController extends Controller
         }
 
         return redirect()->route('vendor.products.index')->with('success', __('cms.products.created'));
-
     }
 
     public function edit($id)
@@ -143,7 +141,6 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-
         try {
             $result = $this->productService->destroy($id);
 
@@ -191,6 +188,5 @@ class ProductController extends Controller
                 'message' => 'Product status could not be updated.',
             ]);
         }
-
     }
 }

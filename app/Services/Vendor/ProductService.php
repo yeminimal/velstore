@@ -20,7 +20,6 @@ class ProductService
 
     public function getProductsForDataTable($request)
     {
-
         $products = Product::with('translations')->get();
 
         return DataTables::of($products)
@@ -38,7 +37,6 @@ class ProductService
                 return $product->price ? '$'.number_format($product->price, 2) : 'No price available';
             })
             ->addColumn('action', function ($product) {
-
                 return '
                     <a href="'.route('admin.products.edit', $product->id).'" class="btn btn-primary btn-sm">Edit</a>
                     <form action="'.route('admin.products.destroy', $product->id).'" method="POST" class="d-inline" onsubmit="return confirm(\'Are you sure you want to delete this product?\');">
@@ -67,7 +65,6 @@ class ProductService
         }
 
         return $product;
-
     }
 
     public function update($id, array $data, array $translations)
@@ -89,7 +86,6 @@ class ProductService
         } catch (\Exception $e) {
             return ['error' => 'Error updating product: '.$e->getMessage()];
         }
-
     }
 
     public function destroy($id)
@@ -101,7 +97,6 @@ class ProductService
 
             return false;
         }
-
     }
 
     private function createSlug($slug)

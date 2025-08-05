@@ -25,12 +25,10 @@ class BannerController extends Controller
         $banners = $this->bannerService->getAllBanners();
 
         return view('admin.banners.index', compact('banners'));
-
     }
 
     public function toggleStatus($id, Request $request)
     {
-
         $banner = Banner::findOrFail($id);
         $banner->status = $request->status;
         $banner->save();
@@ -62,7 +60,6 @@ class BannerController extends Controller
 
     public function create()
     {
-
         $languages = Language::where('active', 1)->get();
 
         return view('admin.banners.create', compact('languages'));
@@ -97,7 +94,6 @@ class BannerController extends Controller
 
     public function destroy($id)
     {
-
         try {
             $this->bannerService->delete($id);
 

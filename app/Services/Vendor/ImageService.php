@@ -15,7 +15,6 @@ class ImageService
         $imagePath = $image->store($folder, 'public');
 
         return $imagePath;
-
     }
 
     public function deleteImage(string $imageUrl): bool
@@ -23,6 +22,5 @@ class ImageService
         $imagePath = str_replace('storage/', '', $imageUrl);
 
         return Storage::disk('public')->delete($imagePath);
-
     }
 }

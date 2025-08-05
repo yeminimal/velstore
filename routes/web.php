@@ -120,7 +120,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('pages', PageController::class);
     Route::post('pages/update-status', [PageController::class, 'updatePageStatus'])->name('pages.updateStatus');
     Route::post('pages/data', [PageController::class, 'data'])->name('pages.data');
-
 });
 
 Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
