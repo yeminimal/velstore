@@ -48,12 +48,12 @@ class ProductController extends Controller
 
         $breadcrumbs = [];
         $category = $product->category;
-    
+
         while ($category) {
             $breadcrumbs[] = $category;
             $category = $category->parent;
         }
-    
+
         $breadcrumbs = array_reverse($breadcrumbs);
 
         return view('themes.xylo.product-detail', compact('product', 'inStock', 'variantMap', 'breadcrumbs'));
