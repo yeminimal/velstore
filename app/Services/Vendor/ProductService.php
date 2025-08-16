@@ -117,5 +117,6 @@ class ProductService
         }
 
         return $slug;
+    }
   
 }
