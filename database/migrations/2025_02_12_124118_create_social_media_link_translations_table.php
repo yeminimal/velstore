@@ -22,7 +22,6 @@ return new class extends Migration
 
             // Define a shorter name for the unique index
             $table->unique(['social_media_link_id', 'language_code'], 'social_media_link_translations_unique');
-
         });
     }
 
@@ -31,8 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-
         Schema::dropIfExists('social_media_link_translations');
-
     }
 };

@@ -51,7 +51,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(MenuItemRepositoryInterface::class, MenuItemRepository::class);
 
         $this->app->bind(AttributeRepositoryInterface::class, AttributeRepository::class);
-
     }
 
     /**

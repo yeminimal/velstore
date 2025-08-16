@@ -29,6 +29,8 @@ class ProductController extends Controller
             'primaryVariant',
             'variants.attributeValues',
             'images',
+            'category.translation',
+            'category.parent.translation',
         ])->withAvg('reviews', 'rating')
             ->withCount('reviews')
             ->where('slug', $slug)
@@ -44,7 +46,17 @@ class ProductController extends Controller
             ];
         });
 
-        return view('themes.xylo.product-detail', compact('product', 'inStock', 'variantMap'));
+        $breadcrumbs = [];
+        $category = $product->category;
+
+        while ($category) {
+            $breadcrumbs[] = $category;
+            $category = $category->parent;
+        }
+
+        $breadcrumbs = array_reverse($breadcrumbs);
+
+        return view('themes.xylo.product-detail', compact('product', 'inStock', 'variantMap', 'breadcrumbs'));
     }
 
     public function getVariantPrice(Request $request)

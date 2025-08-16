@@ -19,7 +19,6 @@ class CategoryController extends Controller
 
     public function index()
     {
-
         return view('admin.categories.index');
     }
 
@@ -37,7 +36,6 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-
         $rules = [
             'translations' => 'required|array',
         ];
@@ -74,18 +72,15 @@ class CategoryController extends Controller
 
     public function edit(string $id)
     {
-
         $category = Category::with('translations')->findOrFail($id);
 
         $activeLanguages = Language::where('active', true)->get();
 
         return view('admin.categories.edit', compact('category', 'activeLanguages'));
-
     }
 
     public function update(Request $request, $id)
     {
-
         $translations = $request->all()['translations'];
 
         foreach ($translations as $languageCode => $translation) {
@@ -97,7 +92,6 @@ class CategoryController extends Controller
         $this->categoryService->update($request, $id);
 
         return redirect()->route('admin.categories.index')->with('success', __('cms.categories.updated'));
-
     }
 
     public function destroy($id)

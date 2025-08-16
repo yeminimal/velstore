@@ -18,7 +18,6 @@ class CategoryService
 
     public function getCategoriesForDataTable($request)
     {
-
         $categories = $this->categoryRepository->all()->load('translations');
 
         return DataTables::of($categories)
@@ -50,7 +49,6 @@ class CategoryService
      */
     public function store(array $translations)
     {
-
         $validator = Validator::make($translations, [
             '*.name' => 'required|string|max:255',
             '*.description' => 'nullable|string',
@@ -73,7 +71,6 @@ class CategoryService
         $path = $image->storeAs('categories', $fileName, 'public');
 
         return 'storage/'.$path; // Ensure it's publicly accessible
-
     }
 
     /**
@@ -81,7 +78,6 @@ class CategoryService
      */
     public function update($request, $id)
     {
-
         $category = Category::findOrFail($id);
 
         $validatedData = $request->validate([
@@ -91,7 +87,6 @@ class CategoryService
         ]);
 
         return $this->categoryRepository->updateWithTranslations($category, $request->translations);
-
     }
 
     /**

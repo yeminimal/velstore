@@ -94,7 +94,6 @@ class ProductVariantController extends Controller
         }
 
         return redirect()->route('admin.product_variants.index')->with('success', 'Product Variant created successfully.');
-
     }
 
     public function edit($id)

@@ -88,6 +88,5 @@ class DataImport extends Command
             ['key' => 'meta_description', 'value' => 'Welcome to Velstore! You have successfully installed the ultimate Laravel eCommerce boilerplate. Set up your store, configure settings, and start selling with a powerful multi-vendor, multilingual platform.'],
             ['key' => 'phone_number', 'value' => '+1 234 567 890'],
         ]);
-
     }
 }

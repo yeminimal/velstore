@@ -78,7 +78,6 @@ class CartController extends Controller
 
     private function matchVariant($productId, array $attributeValueIds)
     {
-
         if (empty($attributeValueIds)) {
             return ProductVariant::where('product_id', $productId)->where('is_primary', true)->first();
         }

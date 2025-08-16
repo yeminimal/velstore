@@ -31,7 +31,6 @@ class CategoryRepository implements CategoryRepositoryInterface
         ]);
 
         return $category;
-
     }
 
     public function update($id, array $data)
@@ -48,12 +47,10 @@ class CategoryRepository implements CategoryRepositoryInterface
         ]);
 
         return $category;
-
     }
 
     public function destroy($id)
     {
-
         $category = $this->find($id);
 
         foreach ($category->translations as $translation) {
@@ -67,7 +64,6 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     public function storeWithTranslations(array $translations)
     {
-
         $slug = Str::slug($translations['en']['name']);
 
         $category = Category::create([

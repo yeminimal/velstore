@@ -23,7 +23,6 @@ class SocialMediaLinkController extends Controller
         $socialMediaLinks = $this->socialMediaLinkService->getAllSocialMediaLinks();
 
         return view('admin.social-media-links.index', compact('socialMediaLinks'));
-
     }
 
     public function getData(Request $request)
@@ -92,7 +91,6 @@ class SocialMediaLinkController extends Controller
 
     public function destroy($id)
     {
-
         try {
             $socialMediaLink = SocialMediaLink::findOrFail($id);
             $socialMediaLink->delete();
