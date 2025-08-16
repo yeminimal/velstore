@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Language;
 use App\Models\Product;
 use App\Models\ProductAttributeValue;
+use App\Models\Vendor;
 use App\Services\Admin\CategoryService;
 use App\Services\Admin\ProductService;
 use Illuminate\Http\Request;
@@ -48,6 +49,7 @@ class ProductController extends Controller
 
     public function create()
     {
+        $vendors = Vendor::all();
 
         $languages = Language::where('active', 1)->get();
 
@@ -65,7 +67,7 @@ class ProductController extends Controller
             'large' => AttributeValue::where('attribute_id', $sizes->firstWhere('name', 'Large')->id ?? 0)->pluck('id')->first(),
         ];
 
-        return view('admin.products.create', compact('languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap'));
+        return view('admin.products.create', compact('languages', 'categories', 'brands', 'attributes', 'sizes', 'colors', 'attributeSizeMap', 'vendors'));
     }
 
     public function store(Request $request)
@@ -75,6 +77,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
+            'vendor_id' => 'required|exists:vendors,id',
             'translations.'.$defaultLang.'.name' => 'required|string|max:255',
 
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -100,7 +103,7 @@ class ProductController extends Controller
 
             $product = Product::create([
                 'shop_id' => 1,
-                'vendor_id' => 1,
+                'vendor_id' => $request->vendor_id,
                 'slug' => $slug,
                 'category_id' => $request->category_id,
                 'brand_id' => $request->brand_id,
@@ -209,6 +212,7 @@ class ProductController extends Controller
             'images',
         ])->findOrFail($id);
 
+        $vendors = Vendor::all();
         $languages = Language::where('active', 1)->get();
         $categories = Category::all();
         $brands = Brand::all();
@@ -227,7 +231,7 @@ class ProductController extends Controller
 
         return view('admin.products.edit', compact(
             'product', 'languages', 'categories', 'brands',
-            'attributes', 'sizes', 'colors'
+            'attributes', 'sizes', 'colors', 'vendors'
         ));
 
     }
@@ -240,6 +244,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
+            'vendor_id' => 'required|exists:vendors,id',
             'translations.'.$defaultLang.'.name' => 'required|string|max:255',
 
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -260,6 +265,12 @@ class ProductController extends Controller
         ]);
 
         DB::transaction(function () use ($request, $product, $defaultLang) {
+
+            $product->update([
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
+                'vendor_id' => $request->vendor_id,
+            ]);
 
             $newAttrValueIds = collect($request->variants)
                 ->flatMap(function ($v) {
