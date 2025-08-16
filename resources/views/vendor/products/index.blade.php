@@ -125,7 +125,7 @@
                     },
                     success: function (response) {
                         $('#products-table').DataTable().ajax.reload();
-                        toastr.success(response.message);
+                        toastr.error(response.message);
                         $('#deleteProductModal').modal('hide');
                     },
                     error: function () {

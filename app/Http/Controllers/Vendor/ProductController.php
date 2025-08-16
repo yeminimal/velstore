@@ -324,12 +324,19 @@ class ProductController extends Controller
     public function destroy($id)
     {
         try {
-            $product = Product::where('vendor_id', Auth::guard('vendor')->id())->findOrFail($id);
-            $result = $this->productService->destroy($product->id);
+            $vendorId = Auth::guard('vendor')->id();
+            $product = Product::where('vendor_id', $vendorId)->findOrFail($id);
+
+            $product->images()->delete();
+            $product->variants()->delete();
+            DB::table('product_variant_attribute_values')->where('product_id', $product->id)->delete();
+            ProductAttributeValue::where('product_id', $product->id)->delete();
+
+            $product->delete();
 
             return response()->json([
-                'success' => $result,
-                'message' => $result ? __('cms.products.success_delete') : 'Failed to delete product!',
+                'success' => true,
+                'message' => __('cms.products.success_delete'),
             ]);
         } catch (\Exception $e) {
             \Log::error('Vendor product delete error: '.$e->getMessage());
