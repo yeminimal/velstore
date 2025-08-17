@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     protected $categoryService;
+    
     protected $productService;
 
     public function __construct(CategoryService $categoryService, ProductService $productService)
