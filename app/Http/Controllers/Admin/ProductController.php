@@ -21,7 +21,6 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     protected $categoryService;
-
     protected $productService;
 
     public function __construct(CategoryService $categoryService, ProductService $productService)
@@ -40,7 +39,7 @@ class ProductController extends Controller
         try {
             return $this->productService->getProductsForDataTable($request);
         } catch (\Exception $e) {
-            \Log::error('Error fetching product data: '.$e->getMessage());
+            \Log::error('Error fetching product data: ' . $e->getMessage());
 
             return response()->json(['error' => 'An error occurred while fetching product data.'], 500);
         }
@@ -48,14 +47,10 @@ class ProductController extends Controller
 
     public function create()
     {
-
         $vendors = Vendor::all();
-      
         $languages = Language::where('active', 1)->get();
-
         $categories = Category::with('translations')->get();
         $brands = Brand::with('translations')->get();
-
         $attributes = Attribute::with('values.translations')->get();
 
         $sizes = Attribute::where('name', 'Size')->first()?->values ?? collect();
@@ -78,14 +73,25 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
             'vendor_id' => 'required|exists:vendors,id',
-            'translations.'.$defaultLang.'.name' => 'required|string|max:255',
+            'translations.' . $defaultLang . '.name' => 'required|string|max:255',
 
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
 
             'variants' => 'required|array|min:1',
             'variants.*.name' => 'required|string|max:255',
             'variants.*.price' => 'required|numeric|min:0',
-            'variants.*.discount_price' => 'nullable|numeric|min:0|lte:variants.*.price',
+            'variants.*.discount_price' => [
+                'nullable',
+                'numeric',
+                'min:0',
+                function ($attribute, $value, $fail) use ($request) {
+                    $index = explode('.', $attribute)[1] ?? null;
+                    $price = $index !== null ? ($request->variants[$index]['price'] ?? null) : null;
+                    if ($price !== null && $value > $price) {
+                        $fail("The discount price must be less than or equal to the price.");
+                    }
+                },
+            ],
             'variants.*.stock' => 'required|integer|min:0',
             'variants.*.SKU' => 'required|string|max:255',
             'variants.*.barcode' => 'nullable|string|max:255',
@@ -134,15 +140,15 @@ class ProductController extends Controller
             $variantIndex = 0;
             foreach ($request->variants as $variantData) {
                 $variant = $product->variants()->create([
-                    'variant_slug' => Str::slug($variantData['name']).'-'.uniqid(),
+                    'variant_slug' => Str::slug($variantData['name']) . '-' . uniqid(),
                     'price' => $variantData['price'],
                     'discount_price' => $variantData['discount_price'] ?? null,
                     'stock' => $variantData['stock'],
                     'SKU' => $variantData['SKU'],
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
-                    'dimensions' => $variantData['dimension'] ?? null,
-                    'is_primary' => 1,
+                    'dimensions' => $variantData['dimensions'] ?? null,
+                    'is_primary' => $variantIndex === 0 ? 1 : 0,
                 ]);
 
                 $variant->translations()->create([
@@ -150,34 +156,21 @@ class ProductController extends Controller
                     'name' => $variantData['name'],
                 ]);
 
-                if (!empty($variantData['size_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
+                foreach (['size_id', 'color_id'] as $attrType) {
+                    if (!empty($variantData[$attrType])) {
+                        DB::table('product_variant_attribute_values')->insert([
+                            'product_id' => $product->id,
+                            'product_variant_id' => $variant->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
 
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['size_id'],
-                    ]);
-                }
-
-                if (!empty($variantData['color_id'])) {
-                    DB::table('product_variant_attribute_values')->insert([
-                        'product_id' => $product->id,
-                        'product_variant_id' => $variant->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ]);
-
-                    ProductAttributeValue::firstOrCreate([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $variantData['color_id'],
-                    ]);
+                        ProductAttributeValue::firstOrCreate([
+                            'product_id' => $product->id,
+                            'attribute_value_id' => $variantData[$attrType],
+                        ]);
+                    }
                 }
 
                 $variantIndex++;
@@ -194,7 +187,7 @@ class ProductController extends Controller
         $count = 1;
 
         while (Product::where('slug', $slug)->exists()) {
-            $slug = $originalSlug.'-'.$count;
+            $slug = $originalSlug . '-' . $count;
             $count++;
         }
 
@@ -228,8 +221,14 @@ class ProductController extends Controller
         }
 
         return view('admin.products.edit', compact(
-            'product', 'languages', 'categories', 'brands',
-            'attributes', 'sizes', 'colors', 'vendors'
+            'product',
+            'languages',
+            'categories',
+            'brands',
+            'attributes',
+            'sizes',
+            'colors',
+            'vendors'
         ));
     }
 
@@ -242,7 +241,7 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
             'vendor_id' => 'required|exists:vendors,id',
-            'translations.'.$defaultLang.'.name' => 'required|string|max:255',
+            'translations.' . $defaultLang . '.name' => 'required|string|max:255',
 
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
 
@@ -250,7 +249,18 @@ class ProductController extends Controller
             'variants.*.id' => 'nullable|exists:product_variants,id',
             'variants.*.name' => 'required|string|max:255',
             'variants.*.price' => 'required|numeric|min:0',
-            'variants.*.discount_price' => 'nullable|numeric|min:0|lte:variants.*.price',
+            'variants.*.discount_price' => [
+                'nullable',
+                'numeric',
+                'min:0',
+                function ($attribute, $value, $fail) use ($request) {
+                    $index = explode('.', $attribute)[1] ?? null;
+                    $price = $index !== null ? ($request->variants[$index]['price'] ?? null) : null;
+                    if ($price !== null && $value > $price) {
+                        $fail("The discount price must be less than or equal to the price.");
+                    }
+                },
+            ],
             'variants.*.stock' => 'required|integer|min:0',
             'variants.*.SKU' => 'required|string|max:255',
             'variants.*.barcode' => 'nullable|string|max:255',
@@ -262,7 +272,6 @@ class ProductController extends Controller
         ]);
 
         DB::transaction(function () use ($request, $product, $defaultLang) {
-
             $product->update([
                 'category_id' => $request->category_id,
                 'brand_id' => $request->brand_id,
@@ -293,7 +302,7 @@ class ProductController extends Controller
                 );
             }
 
-            if ($request->has('remove_images')) {
+            if ($request->filled('remove_images') && is_array($request->remove_images)) {
                 foreach ($request->remove_images as $imageId) {
                     $image = $product->images()->find($imageId);
                     if ($image) {
@@ -317,17 +326,18 @@ class ProductController extends Controller
             $product->variants()->delete();
             DB::table('product_variant_attribute_values')->where('product_id', $product->id)->delete();
 
+            $variantIndex = 0;
             foreach ($request->variants as $variantData) {
                 $variant = $product->variants()->create([
-                    'variant_slug' => Str::slug($variantData['name']).'-'.uniqid(),
+                    'variant_slug' => Str::slug($variantData['name']) . '-' . uniqid(),
                     'price' => $variantData['price'],
                     'discount_price' => $variantData['discount_price'] ?? null,
                     'stock' => $variantData['stock'],
                     'SKU' => $variantData['SKU'],
                     'barcode' => $variantData['barcode'] ?? null,
                     'weight' => $variantData['weight'] ?? null,
-                    'dimensions' => $variantData['dimension'] ?? null,
-                    'is_primary' => 1,
+                    'dimensions' => $variantData['dimensions'] ?? null,
+                    'is_primary' => $variantIndex === 0 ? 1 : 0,
                 ]);
 
                 $variant->translations()->create([
@@ -351,6 +361,8 @@ class ProductController extends Controller
                         ]);
                     }
                 }
+
+                $variantIndex++;
             }
         });
 
@@ -374,7 +386,7 @@ class ProductController extends Controller
                 'message' => 'Failed to delete product!',
             ]);
         } catch (\Exception $e) {
-            \Log::error("Error deleting product with ID {$id}: ".$e->getMessage());
+            \Log::error("Error deleting product with ID {$id}: " . $e->getMessage());
 
             return response()->json([
                 'success' => false,
@@ -390,20 +402,13 @@ class ProductController extends Controller
             'status' => 'required|boolean',
         ]);
 
-        $product = Product::find($request->id);
+        $product = Product::findOrFail($request->id);
         $product->status = $request->status;
         $product->save();
 
-        if ($product) {
-            return response()->json([
-                'success' => true,
-                'message' => __('cms.products.status_updated'),
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Product status could not be updated.',
-            ]);
-        }
+        return response()->json([
+            'success' => true,
+            'message' => __('cms.products.status_updated'),
+        ]);
     }
 }
