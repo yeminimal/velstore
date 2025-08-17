@@ -89,7 +89,7 @@ class ProductController extends Controller
                     $index = explode('.', $attribute)[1] ?? null;
                     $price = $index !== null ? ($request->variants[$index]['price'] ?? null) : null;
                     if ($price !== null && $value > $price) {
-                        $fail("The discount price must be less than or equal to the price.");
+                        $fail('The discount price must be less than or equal to the price.');
                     }
                 },
             ],
@@ -258,7 +258,7 @@ class ProductController extends Controller
                     $index = explode('.', $attribute)[1] ?? null;
                     $price = $index !== null ? ($request->variants[$index]['price'] ?? null) : null;
                     if ($price !== null && $value > $price) {
-                        $fail("The discount price must be less than or equal to the price.");
+                        $fail('The discount price must be less than or equal to the price.');
                     }
                 },
             ],
@@ -387,7 +387,7 @@ class ProductController extends Controller
                 'message' => 'Failed to delete product!',
             ]);
         } catch (\Exception $e) {
-            \Log::error("Error deleting product with ID {$id}: " . $e->getMessage());
+            \Log::error('Error deleting product with ID ' . $id . ': ' . $e->getMessage());
 
             return response()->json([
                 'success' => false,
