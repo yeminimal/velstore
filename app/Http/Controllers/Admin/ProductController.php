@@ -150,7 +150,7 @@ class ProductController extends Controller
                     'name' => $variantData['name'],
                 ]);
 
-                if (! empty($variantData['size_id'])) {
+                if (!empty($variantData['size_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
                         'product_variant_id' => $variant->id,
@@ -165,7 +165,7 @@ class ProductController extends Controller
                     ]);
                 }
 
-                if (! empty($variantData['color_id'])) {
+                if (!empty($variantData['color_id'])) {
                     DB::table('product_variant_attribute_values')->insert([
                         'product_id' => $product->id,
                         'product_variant_id' => $variant->id,
@@ -336,7 +336,7 @@ class ProductController extends Controller
                 ]);
 
                 foreach (['size_id', 'color_id'] as $attrType) {
-                    if (! empty($variantData[$attrType])) {
+                    if (!empty($variantData[$attrType])) {
                         DB::table('product_variant_attribute_values')->insert([
                             'product_id' => $product->id,
                             'product_variant_id' => $variant->id,
