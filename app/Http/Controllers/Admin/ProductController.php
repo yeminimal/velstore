@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Attribute;
 use App\Models\AttributeValue;
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Language;
 use App\Models\Product;
 use App\Models\ProductAttributeValue;
 use App\Models\Vendor;
@@ -15,7 +13,6 @@ use App\Services\Admin\CategoryService;
 use App\Services\Admin\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
