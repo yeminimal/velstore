@@ -1,4 +1,4 @@
-@extends('admin.layouts.admin')
+@extends('vendor.layouts.master')
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -7,7 +7,7 @@
 @section('content')
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6>Orders List</h6>
+        <h6>My Orders</h6>
     </div>
     <div class="card-body">
         @if (session('success'))
@@ -41,7 +41,7 @@ $(function () {
         processing: true,
         serverSide: true,
         ajax: {
-            url: "{{ route('admin.orders.data') }}",
+            url: "{{ route('vendor.orders.data') }}",
             type: 'POST',
             data: function (d) {
                 d._token = "{{ csrf_token() }}";

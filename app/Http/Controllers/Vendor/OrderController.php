@@ -1,22 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Vendor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends Controller
 {
     public function index()
     {
-        return view('admin.orders.index');
+        return view('vendor.orders.index');
     }
 
     public function getData(Request $request)
     {
-        $query = Order::query()->latest();
+        $vendorId = Auth::guard('vendor')->id();
+
+        $query = Order::whereHas('items', function ($q) use ($vendorId) {
+            $q->where('vendor_id', $vendorId);
+        })
+            ->with('items')
+            ->latest();
 
         return DataTables::of($query)
             ->addIndexColumn()
@@ -31,7 +38,7 @@ class OrderController extends Controller
             })
             ->addColumn('action', function (Order $order) {
                 return '
-                    <form action="'.route('admin.orders.destroy', $order->id).'" method="POST" class="d-inline delete-order-form">
+                    <form action="'.route('vendor.orders.destroy', $order->id).'" method="POST" class="d-inline delete-order-form">
                         '.csrf_field().'
                         '.method_field('DELETE').'
                         <button type="submit" class="btn btn-danger btn-sm"
@@ -48,13 +55,18 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        $order = Order::findOrFail($id);
+        $vendorId = Auth::guard('vendor')->id();
+
+        $order = Order::whereHas('items', function ($q) use ($vendorId) {
+            $q->where('vendor_id', $vendorId);
+        })->findOrFail($id);
+
         $order->delete();
 
         if (request()->wantsJson()) {
             return response()->json(['success' => true, 'message' => 'Order deleted successfully.']);
         }
 
-        return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully.');
+        return redirect()->route('vendor.orders.index')->with('success', 'Order deleted successfully.');
     }
 }
