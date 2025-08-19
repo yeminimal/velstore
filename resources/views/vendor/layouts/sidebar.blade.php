@@ -21,8 +21,34 @@
                     <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.products.index' ? 'active' : '' }}" href="{{ route('vendor.products.index') }}">List</a></li>
                 </ul>
             </div>
-        </li>  
+        </li> 
+        <li class="nav-item">
+    <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#orderMenu" role="button" aria-expanded="false" aria-controls="orderMenu">
+        <span><i class="fas fa-shopping-cart me-2"></i> <span>Orders</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="collapse {{ Route::is('vendor.orders.*') ? 'show' : '' }}" id="orderMenu">
+        <ul class="nav flex-column ms-3">
+            <li>
+                <a class="nav-link {{ Route::currentRouteName() == 'vendor.orders.index' ? 'active' : '' }}" href="{{ route('vendor.orders.index') }}">
+                    List
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
 
+          <li class="nav-item">
+            <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#reviewMenu" role="button" aria-expanded="false" aria-controls="reviewMenu">
+                <span><i class="fas fa-star me-2"></i> <span>Product Reviews</span></span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="collapse {{ Route::is('vendor.reviews.*') ? 'show' : '' }}" id="reviewMenu">
+                <ul class="nav flex-column ms-3">
+                    <li><a class="nav-link {{ Route::currentRouteName() == 'vendor.reviews.index' ? 'active' : '' }}" href="{{ route('vendor.reviews.index') }}">List</a></li>
+                </ul>
+            </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#socialMediaMenu" role="button" aria-expanded="false" aria-controls="socialMediaMenu">
                 <span><i class="fas fa-share-alt me-2"></i> <span>Social Media Links</span></span>

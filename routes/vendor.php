@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Vendor\Auth\AuthController;
 use App\Http\Controllers\Vendor\DashboardController;
+use App\Http\Controllers\Vendor\OrderController;
 use App\Http\Controllers\Vendor\ProductController;
+use App\Http\Controllers\Vendor\ProductReviewController;
 use App\Http\Controllers\Vendor\SocialMediaLinkController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +20,15 @@ Route::prefix('vendor')->group(function () {
         Route::post('products/updateStatus', [ProductController::class, 'updateStatus'])->name('vendor.products.updateStatus');
         Route::resource('social-media-links', SocialMediaLinkController::class)->names('vendor.social-media-links');
         Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('vendor.social-media-links.data');
+
+        Route::get('reviews', [ProductReviewController::class, 'index'])->name('vendor.reviews.index');
+        Route::get('reviews/data', [ProductReviewController::class, 'getData'])->name('vendor.reviews.data');
+        Route::get('reviews/{review}', [ProductReviewController::class, 'show'])->name('vendor.reviews.show');
+        Route::delete('reviews/{review}', [ProductReviewController::class, 'destroy'])->name('vendor.reviews.destroy');
+
+        /** Orders */
+        Route::get('orders', [OrderController::class, 'index'])->name('vendor.orders.index');
+        Route::post('orders/data', [OrderController::class, 'getData'])->name('vendor.orders.data');
+        Route::delete('orders/{id}', [OrderController::class, 'destroy'])->name('vendor.orders.destroy');
     });
 });
