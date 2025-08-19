@@ -79,7 +79,6 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function update($id, array $data)
     {
-
         \Log::info('Attempting to update product with ID '.$id, ['data' => $data]);
 
         $product = Product::findOrFail($id);
@@ -141,7 +140,6 @@ class ProductRepository implements ProductRepositoryInterface
         }
 
         return $product;
-
     }
 
     public function destroy($id)

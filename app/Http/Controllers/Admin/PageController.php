@@ -22,7 +22,6 @@ class PageController extends Controller
 
     public function data(Request $request)
     {
-
         $pages = Page::with('translations')->select('pages.*');
 
         return DataTables::of($pages)

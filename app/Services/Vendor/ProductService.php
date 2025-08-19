@@ -3,7 +3,11 @@
 namespace App\Services\Vendor;
 
 use App\Models\Product;
+use App\Models\ProductTranslation;
 use App\Repositories\Vendor\Product\ProductRepository;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductService
 {
@@ -29,7 +33,7 @@ class ProductService
                 $query->where('is_primary', 1);
             });
 
-        return \DataTables::of($products)
+        return DataTables::of($products)
             ->addColumn('name', function ($product) {
                 $translation = $product->translations->firstWhere('language_code', 'en');
 
@@ -55,5 +59,69 @@ class ProductService
             })
             ->rawColumns(['action'])
             ->make(true);
+    }
+
+    public function store(array $translations, array $data)
+    {
+        $data = Arr::add($data, 'slug', $this->createSlug($data['name']));
+        $product = $this->productRepository->store($data);
+
+        foreach ($translations as $languageCode => $translation) {
+            ProductTranslation::create([
+                'product_id' => $product->id,
+                'locale' => $languageCode,
+                'language_code' => $languageCode,
+                'name' => $translation['name'],
+                'description' => $translation['description'] ?? null,
+            ]);
+        }
+
+        return $product;
+    }
+
+    public function update($id, array $data, array $translations)
+    {
+        try {
+            $updatedProduct = $this->productRepository->update($id, $data);
+
+            foreach ($translations as $languageCode => $translation) {
+                ProductTranslation::updateOrCreate(
+                    ['product_id' => $updatedProduct->id, 'language_code' => $languageCode],
+                    [
+                        'name' => $translation['name'],
+                        'description' => $translation['description'] ?? null,
+                    ]
+                );
+            }
+
+            return $updatedProduct;
+        } catch (\Exception $e) {
+            return ['error' => 'Error updating product: '.$e->getMessage()];
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            return $this->productRepository->destroy($id);
+        } catch (\Exception $e) {
+            \Log::error("Error deleting product with ID {$id}: ".$e->getMessage());
+
+            return false;
+        }
+    }
+
+    private function createSlug($slug)
+    {
+        $slugBase = Str::slug($slug);
+        $slug = $slugBase;
+        $counter = 1;
+
+        while (Product::where('slug', $slug)->exists()) {
+            $slug = $slugBase.'-'.$counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }

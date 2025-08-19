@@ -24,6 +24,5 @@ class ImageService
 
         // Delete the image from public disk
         return Storage::disk('public')->delete($imagePath);
-
     }
 }

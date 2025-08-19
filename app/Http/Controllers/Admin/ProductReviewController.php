@@ -16,7 +16,6 @@ class ProductReviewController extends Controller
 
     public function getData()
     {
-
         $reviews = ProductReview::with(['product', 'customer']);
 
         return DataTables::of($reviews)

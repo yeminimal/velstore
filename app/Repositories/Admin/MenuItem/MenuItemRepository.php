@@ -23,7 +23,6 @@ class MenuItemRepository implements MenuItemRepositoryInterface
 
     public function createMenuItem(Request $request, $menuId)
     {
-
         return DB::transaction(function () use ($request, $menuId) {
             $defaultLang = array_key_first($request->title);
             $defaultTitle = $request->title[$defaultLang] ?? 'menu-item';

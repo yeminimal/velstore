@@ -19,6 +19,5 @@ class AdminLanguageComposer
             $activeLanguages = Language::where('active', 1)->get();
             $view->with('activeLanguages', $activeLanguages);
         }
-
     }
 }

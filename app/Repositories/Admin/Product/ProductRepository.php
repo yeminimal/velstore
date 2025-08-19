@@ -75,7 +75,6 @@ class ProductRepository implements ProductRepositoryInterface
         }
 
         return $product;
-
     }
 
     public function update($id, array $data)
@@ -142,7 +141,6 @@ class ProductRepository implements ProductRepositoryInterface
         }
 
         return $product;
-
     }
 
     public function destroy($id)

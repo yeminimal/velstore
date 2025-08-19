@@ -18,7 +18,6 @@ class BrandService
     public function getAllBrands()
     {
         return $this->brandRepository->getAll();
-
     }
 
     public function store($data)
@@ -62,7 +61,6 @@ class BrandService
 
     public function updateBrand($id, $data)
     {
-
         $brand = $this->brandRepository->find($id);
 
         if (isset($data['logo_url']) && $data['logo_url'] instanceof \Illuminate\Http\UploadedFile) {
@@ -102,12 +100,10 @@ class BrandService
         }
 
         return $brand;
-
     }
 
     public function deleteBrand($id)
     {
-
         $brand = $this->brandRepository->find($id);
 
         if ($brand->logo_url && Storage::exists('public/'.$brand->logo_url)) {
