@@ -184,6 +184,8 @@ return [
         'title_manage' => 'प्रोडक्ट प्रबंधन',
 
         // फॉर्म फ़ील्ड्स
+        'vendor' => 'विक्रेता',
+        'select_vendor' => 'विक्रेता चुनें',
         'product_name' => 'प्रोडक्ट का नाम',
         'product_type' => 'प्रोडक्ट का प्रकार',
         'description' => 'विवरण',

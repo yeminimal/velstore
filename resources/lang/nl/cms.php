@@ -183,6 +183,8 @@ return [
         'title_manage' => 'Producten beheren',
 
         // Formuliervelden
+        'vendor' => 'Verkoper',
+        'select_vendor' => 'Selecteer Verkoper',
         'product_name' => 'Productnaam',
         'product_type' => 'Producttype',
         'description' => 'Beschrijving',

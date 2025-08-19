@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Gestionar Productos',
 
         // Form Fields
+        'vendor' => 'Vendedor',
+        'select_vendor' => 'Seleccionar Vendedor',
         'product_name' => 'Nombre del Producto',
         'product_type' => 'Tipo de Producto',
         'description' => 'Descripción',

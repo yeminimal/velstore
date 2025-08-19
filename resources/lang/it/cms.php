@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Gestisci Prodotti',
 
         // Campi del modulo
+        'vendor' => 'Fornitore',
+        'select_vendor' => 'Seleziona Fornitore',
         'product_name' => 'Nome Prodotto',
         'product_type' => 'Tipo di Prodotto',
         'description' => 'Descrizione',

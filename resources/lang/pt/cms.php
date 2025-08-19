@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Gerenciar Produtos',
 
         // Campos do Formulário
+        'vendor' => 'Fornecedor',
+        'select_vendor' => 'Selecionar Fornecedor',
         'product_name' => 'Nome do Produto',
         'product_type' => 'Tipo de Produto',
         'description' => 'Descrição',

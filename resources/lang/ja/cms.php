@@ -184,6 +184,8 @@ return [
         'title_manage' => '商品を管理',
 
         // フォームフィールド
+        'vendor' => 'ベンダー',
+        'select_vendor' => 'ベンダーを選択',
         'product_name' => '商品名',
         'product_type' => '商品タイプ',
         'description' => '説明',

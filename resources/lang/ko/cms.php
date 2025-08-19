@@ -184,6 +184,8 @@ return [
         'title_manage' => '상품 관리',
 
         // 폼 필드
+        'vendor' => '판매자',
+        'select_vendor' => '판매자 선택',
         'product_name' => '상품명',
         'product_type' => '상품 유형',
         'description' => '설명',

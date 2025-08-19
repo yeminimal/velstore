@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Kelola Produk',
 
         // Bidang Formulir
+        'vendor' => 'Penjual',
+        'select_vendor' => 'Pilih Penjual',
         'product_name' => 'Nama Produk',
         'product_type' => 'Tipe Produk',
         'description' => 'Deskripsi',

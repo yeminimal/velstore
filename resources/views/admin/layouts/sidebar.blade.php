@@ -66,23 +66,27 @@
                     <ul class="nav flex-column ms-3">
                         <li><a class="nav-link {{ Route::currentRouteName() == 'admin.customers.index' ? 'active' : '' }}" href="{{ route('admin.customers.index') }}">{{ __('cms.sidebar.brands.list') }}</a></li>
                     </ul>
-                </div>
-                
-            <li class="nav-item">
+                </div>                
+                    <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#vendorMenu" role="button" aria-expanded="false" aria-controls="vendorMenu">
                     <span><i class="fas fa-user-tag me-2"></i> <span>{{ __('cms.sidebar.vendors.title') }}</span></span>
                     <i class="fas fa-chevron-down"></i>
                 </a>
-                <div class="collapse {{ Route::currentRouteName() == 'admin.vendors.index' ? 'show' : '' }}" id="vendorMenu">
+                <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.vendors.create', 'admin.vendors.index']) ? 'show' : '' }}" id="vendorMenu">
                     <ul class="nav flex-column ms-3">
                         <li>
+                            <a class="nav-link {{ Route::currentRouteName() == 'admin.vendors.create' ? 'active' : '' }}" href="{{ route('admin.vendors.create') }}">
+                                Add New
+                            </a>
+                        </li>
+                        <li>
                             <a class="nav-link {{ Route::currentRouteName() == 'admin.vendors.index' ? 'active' : '' }}" href="{{ route('admin.vendors.index') }}">
-                            {{ __('cms.sidebar.vendors.list') }}
+                                {{ __('cms.sidebar.vendors.list') }}
                             </a>
                         </li>
                     </ul>
                 </div>
-            </li>           
+            </li>        
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#productReviewMenu" role="button" aria-expanded="false" aria-controls="productReviewMenu">
                     <span><i class="fas fa-star me-2"></i> <span>{{ __('cms.sidebar.product_reviews.title') }}</span></span>

@@ -184,6 +184,8 @@ return [
         'title_manage' => '管理产品',
 
         // Form Fields
+        'vendor' => '供应商',
+        'select_vendor' => '选择供应商',
         'product_name' => '产品名称',
         'product_type' => '产品类型',
         'description' => '描述',
