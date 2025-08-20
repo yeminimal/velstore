@@ -184,6 +184,8 @@ return [
         'title_manage' => 'مدیریت محصولات',
 
         // Form Fields
+        'vendor' => 'فروشنده',
+        'select_vendor' => 'انتخاب فروشنده',
         'product_name' => 'نام محصول',
         'product_type' => 'نوع محصول',
         'description' => 'توضیحات',

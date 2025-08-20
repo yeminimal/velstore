@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Zarządzaj produktami',
 
         // Pola formularza
+        'vendor' => 'Sprzedawca',
+        'select_vendor' => 'Wybierz Sprzedawcę',
         'product_name' => 'Nazwa produktu',
         'product_type' => 'Typ produktu',
         'description' => 'Opis',

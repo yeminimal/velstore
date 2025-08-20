@@ -184,6 +184,8 @@ return [
         'title_manage' => 'จัดการสินค้า',
 
         // Form Fields
+        'vendor' => 'ผู้ขาย',
+        'select_vendor' => 'เลือกผู้ขาย',
         'product_name' => 'ชื่อสินค้า',
         'product_type' => 'ประเภทสินค้า',
         'description' => 'รายละเอียด',

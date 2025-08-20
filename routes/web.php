@@ -115,6 +115,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('vendors', [VendorController::class, 'index'])->name('vendors.index');
     Route::get('vendors/data', [VendorController::class, 'getVendorData'])->name('vendors.data');
     Route::delete('vendors/{id}', [VendorController::class, 'destroy'])->name('vendors.destroy');
+    Route::get('vendors/create', [VendorController::class, 'create'])->name('vendors.create');
+    Route::post('vendors', [VendorController::class, 'store'])->name('vendors.store');
 
     /* Pages */
     Route::resource('pages', PageController::class);

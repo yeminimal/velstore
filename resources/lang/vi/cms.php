@@ -212,6 +212,8 @@ return [
         'title_manage' => 'Quản Lý Sản Phẩm',
 
         // Form Fields
+        'vendor' => 'Người bán',
+        'select_vendor' => 'Chọn Người bán',
         'product_name' => 'Tên Sản Phẩm',
         'product_type' => 'Loại Sản Phẩm',
         'description' => 'Mô Tả',

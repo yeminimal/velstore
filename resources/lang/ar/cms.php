@@ -185,6 +185,8 @@ return [
         'title_manage' => 'إدارة المنتجات',
 
         // Form Fields
+        'vendor' => 'البائع',
+        'select_vendor' => 'اختر البائع',
         'product_name' => 'اسم المنتج',
         'product_type' => 'نوع المنتج',
         'description' => 'الوصف',

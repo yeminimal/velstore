@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Управление товарами',
 
         // Поля формы
+        'vendor' => 'Поставщик',
+        'select_vendor' => 'Выберите поставщика',
         'product_name' => 'Название товара',
         'product_type' => 'Тип товара',
         'description' => 'Описание',

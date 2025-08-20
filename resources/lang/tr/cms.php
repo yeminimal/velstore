@@ -184,6 +184,8 @@ return [
         'title_manage' => 'Ürünleri Yönet',
 
         // Form Fields
+        'vendor' => 'Satıcı',
+        'select_vendor' => 'Satıcı Seç',
         'product_name' => 'Ürün Adı',
         'product_type' => 'Ürün Tipi',
         'description' => 'Açıklama',

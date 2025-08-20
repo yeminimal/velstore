@@ -183,6 +183,8 @@ return [
         'title_manage' => 'Manage Products',
 
         // Form Fields
+        'vendor' => 'Vendor',
+        'select_vendor' => 'Select Vendor',
         'product_name' => 'Product Name',
         'product_type' => 'Product Type',
         'description' => 'Description',
