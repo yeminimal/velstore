@@ -76,7 +76,7 @@
                     <ul class="nav flex-column ms-3">
                         <li>
                             <a class="nav-link {{ Route::currentRouteName() == 'admin.vendors.create' ? 'active' : '' }}" href="{{ route('admin.vendors.create') }}">
-                                Add New
+                                {{ __('cms.sidebar.vendors.add_new') }}
                             </a>
                         </li>
                         <li>

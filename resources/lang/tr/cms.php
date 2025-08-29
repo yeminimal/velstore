@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Satıcılar',
+            'add_new' => 'Yeni Ekle',
             'list' => 'Liste',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Müşteri Listesi',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Adı',
+        'email' => 'E-posta',
+        'phone' => 'Telefon',
+        'address' => 'Adres',
+        'status' => 'Durum',
+        'actions' => 'İşlemler',
+
+        // Status labels
+        'active' => 'Aktif',
+        'inactive' => 'Pasif',
+
+        // Modal
+        'confirm_delete_title' => 'Silme Onayı',
+        'confirm_delete_message' => 'Bu müşteriyi silmek istediğinizden emin misiniz?',
+        'cancel_button' => 'İptal',
+        'delete_button' => 'Sil',
+
+        // Toastr messages
+        'success_title' => 'Başarılı',
+        'deleted_title' => 'Silindi',
+        'delete_success_message' => 'Müşteri başarıyla silindi!',
+        'delete_error_message' => 'Müşteri silinirken hata oluştu!',
+    ],
+
     'vendors' => [
         'title_list' => 'Satıcı Listesi',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Telefon',
         'status' => 'Durum',
         'actions' => 'İşlemler',
+        'register_new_vendor' => 'Yeni Satıcı Kaydet',
+        'vendor_name' => 'Satıcı Adı',
+        'vendor_email' => 'Satıcı E-postası',
+        'phone_optional' => 'Telefon (Opsiyonel)',
+        'password' => 'Şifre',
+        'confirm_password' => 'Şifreyi Onayla',
+        'status' => 'Durum',
+        'active' => 'Aktif',
+        'inactive' => 'Pasif',
+        'banned' => 'Yasaklı',
+        'register_button' => 'Satıcıyı Kaydet',
+        'cancel_button' => 'İptal',
 
         'active' => 'Aktif',
         'inactive' => 'Pasif',

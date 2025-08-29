@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'ผู้ขาย',
+            'add_new' => 'เพิ่มใหม่',
             'list' => 'รายการ',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'รายชื่อลูกค้า',
+
+        // Table columns
+        'id' => 'รหัส',
+        'name' => 'ชื่อ',
+        'email' => 'อีเมล',
+        'phone' => 'โทรศัพท์',
+        'address' => 'ที่อยู่',
+        'status' => 'สถานะ',
+        'actions' => 'การดำเนินการ',
+
+        // Status labels
+        'active' => 'เปิดใช้งาน',
+        'inactive' => 'ปิดใช้งาน',
+
+        // Modal
+        'confirm_delete_title' => 'ยืนยันการลบ',
+        'confirm_delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลูลูกค้ารายนี้?',
+        'cancel_button' => 'ยกเลิก',
+        'delete_button' => 'ลบ',
+
+        // Toastr messages
+        'success_title' => 'สำเร็จ',
+        'deleted_title' => 'ถูกลบแล้ว',
+        'delete_success_message' => 'ลบลูกค้าสำเร็จ!',
+        'delete_error_message' => 'เกิดข้อผิดพลาดในการลบลูกค้า!',
+    ],
+
     'vendors' => [
         'title_list' => 'รายชื่อผู้ขาย',
         'id' => 'รหัส',
@@ -92,6 +122,18 @@ return [
         'phone' => 'โทรศัพท์',
         'status' => 'สถานะ',
         'actions' => 'การดำเนินการ',
+        'register_new_vendor' => 'ลงทะเบียนผู้ขายใหม่',
+        'vendor_name' => 'ชื่อผู้ขาย',
+        'vendor_email' => 'อีเมลผู้ขาย',
+        'phone_optional' => 'โทรศัพท์ (ไม่บังคับ)',
+        'password' => 'รหัสผ่าน',
+        'confirm_password' => 'ยืนยันรหัสผ่าน',
+        'status' => 'สถานะ',
+        'active' => 'ใช้งาน',
+        'inactive' => 'ไม่ใช้งาน',
+        'banned' => 'ถูกแบน',
+        'register_button' => 'ลงทะเบียนผู้ขาย',
+        'cancel_button' => 'ยกเลิก',
 
         'active' => 'ใช้งาน',
         'inactive' => 'ไม่ใช้งาน',

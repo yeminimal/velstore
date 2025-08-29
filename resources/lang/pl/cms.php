@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Dostawcy',
+            'add_new' => 'Dodaj nowy',
             'list' => 'Lista',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Lista klientów',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Nazwa',
+        'email' => 'E-mail',
+        'phone' => 'Telefon',
+        'address' => 'Adres',
+        'status' => 'Status',
+        'actions' => 'Akcje',
+
+        // Status labels
+        'active' => 'Aktywny',
+        'inactive' => 'Nieaktywny',
+
+        // Modal
+        'confirm_delete_title' => 'Potwierdź usunięcie',
+        'confirm_delete_message' => 'Czy na pewno chcesz usunąć tego klienta?',
+        'cancel_button' => 'Anuluj',
+        'delete_button' => 'Usuń',
+
+        // Toastr messages
+        'success_title' => 'Sukces',
+        'deleted_title' => 'Usunięto',
+        'delete_success_message' => 'Klient został pomyślnie usunięty!',
+        'delete_error_message' => 'Błąd podczas usuwania klienta!',
+    ],
+
     'vendors' => [
         'title_list' => 'Lista dostawców',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Telefon',
         'status' => 'Status',
         'actions' => 'Akcje',
+        'register_new_vendor' => 'Zarejestruj nowego sprzedawcę',
+        'vendor_name' => 'Nazwa sprzedawcy',
+        'vendor_email' => 'E-mail sprzedawcy',
+        'phone_optional' => 'Telefon (opcjonalnie)',
+        'password' => 'Hasło',
+        'confirm_password' => 'Potwierdź hasło',
+        'status' => 'Status',
+        'active' => 'Aktywny',
+        'inactive' => 'Nieaktywny',
+        'banned' => 'Zablokowany',
+        'register_button' => 'Zarejestruj sprzedawcę',
+        'cancel_button' => 'Anuluj',
 
         'active' => 'Aktywny',
         'inactive' => 'Nieaktywny',

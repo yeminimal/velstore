@@ -41,6 +41,7 @@ return [
         ],
         'vendors' => [
             'title' => 'فروشندگان',
+            'add_new' => 'افزودن جدید',
             'list' => 'لیست',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'لیست مشتریان',
+
+        // Table columns
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'email' => 'ایمیل',
+        'phone' => 'تلفن',
+        'address' => 'آدرس',
+        'status' => 'وضعیت',
+        'actions' => 'عملیات',
+
+        // Status labels
+        'active' => 'فعال',
+        'inactive' => 'غیرفعال',
+
+        // Modal
+        'confirm_delete_title' => 'تأیید حذف',
+        'confirm_delete_message' => 'آیا مطمئن هستید که می‌خواهید این مشتری را حذف کنید؟',
+        'cancel_button' => 'انصراف',
+        'delete_button' => 'حذف',
+
+        // Toastr messages
+        'success_title' => 'موفقیت',
+        'deleted_title' => 'حذف شد',
+        'delete_success_message' => 'مشتری با موفقیت حذف شد!',
+        'delete_error_message' => 'خطا در حذف مشتری!',
+    ],
+
     'vendors' => [
         'title_list' => 'لیست فروشندگان',
         'id' => 'شناسه',
@@ -92,6 +122,18 @@ return [
         'phone' => 'تلفن',
         'status' => 'وضعیت',
         'actions' => 'اقدامات',
+        'register_new_vendor' => 'ثبت فروشنده جدید',
+        'vendor_name' => 'نام فروشنده',
+        'vendor_email' => 'ایمیل فروشنده',
+        'phone_optional' => 'شماره تلفن (اختیاری)',
+        'password' => 'رمز عبور',
+        'confirm_password' => 'تأیید رمز عبور',
+        'status' => 'وضعیت',
+        'active' => 'فعال',
+        'inactive' => 'غیرفعال',
+        'banned' => 'مسدود',
+        'register_button' => 'ثبت فروشنده',
+        'cancel_button' => 'انصراف',
 
         'active' => 'فعال',
         'inactive' => 'غیرفعال',

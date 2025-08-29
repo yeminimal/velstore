@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => '판매자',
+            'add_new' => '새로 추가',
             'list' => '목록',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => '고객 목록',
+
+        // Table columns
+        'id' => '아이디',
+        'name' => '이름',
+        'email' => '이메일',
+        'phone' => '전화번호',
+        'address' => '주소',
+        'status' => '상태',
+        'actions' => '작업',
+
+        // Status labels
+        'active' => '활성',
+        'inactive' => '비활성',
+
+        // Modal
+        'confirm_delete_title' => '삭제 확인',
+        'confirm_delete_message' => '이 고객을 삭제하시겠습니까?',
+        'cancel_button' => '취소',
+        'delete_button' => '삭제',
+
+        // Toastr messages
+        'success_title' => '성공',
+        'deleted_title' => '삭제됨',
+        'delete_success_message' => '고객이 성공적으로 삭제되었습니다!',
+        'delete_error_message' => '고객 삭제 중 오류가 발생했습니다!',
+    ],
+
     'vendors' => [
         'title_list' => '판매자 목록',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => '전화번호',
         'status' => '상태',
         'actions' => '작업',
+        'register_new_vendor' => '새 판매자 등록',
+        'vendor_name' => '판매자 이름',
+        'vendor_email' => '판매자 이메일',
+        'phone_optional' => '전화번호 (선택 사항)',
+        'password' => '비밀번호',
+        'confirm_password' => '비밀번호 확인',
+        'status' => '상태',
+        'active' => '활성',
+        'inactive' => '비활성',
+        'banned' => '차단됨',
+        'register_button' => '판매자 등록',
+        'cancel_button' => '취소',
 
         'active' => '활성',
         'inactive' => '비활성',
