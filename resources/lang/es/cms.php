@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Vendedores',
+            'add_new' => 'Agregar nuevo',
             'list' => 'Lista',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Lista de clientes',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'email' => 'Correo electrónico',
+        'phone' => 'Teléfono',
+        'address' => 'Dirección',
+        'status' => 'Estado',
+        'actions' => 'Acciones',
+
+        // Status labels
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+
+        // Modal
+        'confirm_delete_title' => 'Confirmar eliminación',
+        'confirm_delete_message' => '¿Está seguro de que desea eliminar a este cliente?',
+        'cancel_button' => 'Cancelar',
+        'delete_button' => 'Eliminar',
+
+        // Toastr messages
+        'success_title' => 'Éxito',
+        'deleted_title' => 'Eliminado',
+        'delete_success_message' => '¡Cliente eliminado con éxito!',
+        'delete_error_message' => '¡Error al eliminar al cliente!',
+    ],
+
     'vendors' => [
         'title_list' => 'Lista de Vendedores',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Teléfono',
         'status' => 'Estado',
         'actions' => 'Acciones',
+        'register_new_vendor' => 'Registrar nuevo vendedor',
+        'vendor_name' => 'Nombre del vendedor',
+        'vendor_email' => 'Correo electrónico del vendedor',
+        'phone_optional' => 'Teléfono (opcional)',
+        'password' => 'Contraseña',
+        'confirm_password' => 'Confirmar contraseña',
+        'status' => 'Estado',
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+        'banned' => 'Bloqueado',
+        'register_button' => 'Registrar vendedor',
+        'cancel_button' => 'Cancelar',
 
         'active' => 'Activo',
         'inactive' => 'Inactivo',

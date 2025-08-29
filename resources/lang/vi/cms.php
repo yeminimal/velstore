@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Nhà cung cấp',
+            'add_new' => 'Thêm mới',
             'list' => 'Danh sách',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Danh sách khách hàng',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Tên',
+        'email' => 'E-mail',
+        'phone' => 'Điện thoại',
+        'address' => 'Địa chỉ',
+        'status' => 'Trạng thái',
+        'actions' => 'Hành động',
+
+        // Status labels
+        'active' => 'Hoạt động',
+        'inactive' => 'Không hoạt động',
+
+        // Modal
+        'confirm_delete_title' => 'Xác nhận xóa',
+        'confirm_delete_message' => 'Bạn có chắc chắn muốn xóa khách hàng này không?',
+        'cancel_button' => 'Hủy',
+        'delete_button' => 'Xóa',
+
+        // Toastr messages
+        'success_title' => 'Thành công',
+        'deleted_title' => 'Đã xóa',
+        'delete_success_message' => 'Xóa khách hàng thành công!',
+        'delete_error_message' => 'Lỗi khi xóa khách hàng!',
+    ],
+
     'vendors' => [
         'title_list' => 'Danh sách nhà cung cấp',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Số điện thoại',
         'status' => 'Trạng thái',
         'actions' => 'Hành động',
+        'register_new_vendor' => 'Đăng ký nhà bán mới',
+        'vendor_name' => 'Tên nhà bán',
+        'vendor_email' => 'Email nhà bán',
+        'phone_optional' => 'Số điện thoại (tùy chọn)',
+        'password' => 'Mật khẩu',
+        'confirm_password' => 'Xác nhận mật khẩu',
+        'status' => 'Trạng thái',
+        'active' => 'Hoạt động',
+        'inactive' => 'Không hoạt động',
+        'banned' => 'Bị cấm',
+        'register_button' => 'Đăng ký nhà bán',
+        'cancel_button' => 'Hủy',
 
         'active' => 'Hoạt động',
         'inactive' => 'Không hoạt động',

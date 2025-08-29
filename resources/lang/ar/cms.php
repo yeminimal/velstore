@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'البائعون',
+            'add_new' => 'إضافة جديد',
             'list' => 'القائمة',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'قائمة العملاء',
+
+        // Table columns
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'email' => 'البريد الإلكتروني',
+        'phone' => 'رقم الهاتف',
+        'address' => 'العنوان',
+        'status' => 'الحالة',
+        'actions' => 'الإجراءات',
+
+        // Status labels
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+
+        // Modal
+        'confirm_delete_title' => 'تأكيد الحذف',
+        'confirm_delete_message' => 'هل أنت متأكد أنك تريد حذف هذا العميل؟',
+        'cancel_button' => 'إلغاء',
+        'delete_button' => 'حذف',
+
+        // Toastr messages
+        'success_title' => 'نجاح',
+        'deleted_title' => 'تم الحذف',
+        'delete_success_message' => 'تم حذف العميل بنجاح!',
+        'delete_error_message' => 'حدث خطأ أثناء حذف العميل!',
+    ],
+
     'vendors' => [
         'title_list' => 'قائمة البائعين',
         'id' => 'المعرف',
@@ -92,6 +122,18 @@ return [
         'phone' => 'رقم الهاتف',
         'status' => 'الحالة',
         'actions' => 'الإجراءات',
+        'register_new_vendor' => 'تسجيل بائع جديد',
+        'vendor_name' => 'اسم البائع',
+        'vendor_email' => 'البريد الإلكتروني للبائع',
+        'phone_optional' => 'الهاتف (اختياري)',
+        'password' => 'كلمة المرور',
+        'confirm_password' => 'تأكيد كلمة المرور',
+        'status' => 'الحالة',
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+        'banned' => 'محظور',
+        'register_button' => 'تسجيل البائع',
+        'cancel_button' => 'إلغاء',
 
         'active' => 'نشط',
         'inactive' => 'غير نشط',

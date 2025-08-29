@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Vendors',
+            'add_new' => 'Add New',
             'list' => 'List',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Customer List',
+
+        // Table columns
+        'id' => 'Id',
+        'name' => 'Name',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'address' => 'Address',
+        'status' => 'Status',
+        'actions' => 'Actions',
+
+        // Status labels
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+
+        // Modal
+        'confirm_delete_title' => 'Confirm Delete',
+        'confirm_delete_message' => 'Are you sure you want to delete this customer?',
+        'cancel_button' => 'Cancel',
+        'delete_button' => 'Delete',
+
+        // Toastr messages
+        'success_title' => 'Success',
+        'deleted_title' => 'Deleted',
+        'delete_success_message' => 'Customer deleted successfully!',
+        'delete_error_message' => 'Error deleting customer!',
+    ],
+
     'vendors' => [
         'title_list' => 'Vendor List',
         'id' => 'Id',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Phone',
         'status' => 'Status',
         'actions' => 'Actions',
+        'register_new_vendor' => 'Register New Vendor',
+        'vendor_name' => 'Vendor Name',
+        'vendor_email' => 'Vendor Email',
+        'phone_optional' => 'Phone (Optional)',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm Password',
+        'status' => 'Status',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+        'banned' => 'Banned',
+        'register_button' => 'Register Vendor',
+        'cancel_button' => 'Cancel',
 
         'active' => 'Active',
         'inactive' => 'Inactive',

@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'विक्रेताओं',
+            'add_new' => 'नया जोड़ें',
             'list' => 'सूची',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'ग्राहक सूची',
+
+        // Table columns
+        'id' => 'आईडी',
+        'name' => 'नाम',
+        'email' => 'ईमेल',
+        'phone' => 'फ़ोन',
+        'address' => 'पता',
+        'status' => 'स्थिति',
+        'actions' => 'क्रियाएँ',
+
+        // Status labels
+        'active' => 'सक्रिय',
+        'inactive' => 'निष्क्रिय',
+
+        // Modal
+        'confirm_delete_title' => 'हटाने की पुष्टि करें',
+        'confirm_delete_message' => 'क्या आप वाकई इस ग्राहक को हटाना चाहते हैं?',
+        'cancel_button' => 'रद्द करें',
+        'delete_button' => 'हटाएँ',
+
+        // Toastr messages
+        'success_title' => 'सफलता',
+        'deleted_title' => 'हटा दिया गया',
+        'delete_success_message' => 'ग्राहक सफलतापूर्वक हटा दिया गया!',
+        'delete_error_message' => 'ग्राहक को हटाने में त्रुटि!',
+    ],
+
     'vendors' => [
         'title_list' => 'विक्रेता सूची',
         'id' => 'आईडी',
@@ -92,6 +122,18 @@ return [
         'phone' => 'फोन',
         'status' => 'स्थिति',
         'actions' => 'क्रियाएं',
+        'register_new_vendor' => 'नए विक्रेता को पंजीकृत करें',
+        'vendor_name' => 'विक्रेता का नाम',
+        'vendor_email' => 'विक्रेता का ईमेल',
+        'phone_optional' => 'फ़ोन (वैकल्पिक)',
+        'password' => 'पासवर्ड',
+        'confirm_password' => 'पासवर्ड की पुष्टि करें',
+        'status' => 'स्थिति',
+        'active' => 'सक्रिय',
+        'inactive' => 'निष्क्रिय',
+        'banned' => 'प्रतिबंधित',
+        'register_button' => 'विक्रेता पंजीकृत करें',
+        'cancel_button' => 'रद्द करें',
 
         'active' => 'सक्रिय',
         'inactive' => 'निष्क्रिय',

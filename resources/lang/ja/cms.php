@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'ベンダー',
+            'add_new' => '新規追加',
             'list' => 'リスト',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => '顧客一覧',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => '名前',
+        'email' => 'メール',
+        'phone' => '電話番号',
+        'address' => '住所',
+        'status' => 'ステータス',
+        'actions' => '操作',
+
+        // Status labels
+        'active' => '有効',
+        'inactive' => '無効',
+
+        // Modal
+        'confirm_delete_title' => '削除の確認',
+        'confirm_delete_message' => 'この顧客を削除してもよろしいですか？',
+        'cancel_button' => 'キャンセル',
+        'delete_button' => '削除',
+
+        // Toastr messages
+        'success_title' => '成功',
+        'deleted_title' => '削除済み',
+        'delete_success_message' => '顧客が正常に削除されました！',
+        'delete_error_message' => '顧客の削除中にエラーが発生しました！',
+    ],
+
     'vendors' => [
         'title_list' => 'ベンダーリスト',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => '電話番号',
         'status' => 'ステータス',
         'actions' => '操作',
+        'register_new_vendor' => '新しいベンダーを登録',
+        'vendor_name' => 'ベンダー名',
+        'vendor_email' => 'ベンダーのメールアドレス',
+        'phone_optional' => '電話番号（任意）',
+        'password' => 'パスワード',
+        'confirm_password' => 'パスワード確認',
+        'status' => 'ステータス',
+        'active' => '有効',
+        'inactive' => '無効',
+        'banned' => '禁止',
+        'register_button' => 'ベンダーを登録',
+        'cancel_button' => 'キャンセル',
 
         'active' => 'アクティブ',
         'inactive' => '非アクティブ',

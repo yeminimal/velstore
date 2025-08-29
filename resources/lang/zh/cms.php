@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => '供应商',
+            'add_new' => '新增',
             'list' => '列表',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => '客户列表',
+
+        // Table columns
+        'id' => '编号',
+        'name' => '姓名',
+        'email' => '邮箱',
+        'phone' => '电话',
+        'address' => '地址',
+        'status' => '状态',
+        'actions' => '操作',
+
+        // Status labels
+        'active' => '启用',
+        'inactive' => '停用',
+
+        // Modal
+        'confirm_delete_title' => '确认删除',
+        'confirm_delete_message' => '您确定要删除此客户吗？',
+        'cancel_button' => '取消',
+        'delete_button' => '删除',
+
+        // Toastr messages
+        'success_title' => '成功',
+        'deleted_title' => '已删除',
+        'delete_success_message' => '客户已成功删除！',
+        'delete_error_message' => '删除客户时出错！',
+    ],
+
     'vendors' => [
         'title_list' => '供应商列表',
         'id' => '编号',
@@ -92,6 +122,18 @@ return [
         'phone' => '电话',
         'status' => '状态',
         'actions' => '操作',
+        'register_new_vendor' => '注册新商家',
+        'vendor_name' => '商家名称',
+        'vendor_email' => '商家邮箱',
+        'phone_optional' => '电话（可选）',
+        'password' => '密码',
+        'confirm_password' => '确认密码',
+        'status' => '状态',
+        'active' => '启用',
+        'inactive' => '停用',
+        'banned' => '已封禁',
+        'register_button' => '注册商家',
+        'cancel_button' => '取消',
 
         'active' => '激活',
         'inactive' => '未激活',

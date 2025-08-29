@@ -45,6 +45,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Verkopers',
+            'add_new' => 'Nieuwe Toevoegen',
             'list' => 'Lijst',
         ],
         'product_reviews' => [
@@ -83,6 +84,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Klantlijst',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Naam',
+        'email' => 'E-mail',
+        'phone' => 'Telefoon',
+        'address' => 'Adres',
+        'status' => 'Status',
+        'actions' => 'Acties',
+
+        // Status labels
+        'active' => 'Actief',
+        'inactive' => 'Inactief',
+
+        // Modal
+        'confirm_delete_title' => 'Verwijderen bevestigen',
+        'confirm_delete_message' => 'Weet u zeker dat u deze klant wilt verwijderen?',
+        'cancel_button' => 'Annuleren',
+        'delete_button' => 'Verwijderen',
+
+        // Toastr messages
+        'success_title' => 'Succes',
+        'deleted_title' => 'Verwijderd',
+        'delete_success_message' => 'Klant succesvol verwijderd!',
+        'delete_error_message' => 'Fout bij het verwijderen van klant!',
+    ],
+
     'vendors' => [
         'title_list' => 'Leverancierslijst',
         'id' => 'ID',
@@ -91,6 +121,18 @@ return [
         'phone' => 'Telefoon',
         'status' => 'Status',
         'actions' => 'Acties',
+        'register_new_vendor' => 'Nieuwe verkoper registreren',
+        'vendor_name' => 'Naam van de verkoper',
+        'vendor_email' => 'E-mailadres van de verkoper',
+        'phone_optional' => 'Telefoon (optioneel)',
+        'password' => 'Wachtwoord',
+        'confirm_password' => 'Wachtwoord bevestigen',
+        'status' => 'Status',
+        'active' => 'Actief',
+        'inactive' => 'Inactief',
+        'banned' => 'Geblokkeerd',
+        'register_button' => 'Verkoper registreren',
+        'cancel_button' => 'Annuleren',
 
         'active' => 'Actief',
         'inactive' => 'Inactief',

@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Penjual',
+            'add_new' => 'Tambah Baru',
             'list' => 'Daftar',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Daftar Pelanggan',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Nama',
+        'email' => 'Email',
+        'phone' => 'Telepon',
+        'address' => 'Alamat',
+        'status' => 'Status',
+        'actions' => 'Aksi',
+
+        // Status labels
+        'active' => 'Aktif',
+        'inactive' => 'Tidak Aktif',
+
+        // Modal
+        'confirm_delete_title' => 'Konfirmasi Hapus',
+        'confirm_delete_message' => 'Apakah Anda yakin ingin menghapus pelanggan ini?',
+        'cancel_button' => 'Batal',
+        'delete_button' => 'Hapus',
+
+        // Toastr messages
+        'success_title' => 'Berhasil',
+        'deleted_title' => 'Dihapus',
+        'delete_success_message' => 'Pelanggan berhasil dihapus!',
+        'delete_error_message' => 'Terjadi kesalahan saat menghapus pelanggan!',
+    ],
+
     'vendors' => [
         'title_list' => 'Daftar Vendor',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Telepon',
         'status' => 'Status',
         'actions' => 'Aksi',
+        'register_new_vendor' => 'Daftarkan Vendor Baru',
+        'vendor_name' => 'Nama Vendor',
+        'vendor_email' => 'Email Vendor',
+        'phone_optional' => 'Telepon (Opsional)',
+        'password' => 'Kata Sandi',
+        'confirm_password' => 'Konfirmasi Kata Sandi',
+        'status' => 'Status',
+        'active' => 'Aktif',
+        'inactive' => 'Tidak Aktif',
+        'banned' => 'Diblokir',
+        'register_button' => 'Daftarkan Vendor',
+        'cancel_button' => 'Batal',
 
         'active' => 'Aktif',
         'inactive' => 'Tidak Aktif',

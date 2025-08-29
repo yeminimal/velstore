@@ -46,6 +46,7 @@ return [
         ],
         'vendors' => [
             'title' => 'Поставщики',
+            'add_new' => 'Добавить новый',
             'list' => 'Список',
         ],
         'product_reviews' => [
@@ -84,6 +85,35 @@ return [
         ],
     ],
 
+    'customers' => [
+        'customer_list' => 'Список клиентов',
+
+        // Table columns
+        'id' => 'ID',
+        'name' => 'Имя',
+        'email' => 'E-mail',
+        'phone' => 'Телефон',
+        'address' => 'Адрес',
+        'status' => 'Статус',
+        'actions' => 'Действия',
+
+        // Status labels
+        'active' => 'Активен',
+        'inactive' => 'Неактивен',
+
+        // Modal
+        'confirm_delete_title' => 'Подтвердите удаление',
+        'confirm_delete_message' => 'Вы уверены, что хотите удалить этого клиента?',
+        'cancel_button' => 'Отмена',
+        'delete_button' => 'Удалить',
+
+        // Toastr messages
+        'success_title' => 'Успешно',
+        'deleted_title' => 'Удалено',
+        'delete_success_message' => 'Клиент успешно удалён!',
+        'delete_error_message' => 'Ошибка при удалении клиента!',
+    ],
+
     'vendors' => [
         'title_list' => 'Список поставщиков',
         'id' => 'ID',
@@ -92,6 +122,18 @@ return [
         'phone' => 'Телефон',
         'status' => 'Статус',
         'actions' => 'Действия',
+        'register_new_vendor' => 'Зарегистрировать нового продавца',
+        'vendor_name' => 'Имя продавца',
+        'vendor_email' => 'Электронная почта продавца',
+        'phone_optional' => 'Телефон (необязательно)',
+        'password' => 'Пароль',
+        'confirm_password' => 'Подтвердите пароль',
+        'status' => 'Статус',
+        'active' => 'Активный',
+        'inactive' => 'Неактивный',
+        'banned' => 'Заблокирован',
+        'register_button' => 'Зарегистрировать продавца',
+        'cancel_button' => 'Отмена',
 
         'active' => 'Активен',
         'inactive' => 'Неактивен',
