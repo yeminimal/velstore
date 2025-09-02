@@ -15,4 +15,9 @@ class PaymentGateway extends Model
         'description',
         'is_active',
     ];
+
+    public function configs()
+    {
+        return $this->hasMany(PaymentGatewayConfig::class, 'gateway_id');
+    }
 }

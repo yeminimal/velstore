@@ -83,6 +83,44 @@ return [
             'pending_orders' => '보류 중인 주문',
             'completed_orders' => '완료된 주문',
         ],
+        'pages' => [
+            'title' => '페이지',
+            'add_new' => '새로 추가',
+            'list' => '목록',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => '페이지',
+        'choose_file' => '파일 선택',
+
+        // Create Page
+        'create' => '페이지 생성',
+        'form_title' => '제목 (:code)',
+        'form_content' => '내용 (:code)',
+        'form_image' => '이미지 (:code)',
+        'form_save' => '저장',
+
+        // Edit Page
+        'edit' => '페이지 편집',
+        'form_update' => '업데이트',
+
+        // Pages Table
+        'table_title' => '제목',
+        'table_slug' => '슬러그',
+        'table_status' => '상태',
+        'table_actions' => '작업',
+
+        // Delete Modal
+        'delete_modal_title' => '삭제 확인',
+        'delete_modal_text' => '이 페이지를 삭제하시겠습니까?',
+        'delete_modal_cancel' => '취소',
+        'delete_modal_delete' => '삭제',
+
+        // Toastr messages
+        'toastr_success' => '성공',
+        'toastr_error' => '페이지 삭제 중 오류 발생',
     ],
 
     'customers' => [

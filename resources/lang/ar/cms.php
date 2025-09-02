@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'الطلبات المعلقة',
             'completed_orders' => 'الطلبات المكتملة',
         ],
+        'pages' => [
+            'title' => 'الصفحات',
+            'add_new' => 'إضافة جديد',
+            'list' => 'قائمة',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'الصفحات',
+        'choose_file' => 'اختر ملف',
+
+        // Create Page
+        'create' => 'إنشاء صفحة',
+        'form_title' => 'العنوان (:code)',
+        'form_content' => 'المحتوى (:code)',
+        'form_image' => 'الصورة (:code)',
+        'form_save' => 'حفظ',
+
+        // Edit Page
+        'edit' => 'تعديل الصفحة',
+        'form_update' => 'تحديث',
+
+        // Pages Table
+        'table_title' => 'العنوان',
+        'table_slug' => 'الرابط المختصر',
+        'table_status' => 'الحالة',
+        'table_actions' => 'الإجراءات',
+
+        // Delete Modal
+        'delete_modal_title' => 'تأكيد الحذف',
+        'delete_modal_text' => 'هل أنت متأكد أنك تريد حذف هذه الصفحة؟',
+        'delete_modal_cancel' => 'إلغاء',
+        'delete_modal_delete' => 'حذف',
+
+        // Toastr messages
+        'toastr_success' => 'تم بنجاح',
+        'toastr_error' => 'حدث خطأ أثناء حذف الصفحة',
     ],
 
     'customers' => [

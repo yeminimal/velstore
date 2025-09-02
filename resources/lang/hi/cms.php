@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'लंबित ऑर्डर',
             'completed_orders' => 'पूर्ण ऑर्डर',
         ],
+        'pages' => [
+            'title' => 'पृष्ठ',
+            'add_new' => 'नया जोड़ें',
+            'list' => 'सूची',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'पृष्ठ',
+        'choose_file' => 'फ़ाइल चुनें',
+
+        // Create Page
+        'create' => 'पृष्ठ बनाएँ',
+        'form_title' => 'शीर्षक (:code)',
+        'form_content' => 'सामग्री (:code)',
+        'form_image' => 'छवि (:code)',
+        'form_save' => 'सहेजें',
+
+        // Edit Page
+        'edit' => 'पृष्ठ संपादित करें',
+        'form_update' => 'अद्यतन करें',
+
+        // Pages Table
+        'table_title' => 'शीर्षक',
+        'table_slug' => 'स्लग',
+        'table_status' => 'स्थिति',
+        'table_actions' => 'क्रियाएँ',
+
+        // Delete Modal
+        'delete_modal_title' => 'हटाने की पुष्टि करें',
+        'delete_modal_text' => 'क्या आप वाकई इस पृष्ठ को हटाना चाहते हैं?',
+        'delete_modal_cancel' => 'रद्द करें',
+        'delete_modal_delete' => 'हटाएँ',
+
+        // Toastr messages
+        'toastr_success' => 'सफलता',
+        'toastr_error' => 'पृष्ठ हटाने में त्रुटि',
     ],
 
     'customers' => [

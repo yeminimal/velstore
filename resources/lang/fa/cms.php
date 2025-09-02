@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'سفارشات در انتظار',
             'completed_orders' => 'سفارشات تکمیل شده',
         ],
+        'pages' => [
+            'title' => 'صفحات',
+            'add_new' => 'جدید اضافه کنید',
+            'list' => 'لیست',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'صفحات',
+        'choose_file' => 'انتخاب فایل',
+
+        // Create Page
+        'create' => 'ایجاد صفحه',
+        'form_title' => 'عنوان (:code)',
+        'form_content' => 'محتوا (:code)',
+        'form_image' => 'تصویر (:code)',
+        'form_save' => 'ذخیره',
+
+        // Edit Page
+        'edit' => 'ویرایش صفحه',
+        'form_update' => 'به‌روزرسانی',
+
+        // Pages Table
+        'table_title' => 'عنوان',
+        'table_slug' => 'اسلاگ',
+        'table_status' => 'وضعیت',
+        'table_actions' => 'اقدامات',
+
+        // Delete Modal
+        'delete_modal_title' => 'تأیید حذف',
+        'delete_modal_text' => 'آیا مطمئن هستید که می‌خواهید این صفحه را حذف کنید؟',
+        'delete_modal_cancel' => 'انصراف',
+        'delete_modal_delete' => 'حذف',
+
+        // Toastr messages
+        'toastr_success' => 'موفقیت',
+        'toastr_error' => 'خطا در حذف صفحه',
     ],
 
     'customers' => [

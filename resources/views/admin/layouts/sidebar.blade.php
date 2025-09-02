@@ -150,19 +150,6 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#gatewayConfigsMenu" role="button" aria-expanded="false" aria-controls="gatewayConfigsMenu">
-                <span><i class="fas fa-wrench me-2"></i> <span>Payment Gateway Configs</span></span>
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.payment_gateway_configs.index', 'admin.payment_gateway_configs.getData', 'admin.payment_gateway_configs.edit']) ? 'show' : '' }}" id="gatewayConfigsMenu">
-                <ul class="nav flex-column ms-3">
-                    <li>
-                        <a class="nav-link {{ Route::currentRouteName() == 'admin.payment_gateway_configs.index' ? 'active' : '' }}" href="{{ route('admin.payment_gateway_configs.index') }}">List</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#menuMenu" role="button" aria-expanded="false" aria-controls="menuMenu">
                 <span><i class="fas fa-bars me-2"></i> <span>{{ __('cms.sidebar.menu.title') }}</span></span>
                 <i class="fas fa-chevron-down"></i>
@@ -226,19 +213,19 @@
         </li>
         <li class="nav-item">
         <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#pageMenu" role="button" aria-expanded="false" aria-controls="pageMenu">
-            <span><i class="fas fa-file-alt me-2"></i> <span>Pages</span></span>
+            <span><i class="fas fa-file-alt me-2"></i> <span>{{ __('cms.sidebar.pages.title') }}</span></span>
             <i class="fas fa-chevron-down"></i>
         </a>
         <div class="collapse {{ Route::currentRouteName() == 'admin.pages.create' || Route::currentRouteName() == 'admin.pages.index' ? 'show' : '' }}" id="pageMenu">
             <ul class="nav flex-column ms-3">
                 <li>
                     <a class="nav-link {{ Route::currentRouteName() == 'admin.pages.create' ? 'active' : '' }}" href="{{ route('admin.pages.create') }}">
-                    Add New
+                    {{ __('cms.sidebar.pages.add_new') }}
                     </a>
                 </li>
                 <li>
                     <a class="nav-link {{ Route::currentRouteName() == 'admin.pages.index' ? 'active' : '' }}" href="{{ route('admin.pages.index') }}">
-                    List
+                    {{ __('cms.sidebar.pages.list') }}
                     </a>
                 </li>
             </ul>

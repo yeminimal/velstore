@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'คำสั่งซื้อที่รอดำเนินการ',
             'completed_orders' => 'คำสั่งซื้อที่เสร็จสมบูรณ์',
         ],
+        'pages' => [
+            'title' => 'หน้า',
+            'add_new' => 'เพิ่มใหม่',
+            'list' => 'รายการ',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'หน้าต่างๆ',
+        'choose_file' => 'เลือกไฟล์',
+
+        // Create Page
+        'create' => 'สร้างหน้า',
+        'form_title' => 'หัวข้อ (:code)',
+        'form_content' => 'เนื้อหา (:code)',
+        'form_image' => 'รูปภาพ (:code)',
+        'form_save' => 'บันทึก',
+
+        // Edit Page
+        'edit' => 'แก้ไขหน้า',
+        'form_update' => 'อัปเดต',
+
+        // Pages Table
+        'table_title' => 'หัวข้อ',
+        'table_slug' => 'Slug',
+        'table_status' => 'สถานะ',
+        'table_actions' => 'การดำเนินการ',
+
+        // Delete Modal
+        'delete_modal_title' => 'ยืนยันการลบ',
+        'delete_modal_text' => 'คุณแน่ใจหรือไม่ว่าต้องการลบหน้านี้?',
+        'delete_modal_cancel' => 'ยกเลิก',
+        'delete_modal_delete' => 'ลบ',
+
+        // Toastr messages
+        'toastr_success' => 'สำเร็จ',
+        'toastr_error' => 'เกิดข้อผิดพลาดในการลบหน้า',
     ],
 
     'customers' => [

@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Đơn hàng đang chờ',
             'completed_orders' => 'Đơn hàng đã hoàn thành',
         ],
+        'pages' => [
+            'title' => 'Trang',
+            'add_new' => 'Thêm mới',
+            'list' => 'Danh sách',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Trang',
+        'choose_file' => 'Chọn tệp',
+
+        // Create Page
+        'create' => 'Tạo Trang',
+        'form_title' => 'Tiêu đề (:code)',
+        'form_content' => 'Nội dung (:code)',
+        'form_image' => 'Hình ảnh (:code)',
+        'form_save' => 'Lưu',
+
+        // Edit Page
+        'edit' => 'Chỉnh sửa Trang',
+        'form_update' => 'Cập nhật',
+
+        // Pages Table
+        'table_title' => 'Tiêu đề',
+        'table_slug' => 'Slug',
+        'table_status' => 'Trạng thái',
+        'table_actions' => 'Hành động',
+
+        // Delete Modal
+        'delete_modal_title' => 'Xác nhận xóa',
+        'delete_modal_text' => 'Bạn có chắc chắn muốn xóa trang này không?',
+        'delete_modal_cancel' => 'Hủy',
+        'delete_modal_delete' => 'Xóa',
+
+        // Toastr messages
+        'toastr_success' => 'Thành công',
+        'toastr_error' => 'Lỗi khi xóa trang',
     ],
 
     'customers' => [

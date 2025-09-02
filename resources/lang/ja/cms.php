@@ -83,6 +83,44 @@ return [
             'pending_orders' => '保留中の注文',
             'completed_orders' => '完了した注文',
         ],
+        'pages' => [
+            'title' => 'ページ',
+            'add_new' => '新規追加',
+            'list' => '一覧',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'ページ',
+        'choose_file' => 'ファイルを選択',
+
+        // Create Page
+        'create' => 'ページを作成',
+        'form_title' => 'タイトル (:code)',
+        'form_content' => 'コンテンツ (:code)',
+        'form_image' => '画像 (:code)',
+        'form_save' => '保存',
+
+        // Edit Page
+        'edit' => 'ページを編集',
+        'form_update' => '更新',
+
+        // Pages Table
+        'table_title' => 'タイトル',
+        'table_slug' => 'スラッグ',
+        'table_status' => 'ステータス',
+        'table_actions' => '操作',
+
+        // Delete Modal
+        'delete_modal_title' => '削除の確認',
+        'delete_modal_text' => 'このページを削除してもよろしいですか？',
+        'delete_modal_cancel' => 'キャンセル',
+        'delete_modal_delete' => '削除',
+
+        // Toastr messages
+        'toastr_success' => '成功',
+        'toastr_error' => 'ページの削除中にエラーが発生しました',
     ],
 
     'customers' => [

@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Ожидающие заказы',
             'completed_orders' => 'Завершенные заказы',
         ],
+        'pages' => [
+            'title' => 'Страницы',
+            'add_new' => 'Добавить новую',
+            'list' => 'Список',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Страницы',
+        'choose_file' => 'Выбрать файл',
+
+        // Create Page
+        'create' => 'Создать страницу',
+        'form_title' => 'Заголовок (:code)',
+        'form_content' => 'Содержание (:code)',
+        'form_image' => 'Изображение (:code)',
+        'form_save' => 'Сохранить',
+
+        // Edit Page
+        'edit' => 'Редактировать страницу',
+        'form_update' => 'Обновить',
+
+        // Pages Table
+        'table_title' => 'Заголовок',
+        'table_slug' => 'Slug',
+        'table_status' => 'Статус',
+        'table_actions' => 'Действия',
+
+        // Delete Modal
+        'delete_modal_title' => 'Подтверждение удаления',
+        'delete_modal_text' => 'Вы уверены, что хотите удалить эту страницу?',
+        'delete_modal_cancel' => 'Отмена',
+        'delete_modal_delete' => 'Удалить',
+
+        // Toastr messages
+        'toastr_success' => 'Успех',
+        'toastr_error' => 'Ошибка при удалении страницы',
     ],
 
     'customers' => [
