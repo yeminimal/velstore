@@ -38,27 +38,46 @@ class PaymentGatewayController extends Controller
 
     public function edit($id)
     {
-        $paymentGateway = PaymentGateway::findOrFail($id);
+        $paymentGateway = PaymentGateway::with('configs')->findOrFail($id);
 
         return view('admin.payment_gateways.edit', compact('paymentGateway'));
     }
 
     public function update(Request $request, $id)
     {
+
         $gateway = PaymentGateway::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
             'code' => 'required|string|max:255|unique:payment_gateways,code,'.$gateway->id,
             'description' => 'nullable|string',
+            'configs.*.key_name' => 'sometimes|required|string|max:100',
+            'configs.*.key_value' => 'sometimes|required|string',
+            'configs.*.environment' => 'sometimes|required|string',
         ]);
 
-        $data = $request->all();
+        $data = $request->only(['name', 'code', 'description']);
         $data['is_active'] = $request->has('is_active');
-
         $gateway->update($data);
 
-        return redirect()->route('admin.payment-gateways.index')
+        if ($request->has('configs')) {
+            foreach ($request->configs as $configId => $configData) {
+                $config = $gateway->configs()->find($configId);
+
+                if ($config) {
+                    $config->update([
+                        'key_name' => $configData['key_name'],
+                        'key_value' => $configData['key_value'],
+                        'is_encrypted' => isset($configData['is_encrypted']),
+                        'environment' => $configData['environment'],
+                    ]);
+                }
+            }
+        }
+
+        return redirect()
+            ->route('admin.payment-gateways.index')
             ->with('success', 'Payment Gateway updated successfully.');
     }
 

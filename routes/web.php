@@ -129,12 +129,13 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     /* payments */
     Route::get('payments/get-data', [PaymentController::class, 'getData'])->name('payments.getData');
-    Route::resource('payments', PaymentController::class)->only(['index', 'destroy']);
+    Route::resource('payments', PaymentController::class)->only(['index', 'destroy', 'show']);
 
     /* Refunds */
     Route::get('refunds', [RefundController::class, 'index'])->name('refunds.index');
     Route::get('refunds/data', [RefundController::class, 'getData'])->name('refunds.getData');
     Route::delete('refunds/{refund}', [RefundController::class, 'destroy'])->name('refunds.destroy');
+    Route::get('refunds/{refund}', [RefundController::class, 'show'])->name('refunds.show');
 
     /* Payment Gateways */
     Route::get('payment-gateways', [PaymentGatewayController::class, 'index'])->name('payment-gateways.index');

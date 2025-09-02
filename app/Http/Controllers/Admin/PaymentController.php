@@ -24,13 +24,29 @@ class PaymentController extends Controller
                 ->addColumn('order', fn ($row) => $row->order ? 'Order #'.$row->order->id : '—')
                 ->addColumn('gateway', fn ($row) => $row->gateway?->name ?? '—')
                 ->addColumn('action', function ($row) {
-                    return '<span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deletePayment('.$row->id.')"> 
-                            <i class="bi bi-trash-fill text-danger"></i>
-                        </span>';
+                    $showBtn = '<span class="border border-primary dt-show rounded-3 d-inline-block me-1 px-2 py-1">
+                                <a href="'.route('admin.payments.show', $row->id).'">
+                                    <i class="bi bi-eye-fill text-primary"></i>
+                                </a>
+                            </span>';
+
+                    $deleteBtn = '<span class="border border-danger dt-trash rounded-3 d-inline-block" 
+                                onclick="deletePayment('.$row->id.')"> 
+                                <i class="bi bi-trash-fill text-danger"></i>
+                            </span>';
+
+                    return $showBtn.' '.$deleteBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
+    }
+
+    public function show($id)
+    {
+        $payment = Payment::with(['user', 'order', 'gateway'])->findOrFail($id);
+
+        return view('admin.payments.show', compact('payment'));
     }
 
     public function destroy(Payment $payment)

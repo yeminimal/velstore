@@ -22,13 +22,26 @@ class RefundController extends Controller
             return DataTables::of($refunds)
                 ->addColumn('payment', fn ($row) => $row->payment ? 'Payment #'.$row->payment->id : '—')
                 ->addColumn('action', function ($row) {
-                    return '<span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deleteRefund('.$row->id.')"> 
-                                <i class="bi bi-trash-fill text-danger"></i>
-                            </span>';
+                    return '
+                        <a href="'.route('admin.refunds.show', $row->id).'" 
+                        class="border border-primary dt-show rounded-3 d-inline-block me-1 px-2 py-1">
+                            <i class="bi bi-eye-fill text-primary"></i>
+                        </a>
+                        <span class="border border-danger dt-trash rounded-3 d-inline-block" 
+                            onclick="deleteRefund('.$row->id.')"> 
+                            <i class="bi bi-trash-fill text-danger"></i>
+                        </span>
+                    ';
                 })
-                ->rawColumns(['action'])
                 ->make(true);
         }
+    }
+
+    public function show($id)
+    {
+        $refund = Refund::with('payment.user', 'payment.order', 'payment.gateway')->findOrFail($id);
+
+        return view('admin.refunds.show', compact('refund'));
     }
 
     public function destroy(Refund $refund)
