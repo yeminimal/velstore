@@ -83,6 +83,44 @@ return [
             'pending_orders' => '待处理订单',
             'completed_orders' => '已完成订单',
         ],
+        'pages' => [
+            'title' => '页面',
+            'add_new' => '新增',
+            'list' => '列表',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => '页面',
+        'choose_file' => '选择文件',
+
+        // Create Page
+        'create' => '创建页面',
+        'form_title' => '标题 (:code)',
+        'form_content' => '内容 (:code)',
+        'form_image' => '图片 (:code)',
+        'form_save' => '保存',
+
+        // Edit Page
+        'edit' => '编辑页面',
+        'form_update' => '更新',
+
+        // Pages Table
+        'table_title' => '标题',
+        'table_slug' => 'Slug',
+        'table_status' => '状态',
+        'table_actions' => '操作',
+
+        // Delete Modal
+        'delete_modal_title' => '确认删除',
+        'delete_modal_text' => '您确定要删除此页面吗？',
+        'delete_modal_cancel' => '取消',
+        'delete_modal_delete' => '删除',
+
+        // Toastr messages
+        'toastr_success' => '成功',
+        'toastr_error' => '删除页面时出错',
     ],
 
     'customers' => [

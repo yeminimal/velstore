@@ -82,6 +82,44 @@ return [
             'pending_orders' => 'In Behandeling',
             'completed_orders' => 'Voltooide Bestellingen',
         ],
+        'pages' => [
+            'title' => 'Pagina\'s',
+            'add_new' => 'Nieuw toevoegen',
+            'list' => 'Lijst',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Pagina\'s',
+        'choose_file' => 'Bestand kiezen',
+
+        // Create Page
+        'create' => 'Pagina maken',
+        'form_title' => 'Titel (:code)',
+        'form_content' => 'Inhoud (:code)',
+        'form_image' => 'Afbeelding (:code)',
+        'form_save' => 'Opslaan',
+
+        // Edit Page
+        'edit' => 'Pagina bewerken',
+        'form_update' => 'Bijwerken',
+
+        // Pages Table
+        'table_title' => 'Titel',
+        'table_slug' => 'Slug',
+        'table_status' => 'Status',
+        'table_actions' => 'Acties',
+
+        // Delete Modal
+        'delete_modal_title' => 'Verwijderen bevestigen',
+        'delete_modal_text' => 'Weet je zeker dat je deze pagina wilt verwijderen?',
+        'delete_modal_cancel' => 'Annuleren',
+        'delete_modal_delete' => 'Verwijderen',
+
+        // Toastr messages
+        'toastr_success' => 'Succes',
+        'toastr_error' => 'Fout bij het verwijderen van de pagina',
     ],
 
     'customers' => [

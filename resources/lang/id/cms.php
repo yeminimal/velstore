@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Pesanan Tertunda',
             'completed_orders' => 'Pesanan Selesai',
         ],
+        'pages' => [
+            'title' => 'Halaman',
+            'add_new' => 'Tambah Baru',
+            'list' => 'Daftar',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Halaman',
+        'choose_file' => 'Pilih File',
+
+        // Create Page
+        'create' => 'Buat Halaman',
+        'form_title' => 'Judul (:code)',
+        'form_content' => 'Konten (:code)',
+        'form_image' => 'Gambar (:code)',
+        'form_save' => 'Simpan',
+
+        // Edit Page
+        'edit' => 'Edit Halaman',
+        'form_update' => 'Perbarui',
+
+        // Pages Table
+        'table_title' => 'Judul',
+        'table_slug' => 'Slug',
+        'table_status' => 'Status',
+        'table_actions' => 'Aksi',
+
+        // Delete Modal
+        'delete_modal_title' => 'Konfirmasi Penghapusan',
+        'delete_modal_text' => 'Apakah Anda yakin ingin menghapus halaman ini?',
+        'delete_modal_cancel' => 'Batal',
+        'delete_modal_delete' => 'Hapus',
+
+        // Toastr messages
+        'toastr_success' => 'Sukses',
+        'toastr_error' => 'Gagal menghapus halaman',
     ],
 
     'customers' => [

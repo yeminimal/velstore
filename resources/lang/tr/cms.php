@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Bekleyen Siparişler',
             'completed_orders' => 'Tamamlanan Siparişler',
         ],
+        'pages' => [
+            'title' => 'Sayfalar',
+            'add_new' => 'Yeni Ekle',
+            'list' => 'Liste',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Sayfalar',
+        'choose_file' => 'Dosya Seç',
+
+        // Create Page
+        'create' => 'Sayfa Oluştur',
+        'form_title' => 'Başlık (:code)',
+        'form_content' => 'İçerik (:code)',
+        'form_image' => 'Resim (:code)',
+        'form_save' => 'Kaydet',
+
+        // Edit Page
+        'edit' => 'Sayfayı Düzenle',
+        'form_update' => 'Güncelle',
+
+        // Pages Table
+        'table_title' => 'Başlık',
+        'table_slug' => 'Slug',
+        'table_status' => 'Durum',
+        'table_actions' => 'İşlemler',
+
+        // Delete Modal
+        'delete_modal_title' => 'Silme Onayı',
+        'delete_modal_text' => 'Bu sayfayı silmek istediğinizden emin misiniz?',
+        'delete_modal_cancel' => 'İptal',
+        'delete_modal_delete' => 'Sil',
+
+        // Toastr messages
+        'toastr_success' => 'Başarılı',
+        'toastr_error' => 'Sayfa silinirken hata oluştu',
     ],
 
     'customers' => [

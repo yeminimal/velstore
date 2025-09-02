@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Pedidos pendientes',
             'completed_orders' => 'Pedidos completados',
         ],
+        'pages' => [
+            'title' => 'Páginas',
+            'add_new' => 'Agregar nuevo',
+            'list' => 'Lista',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Páginas',
+        'choose_file' => 'Elegir archivo',
+
+        // Create Page
+        'create' => 'Crear página',
+        'form_title' => 'Título (:code)',
+        'form_content' => 'Contenido (:code)',
+        'form_image' => 'Imagen (:code)',
+        'form_save' => 'Guardar',
+
+        // Edit Page
+        'edit' => 'Editar página',
+        'form_update' => 'Actualizar',
+
+        // Pages Table
+        'table_title' => 'Título',
+        'table_slug' => 'Slug',
+        'table_status' => 'Estado',
+        'table_actions' => 'Acciones',
+
+        // Delete Modal
+        'delete_modal_title' => 'Confirmar eliminación',
+        'delete_modal_text' => '¿Está seguro de que desea eliminar esta página?',
+        'delete_modal_cancel' => 'Cancelar',
+        'delete_modal_delete' => 'Eliminar',
+
+        // Toastr messages
+        'toastr_success' => 'Éxito',
+        'toastr_error' => 'Error al eliminar la página',
     ],
 
     'customers' => [

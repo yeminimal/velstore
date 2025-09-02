@@ -83,6 +83,44 @@ return [
             'pending_orders' => 'Oczekujące zamówienia',
             'completed_orders' => 'Zrealizowane zamówienia',
         ],
+        'pages' => [
+            'title' => 'Strony',
+            'add_new' => 'Dodaj nową',
+            'list' => 'Lista',
+        ],
+    ],
+
+    'pages' => [
+        // General
+        'title' => 'Strony',
+        'choose_file' => 'Wybierz plik',
+
+        // Create Page
+        'create' => 'Utwórz stronę',
+        'form_title' => 'Tytuł (:code)',
+        'form_content' => 'Treść (:code)',
+        'form_image' => 'Obraz (:code)',
+        'form_save' => 'Zapisz',
+
+        // Edit Page
+        'edit' => 'Edytuj stronę',
+        'form_update' => 'Aktualizuj',
+
+        // Pages Table
+        'table_title' => 'Tytuł',
+        'table_slug' => 'Slug',
+        'table_status' => 'Status',
+        'table_actions' => 'Akcje',
+
+        // Delete Modal
+        'delete_modal_title' => 'Potwierdź usunięcie',
+        'delete_modal_text' => 'Czy na pewno chcesz usunąć tę stronę?',
+        'delete_modal_cancel' => 'Anuluj',
+        'delete_modal_delete' => 'Usuń',
+
+        // Toastr messages
+        'toastr_success' => 'Sukces',
+        'toastr_error' => 'Błąd podczas usuwania strony',
     ],
 
     'customers' => [
