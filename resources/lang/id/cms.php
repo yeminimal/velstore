@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Pengembalian Dana',
+        'details_title' => 'Detail Pengembalian Dana',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pembayaran',
+        'amount' => 'Jumlah',
+        'status' => 'Status',
+        'reason' => 'Alasan',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'completed' => 'Selesai',
+        'pending' => 'Menunggu',
+        'failed' => 'Gagal',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus pengembalian dana ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Sukses',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus pengembalian dana!',
+
+        // Refund Details Page
+        'created_at' => 'Dibuat Pada',
+        'updated_at' => 'Diperbarui Pada',
+        'back' => 'Kembali ke Pengembalian Dana',
+
+        // Fallback
+        'not_available' => 'Tidak Tersedia',
+    ],
+
     'payments' => [
 
         // Page Titles

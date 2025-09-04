@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Возвраты',
+        'details_title' => 'Детали возврата',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Платёж',
+        'amount' => 'Сумма',
+        'status' => 'Статус',
+        'reason' => 'Причина',
+        'action' => 'Действие',
+
+        // Status Labels
+        'completed' => 'Завершено',
+        'pending' => 'В ожидании',
+        'failed' => 'Неудачно',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот возврат?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успех',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении возврата!',
+
+        // Refund Details Page
+        'created_at' => 'Создано',
+        'updated_at' => 'Обновлено',
+        'back' => 'Назад к возвратам',
+
+        // Fallback
+        'not_available' => 'Недоступно',
+    ],
+
     'payments' => [
 
         // Page Titles

@@ -103,6 +103,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Reembolsos',
+        'details_title' => 'Detalhes do Reembolso',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pagamento',
+        'amount' => 'Valor',
+        'status' => 'Status',
+        'reason' => 'Motivo',
+        'action' => 'Ação',
+
+        // Status Labels
+        'completed' => 'Concluído',
+        'pending' => 'Pendente',
+        'failed' => 'Falhou',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Exclusão',
+        'delete_message' => 'Tem certeza de que deseja excluir este reembolso?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Excluir',
+
+        // Alerts / Notifications
+        'success' => 'Sucesso',
+        'deleted' => 'Excluído',
+        'delete_error' => 'Erro ao excluir o reembolso!',
+
+        // Refund Details Page
+        'created_at' => 'Criado em',
+        'updated_at' => 'Atualizado em',
+        'back' => 'Voltar aos Reembolsos',
+
+        // Fallback
+        'not_available' => 'Indisponível',
+    ],
+
     'payments' => [
 
         // Page Titles

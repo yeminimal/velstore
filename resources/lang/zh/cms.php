@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => '退款',
+        'details_title' => '退款详情',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '支付',
+        'amount' => '金额',
+        'status' => '状态',
+        'reason' => '原因',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '已完成',
+        'pending' => '待处理',
+        'failed' => '失败',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此退款吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除退款时出错！',
+
+        // Refund Details Page
+        'created_at' => '创建时间',
+        'updated_at' => '更新时间',
+        'back' => '返回退款列表',
+
+        // Fallback
+        'not_available' => '不可用',
+    ],
+
     'payments' => [
 
         // Page Titles

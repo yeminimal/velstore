@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'การคืนเงิน',
+        'details_title' => 'รายละเอียดการคืนเงิน',
+
+        // Table Headings
+        'id' => 'รหัส',
+        'payment' => 'การชำระเงิน',
+        'amount' => 'จำนวนเงิน',
+        'status' => 'สถานะ',
+        'reason' => 'เหตุผล',
+        'action' => 'การกระทำ',
+
+        // Status Labels
+        'completed' => 'เสร็จสิ้น',
+        'pending' => 'รอดำเนินการ',
+        'failed' => 'ล้มเหลว',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบการคืนเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ถูกลบ',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบการคืนเงิน!',
+
+        // Refund Details Page
+        'created_at' => 'สร้างเมื่อ',
+        'updated_at' => 'อัปเดตเมื่อ',
+        'back' => 'กลับไปที่การคืนเงิน',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
+    ],
+
     'payments' => [
 
         // Page Titles

@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => '返金',
+        'details_title' => '返金の詳細',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '支払い',
+        'amount' => '金額',
+        'status' => 'ステータス',
+        'reason' => '理由',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '完了',
+        'pending' => '保留中',
+        'failed' => '失敗',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この返金を削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除済み',
+        'delete_error' => '返金の削除中にエラーが発生しました！',
+
+        // Refund Details Page
+        'created_at' => '作成日',
+        'updated_at' => '更新日',
+        'back' => '返金一覧に戻る',
+
+        // Fallback
+        'not_available' => '利用不可',
+    ],
+
     'payments' => [
 
         // Page Titles

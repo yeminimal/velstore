@@ -3,49 +3,51 @@
 @section('content')
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6 class="mb-0">Refund Details</h6>
+        <h6 class="mb-0">{{ __('cms.refunds.details_title') }}</h6>
     </div>
 
     <div class="card-body">
         <table class="table table-bordered">
             <tr>
-                <th>ID</th>
+                <th>{{ __('cms.refunds.id') }}</th>
                 <td>{{ $refund->id }}</td>
             </tr>
             <tr>
-                <th>Payment</th>
+                <th>{{ __('cms.refunds.payment') }}</th>
                 <td>
                     @if($refund->payment)
-                        Payment #{{ $refund->payment->id }} 
-                        (Amount: {{ $refund->payment->amount }} – Status: {{ $refund->payment->status }})
+                        {{ __('cms.refunds.payment') }} #{{ $refund->payment->id }} 
+                        ({{ __('cms.refunds.amount') }}: {{ $refund->payment->amount }} – {{ __('cms.refunds.status') }}: {{ $refund->payment->status }})
                     @else
-                        —
+                        {{ __('cms.refunds.not_available') }}
                     @endif
                 </td>
             </tr>
             <tr>
-                <th>Amount</th>
+                <th>{{ __('cms.refunds.amount') }}</th>
                 <td>{{ $refund->amount }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>{{ __('cms.refunds.status') }}</th>
                 <td>{{ $refund->status }}</td>
             </tr>
             <tr>
-                <th>Reason</th>
-                <td>{{ $refund->reason ?? '—' }}</td>
+                <th>{{ __('cms.refunds.reason') }}</th>
+                <td>{{ $refund->reason ?? __('cms.refunds.not_available') }}</td>
             </tr>
             <tr>
-                <th>Created At</th>
+                <th>{{ __('cms.refunds.created_at') }}</th>
                 <td>{{ $refund->created_at }}</td>
             </tr>
             <tr>
-                <th>Updated At</th>
+                <th>{{ __('cms.refunds.updated_at') }}</th>
                 <td>{{ $refund->updated_at }}</td>
             </tr>
         </table>
 
-        <a href="{{ route('admin.refunds.index') }}" class="btn btn-secondary mt-3">Back</a>
+        <a href="{{ route('admin.refunds.index') }}" class="btn btn-secondary mt-3">
+            {{ __('cms.refunds.back') }}
+        </a>
     </div>
 </div>
 @endsection

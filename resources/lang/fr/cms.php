@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Remboursements',
+        'details_title' => 'Détails du remboursement',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Paiement',
+        'amount' => 'Montant',
+        'status' => 'Statut',
+        'reason' => 'Raison',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Terminé',
+        'pending' => 'En attente',
+        'failed' => 'Échoué',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer ce remboursement ?',
+        'cancel' => 'Annuler',
+        'delete' => 'Supprimer',
+
+        // Alerts / Notifications
+        'success' => 'Succès',
+        'deleted' => 'Supprimé',
+        'delete_error' => 'Erreur lors de la suppression du remboursement !',
+
+        // Refund Details Page
+        'created_at' => 'Créé le',
+        'updated_at' => 'Mis à jour le',
+        'back' => 'Retour aux remboursements',
+
+        // Fallback
+        'not_available' => 'Non disponible',
+    ],
+
     'payments' => [
 
         // Page Titles

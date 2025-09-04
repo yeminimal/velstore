@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Refunds',
+        'details_title' => 'Refund Details',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Payment',
+        'amount' => 'Amount',
+        'status' => 'Status',
+        'reason' => 'Reason',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Completed',
+        'pending' => 'Pending',
+        'failed' => 'Failed',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this refund?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting refund!',
+
+        // Refund Details Page
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+        'back' => 'Back to Refunds',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'payments' => [
 
         // Page Titles

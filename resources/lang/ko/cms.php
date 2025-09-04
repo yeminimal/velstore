@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => '환불',
+        'details_title' => '환불 상세 정보',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '결제',
+        'amount' => '금액',
+        'status' => '상태',
+        'reason' => '사유',
+        'action' => '작업',
+
+        // Status Labels
+        'completed' => '완료',
+        'pending' => '대기 중',
+        'failed' => '실패',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 환불을 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '환불 삭제 중 오류 발생!',
+
+        // Refund Details Page
+        'created_at' => '생성일',
+        'updated_at' => '업데이트일',
+        'back' => '환불 목록으로 돌아가기',
+
+        // Fallback
+        'not_available' => '사용 불가',
+    ],
+
     'payments' => [
 
         // Page Titles

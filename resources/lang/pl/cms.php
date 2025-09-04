@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Zwroty',
+        'details_title' => 'Szczegóły zwrotu',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Płatność',
+        'amount' => 'Kwota',
+        'status' => 'Status',
+        'reason' => 'Powód',
+        'action' => 'Akcja',
+
+        // Status Labels
+        'completed' => 'Zakończono',
+        'pending' => 'Oczekujące',
+        'failed' => 'Niepowodzenie',
+
+        // Delete Modal
+        'delete_confirm' => 'Potwierdź usunięcie',
+        'delete_message' => 'Czy na pewno chcesz usunąć ten zwrot?',
+        'cancel' => 'Anuluj',
+        'delete' => 'Usuń',
+
+        // Alerts / Notifications
+        'success' => 'Sukces',
+        'deleted' => 'Usunięto',
+        'delete_error' => 'Błąd podczas usuwania zwrotu!',
+
+        // Refund Details Page
+        'created_at' => 'Utworzono',
+        'updated_at' => 'Zaktualizowano',
+        'back' => 'Powrót do zwrotów',
+
+        // Fallback
+        'not_available' => 'Niedostępne',
+    ],
+
     'payments' => [
 
         // Page Titles

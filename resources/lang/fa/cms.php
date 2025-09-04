@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'بازپرداخت‌ها',
+        'details_title' => 'جزئیات بازپرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'payment' => 'پرداخت',
+        'amount' => 'مبلغ',
+        'status' => 'وضعیت',
+        'reason' => 'دلیل',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'completed' => 'تکمیل شد',
+        'pending' => 'در انتظار',
+        'failed' => 'ناموفق',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا از حذف این بازپرداخت مطمئن هستید؟',
+        'cancel' => 'لغو',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف بازپرداخت!',
+
+        // Refund Details Page
+        'created_at' => 'تاریخ ایجاد',
+        'updated_at' => 'تاریخ بروزرسانی',
+        'back' => 'بازگشت به بازپرداخت‌ها',
+
+        // Fallback
+        'not_available' => 'موجود نیست',
+    ],
+
     'payments' => [
 
         // Page Titles

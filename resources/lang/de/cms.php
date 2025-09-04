@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Rückerstattungen',
+        'details_title' => 'Rückerstattungsdetails',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Zahlung',
+        'amount' => 'Betrag',
+        'status' => 'Status',
+        'reason' => 'Grund',
+        'action' => 'Aktion',
+
+        // Status Labels
+        'completed' => 'Abgeschlossen',
+        'pending' => 'Ausstehend',
+        'failed' => 'Fehlgeschlagen',
+
+        // Delete Modal
+        'delete_confirm' => 'Löschung bestätigen',
+        'delete_message' => 'Sind Sie sicher, dass Sie diese Rückerstattung löschen möchten?',
+        'cancel' => 'Abbrechen',
+        'delete' => 'Löschen',
+
+        // Alerts / Notifications
+        'success' => 'Erfolg',
+        'deleted' => 'Gelöscht',
+        'delete_error' => 'Fehler beim Löschen der Rückerstattung!',
+
+        // Refund Details Page
+        'created_at' => 'Erstellt am',
+        'updated_at' => 'Aktualisiert am',
+        'back' => 'Zurück zu Rückerstattungen',
+
+        // Fallback
+        'not_available' => 'Nicht verfügbar',
+    ],
+
     'payments' => [
 
         // Page Titles

@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Rimborsi',
+        'details_title' => 'Dettagli del Rimborso',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pagamento',
+        'amount' => 'Importo',
+        'status' => 'Stato',
+        'reason' => 'Motivo',
+        'action' => 'Azione',
+
+        // Status Labels
+        'completed' => 'Completato',
+        'pending' => 'In attesa',
+        'failed' => 'Fallito',
+
+        // Delete Modal
+        'delete_confirm' => 'Conferma eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questo rimborso?',
+        'cancel' => 'Annulla',
+        'delete' => 'Elimina',
+
+        // Alerts / Notifications
+        'success' => 'Successo',
+        'deleted' => 'Eliminato',
+        'delete_error' => 'Errore durante l\'eliminazione del rimborso!',
+
+        // Refund Details Page
+        'created_at' => 'Creato il',
+        'updated_at' => 'Aggiornato il',
+        'back' => 'Torna ai rimborsi',
+
+        // Fallback
+        'not_available' => 'Non disponibile',
+    ],
+
     'payments' => [
 
         // Page Titles

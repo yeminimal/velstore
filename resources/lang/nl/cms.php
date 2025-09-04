@@ -103,6 +103,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Terugbetalingen',
+        'details_title' => 'Terugbetalingsdetails',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Betaling',
+        'amount' => 'Bedrag',
+        'status' => 'Status',
+        'reason' => 'Reden',
+        'action' => 'Actie',
+
+        // Status Labels
+        'completed' => 'Voltooid',
+        'pending' => 'In afwachting',
+        'failed' => 'Mislukt',
+
+        // Delete Modal
+        'delete_confirm' => 'Bevestig verwijderen',
+        'delete_message' => 'Weet u zeker dat u deze terugbetaling wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van de terugbetaling!',
+
+        // Refund Details Page
+        'created_at' => 'Gemaakt op',
+        'updated_at' => 'Bijgewerkt op',
+        'back' => 'Terug naar terugbetalingen',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
+    ],
+
     'payments' => [
 
         // Page Titles

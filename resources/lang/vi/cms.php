@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Hoàn tiền',
+        'details_title' => 'Chi tiết hoàn tiền',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Thanh toán',
+        'amount' => 'Số tiền',
+        'status' => 'Trạng thái',
+        'reason' => 'Lý do',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'completed' => 'Hoàn tất',
+        'pending' => 'Đang chờ',
+        'failed' => 'Thất bại',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa khoản hoàn tiền này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa khoản hoàn tiền!',
+
+        // Refund Details Page
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
+        'back' => 'Quay lại danh sách hoàn tiền',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
+    ],
+
     'payments' => [
 
         // Page Titles

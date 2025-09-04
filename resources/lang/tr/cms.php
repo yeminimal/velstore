@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'İadeler',
+        'details_title' => 'İade Detayları',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Ödeme',
+        'amount' => 'Tutar',
+        'status' => 'Durum',
+        'reason' => 'Sebep',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'completed' => 'Tamamlandı',
+        'pending' => 'Beklemede',
+        'failed' => 'Başarısız',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu iadeyi silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'İade silinirken hata oluştu!',
+
+        // Refund Details Page
+        'created_at' => 'Oluşturulma Tarihi',
+        'updated_at' => 'Güncellenme Tarihi',
+        'back' => 'İadelere Geri Dön',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
+    ],
+
     'payments' => [
 
         // Page Titles

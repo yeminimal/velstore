@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'रिफंड',
+        'details_title' => 'रिफंड विवरण',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'payment' => 'भुगतान',
+        'amount' => 'राशि',
+        'status' => 'स्थिति',
+        'reason' => 'कारण',
+        'action' => 'क्रिया',
+
+        // Status Labels
+        'completed' => 'पूर्ण',
+        'pending' => 'प्रतीक्षारत',
+        'failed' => 'विफल',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस रिफंड को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएं',
+
+        // Alerts / Notifications
+        'success' => 'सफल',
+        'deleted' => 'हटाया गया',
+        'delete_error' => 'रिफंड हटाने में त्रुटि!',
+
+        // Refund Details Page
+        'created_at' => 'निर्मित दिनांक',
+        'updated_at' => 'अपडेट किया गया दिनांक',
+        'back' => 'रिफंड पर वापस जाएँ',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
+    ],
+
     'payments' => [
 
         // Page Titles

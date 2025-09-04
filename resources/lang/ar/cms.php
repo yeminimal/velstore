@@ -104,6 +104,45 @@ return [
         ],
     ],
 
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'المبالغ المستردة',
+        'details_title' => 'تفاصيل المبلغ المسترد',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'payment' => 'الدفع',
+        'amount' => 'المبلغ',
+        'status' => 'الحالة',
+        'reason' => 'السبب',
+        'action' => 'الإجراء',
+
+        // Status Labels
+        'completed' => 'مكتمل',
+        'pending' => 'قيد الانتظار',
+        'failed' => 'فشل',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد من حذف هذا المبلغ المسترد؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'نجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'حدث خطأ أثناء حذف المبلغ المسترد!',
+
+        // Refund Details Page
+        'created_at' => 'تاريخ الإنشاء',
+        'updated_at' => 'تاريخ التحديث',
+        'back' => 'العودة إلى المبالغ المستردة',
+
+        // Fallback
+        'not_available' => 'غير متوفر',
+    ],
+
     'payments' => [
 
         // Page Titles
