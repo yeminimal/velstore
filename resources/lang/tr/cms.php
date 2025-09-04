@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Ödemeler',
+        'details_title' => 'Ödeme Detayları',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Sipariş',
+        'user' => 'Kullanıcı',
+        'gateway' => 'Ödeme Geçidi',
+        'amount' => 'Tutar',
+        'status' => 'Durum',
+        'transaction' => 'İşlem',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'completed' => 'Tamamlandı',
+        'pending' => 'Beklemede',
+        'failed' => 'Başarısız',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu ödemeyi silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'Ödeme silinirken hata oluştu!',
+
+        // Payment Details Page
+        'transaction_id' => 'İşlem ID',
+        'created_at' => 'Oluşturulma Tarihi',
+        'back' => 'Ödeme Listesine Dön',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
+    ],
+
     'pages' => [
         // General
         'title' => 'Sayfalar',

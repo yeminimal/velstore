@@ -103,6 +103,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Betalingen',
+        'details_title' => 'Betalingsgegevens',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Bestelling',
+        'user' => 'Gebruiker',
+        'gateway' => 'Betaalgateway',
+        'amount' => 'Bedrag',
+        'status' => 'Status',
+        'transaction' => 'Transactie',
+        'action' => 'Actie',
+
+        // Status Labels
+        'completed' => 'Voltooid',
+        'pending' => 'In afwachting',
+        'failed' => 'Mislukt',
+
+        // Delete Modal
+        'delete_confirm' => 'Verwijderen bevestigen',
+        'delete_message' => 'Weet u zeker dat u deze betaling wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van betaling!',
+
+        // Payment Details Page
+        'transaction_id' => 'Transactie-ID',
+        'created_at' => 'Aangemaakt op',
+        'back' => 'Terug naar Betalingen',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
+    ],
+
     'pages' => [
         // General
         'title' => 'Pagina\'s',

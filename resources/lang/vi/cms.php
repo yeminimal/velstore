@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Thanh toán',
+        'details_title' => 'Chi tiết thanh toán',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Đơn hàng',
+        'user' => 'Người dùng',
+        'gateway' => 'Cổng thanh toán',
+        'amount' => 'Số tiền',
+        'status' => 'Trạng thái',
+        'transaction' => 'Giao dịch',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'completed' => 'Hoàn tất',
+        'pending' => 'Đang chờ',
+        'failed' => 'Thất bại',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa thanh toán này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa thanh toán!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID giao dịch',
+        'created_at' => 'Ngày tạo',
+        'back' => 'Quay lại Thanh toán',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
+    ],
+
     'pages' => [
         // General
         'title' => 'Trang',

@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'پرداخت‌ها',
+        'details_title' => 'جزئیات پرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'order' => 'سفارش',
+        'user' => 'کاربر',
+        'gateway' => 'درگاه پرداخت',
+        'amount' => 'مبلغ',
+        'status' => 'وضعیت',
+        'transaction' => 'تراکنش',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'completed' => 'تکمیل شده',
+        'pending' => 'در انتظار',
+        'failed' => 'ناموفق',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این پرداخت را حذف کنید؟',
+        'cancel' => 'انصراف',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف پرداخت!',
+
+        // Payment Details Page
+        'transaction_id' => 'شناسه تراکنش',
+        'created_at' => 'تاریخ ایجاد',
+        'back' => 'بازگشت به پرداخت‌ها',
+
+        // Fallback
+        'not_available' => 'ناموجود',
+    ],
+
     'pages' => [
         // General
         'title' => 'صفحات',

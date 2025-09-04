@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'การชำระเงิน',
+        'details_title' => 'รายละเอียดการชำระเงิน',
+
+        // Table Headings
+        'id' => 'รหัส',
+        'order' => 'คำสั่งซื้อ',
+        'user' => 'ผู้ใช้',
+        'gateway' => 'ช่องทางการชำระเงิน',
+        'amount' => 'จำนวนเงิน',
+        'status' => 'สถานะ',
+        'transaction' => 'ธุรกรรม',
+        'action' => 'การดำเนินการ',
+
+        // Status Labels
+        'completed' => 'เสร็จสมบูรณ์',
+        'pending' => 'รอดำเนินการ',
+        'failed' => 'ล้มเหลว',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบการชำระเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ถูกลบ',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบการชำระเงิน!',
+
+        // Payment Details Page
+        'transaction_id' => 'รหัสธุรกรรม',
+        'created_at' => 'วันที่สร้าง',
+        'back' => 'กลับไปยังการชำระเงิน',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
+    ],
+
     'pages' => [
         // General
         'title' => 'หน้าต่างๆ',

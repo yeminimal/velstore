@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'भुगतान',
+        'details_title' => 'भुगतान विवरण',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'order' => 'आर्डर',
+        'user' => 'उपयोगकर्ता',
+        'gateway' => 'पेमेंट गेटवे',
+        'amount' => 'राशि',
+        'status' => 'स्थिति',
+        'transaction' => 'लेन-देन',
+        'action' => 'क्रिया',
+
+        // Status Labels
+        'completed' => 'पूर्ण',
+        'pending' => 'लंबित',
+        'failed' => 'असफल',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस भुगतान को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएँ',
+
+        // Alerts / Notifications
+        'success' => 'सफलता',
+        'deleted' => 'हटा दिया गया',
+        'delete_error' => 'भुगतान हटाने में त्रुटि!',
+
+        // Payment Details Page
+        'transaction_id' => 'लेन-देन आईडी',
+        'created_at' => 'बनाने की तिथि',
+        'back' => 'भुगतान पर वापस जाएँ',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
+    ],
+
     'pages' => [
         // General
         'title' => 'पृष्ठ',

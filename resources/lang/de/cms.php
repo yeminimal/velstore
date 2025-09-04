@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Zahlungen',
+        'details_title' => 'Zahlungsdetails',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Bestellung',
+        'user' => 'Benutzer',
+        'gateway' => 'Zahlungsart',
+        'amount' => 'Betrag',
+        'status' => 'Status',
+        'transaction' => 'Transaktion',
+        'action' => 'Aktion',
+
+        // Status Labels
+        'completed' => 'Abgeschlossen',
+        'pending' => 'Ausstehend',
+        'failed' => 'Fehlgeschlagen',
+
+        // Delete Modal
+        'delete_confirm' => 'Löschen bestätigen',
+        'delete_message' => 'Sind Sie sicher, dass Sie diese Zahlung löschen möchten?',
+        'cancel' => 'Abbrechen',
+        'delete' => 'Löschen',
+
+        // Alerts / Notifications
+        'success' => 'Erfolg',
+        'deleted' => 'Gelöscht',
+        'delete_error' => 'Fehler beim Löschen der Zahlung!',
+
+        // Payment Details Page
+        'transaction_id' => 'Transaktions-ID',
+        'created_at' => 'Erstellt am',
+        'back' => 'Zurück zu den Zahlungen',
+
+        // Fallback
+        'not_available' => 'Nicht verfügbar',
+    ],
+
     'pages' => [
         // General
         'title' => 'Seiten',

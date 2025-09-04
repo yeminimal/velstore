@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => '付款',
+        'details_title' => '付款详情',
+
+        // Table Headings
+        'id' => '编号',
+        'order' => '订单',
+        'user' => '用户',
+        'gateway' => '支付网关',
+        'amount' => '金额',
+        'status' => '状态',
+        'transaction' => '交易',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '已完成',
+        'pending' => '待处理',
+        'failed' => '失败',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此付款吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除付款时出错！',
+
+        // Payment Details Page
+        'transaction_id' => '交易编号',
+        'created_at' => '创建时间',
+        'back' => '返回付款列表',
+
+        // Fallback
+        'not_available' => '不可用',
+    ],
+
     'pages' => [
         // General
         'title' => '页面',

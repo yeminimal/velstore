@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => '支払い',
+        'details_title' => '支払いの詳細',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => '注文',
+        'user' => 'ユーザー',
+        'gateway' => '決済ゲートウェイ',
+        'amount' => '金額',
+        'status' => 'ステータス',
+        'transaction' => '取引',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '完了',
+        'pending' => '保留中',
+        'failed' => '失敗',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この支払いを削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除されました',
+        'delete_error' => '支払いの削除中にエラーが発生しました！',
+
+        // Payment Details Page
+        'transaction_id' => '取引ID',
+        'created_at' => '作成日時',
+        'back' => '支払い一覧に戻る',
+
+        // Fallback
+        'not_available' => '利用不可',
+    ],
+
     'pages' => [
         // General
         'title' => 'ページ',

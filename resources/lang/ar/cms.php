@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'المدفوعات',
+        'details_title' => 'تفاصيل الدفع',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'order' => 'الطلب',
+        'user' => 'المستخدم',
+        'gateway' => 'بوابة الدفع',
+        'amount' => 'المبلغ',
+        'status' => 'الحالة',
+        'transaction' => 'المعاملة',
+        'action' => 'الإجراء',
+
+        // Status Labels
+        'completed' => 'مكتمل',
+        'pending' => 'قيد الانتظار',
+        'failed' => 'فشل',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد أنك تريد حذف هذا الدفع؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'نجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'حدث خطأ أثناء حذف الدفع!',
+
+        // Payment Details Page
+        'transaction_id' => 'معرّف المعاملة',
+        'created_at' => 'تاريخ الإنشاء',
+        'back' => 'العودة إلى المدفوعات',
+
+        // Fallback
+        'not_available' => 'غير متوفر',
+    ],
+
     'pages' => [
         // General
         'title' => 'الصفحات',

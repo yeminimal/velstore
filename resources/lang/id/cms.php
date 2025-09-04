@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Pembayaran',
+        'details_title' => 'Detail Pembayaran',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Pesanan',
+        'user' => 'Pengguna',
+        'gateway' => 'Gateway Pembayaran',
+        'amount' => 'Jumlah',
+        'status' => 'Status',
+        'transaction' => 'Transaksi',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'completed' => 'Selesai',
+        'pending' => 'Tertunda',
+        'failed' => 'Gagal',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus pembayaran ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Berhasil',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus pembayaran!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID Transaksi',
+        'created_at' => 'Tanggal Dibuat',
+        'back' => 'Kembali ke Pembayaran',
+
+        // Fallback
+        'not_available' => 'Tidak tersedia',
+    ],
+
     'pages' => [
         // General
         'title' => 'Halaman',

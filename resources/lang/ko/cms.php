@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => '결제',
+        'details_title' => '결제 상세',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => '주문',
+        'user' => '사용자',
+        'gateway' => '결제 게이트웨이',
+        'amount' => '금액',
+        'status' => '상태',
+        'transaction' => '거래',
+        'action' => '작업',
+
+        // Status Labels
+        'completed' => '완료',
+        'pending' => '대기 중',
+        'failed' => '실패',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 결제를 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '결제 삭제 중 오류 발생!',
+
+        // Payment Details Page
+        'transaction_id' => '거래 ID',
+        'created_at' => '생성일',
+        'back' => '결제 목록으로 돌아가기',
+
+        // Fallback
+        'not_available' => '사용 불가',
+    ],
+
     'pages' => [
         // General
         'title' => '페이지',

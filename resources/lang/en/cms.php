@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Payments',
+        'details_title' => 'Payment Details',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Order',
+        'user' => 'User',
+        'gateway' => 'Gateway',
+        'amount' => 'Amount',
+        'status' => 'Status',
+        'transaction' => 'Transaction',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Completed',
+        'pending' => 'Pending',
+        'failed' => 'Failed',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this payment?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting payment!',
+
+        // Payment Details Page
+        'transaction_id' => 'Transaction ID',
+        'created_at' => 'Created At',
+        'back' => 'Back to Payments',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'pages' => [
         // General
         'title' => 'Pages',

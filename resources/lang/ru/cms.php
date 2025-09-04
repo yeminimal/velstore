@@ -104,6 +104,47 @@ return [
         ],
     ],
 
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Платежи',
+        'details_title' => 'Детали платежа',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Заказ',
+        'user' => 'Пользователь',
+        'gateway' => 'Платежный шлюз',
+        'amount' => 'Сумма',
+        'status' => 'Статус',
+        'transaction' => 'Транзакция',
+        'action' => 'Действие',
+
+        // Status Labels
+        'completed' => 'Завершено',
+        'pending' => 'В ожидании',
+        'failed' => 'Неудачно',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот платеж?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успешно',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении платежа!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID транзакции',
+        'created_at' => 'Дата создания',
+        'back' => 'Вернуться к платежам',
+
+        // Fallback
+        'not_available' => 'Недоступно',
+    ],
+
     'pages' => [
         // General
         'title' => 'Страницы',
