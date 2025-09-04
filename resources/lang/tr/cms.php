@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Ödeme Ağ Geçitleri',
+        'edit_title' => 'Ödeme Ağ Geçidini Düzenle',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Ad',
+        'code' => 'Kod',
+        'status' => 'Durum',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'active' => 'Aktif',
+        'inactive' => 'Pasif',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu ödeme ağ geçidini silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'Ödeme ağ geçidi silinirken hata oluştu!',
+
+        // Form Labels
+        'gateway_name' => 'Ağ Geçidi Adı',
+        'description' => 'Açıklama',
+        'active_label' => 'Aktif',
+        'configurations' => 'Ağ Geçidi Yapılandırmaları',
+        'key_name' => 'Anahtar Adı',
+        'key_value' => 'Anahtar Değeri',
+        'environment' => 'Ortam',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Şifreli',
+        'unique' => 'Benzersiz',
+        'update_button' => 'Güncelle',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
+    ],
+
     'refunds' => [
 
         // Page Titles

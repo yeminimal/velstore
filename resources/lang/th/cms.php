@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'เกตเวย์การชำระเงิน',
+        'edit_title' => 'แก้ไขเกตเวย์การชำระเงิน',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'ชื่อ',
+        'code' => 'รหัส',
+        'status' => 'สถานะ',
+        'action' => 'การกระทำ',
+
+        // Status Labels
+        'active' => 'ใช้งาน',
+        'inactive' => 'ไม่ใช้งาน',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบเกตเวย์การชำระเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ลบแล้ว',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบเกตเวย์การชำระเงิน!',
+
+        // Form Labels
+        'gateway_name' => 'ชื่อเกตเวย์',
+        'description' => 'คำอธิบาย',
+        'active_label' => 'ใช้งาน',
+        'configurations' => 'การตั้งค่าเกตเวย์',
+        'key_name' => 'ชื่อคีย์',
+        'key_value' => 'ค่าคีย์',
+        'environment' => 'สภาพแวดล้อม',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'เข้ารหัส',
+        'unique' => 'ไม่ซ้ำ',
+        'update_button' => 'อัปเดต',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
+    ],
+
     'refunds' => [
 
         // Page Titles

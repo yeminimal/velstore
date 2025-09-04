@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Платёжные шлюзы',
+        'edit_title' => 'Редактировать платёжный шлюз',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Название',
+        'code' => 'Код',
+        'status' => 'Статус',
+        'action' => 'Действие',
+
+        // Status Labels
+        'active' => 'Активен',
+        'inactive' => 'Неактивен',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот платёжный шлюз?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успех',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении платёжного шлюза!',
+
+        // Form Labels
+        'gateway_name' => 'Название шлюза',
+        'description' => 'Описание',
+        'active_label' => 'Активен',
+        'configurations' => 'Настройки шлюза',
+        'key_name' => 'Имя ключа',
+        'key_value' => 'Значение ключа',
+        'environment' => 'Окружение',
+        'sandbox' => 'Песочница',
+        'production' => 'Продакшн',
+        'encrypted' => 'Зашифровано',
+        'unique' => 'Уникальный',
+        'update_button' => 'Обновить',
+
+        // Fallback
+        'not_available' => 'Н/Д',
+    ],
+
     'refunds' => [
 
         // Page Titles

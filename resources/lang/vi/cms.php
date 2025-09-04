@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Cổng thanh toán',
+        'edit_title' => 'Chỉnh sửa cổng thanh toán',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Tên',
+        'code' => 'Mã',
+        'status' => 'Trạng thái',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'active' => 'Hoạt động',
+        'inactive' => 'Không hoạt động',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa cổng thanh toán này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa cổng thanh toán!',
+
+        // Form Labels
+        'gateway_name' => 'Tên cổng',
+        'description' => 'Mô tả',
+        'active_label' => 'Hoạt động',
+        'configurations' => 'Cấu hình cổng',
+        'key_name' => 'Tên khóa',
+        'key_value' => 'Giá trị khóa',
+        'environment' => 'Môi trường',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Đã mã hóa',
+        'unique' => 'Độc nhất',
+        'update_button' => 'Cập nhật',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
+    ],
+
     'refunds' => [
 
         // Page Titles

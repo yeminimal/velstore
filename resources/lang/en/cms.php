@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Payment Gateways',
+        'edit_title' => 'Edit Payment Gateway',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Name',
+        'code' => 'Code',
+        'status' => 'Status',
+        'action' => 'Action',
+
+        // Status Labels
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this payment gateway?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting payment gateway!',
+
+        // Form Labels
+        'gateway_name' => 'Gateway Name',
+        'description' => 'Description',
+        'active_label' => 'Active',
+        'configurations' => 'Gateway Configurations',
+        'key_name' => 'Key Name',
+        'key_value' => 'Key Value',
+        'environment' => 'Environment',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Encrypted',
+        'unique' => 'unique',
+        'update_button' => 'Update',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'refunds' => [
 
         // Page Titles

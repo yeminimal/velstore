@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'درگاه‌های پرداخت',
+        'edit_title' => 'ویرایش درگاه پرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'code' => 'کد',
+        'status' => 'وضعیت',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'active' => 'فعال',
+        'inactive' => 'غیرفعال',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این درگاه پرداخت را حذف کنید؟',
+        'cancel' => 'لغو',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف درگاه پرداخت!',
+
+        // Form Labels
+        'gateway_name' => 'نام درگاه',
+        'description' => 'توضیحات',
+        'active_label' => 'فعال',
+        'configurations' => 'تنظیمات درگاه',
+        'key_name' => 'نام کلید',
+        'key_value' => 'مقدار کلید',
+        'environment' => 'محیط',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'رمزگذاری شده',
+        'unique' => 'منحصر به فرد',
+        'update_button' => 'به‌روزرسانی',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'refunds' => [
 
         // Page Titles

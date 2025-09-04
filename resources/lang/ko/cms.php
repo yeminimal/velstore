@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '결제 게이트웨이',
+        'edit_title' => '결제 게이트웨이 편집',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '이름',
+        'code' => '코드',
+        'status' => '상태',
+        'action' => '작업',
+
+        // Status Labels
+        'active' => '활성',
+        'inactive' => '비활성',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 결제 게이트웨이를 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '결제 게이트웨이 삭제 중 오류 발생!',
+
+        // Form Labels
+        'gateway_name' => '게이트웨이 이름',
+        'description' => '설명',
+        'active_label' => '활성',
+        'configurations' => '게이트웨이 구성',
+        'key_name' => '키 이름',
+        'key_value' => '키 값',
+        'environment' => '환경',
+        'sandbox' => '샌드박스',
+        'production' => '운영',
+        'encrypted' => '암호화됨',
+        'unique' => '고유',
+        'update_button' => '업데이트',
+
+        // Fallback
+        'not_available' => '사용 불가',
+    ],
+
     'refunds' => [
 
         // Page Titles

@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '決済ゲートウェイ',
+        'edit_title' => '決済ゲートウェイの編集',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '名前',
+        'code' => 'コード',
+        'status' => 'ステータス',
+        'action' => '操作',
+
+        // Status Labels
+        'active' => '有効',
+        'inactive' => '無効',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この決済ゲートウェイを削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除されました',
+        'delete_error' => '決済ゲートウェイの削除中にエラーが発生しました！',
+
+        // Form Labels
+        'gateway_name' => 'ゲートウェイ名',
+        'description' => '説明',
+        'active_label' => '有効',
+        'configurations' => 'ゲートウェイ設定',
+        'key_name' => 'キー名',
+        'key_value' => 'キー値',
+        'environment' => '環境',
+        'sandbox' => 'サンドボックス',
+        'production' => '本番',
+        'encrypted' => '暗号化',
+        'unique' => '一意',
+        'update_button' => '更新',
+
+        // Fallback
+        'not_available' => '該当なし',
+    ],
+
     'refunds' => [
 
         // Page Titles

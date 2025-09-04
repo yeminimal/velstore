@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Bramki Płatności',
+        'edit_title' => 'Edytuj Bramkę Płatności',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nazwa',
+        'code' => 'Kod',
+        'status' => 'Status',
+        'action' => 'Akcja',
+
+        // Status Labels
+        'active' => 'Aktywna',
+        'inactive' => 'Nieaktywna',
+
+        // Delete Modal
+        'delete_confirm' => 'Potwierdź Usunięcie',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę bramkę płatności?',
+        'cancel' => 'Anuluj',
+        'delete' => 'Usuń',
+
+        // Alerts / Notifications
+        'success' => 'Sukces',
+        'deleted' => 'Usunięto',
+        'delete_error' => 'Błąd podczas usuwania bramki płatności!',
+
+        // Form Labels
+        'gateway_name' => 'Nazwa Bramki',
+        'description' => 'Opis',
+        'active_label' => 'Aktywna',
+        'configurations' => 'Konfiguracje Bramki',
+        'key_name' => 'Nazwa Klucza',
+        'key_value' => 'Wartość Klucza',
+        'environment' => 'Środowisko',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produkcja',
+        'encrypted' => 'Zaszyfrowany',
+        'unique' => 'Unikalny',
+        'update_button' => 'Aktualizuj',
+
+        // Fallback
+        'not_available' => 'Niedostępne',
+    ],
+
     'refunds' => [
 
         // Page Titles

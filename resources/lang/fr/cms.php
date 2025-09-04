@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Passerelles de paiement',
+        'edit_title' => 'Modifier la passerelle de paiement',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nom',
+        'code' => 'Code',
+        'status' => 'Statut',
+        'action' => 'Action',
+
+        // Status Labels
+        'active' => 'Actif',
+        'inactive' => 'Inactif',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer cette passerelle de paiement ?',
+        'cancel' => 'Annuler',
+        'delete' => 'Supprimer',
+
+        // Alerts / Notifications
+        'success' => 'Succès',
+        'deleted' => 'Supprimé',
+        'delete_error' => 'Erreur lors de la suppression de la passerelle de paiement !',
+
+        // Form Labels
+        'gateway_name' => 'Nom de la passerelle',
+        'description' => 'Description',
+        'active_label' => 'Actif',
+        'configurations' => 'Configurations de la passerelle',
+        'key_name' => 'Nom de la clé',
+        'key_value' => 'Valeur de la clé',
+        'environment' => 'Environnement',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Crypté',
+        'unique' => 'Unique',
+        'update_button' => 'Mettre à jour',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'refunds' => [
 
         // Page Titles

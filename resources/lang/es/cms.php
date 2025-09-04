@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Pasarelas de Pago',
+        'edit_title' => 'Editar Pasarela de Pago',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'code' => 'Código',
+        'status' => 'Estado',
+        'action' => 'Acción',
+
+        // Status Labels
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar esta pasarela de pago?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Eliminar',
+
+        // Alerts / Notifications
+        'success' => 'Éxito',
+        'deleted' => 'Eliminado',
+        'delete_error' => 'Error al eliminar la pasarela de pago!',
+
+        // Form Labels
+        'gateway_name' => 'Nombre de la Pasarela',
+        'description' => 'Descripción',
+        'active_label' => 'Activo',
+        'configurations' => 'Configuraciones de la Pasarela',
+        'key_name' => 'Nombre de Clave',
+        'key_value' => 'Valor de Clave',
+        'environment' => 'Entorno',
+        'sandbox' => 'Sandbox',
+        'production' => 'Producción',
+        'encrypted' => 'Encriptado',
+        'unique' => 'Único',
+        'update_button' => 'Actualizar',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
     'refunds' => [
 
         // Page Titles

@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'بوابات الدفع',
+        'edit_title' => 'تعديل بوابة الدفع',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'code' => 'الرمز',
+        'status' => 'الحالة',
+        'action' => 'إجراء',
+
+        // Status Labels
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد أنك تريد حذف بوابة الدفع هذه؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'تم بنجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'خطأ في حذف بوابة الدفع!',
+
+        // Form Labels
+        'gateway_name' => 'اسم البوابة',
+        'description' => 'الوصف',
+        'active_label' => 'نشط',
+        'configurations' => 'إعدادات البوابة',
+        'key_name' => 'اسم المفتاح',
+        'key_value' => 'قيمة المفتاح',
+        'environment' => 'البيئة',
+        'sandbox' => 'صندوق الاختبار',
+        'production' => 'الإنتاج',
+        'encrypted' => 'مشفر',
+        'unique' => 'فريد',
+        'update_button' => 'تحديث',
+
+        // Fallback
+        'not_available' => 'غير متاح',
+    ],
+
     'refunds' => [
 
         // Page Titles

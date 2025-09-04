@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'भुगतान गेटवे',
+        'edit_title' => 'भुगतान गेटवे संपादित करें',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'name' => 'नाम',
+        'code' => 'कोड',
+        'status' => 'स्थिति',
+        'action' => 'कार्रवाई',
+
+        // Status Labels
+        'active' => 'सक्रिय',
+        'inactive' => 'निष्क्रिय',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस भुगतान गेटवे को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएँ',
+
+        // Alerts / Notifications
+        'success' => 'सफल',
+        'deleted' => 'हटाया गया',
+        'delete_error' => 'भुगतान गेटवे हटाने में त्रुटि!',
+
+        // Form Labels
+        'gateway_name' => 'गेटवे का नाम',
+        'description' => 'विवरण',
+        'active_label' => 'सक्रिय',
+        'configurations' => 'गेटवे कॉन्फ़िगरेशन',
+        'key_name' => 'कुंजी नाम',
+        'key_value' => 'कुंजी मान',
+        'environment' => 'पर्यावरण',
+        'sandbox' => 'सैंडबॉक्स',
+        'production' => 'उत्पादन',
+        'encrypted' => 'एन्क्रिप्टेड',
+        'unique' => 'अद्वितीय',
+        'update_button' => 'अद्यतन करें',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
+    ],
+
     'refunds' => [
 
         // Page Titles

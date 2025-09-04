@@ -7,18 +7,18 @@
 @section('content')
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6 class="d-flex align-items-center mb-0 dt-heading">Payment Gateways</h6>
+        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.payment_gateways.title') }}</h6>
     </div>
 
     <div class="card-body">
         <table id="gateways-table" class="table table-bordered mt-4 dt-style">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>{{ __('cms.payment_gateways.id') }}</th>
+                    <th>{{ __('cms.payment_gateways.name') }}</th>
+                    <th>{{ __('cms.payment_gateways.code') }}</th>
+                    <th>{{ __('cms.payment_gateways.status') }}</th>
+                    <th>{{ __('cms.payment_gateways.action') }}</th>
                 </tr>
             </thead>
         </table>
@@ -30,13 +30,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Confirm Delete</h5>
+        <h5 class="modal-title">{{ __('cms.payment_gateways.delete_confirm') }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">Are you sure you want to delete this payment gateway?</div>
+      <div class="modal-body">{{ __('cms.payment_gateways.delete_message') }}</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteGateway">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.payment_gateways.cancel') }}</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteGateway">{{ __('cms.payment_gateways.delete') }}</button>
       </div>
     </div>
   </div>
@@ -46,17 +46,41 @@
 @section('js')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
+@php
+    $datatableLang = __('cms.datatables'); 
+@endphp
+
+@if (session('success'))
+<script>
+    toastr.success("{{ session('success') }}", "{{ __('cms.payment_gateways.success') }}", {
+        closeButton: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        timeOut: 5000
+    });
+</script>
+@endif
+
 <script>
 $(document).ready(function() {
     $('#gateways-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: "{{ route('admin.payment-gateways.getData') }}",
+        language: @json($datatableLang),
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'code', name: 'code' },
-            { data: 'status', name: 'is_active', orderable: false, searchable: false },
+            { 
+                data: 'status', 
+                name: 'is_active', 
+                orderable: false, 
+                searchable: false,
+                render: function(data, type, row) {
+                    return data ? "{{ __('cms.payment_gateways.active') }}" : "{{ __('cms.payment_gateways.inactive') }}";
+                }
+            },
             {
                 data: 'action',
                 orderable: false,

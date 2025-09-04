@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Gateway Pembayaran',
+        'edit_title' => 'Sunting Gateway Pembayaran',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nama',
+        'code' => 'Kode',
+        'status' => 'Status',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'active' => 'Aktif',
+        'inactive' => 'Nonaktif',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus gateway pembayaran ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Sukses',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus gateway pembayaran!',
+
+        // Form Labels
+        'gateway_name' => 'Nama Gateway',
+        'description' => 'Deskripsi',
+        'active_label' => 'Aktif',
+        'configurations' => 'Konfigurasi Gateway',
+        'key_name' => 'Nama Kunci',
+        'key_value' => 'Nilai Kunci',
+        'environment' => 'Lingkungan',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produksi',
+        'encrypted' => 'Terenkripsi',
+        'unique' => 'Unik',
+        'update_button' => 'Perbarui',
+
+        // Fallback
+        'not_available' => 'Tidak Tersedia',
+    ],
+
     'refunds' => [
 
         // Page Titles

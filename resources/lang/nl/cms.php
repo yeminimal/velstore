@@ -103,6 +103,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Betaalgateways',
+        'edit_title' => 'Betaalgateway bewerken',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Naam',
+        'code' => 'Code',
+        'status' => 'Status',
+        'action' => 'Actie',
+
+        // Status Labels
+        'active' => 'Actief',
+        'inactive' => 'Inactief',
+
+        // Delete Modal
+        'delete_confirm' => 'Bevestig verwijderen',
+        'delete_message' => 'Weet u zeker dat u deze betaalgateway wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van de betaalgateway!',
+
+        // Form Labels
+        'gateway_name' => 'Gateway Naam',
+        'description' => 'Beschrijving',
+        'active_label' => 'Actief',
+        'configurations' => 'Gateway Configuraties',
+        'key_name' => 'Sleutel Naam',
+        'key_value' => 'Sleutel Waarde',
+        'environment' => 'Omgeving',
+        'sandbox' => 'Sandbox',
+        'production' => 'Productie',
+        'encrypted' => 'Versleuteld',
+        'unique' => 'Uniek',
+        'update_button' => 'Bijwerken',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
+    ],
+
     'refunds' => [
 
         // Page Titles

@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '支付网关',
+        'edit_title' => '编辑支付网关',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '名称',
+        'code' => '代码',
+        'status' => '状态',
+        'action' => '操作',
+
+        // Status Labels
+        'active' => '激活',
+        'inactive' => '未激活',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此支付网关吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除支付网关时出错！',
+
+        // Form Labels
+        'gateway_name' => '网关名称',
+        'description' => '描述',
+        'active_label' => '激活',
+        'configurations' => '网关配置',
+        'key_name' => '键名',
+        'key_value' => '键值',
+        'environment' => '环境',
+        'sandbox' => '沙盒',
+        'production' => '生产',
+        'encrypted' => '已加密',
+        'unique' => '唯一',
+        'update_button' => '更新',
+
+        // Fallback
+        'not_available' => '不可用',
+    ],
+
     'refunds' => [
 
         // Page Titles

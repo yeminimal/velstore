@@ -104,6 +104,52 @@ return [
         ],
     ],
 
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Gateway di Pagamento',
+        'edit_title' => 'Modifica Gateway di Pagamento',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nome',
+        'code' => 'Codice',
+        'status' => 'Stato',
+        'action' => 'Azione',
+
+        // Status Labels
+        'active' => 'Attivo',
+        'inactive' => 'Inattivo',
+
+        // Delete Modal
+        'delete_confirm' => 'Conferma Eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questo gateway di pagamento?',
+        'cancel' => 'Annulla',
+        'delete' => 'Elimina',
+
+        // Alerts / Notifications
+        'success' => 'Successo',
+        'deleted' => 'Eliminato',
+        'delete_error' => 'Errore durante l\'eliminazione del gateway di pagamento!',
+
+        // Form Labels
+        'gateway_name' => 'Nome Gateway',
+        'description' => 'Descrizione',
+        'active_label' => 'Attivo',
+        'configurations' => 'Configurazioni Gateway',
+        'key_name' => 'Nome Chiave',
+        'key_value' => 'Valore Chiave',
+        'environment' => 'Ambiente',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produzione',
+        'encrypted' => 'Cifrato',
+        'unique' => 'Unico',
+        'update_button' => 'Aggiorna',
+
+        // Fallback
+        'not_available' => 'N/D',
+    ],
+
     'refunds' => [
 
         // Page Titles
