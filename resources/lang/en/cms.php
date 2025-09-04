@@ -88,6 +88,20 @@ return [
             'add_new' => 'Add New',
             'list' => 'List',
         ],
+        'payments' => [
+            'title' => 'Payments',
+            'list' => 'List',
+        ],
+
+        'refunds' => [
+            'title' => 'Refunds',
+            'list' => 'List',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Payment Gateways',
+            'list' => 'List',
+        ],
     ],
 
     'pages' => [

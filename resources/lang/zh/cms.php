@@ -88,6 +88,20 @@ return [
             'add_new' => '新增',
             'list' => '列表',
         ],
+        'payments' => [
+            'title' => '支付',
+            'list' => '列表',
+        ],
+
+        'refunds' => [
+            'title' => '退款',
+            'list' => '列表',
+        ],
+
+        'payment_gateways' => [
+            'title' => '支付网关',
+            'list' => '列表',
+        ],
     ],
 
     'pages' => [

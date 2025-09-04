@@ -88,6 +88,20 @@ return [
             'add_new' => 'Aggiungi nuovo',
             'list' => 'Elenco',
         ],
+        'payments' => [
+            'title' => 'Pagamenti',
+            'list' => 'Elenco',
+        ],
+
+        'refunds' => [
+            'title' => 'Rimborsi',
+            'list' => 'Elenco',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Gateway di Pagamento',
+            'list' => 'Elenco',
+        ],
     ],
 
     'pages' => [

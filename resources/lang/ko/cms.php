@@ -88,6 +88,20 @@ return [
             'add_new' => '새로 추가',
             'list' => '목록',
         ],
+        'payments' => [
+            'title' => '결제',
+            'list' => '목록',
+        ],
+
+        'refunds' => [
+            'title' => '환불',
+            'list' => '목록',
+        ],
+
+        'payment_gateways' => [
+            'title' => '결제 게이트웨이',
+            'list' => '목록',
+        ],
     ],
 
     'pages' => [

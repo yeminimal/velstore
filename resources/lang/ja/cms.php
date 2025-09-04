@@ -88,6 +88,20 @@ return [
             'add_new' => '新規追加',
             'list' => '一覧',
         ],
+        'payments' => [
+            'title' => '支払い',
+            'list' => '一覧',
+        ],
+
+        'refunds' => [
+            'title' => '返金',
+            'list' => '一覧',
+        ],
+
+        'payment_gateways' => [
+            'title' => '決済ゲートウェイ',
+            'list' => '一覧',
+        ],
     ],
 
     'pages' => [

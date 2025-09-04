@@ -88,6 +88,20 @@ return [
             'add_new' => 'Thêm mới',
             'list' => 'Danh sách',
         ],
+        'payments' => [
+            'title' => 'Thanh toán',
+            'list' => 'Danh sách',
+        ],
+
+        'refunds' => [
+            'title' => 'Hoàn tiền',
+            'list' => 'Danh sách',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Cổng thanh toán',
+            'list' => 'Danh sách',
+        ],
     ],
 
     'pages' => [

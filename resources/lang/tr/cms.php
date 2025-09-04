@@ -88,6 +88,20 @@ return [
             'add_new' => 'Yeni Ekle',
             'list' => 'Liste',
         ],
+        'payments' => [
+            'title' => 'Ödemeler',
+            'list' => 'Liste',
+        ],
+
+        'refunds' => [
+            'title' => 'İadeler',
+            'list' => 'Liste',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Ödeme Ağ Geçitleri',
+            'list' => 'Liste',
+        ],
     ],
 
     'pages' => [

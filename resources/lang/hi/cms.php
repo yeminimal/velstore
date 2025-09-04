@@ -88,6 +88,20 @@ return [
             'add_new' => 'नया जोड़ें',
             'list' => 'सूची',
         ],
+        'payments' => [
+            'title' => 'भुगतान',
+            'list' => 'सूची',
+        ],
+
+        'refunds' => [
+            'title' => 'रिफ़ंड',
+            'list' => 'सूची',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'भुगतान गेटवे',
+            'list' => 'सूची',
+        ],
     ],
 
     'pages' => [

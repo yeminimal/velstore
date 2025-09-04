@@ -87,6 +87,20 @@ return [
             'add_new' => 'Nieuw toevoegen',
             'list' => 'Lijst',
         ],
+        'payments' => [
+            'title' => 'Betalingen',
+            'list' => 'Lijst',
+        ],
+
+        'refunds' => [
+            'title' => 'Terugbetalingen',
+            'list' => 'Lijst',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Betaalgateways',
+            'list' => 'Lijst',
+        ],
     ],
 
     'pages' => [

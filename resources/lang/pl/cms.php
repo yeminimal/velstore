@@ -88,6 +88,20 @@ return [
             'add_new' => 'Dodaj nową',
             'list' => 'Lista',
         ],
+        'payments' => [
+            'title' => 'Płatności',
+            'list' => 'Lista',
+        ],
+
+        'refunds' => [
+            'title' => 'Zwroty',
+            'list' => 'Lista',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Bramki płatności',
+            'list' => 'Lista',
+        ],
     ],
 
     'pages' => [

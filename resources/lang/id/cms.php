@@ -88,6 +88,20 @@ return [
             'add_new' => 'Tambah Baru',
             'list' => 'Daftar',
         ],
+        'payments' => [
+            'title' => 'Pembayaran',
+            'list' => 'Daftar',
+        ],
+
+        'refunds' => [
+            'title' => 'Pengembalian Dana',
+            'list' => 'Daftar',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Gerbang Pembayaran',
+            'list' => 'Daftar',
+        ],
     ],
 
     'pages' => [
