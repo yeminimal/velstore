@@ -88,6 +88,146 @@ return [
             'add_new' => '新增',
             'list' => '列表',
         ],
+        'payments' => [
+            'title' => '支付',
+            'list' => '列表',
+        ],
+
+        'refunds' => [
+            'title' => '退款',
+            'list' => '列表',
+        ],
+
+        'payment_gateways' => [
+            'title' => '支付网关',
+            'list' => '列表',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '支付网关',
+        'edit_title' => '编辑支付网关',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '名称',
+        'code' => '代码',
+        'status' => '状态',
+        'action' => '操作',
+
+        // Status Labels
+        'active' => '激活',
+        'inactive' => '未激活',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此支付网关吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除支付网关时出错！',
+
+        // Form Labels
+        'gateway_name' => '网关名称',
+        'description' => '描述',
+        'active_label' => '激活',
+        'configurations' => '网关配置',
+        'key_name' => '键名',
+        'key_value' => '键值',
+        'environment' => '环境',
+        'sandbox' => '沙盒',
+        'production' => '生产',
+        'encrypted' => '已加密',
+        'unique' => '唯一',
+        'update_button' => '更新',
+
+        // Fallback
+        'not_available' => '不可用',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => '退款',
+        'details_title' => '退款详情',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '支付',
+        'amount' => '金额',
+        'status' => '状态',
+        'reason' => '原因',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '已完成',
+        'pending' => '待处理',
+        'failed' => '失败',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此退款吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除退款时出错！',
+
+        // Refund Details Page
+        'created_at' => '创建时间',
+        'updated_at' => '更新时间',
+        'back' => '返回退款列表',
+
+        // Fallback
+        'not_available' => '不可用',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => '付款',
+        'details_title' => '付款详情',
+
+        // Table Headings
+        'id' => '编号',
+        'order' => '订单',
+        'user' => '用户',
+        'gateway' => '支付网关',
+        'amount' => '金额',
+        'status' => '状态',
+        'transaction' => '交易',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '已完成',
+        'pending' => '待处理',
+        'failed' => '失败',
+
+        // Delete Modal
+        'delete_confirm' => '确认删除',
+        'delete_message' => '您确定要删除此付款吗？',
+        'cancel' => '取消',
+        'delete' => '删除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '已删除',
+        'delete_error' => '删除付款时出错！',
+
+        // Payment Details Page
+        'transaction_id' => '交易编号',
+        'created_at' => '创建时间',
+        'back' => '返回付款列表',
+
+        // Fallback
+        'not_available' => '不可用',
     ],
 
     'pages' => [

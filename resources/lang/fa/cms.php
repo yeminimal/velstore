@@ -88,6 +88,146 @@ return [
             'add_new' => 'جدید اضافه کنید',
             'list' => 'لیست',
         ],
+        'payments' => [
+            'title' => 'پرداخت‌ها',
+            'list' => 'لیست',
+        ],
+
+        'refunds' => [
+            'title' => 'بازپرداخت‌ها',
+            'list' => 'لیست',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'درگاه‌های پرداخت',
+            'list' => 'لیست',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'درگاه‌های پرداخت',
+        'edit_title' => 'ویرایش درگاه پرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'name' => 'نام',
+        'code' => 'کد',
+        'status' => 'وضعیت',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'active' => 'فعال',
+        'inactive' => 'غیرفعال',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این درگاه پرداخت را حذف کنید؟',
+        'cancel' => 'لغو',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف درگاه پرداخت!',
+
+        // Form Labels
+        'gateway_name' => 'نام درگاه',
+        'description' => 'توضیحات',
+        'active_label' => 'فعال',
+        'configurations' => 'تنظیمات درگاه',
+        'key_name' => 'نام کلید',
+        'key_value' => 'مقدار کلید',
+        'environment' => 'محیط',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'رمزگذاری شده',
+        'unique' => 'منحصر به فرد',
+        'update_button' => 'به‌روزرسانی',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'بازپرداخت‌ها',
+        'details_title' => 'جزئیات بازپرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'payment' => 'پرداخت',
+        'amount' => 'مبلغ',
+        'status' => 'وضعیت',
+        'reason' => 'دلیل',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'completed' => 'تکمیل شد',
+        'pending' => 'در انتظار',
+        'failed' => 'ناموفق',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا از حذف این بازپرداخت مطمئن هستید؟',
+        'cancel' => 'لغو',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف بازپرداخت!',
+
+        // Refund Details Page
+        'created_at' => 'تاریخ ایجاد',
+        'updated_at' => 'تاریخ بروزرسانی',
+        'back' => 'بازگشت به بازپرداخت‌ها',
+
+        // Fallback
+        'not_available' => 'موجود نیست',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'پرداخت‌ها',
+        'details_title' => 'جزئیات پرداخت',
+
+        // Table Headings
+        'id' => 'شناسه',
+        'order' => 'سفارش',
+        'user' => 'کاربر',
+        'gateway' => 'درگاه پرداخت',
+        'amount' => 'مبلغ',
+        'status' => 'وضعیت',
+        'transaction' => 'تراکنش',
+        'action' => 'عملیات',
+
+        // Status Labels
+        'completed' => 'تکمیل شده',
+        'pending' => 'در انتظار',
+        'failed' => 'ناموفق',
+
+        // Delete Modal
+        'delete_confirm' => 'تأیید حذف',
+        'delete_message' => 'آیا مطمئن هستید که می‌خواهید این پرداخت را حذف کنید؟',
+        'cancel' => 'انصراف',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'موفقیت',
+        'deleted' => 'حذف شد',
+        'delete_error' => 'خطا در حذف پرداخت!',
+
+        // Payment Details Page
+        'transaction_id' => 'شناسه تراکنش',
+        'created_at' => 'تاریخ ایجاد',
+        'back' => 'بازگشت به پرداخت‌ها',
+
+        // Fallback
+        'not_available' => 'ناموجود',
     ],
 
     'pages' => [

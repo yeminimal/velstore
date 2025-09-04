@@ -88,6 +88,146 @@ return [
             'add_new' => 'Dodaj nową',
             'list' => 'Lista',
         ],
+        'payments' => [
+            'title' => 'Płatności',
+            'list' => 'Lista',
+        ],
+
+        'refunds' => [
+            'title' => 'Zwroty',
+            'list' => 'Lista',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Bramki płatności',
+            'list' => 'Lista',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Bramki Płatności',
+        'edit_title' => 'Edytuj Bramkę Płatności',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nazwa',
+        'code' => 'Kod',
+        'status' => 'Status',
+        'action' => 'Akcja',
+
+        // Status Labels
+        'active' => 'Aktywna',
+        'inactive' => 'Nieaktywna',
+
+        // Delete Modal
+        'delete_confirm' => 'Potwierdź Usunięcie',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę bramkę płatności?',
+        'cancel' => 'Anuluj',
+        'delete' => 'Usuń',
+
+        // Alerts / Notifications
+        'success' => 'Sukces',
+        'deleted' => 'Usunięto',
+        'delete_error' => 'Błąd podczas usuwania bramki płatności!',
+
+        // Form Labels
+        'gateway_name' => 'Nazwa Bramki',
+        'description' => 'Opis',
+        'active_label' => 'Aktywna',
+        'configurations' => 'Konfiguracje Bramki',
+        'key_name' => 'Nazwa Klucza',
+        'key_value' => 'Wartość Klucza',
+        'environment' => 'Środowisko',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produkcja',
+        'encrypted' => 'Zaszyfrowany',
+        'unique' => 'Unikalny',
+        'update_button' => 'Aktualizuj',
+
+        // Fallback
+        'not_available' => 'Niedostępne',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Zwroty',
+        'details_title' => 'Szczegóły zwrotu',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Płatność',
+        'amount' => 'Kwota',
+        'status' => 'Status',
+        'reason' => 'Powód',
+        'action' => 'Akcja',
+
+        // Status Labels
+        'completed' => 'Zakończono',
+        'pending' => 'Oczekujące',
+        'failed' => 'Niepowodzenie',
+
+        // Delete Modal
+        'delete_confirm' => 'Potwierdź usunięcie',
+        'delete_message' => 'Czy na pewno chcesz usunąć ten zwrot?',
+        'cancel' => 'Anuluj',
+        'delete' => 'Usuń',
+
+        // Alerts / Notifications
+        'success' => 'Sukces',
+        'deleted' => 'Usunięto',
+        'delete_error' => 'Błąd podczas usuwania zwrotu!',
+
+        // Refund Details Page
+        'created_at' => 'Utworzono',
+        'updated_at' => 'Zaktualizowano',
+        'back' => 'Powrót do zwrotów',
+
+        // Fallback
+        'not_available' => 'Niedostępne',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Płatności',
+        'details_title' => 'Szczegóły płatności',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Zamówienie',
+        'user' => 'Użytkownik',
+        'gateway' => 'Brama płatności',
+        'amount' => 'Kwota',
+        'status' => 'Status',
+        'transaction' => 'Transakcja',
+        'action' => 'Akcja',
+
+        // Status Labels
+        'completed' => 'Zakończono',
+        'pending' => 'Oczekujące',
+        'failed' => 'Niepowodzenie',
+
+        // Delete Modal
+        'delete_confirm' => 'Potwierdź usunięcie',
+        'delete_message' => 'Czy na pewno chcesz usunąć tę płatność?',
+        'cancel' => 'Anuluj',
+        'delete' => 'Usuń',
+
+        // Alerts / Notifications
+        'success' => 'Sukces',
+        'deleted' => 'Usunięto',
+        'delete_error' => 'Błąd podczas usuwania płatności!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID transakcji',
+        'created_at' => 'Utworzono',
+        'back' => 'Powrót do płatności',
+
+        // Fallback
+        'not_available' => 'Niedostępne',
     ],
 
     'pages' => [

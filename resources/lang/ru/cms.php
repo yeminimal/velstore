@@ -88,6 +88,146 @@ return [
             'add_new' => 'Добавить новую',
             'list' => 'Список',
         ],
+        'payments' => [
+            'title' => 'Платежи',
+            'list' => 'Список',
+        ],
+
+        'refunds' => [
+            'title' => 'Возвраты',
+            'list' => 'Список',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Платёжные шлюзы',
+            'list' => 'Список',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Платёжные шлюзы',
+        'edit_title' => 'Редактировать платёжный шлюз',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Название',
+        'code' => 'Код',
+        'status' => 'Статус',
+        'action' => 'Действие',
+
+        // Status Labels
+        'active' => 'Активен',
+        'inactive' => 'Неактивен',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот платёжный шлюз?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успех',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении платёжного шлюза!',
+
+        // Form Labels
+        'gateway_name' => 'Название шлюза',
+        'description' => 'Описание',
+        'active_label' => 'Активен',
+        'configurations' => 'Настройки шлюза',
+        'key_name' => 'Имя ключа',
+        'key_value' => 'Значение ключа',
+        'environment' => 'Окружение',
+        'sandbox' => 'Песочница',
+        'production' => 'Продакшн',
+        'encrypted' => 'Зашифровано',
+        'unique' => 'Уникальный',
+        'update_button' => 'Обновить',
+
+        // Fallback
+        'not_available' => 'Н/Д',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Возвраты',
+        'details_title' => 'Детали возврата',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Платёж',
+        'amount' => 'Сумма',
+        'status' => 'Статус',
+        'reason' => 'Причина',
+        'action' => 'Действие',
+
+        // Status Labels
+        'completed' => 'Завершено',
+        'pending' => 'В ожидании',
+        'failed' => 'Неудачно',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот возврат?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успех',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении возврата!',
+
+        // Refund Details Page
+        'created_at' => 'Создано',
+        'updated_at' => 'Обновлено',
+        'back' => 'Назад к возвратам',
+
+        // Fallback
+        'not_available' => 'Недоступно',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Платежи',
+        'details_title' => 'Детали платежа',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Заказ',
+        'user' => 'Пользователь',
+        'gateway' => 'Платежный шлюз',
+        'amount' => 'Сумма',
+        'status' => 'Статус',
+        'transaction' => 'Транзакция',
+        'action' => 'Действие',
+
+        // Status Labels
+        'completed' => 'Завершено',
+        'pending' => 'В ожидании',
+        'failed' => 'Неудачно',
+
+        // Delete Modal
+        'delete_confirm' => 'Подтвердить удаление',
+        'delete_message' => 'Вы уверены, что хотите удалить этот платеж?',
+        'cancel' => 'Отмена',
+        'delete' => 'Удалить',
+
+        // Alerts / Notifications
+        'success' => 'Успешно',
+        'deleted' => 'Удалено',
+        'delete_error' => 'Ошибка при удалении платежа!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID транзакции',
+        'created_at' => 'Дата создания',
+        'back' => 'Вернуться к платежам',
+
+        // Fallback
+        'not_available' => 'Недоступно',
     ],
 
     'pages' => [

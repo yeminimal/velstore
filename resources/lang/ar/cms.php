@@ -88,6 +88,146 @@ return [
             'add_new' => 'إضافة جديد',
             'list' => 'قائمة',
         ],
+        'payments' => [
+            'title' => 'المدفوعات',
+            'list' => 'القائمة',
+        ],
+
+        'refunds' => [
+            'title' => 'المبالغ المستردة',
+            'list' => 'القائمة',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'بوابات الدفع',
+            'list' => 'القائمة',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'بوابات الدفع',
+        'edit_title' => 'تعديل بوابة الدفع',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'name' => 'الاسم',
+        'code' => 'الرمز',
+        'status' => 'الحالة',
+        'action' => 'إجراء',
+
+        // Status Labels
+        'active' => 'نشط',
+        'inactive' => 'غير نشط',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد أنك تريد حذف بوابة الدفع هذه؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'تم بنجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'خطأ في حذف بوابة الدفع!',
+
+        // Form Labels
+        'gateway_name' => 'اسم البوابة',
+        'description' => 'الوصف',
+        'active_label' => 'نشط',
+        'configurations' => 'إعدادات البوابة',
+        'key_name' => 'اسم المفتاح',
+        'key_value' => 'قيمة المفتاح',
+        'environment' => 'البيئة',
+        'sandbox' => 'صندوق الاختبار',
+        'production' => 'الإنتاج',
+        'encrypted' => 'مشفر',
+        'unique' => 'فريد',
+        'update_button' => 'تحديث',
+
+        // Fallback
+        'not_available' => 'غير متاح',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'المبالغ المستردة',
+        'details_title' => 'تفاصيل المبلغ المسترد',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'payment' => 'الدفع',
+        'amount' => 'المبلغ',
+        'status' => 'الحالة',
+        'reason' => 'السبب',
+        'action' => 'الإجراء',
+
+        // Status Labels
+        'completed' => 'مكتمل',
+        'pending' => 'قيد الانتظار',
+        'failed' => 'فشل',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد من حذف هذا المبلغ المسترد؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'نجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'حدث خطأ أثناء حذف المبلغ المسترد!',
+
+        // Refund Details Page
+        'created_at' => 'تاريخ الإنشاء',
+        'updated_at' => 'تاريخ التحديث',
+        'back' => 'العودة إلى المبالغ المستردة',
+
+        // Fallback
+        'not_available' => 'غير متوفر',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'المدفوعات',
+        'details_title' => 'تفاصيل الدفع',
+
+        // Table Headings
+        'id' => 'المعرف',
+        'order' => 'الطلب',
+        'user' => 'المستخدم',
+        'gateway' => 'بوابة الدفع',
+        'amount' => 'المبلغ',
+        'status' => 'الحالة',
+        'transaction' => 'المعاملة',
+        'action' => 'الإجراء',
+
+        // Status Labels
+        'completed' => 'مكتمل',
+        'pending' => 'قيد الانتظار',
+        'failed' => 'فشل',
+
+        // Delete Modal
+        'delete_confirm' => 'تأكيد الحذف',
+        'delete_message' => 'هل أنت متأكد أنك تريد حذف هذا الدفع؟',
+        'cancel' => 'إلغاء',
+        'delete' => 'حذف',
+
+        // Alerts / Notifications
+        'success' => 'نجاح',
+        'deleted' => 'تم الحذف',
+        'delete_error' => 'حدث خطأ أثناء حذف الدفع!',
+
+        // Payment Details Page
+        'transaction_id' => 'معرّف المعاملة',
+        'created_at' => 'تاريخ الإنشاء',
+        'back' => 'العودة إلى المدفوعات',
+
+        // Fallback
+        'not_available' => 'غير متوفر',
     ],
 
     'pages' => [

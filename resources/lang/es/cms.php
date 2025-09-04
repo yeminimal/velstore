@@ -88,6 +88,146 @@ return [
             'add_new' => 'Agregar nuevo',
             'list' => 'Lista',
         ],
+        'payments' => [
+            'title' => 'Pagos',
+            'list' => 'Lista',
+        ],
+
+        'refunds' => [
+            'title' => 'Reembolsos',
+            'list' => 'Lista',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Pasarelas de Pago',
+            'list' => 'Lista',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Pasarelas de Pago',
+        'edit_title' => 'Editar Pasarela de Pago',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'code' => 'Código',
+        'status' => 'Estado',
+        'action' => 'Acción',
+
+        // Status Labels
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar esta pasarela de pago?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Eliminar',
+
+        // Alerts / Notifications
+        'success' => 'Éxito',
+        'deleted' => 'Eliminado',
+        'delete_error' => 'Error al eliminar la pasarela de pago!',
+
+        // Form Labels
+        'gateway_name' => 'Nombre de la Pasarela',
+        'description' => 'Descripción',
+        'active_label' => 'Activo',
+        'configurations' => 'Configuraciones de la Pasarela',
+        'key_name' => 'Nombre de Clave',
+        'key_value' => 'Valor de Clave',
+        'environment' => 'Entorno',
+        'sandbox' => 'Sandbox',
+        'production' => 'Producción',
+        'encrypted' => 'Encriptado',
+        'unique' => 'Único',
+        'update_button' => 'Actualizar',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Reembolsos',
+        'details_title' => 'Detalles del Reembolso',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pago',
+        'amount' => 'Monto',
+        'status' => 'Estado',
+        'reason' => 'Motivo',
+        'action' => 'Acción',
+
+        // Status Labels
+        'completed' => 'Completado',
+        'pending' => 'Pendiente',
+        'failed' => 'Fallido',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar este reembolso?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Eliminar',
+
+        // Alerts / Notifications
+        'success' => 'Éxito',
+        'deleted' => 'Eliminado',
+        'delete_error' => '¡Error al eliminar el reembolso!',
+
+        // Refund Details Page
+        'created_at' => 'Creado en',
+        'updated_at' => 'Actualizado en',
+        'back' => 'Volver a Reembolsos',
+
+        // Fallback
+        'not_available' => 'No disponible',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Pagos',
+        'details_title' => 'Detalles del pago',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Pedido',
+        'user' => 'Usuario',
+        'gateway' => 'Pasarela de pago',
+        'amount' => 'Monto',
+        'status' => 'Estado',
+        'transaction' => 'Transacción',
+        'action' => 'Acción',
+
+        // Status Labels
+        'completed' => 'Completado',
+        'pending' => 'Pendiente',
+        'failed' => 'Fallido',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar eliminación',
+        'delete_message' => '¿Está seguro de que desea eliminar este pago?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Eliminar',
+
+        // Alerts / Notifications
+        'success' => 'Éxito',
+        'deleted' => 'Eliminado',
+        'delete_error' => '¡Error al eliminar el pago!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID de transacción',
+        'created_at' => 'Fecha de creación',
+        'back' => 'Volver a Pagos',
+
+        // Fallback
+        'not_available' => 'No disponible',
     ],
 
     'pages' => [

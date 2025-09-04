@@ -88,6 +88,146 @@ return [
             'add_new' => 'เพิ่มใหม่',
             'list' => 'รายการ',
         ],
+        'payments' => [
+            'title' => 'การชำระเงิน',
+            'list' => 'รายการ',
+        ],
+
+        'refunds' => [
+            'title' => 'การคืนเงิน',
+            'list' => 'รายการ',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'ช่องทางการชำระเงิน',
+            'list' => 'รายการ',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'เกตเวย์การชำระเงิน',
+        'edit_title' => 'แก้ไขเกตเวย์การชำระเงิน',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'ชื่อ',
+        'code' => 'รหัส',
+        'status' => 'สถานะ',
+        'action' => 'การกระทำ',
+
+        // Status Labels
+        'active' => 'ใช้งาน',
+        'inactive' => 'ไม่ใช้งาน',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบเกตเวย์การชำระเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ลบแล้ว',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบเกตเวย์การชำระเงิน!',
+
+        // Form Labels
+        'gateway_name' => 'ชื่อเกตเวย์',
+        'description' => 'คำอธิบาย',
+        'active_label' => 'ใช้งาน',
+        'configurations' => 'การตั้งค่าเกตเวย์',
+        'key_name' => 'ชื่อคีย์',
+        'key_value' => 'ค่าคีย์',
+        'environment' => 'สภาพแวดล้อม',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'เข้ารหัส',
+        'unique' => 'ไม่ซ้ำ',
+        'update_button' => 'อัปเดต',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'การคืนเงิน',
+        'details_title' => 'รายละเอียดการคืนเงิน',
+
+        // Table Headings
+        'id' => 'รหัส',
+        'payment' => 'การชำระเงิน',
+        'amount' => 'จำนวนเงิน',
+        'status' => 'สถานะ',
+        'reason' => 'เหตุผล',
+        'action' => 'การกระทำ',
+
+        // Status Labels
+        'completed' => 'เสร็จสิ้น',
+        'pending' => 'รอดำเนินการ',
+        'failed' => 'ล้มเหลว',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบการคืนเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ถูกลบ',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบการคืนเงิน!',
+
+        // Refund Details Page
+        'created_at' => 'สร้างเมื่อ',
+        'updated_at' => 'อัปเดตเมื่อ',
+        'back' => 'กลับไปที่การคืนเงิน',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'การชำระเงิน',
+        'details_title' => 'รายละเอียดการชำระเงิน',
+
+        // Table Headings
+        'id' => 'รหัส',
+        'order' => 'คำสั่งซื้อ',
+        'user' => 'ผู้ใช้',
+        'gateway' => 'ช่องทางการชำระเงิน',
+        'amount' => 'จำนวนเงิน',
+        'status' => 'สถานะ',
+        'transaction' => 'ธุรกรรม',
+        'action' => 'การดำเนินการ',
+
+        // Status Labels
+        'completed' => 'เสร็จสมบูรณ์',
+        'pending' => 'รอดำเนินการ',
+        'failed' => 'ล้มเหลว',
+
+        // Delete Modal
+        'delete_confirm' => 'ยืนยันการลบ',
+        'delete_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบการชำระเงินนี้?',
+        'cancel' => 'ยกเลิก',
+        'delete' => 'ลบ',
+
+        // Alerts / Notifications
+        'success' => 'สำเร็จ',
+        'deleted' => 'ถูกลบ',
+        'delete_error' => 'เกิดข้อผิดพลาดในการลบการชำระเงิน!',
+
+        // Payment Details Page
+        'transaction_id' => 'รหัสธุรกรรม',
+        'created_at' => 'วันที่สร้าง',
+        'back' => 'กลับไปยังการชำระเงิน',
+
+        // Fallback
+        'not_available' => 'ไม่พร้อมใช้งาน',
     ],
 
     'pages' => [

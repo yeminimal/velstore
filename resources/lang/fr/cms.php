@@ -88,6 +88,146 @@ return [
             'add_new' => 'Ajouter',
             'list' => 'Liste',
         ],
+        'payments' => [
+            'title' => 'Paiements',
+            'list' => 'Liste',
+        ],
+
+        'refunds' => [
+            'title' => 'Remboursements',
+            'list' => 'Liste',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Passerelles de paiement',
+            'list' => 'Liste',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Passerelles de paiement',
+        'edit_title' => 'Modifier la passerelle de paiement',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nom',
+        'code' => 'Code',
+        'status' => 'Statut',
+        'action' => 'Action',
+
+        // Status Labels
+        'active' => 'Actif',
+        'inactive' => 'Inactif',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer cette passerelle de paiement ?',
+        'cancel' => 'Annuler',
+        'delete' => 'Supprimer',
+
+        // Alerts / Notifications
+        'success' => 'Succès',
+        'deleted' => 'Supprimé',
+        'delete_error' => 'Erreur lors de la suppression de la passerelle de paiement !',
+
+        // Form Labels
+        'gateway_name' => 'Nom de la passerelle',
+        'description' => 'Description',
+        'active_label' => 'Actif',
+        'configurations' => 'Configurations de la passerelle',
+        'key_name' => 'Nom de la clé',
+        'key_value' => 'Valeur de la clé',
+        'environment' => 'Environnement',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Crypté',
+        'unique' => 'Unique',
+        'update_button' => 'Mettre à jour',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Remboursements',
+        'details_title' => 'Détails du remboursement',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Paiement',
+        'amount' => 'Montant',
+        'status' => 'Statut',
+        'reason' => 'Raison',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Terminé',
+        'pending' => 'En attente',
+        'failed' => 'Échoué',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer ce remboursement ?',
+        'cancel' => 'Annuler',
+        'delete' => 'Supprimer',
+
+        // Alerts / Notifications
+        'success' => 'Succès',
+        'deleted' => 'Supprimé',
+        'delete_error' => 'Erreur lors de la suppression du remboursement !',
+
+        // Refund Details Page
+        'created_at' => 'Créé le',
+        'updated_at' => 'Mis à jour le',
+        'back' => 'Retour aux remboursements',
+
+        // Fallback
+        'not_available' => 'Non disponible',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Paiements',
+        'details_title' => 'Détails du paiement',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Commande',
+        'user' => 'Utilisateur',
+        'gateway' => 'Passerelle de paiement',
+        'amount' => 'Montant',
+        'status' => 'Statut',
+        'transaction' => 'Transaction',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Terminé',
+        'pending' => 'En attente',
+        'failed' => 'Échoué',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmer la suppression',
+        'delete_message' => 'Êtes-vous sûr de vouloir supprimer ce paiement ?',
+        'cancel' => 'Annuler',
+        'delete' => 'Supprimer',
+
+        // Alerts / Notifications
+        'success' => 'Succès',
+        'deleted' => 'Supprimé',
+        'delete_error' => 'Erreur lors de la suppression du paiement !',
+
+        // Payment Details Page
+        'transaction_id' => 'ID de transaction',
+        'created_at' => 'Créé le',
+        'back' => 'Retour aux paiements',
+
+        // Fallback
+        'not_available' => 'Non disponible',
     ],
 
     'pages' => [

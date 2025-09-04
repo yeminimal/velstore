@@ -7,21 +7,21 @@
 @section('content')
 <div class="card mt-4">
     <div class="card-header card-header-bg text-white">
-        <h6 class="d-flex align-items-center mb-0 dt-heading">Payments</h6>
+        <h6 class="d-flex align-items-center mb-0 dt-heading">{{ __('cms.payments.title') }}</h6>
     </div>
 
     <div class="card-body">
         <table id="payments-table" class="table table-bordered mt-4 dt-style">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Order</th>
-                    <th>User</th>
-                    <th>Gateway</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Transaction</th>
-                    <th>Action</th>
+                    <th>{{ __('cms.payments.id') }}</th>
+                    <th>{{ __('cms.payments.order') }}</th>
+                    <th>{{ __('cms.payments.user') }}</th>
+                    <th>{{ __('cms.payments.gateway') }}</th>
+                    <th>{{ __('cms.payments.amount') }}</th>
+                    <th>{{ __('cms.payments.status') }}</th>
+                    <th>{{ __('cms.payments.transaction') }}</th>
+                    <th>{{ __('cms.payments.action') }}</th>
                 </tr>
             </thead>
         </table>
@@ -33,13 +33,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Confirm Delete</h5>
+        <h5 class="modal-title">{{ __('cms.payments.delete_confirm') }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">Are you sure you want to delete this payment?</div>
+      <div class="modal-body">{{ __('cms.payments.delete_message') }}</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeletePayment">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('cms.payments.cancel') }}</button>
+        <button type="button" class="btn btn-danger" id="confirmDeletePayment">{{ __('cms.payments.delete') }}</button>
       </div>
     </div>
   </div>
@@ -48,10 +48,13 @@
 
 @section('js')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+@php
+    $datatableLang = __('cms.datatables'); 
+@endphp
 
 @if (session('success'))
 <script>
-    toastr.success("{{ session('success') }}", "Success", {
+    toastr.success("{{ session('success') }}", "{{ __('cms.payments.success') }}", {
         closeButton: true,
         progressBar: true,
         positionClass: "toast-top-right",
@@ -66,6 +69,7 @@ $(document).ready(function() {
         processing: true,
         serverSide: true,
         ajax: "{{ route('admin.payments.getData') }}",
+        language: @json($datatableLang),
         columns: [
             { data: 'id', name: 'id' },
             { data: 'order', name: 'order_id' },

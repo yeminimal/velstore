@@ -87,6 +87,146 @@ return [
             'add_new' => 'Adicionar Novo',
             'list' => 'Lista',
         ],
+        'payments' => [
+            'title' => 'Pagamentos',
+            'list' => 'Lista',
+        ],
+
+        'refunds' => [
+            'title' => 'Reembolsos',
+            'list' => 'Lista',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Gateways de Pagamento',
+            'list' => 'Lista',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Gateways de Pagamento',
+        'edit_title' => 'Editar Gateway de Pagamento',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nome',
+        'code' => 'Código',
+        'status' => 'Status',
+        'action' => 'Ação',
+
+        // Status Labels
+        'active' => 'Ativo',
+        'inactive' => 'Inativo',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Exclusão',
+        'delete_message' => 'Tem certeza de que deseja excluir este gateway de pagamento?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Excluir',
+
+        // Alerts / Notifications
+        'success' => 'Sucesso',
+        'deleted' => 'Excluído',
+        'delete_error' => 'Erro ao excluir o gateway de pagamento!',
+
+        // Form Labels
+        'gateway_name' => 'Nome do Gateway',
+        'description' => 'Descrição',
+        'active_label' => 'Ativo',
+        'configurations' => 'Configurações do Gateway',
+        'key_name' => 'Nome da Chave',
+        'key_value' => 'Valor da Chave',
+        'environment' => 'Ambiente',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produção',
+        'encrypted' => 'Criptografado',
+        'unique' => 'Único',
+        'update_button' => 'Atualizar',
+
+        // Fallback
+        'not_available' => 'N/D',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Reembolsos',
+        'details_title' => 'Detalhes do Reembolso',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pagamento',
+        'amount' => 'Valor',
+        'status' => 'Status',
+        'reason' => 'Motivo',
+        'action' => 'Ação',
+
+        // Status Labels
+        'completed' => 'Concluído',
+        'pending' => 'Pendente',
+        'failed' => 'Falhou',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Exclusão',
+        'delete_message' => 'Tem certeza de que deseja excluir este reembolso?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Excluir',
+
+        // Alerts / Notifications
+        'success' => 'Sucesso',
+        'deleted' => 'Excluído',
+        'delete_error' => 'Erro ao excluir o reembolso!',
+
+        // Refund Details Page
+        'created_at' => 'Criado em',
+        'updated_at' => 'Atualizado em',
+        'back' => 'Voltar aos Reembolsos',
+
+        // Fallback
+        'not_available' => 'Indisponível',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Pagamentos',
+        'details_title' => 'Detalhes do Pagamento',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Pedido',
+        'user' => 'Usuário',
+        'gateway' => 'Gateway de Pagamento',
+        'amount' => 'Valor',
+        'status' => 'Status',
+        'transaction' => 'Transação',
+        'action' => 'Ação',
+
+        // Status Labels
+        'completed' => 'Concluído',
+        'pending' => 'Pendente',
+        'failed' => 'Falhou',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirmar Exclusão',
+        'delete_message' => 'Tem certeza de que deseja excluir este pagamento?',
+        'cancel' => 'Cancelar',
+        'delete' => 'Excluir',
+
+        // Alerts / Notifications
+        'success' => 'Sucesso',
+        'deleted' => 'Excluído',
+        'delete_error' => 'Erro ao excluir o pagamento!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID da Transação',
+        'created_at' => 'Criado em',
+        'back' => 'Voltar para Pagamentos',
+
+        // Fallback
+        'not_available' => 'Indisponível',
     ],
 
     'pages' => [

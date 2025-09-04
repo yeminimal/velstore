@@ -88,6 +88,146 @@ return [
             'add_new' => '新規追加',
             'list' => '一覧',
         ],
+        'payments' => [
+            'title' => '支払い',
+            'list' => '一覧',
+        ],
+
+        'refunds' => [
+            'title' => '返金',
+            'list' => '一覧',
+        ],
+
+        'payment_gateways' => [
+            'title' => '決済ゲートウェイ',
+            'list' => '一覧',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '決済ゲートウェイ',
+        'edit_title' => '決済ゲートウェイの編集',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '名前',
+        'code' => 'コード',
+        'status' => 'ステータス',
+        'action' => '操作',
+
+        // Status Labels
+        'active' => '有効',
+        'inactive' => '無効',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この決済ゲートウェイを削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除されました',
+        'delete_error' => '決済ゲートウェイの削除中にエラーが発生しました！',
+
+        // Form Labels
+        'gateway_name' => 'ゲートウェイ名',
+        'description' => '説明',
+        'active_label' => '有効',
+        'configurations' => 'ゲートウェイ設定',
+        'key_name' => 'キー名',
+        'key_value' => 'キー値',
+        'environment' => '環境',
+        'sandbox' => 'サンドボックス',
+        'production' => '本番',
+        'encrypted' => '暗号化',
+        'unique' => '一意',
+        'update_button' => '更新',
+
+        // Fallback
+        'not_available' => '該当なし',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => '返金',
+        'details_title' => '返金の詳細',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '支払い',
+        'amount' => '金額',
+        'status' => 'ステータス',
+        'reason' => '理由',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '完了',
+        'pending' => '保留中',
+        'failed' => '失敗',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この返金を削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除済み',
+        'delete_error' => '返金の削除中にエラーが発生しました！',
+
+        // Refund Details Page
+        'created_at' => '作成日',
+        'updated_at' => '更新日',
+        'back' => '返金一覧に戻る',
+
+        // Fallback
+        'not_available' => '利用不可',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => '支払い',
+        'details_title' => '支払いの詳細',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => '注文',
+        'user' => 'ユーザー',
+        'gateway' => '決済ゲートウェイ',
+        'amount' => '金額',
+        'status' => 'ステータス',
+        'transaction' => '取引',
+        'action' => '操作',
+
+        // Status Labels
+        'completed' => '完了',
+        'pending' => '保留中',
+        'failed' => '失敗',
+
+        // Delete Modal
+        'delete_confirm' => '削除の確認',
+        'delete_message' => 'この支払いを削除してもよろしいですか？',
+        'cancel' => 'キャンセル',
+        'delete' => '削除',
+
+        // Alerts / Notifications
+        'success' => '成功',
+        'deleted' => '削除されました',
+        'delete_error' => '支払いの削除中にエラーが発生しました！',
+
+        // Payment Details Page
+        'transaction_id' => '取引ID',
+        'created_at' => '作成日時',
+        'back' => '支払い一覧に戻る',
+
+        // Fallback
+        'not_available' => '利用不可',
     ],
 
     'pages' => [

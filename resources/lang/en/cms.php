@@ -88,6 +88,146 @@ return [
             'add_new' => 'Add New',
             'list' => 'List',
         ],
+        'payments' => [
+            'title' => 'Payments',
+            'list' => 'List',
+        ],
+
+        'refunds' => [
+            'title' => 'Refunds',
+            'list' => 'List',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Payment Gateways',
+            'list' => 'List',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Payment Gateways',
+        'edit_title' => 'Edit Payment Gateway',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Name',
+        'code' => 'Code',
+        'status' => 'Status',
+        'action' => 'Action',
+
+        // Status Labels
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this payment gateway?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting payment gateway!',
+
+        // Form Labels
+        'gateway_name' => 'Gateway Name',
+        'description' => 'Description',
+        'active_label' => 'Active',
+        'configurations' => 'Gateway Configurations',
+        'key_name' => 'Key Name',
+        'key_value' => 'Key Value',
+        'environment' => 'Environment',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Encrypted',
+        'unique' => 'unique',
+        'update_button' => 'Update',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Refunds',
+        'details_title' => 'Refund Details',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Payment',
+        'amount' => 'Amount',
+        'status' => 'Status',
+        'reason' => 'Reason',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Completed',
+        'pending' => 'Pending',
+        'failed' => 'Failed',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this refund?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting refund!',
+
+        // Refund Details Page
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+        'back' => 'Back to Refunds',
+
+        // Fallback
+        'not_available' => 'N/A',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Payments',
+        'details_title' => 'Payment Details',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Order',
+        'user' => 'User',
+        'gateway' => 'Gateway',
+        'amount' => 'Amount',
+        'status' => 'Status',
+        'transaction' => 'Transaction',
+        'action' => 'Action',
+
+        // Status Labels
+        'completed' => 'Completed',
+        'pending' => 'Pending',
+        'failed' => 'Failed',
+
+        // Delete Modal
+        'delete_confirm' => 'Confirm Delete',
+        'delete_message' => 'Are you sure you want to delete this payment?',
+        'cancel' => 'Cancel',
+        'delete' => 'Delete',
+
+        // Alerts / Notifications
+        'success' => 'Success',
+        'deleted' => 'Deleted',
+        'delete_error' => 'Error deleting payment!',
+
+        // Payment Details Page
+        'transaction_id' => 'Transaction ID',
+        'created_at' => 'Created At',
+        'back' => 'Back to Payments',
+
+        // Fallback
+        'not_available' => 'N/A',
     ],
 
     'pages' => [

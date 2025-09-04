@@ -88,6 +88,146 @@ return [
             'add_new' => 'नया जोड़ें',
             'list' => 'सूची',
         ],
+        'payments' => [
+            'title' => 'भुगतान',
+            'list' => 'सूची',
+        ],
+
+        'refunds' => [
+            'title' => 'रिफ़ंड',
+            'list' => 'सूची',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'भुगतान गेटवे',
+            'list' => 'सूची',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'भुगतान गेटवे',
+        'edit_title' => 'भुगतान गेटवे संपादित करें',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'name' => 'नाम',
+        'code' => 'कोड',
+        'status' => 'स्थिति',
+        'action' => 'कार्रवाई',
+
+        // Status Labels
+        'active' => 'सक्रिय',
+        'inactive' => 'निष्क्रिय',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस भुगतान गेटवे को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएँ',
+
+        // Alerts / Notifications
+        'success' => 'सफल',
+        'deleted' => 'हटाया गया',
+        'delete_error' => 'भुगतान गेटवे हटाने में त्रुटि!',
+
+        // Form Labels
+        'gateway_name' => 'गेटवे का नाम',
+        'description' => 'विवरण',
+        'active_label' => 'सक्रिय',
+        'configurations' => 'गेटवे कॉन्फ़िगरेशन',
+        'key_name' => 'कुंजी नाम',
+        'key_value' => 'कुंजी मान',
+        'environment' => 'पर्यावरण',
+        'sandbox' => 'सैंडबॉक्स',
+        'production' => 'उत्पादन',
+        'encrypted' => 'एन्क्रिप्टेड',
+        'unique' => 'अद्वितीय',
+        'update_button' => 'अद्यतन करें',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'रिफंड',
+        'details_title' => 'रिफंड विवरण',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'payment' => 'भुगतान',
+        'amount' => 'राशि',
+        'status' => 'स्थिति',
+        'reason' => 'कारण',
+        'action' => 'क्रिया',
+
+        // Status Labels
+        'completed' => 'पूर्ण',
+        'pending' => 'प्रतीक्षारत',
+        'failed' => 'विफल',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस रिफंड को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएं',
+
+        // Alerts / Notifications
+        'success' => 'सफल',
+        'deleted' => 'हटाया गया',
+        'delete_error' => 'रिफंड हटाने में त्रुटि!',
+
+        // Refund Details Page
+        'created_at' => 'निर्मित दिनांक',
+        'updated_at' => 'अपडेट किया गया दिनांक',
+        'back' => 'रिफंड पर वापस जाएँ',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'भुगतान',
+        'details_title' => 'भुगतान विवरण',
+
+        // Table Headings
+        'id' => 'आईडी',
+        'order' => 'आर्डर',
+        'user' => 'उपयोगकर्ता',
+        'gateway' => 'पेमेंट गेटवे',
+        'amount' => 'राशि',
+        'status' => 'स्थिति',
+        'transaction' => 'लेन-देन',
+        'action' => 'क्रिया',
+
+        // Status Labels
+        'completed' => 'पूर्ण',
+        'pending' => 'लंबित',
+        'failed' => 'असफल',
+
+        // Delete Modal
+        'delete_confirm' => 'हटाने की पुष्टि करें',
+        'delete_message' => 'क्या आप वाकई इस भुगतान को हटाना चाहते हैं?',
+        'cancel' => 'रद्द करें',
+        'delete' => 'हटाएँ',
+
+        // Alerts / Notifications
+        'success' => 'सफलता',
+        'deleted' => 'हटा दिया गया',
+        'delete_error' => 'भुगतान हटाने में त्रुटि!',
+
+        // Payment Details Page
+        'transaction_id' => 'लेन-देन आईडी',
+        'created_at' => 'बनाने की तिथि',
+        'back' => 'भुगतान पर वापस जाएँ',
+
+        // Fallback
+        'not_available' => 'उपलब्ध नहीं',
     ],
 
     'pages' => [

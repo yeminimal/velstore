@@ -88,6 +88,146 @@ return [
             'add_new' => 'Thêm mới',
             'list' => 'Danh sách',
         ],
+        'payments' => [
+            'title' => 'Thanh toán',
+            'list' => 'Danh sách',
+        ],
+
+        'refunds' => [
+            'title' => 'Hoàn tiền',
+            'list' => 'Danh sách',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Cổng thanh toán',
+            'list' => 'Danh sách',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Cổng thanh toán',
+        'edit_title' => 'Chỉnh sửa cổng thanh toán',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Tên',
+        'code' => 'Mã',
+        'status' => 'Trạng thái',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'active' => 'Hoạt động',
+        'inactive' => 'Không hoạt động',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa cổng thanh toán này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa cổng thanh toán!',
+
+        // Form Labels
+        'gateway_name' => 'Tên cổng',
+        'description' => 'Mô tả',
+        'active_label' => 'Hoạt động',
+        'configurations' => 'Cấu hình cổng',
+        'key_name' => 'Tên khóa',
+        'key_value' => 'Giá trị khóa',
+        'environment' => 'Môi trường',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Đã mã hóa',
+        'unique' => 'Độc nhất',
+        'update_button' => 'Cập nhật',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Hoàn tiền',
+        'details_title' => 'Chi tiết hoàn tiền',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Thanh toán',
+        'amount' => 'Số tiền',
+        'status' => 'Trạng thái',
+        'reason' => 'Lý do',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'completed' => 'Hoàn tất',
+        'pending' => 'Đang chờ',
+        'failed' => 'Thất bại',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa khoản hoàn tiền này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa khoản hoàn tiền!',
+
+        // Refund Details Page
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
+        'back' => 'Quay lại danh sách hoàn tiền',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Thanh toán',
+        'details_title' => 'Chi tiết thanh toán',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Đơn hàng',
+        'user' => 'Người dùng',
+        'gateway' => 'Cổng thanh toán',
+        'amount' => 'Số tiền',
+        'status' => 'Trạng thái',
+        'transaction' => 'Giao dịch',
+        'action' => 'Hành động',
+
+        // Status Labels
+        'completed' => 'Hoàn tất',
+        'pending' => 'Đang chờ',
+        'failed' => 'Thất bại',
+
+        // Delete Modal
+        'delete_confirm' => 'Xác nhận xóa',
+        'delete_message' => 'Bạn có chắc chắn muốn xóa thanh toán này không?',
+        'cancel' => 'Hủy',
+        'delete' => 'Xóa',
+
+        // Alerts / Notifications
+        'success' => 'Thành công',
+        'deleted' => 'Đã xóa',
+        'delete_error' => 'Lỗi khi xóa thanh toán!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID giao dịch',
+        'created_at' => 'Ngày tạo',
+        'back' => 'Quay lại Thanh toán',
+
+        // Fallback
+        'not_available' => 'Không có sẵn',
     ],
 
     'pages' => [

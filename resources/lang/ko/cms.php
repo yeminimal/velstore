@@ -88,6 +88,146 @@ return [
             'add_new' => '새로 추가',
             'list' => '목록',
         ],
+        'payments' => [
+            'title' => '결제',
+            'list' => '목록',
+        ],
+
+        'refunds' => [
+            'title' => '환불',
+            'list' => '목록',
+        ],
+
+        'payment_gateways' => [
+            'title' => '결제 게이트웨이',
+            'list' => '목록',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => '결제 게이트웨이',
+        'edit_title' => '결제 게이트웨이 편집',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => '이름',
+        'code' => '코드',
+        'status' => '상태',
+        'action' => '작업',
+
+        // Status Labels
+        'active' => '활성',
+        'inactive' => '비활성',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 결제 게이트웨이를 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '결제 게이트웨이 삭제 중 오류 발생!',
+
+        // Form Labels
+        'gateway_name' => '게이트웨이 이름',
+        'description' => '설명',
+        'active_label' => '활성',
+        'configurations' => '게이트웨이 구성',
+        'key_name' => '키 이름',
+        'key_value' => '키 값',
+        'environment' => '환경',
+        'sandbox' => '샌드박스',
+        'production' => '운영',
+        'encrypted' => '암호화됨',
+        'unique' => '고유',
+        'update_button' => '업데이트',
+
+        // Fallback
+        'not_available' => '사용 불가',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => '환불',
+        'details_title' => '환불 상세 정보',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => '결제',
+        'amount' => '금액',
+        'status' => '상태',
+        'reason' => '사유',
+        'action' => '작업',
+
+        // Status Labels
+        'completed' => '완료',
+        'pending' => '대기 중',
+        'failed' => '실패',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 환불을 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '환불 삭제 중 오류 발생!',
+
+        // Refund Details Page
+        'created_at' => '생성일',
+        'updated_at' => '업데이트일',
+        'back' => '환불 목록으로 돌아가기',
+
+        // Fallback
+        'not_available' => '사용 불가',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => '결제',
+        'details_title' => '결제 상세',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => '주문',
+        'user' => '사용자',
+        'gateway' => '결제 게이트웨이',
+        'amount' => '금액',
+        'status' => '상태',
+        'transaction' => '거래',
+        'action' => '작업',
+
+        // Status Labels
+        'completed' => '완료',
+        'pending' => '대기 중',
+        'failed' => '실패',
+
+        // Delete Modal
+        'delete_confirm' => '삭제 확인',
+        'delete_message' => '이 결제를 삭제하시겠습니까?',
+        'cancel' => '취소',
+        'delete' => '삭제',
+
+        // Alerts / Notifications
+        'success' => '성공',
+        'deleted' => '삭제됨',
+        'delete_error' => '결제 삭제 중 오류 발생!',
+
+        // Payment Details Page
+        'transaction_id' => '거래 ID',
+        'created_at' => '생성일',
+        'back' => '결제 목록으로 돌아가기',
+
+        // Fallback
+        'not_available' => '사용 불가',
     ],
 
     'pages' => [

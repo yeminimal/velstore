@@ -88,6 +88,146 @@ return [
             'add_new' => 'Aggiungi nuovo',
             'list' => 'Elenco',
         ],
+        'payments' => [
+            'title' => 'Pagamenti',
+            'list' => 'Elenco',
+        ],
+
+        'refunds' => [
+            'title' => 'Rimborsi',
+            'list' => 'Elenco',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Gateway di Pagamento',
+            'list' => 'Elenco',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Gateway di Pagamento',
+        'edit_title' => 'Modifica Gateway di Pagamento',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nome',
+        'code' => 'Codice',
+        'status' => 'Stato',
+        'action' => 'Azione',
+
+        // Status Labels
+        'active' => 'Attivo',
+        'inactive' => 'Inattivo',
+
+        // Delete Modal
+        'delete_confirm' => 'Conferma Eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questo gateway di pagamento?',
+        'cancel' => 'Annulla',
+        'delete' => 'Elimina',
+
+        // Alerts / Notifications
+        'success' => 'Successo',
+        'deleted' => 'Eliminato',
+        'delete_error' => 'Errore durante l\'eliminazione del gateway di pagamento!',
+
+        // Form Labels
+        'gateway_name' => 'Nome Gateway',
+        'description' => 'Descrizione',
+        'active_label' => 'Attivo',
+        'configurations' => 'Configurazioni Gateway',
+        'key_name' => 'Nome Chiave',
+        'key_value' => 'Valore Chiave',
+        'environment' => 'Ambiente',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produzione',
+        'encrypted' => 'Cifrato',
+        'unique' => 'Unico',
+        'update_button' => 'Aggiorna',
+
+        // Fallback
+        'not_available' => 'N/D',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Rimborsi',
+        'details_title' => 'Dettagli del Rimborso',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pagamento',
+        'amount' => 'Importo',
+        'status' => 'Stato',
+        'reason' => 'Motivo',
+        'action' => 'Azione',
+
+        // Status Labels
+        'completed' => 'Completato',
+        'pending' => 'In attesa',
+        'failed' => 'Fallito',
+
+        // Delete Modal
+        'delete_confirm' => 'Conferma eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questo rimborso?',
+        'cancel' => 'Annulla',
+        'delete' => 'Elimina',
+
+        // Alerts / Notifications
+        'success' => 'Successo',
+        'deleted' => 'Eliminato',
+        'delete_error' => 'Errore durante l\'eliminazione del rimborso!',
+
+        // Refund Details Page
+        'created_at' => 'Creato il',
+        'updated_at' => 'Aggiornato il',
+        'back' => 'Torna ai rimborsi',
+
+        // Fallback
+        'not_available' => 'Non disponibile',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Pagamenti',
+        'details_title' => 'Dettagli del pagamento',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Ordine',
+        'user' => 'Utente',
+        'gateway' => 'Gateway di pagamento',
+        'amount' => 'Importo',
+        'status' => 'Stato',
+        'transaction' => 'Transazione',
+        'action' => 'Azione',
+
+        // Status Labels
+        'completed' => 'Completato',
+        'pending' => 'In sospeso',
+        'failed' => 'Fallito',
+
+        // Delete Modal
+        'delete_confirm' => 'Conferma eliminazione',
+        'delete_message' => 'Sei sicuro di voler eliminare questo pagamento?',
+        'cancel' => 'Annulla',
+        'delete' => 'Elimina',
+
+        // Alerts / Notifications
+        'success' => 'Successo',
+        'deleted' => 'Eliminato',
+        'delete_error' => 'Errore durante l’eliminazione del pagamento!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID Transazione',
+        'created_at' => 'Creato il',
+        'back' => 'Torna ai pagamenti',
+
+        // Fallback
+        'not_available' => 'Non disponibile',
     ],
 
     'pages' => [

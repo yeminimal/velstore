@@ -112,39 +112,39 @@
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#paymentsMenu" role="button" aria-expanded="false" aria-controls="paymentsMenu">
-                <span><i class="fas fa-credit-card me-2"></i> <span>Payments</span></span>
+                <span><i class="fas fa-credit-card me-2"></i> <span>{{ __('cms.sidebar.payments.title') }}</span></span>
                 <i class="fas fa-chevron-down"></i>
             </a>
             <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.payments.index', 'admin.payments.getData']) ? 'show' : '' }}" id="paymentsMenu">
                 <ul class="nav flex-column ms-3">
                     <li>
-                        <a class="nav-link {{ Route::currentRouteName() == 'admin.payments.index' ? 'active' : '' }}" href="{{ route('admin.payments.index') }}">List</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.payments.index' ? 'active' : '' }}" href="{{ route('admin.payments.index') }}">{{ __('cms.sidebar.payments.list') }}</a>
                     </li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#refundsMenu" role="button" aria-expanded="false" aria-controls="refundsMenu">
-                <span><i class="fas fa-undo me-2"></i> <span>Refunds</span></span>
+                <span><i class="fas fa-undo me-2"></i> <span>{{ __('cms.sidebar.refunds.title') }}</span></span>
                 <i class="fas fa-chevron-down"></i>
             </a>
             <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.refunds.index', 'admin.refunds.getData']) ? 'show' : '' }}" id="refundsMenu">
                 <ul class="nav flex-column ms-3">
                     <li>
-                        <a class="nav-link {{ Route::currentRouteName() == 'admin.refunds.index' ? 'active' : '' }}" href="{{ route('admin.refunds.index') }}">List</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.refunds.index' ? 'active' : '' }}" href="{{ route('admin.refunds.index') }}">{{ __('cms.sidebar.refunds.list') }}</a>
                     </li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#gatewaysMenu" role="button" aria-expanded="false" aria-controls="gatewaysMenu">
-                <span><i class="fas fa-cogs me-2"></i> <span>Payment Gateways</span></span>
+                <span><i class="fas fa-cogs me-2"></i> <span>{{ __('cms.sidebar.payment_gateways.title') }}</span></span>
                 <i class="fas fa-chevron-down"></i>
             </a>
             <div class="collapse {{ in_array(Route::currentRouteName(), ['admin.payment-gateways.index', 'admin.payment-gateways.getData', 'admin.payment-gateways.edit']) ? 'show' : '' }}" id="gatewaysMenu">
                 <ul class="nav flex-column ms-3">
                     <li>
-                        <a class="nav-link {{ Route::currentRouteName() == 'admin.payment-gateways.index' ? 'active' : '' }}" href="{{ route('admin.payment-gateways.index') }}">List</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.payment-gateways.index' ? 'active' : '' }}" href="{{ route('admin.payment-gateways.index') }}">{{ __('cms.sidebar.payment_gateways.list') }}</a>
                     </li>
                 </ul>
             </div>

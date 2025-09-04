@@ -87,6 +87,146 @@ return [
             'add_new' => 'Nieuw toevoegen',
             'list' => 'Lijst',
         ],
+        'payments' => [
+            'title' => 'Betalingen',
+            'list' => 'Lijst',
+        ],
+
+        'refunds' => [
+            'title' => 'Terugbetalingen',
+            'list' => 'Lijst',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Betaalgateways',
+            'list' => 'Lijst',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Betaalgateways',
+        'edit_title' => 'Betaalgateway bewerken',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Naam',
+        'code' => 'Code',
+        'status' => 'Status',
+        'action' => 'Actie',
+
+        // Status Labels
+        'active' => 'Actief',
+        'inactive' => 'Inactief',
+
+        // Delete Modal
+        'delete_confirm' => 'Bevestig verwijderen',
+        'delete_message' => 'Weet u zeker dat u deze betaalgateway wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van de betaalgateway!',
+
+        // Form Labels
+        'gateway_name' => 'Gateway Naam',
+        'description' => 'Beschrijving',
+        'active_label' => 'Actief',
+        'configurations' => 'Gateway Configuraties',
+        'key_name' => 'Sleutel Naam',
+        'key_value' => 'Sleutel Waarde',
+        'environment' => 'Omgeving',
+        'sandbox' => 'Sandbox',
+        'production' => 'Productie',
+        'encrypted' => 'Versleuteld',
+        'unique' => 'Uniek',
+        'update_button' => 'Bijwerken',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Terugbetalingen',
+        'details_title' => 'Terugbetalingsdetails',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Betaling',
+        'amount' => 'Bedrag',
+        'status' => 'Status',
+        'reason' => 'Reden',
+        'action' => 'Actie',
+
+        // Status Labels
+        'completed' => 'Voltooid',
+        'pending' => 'In afwachting',
+        'failed' => 'Mislukt',
+
+        // Delete Modal
+        'delete_confirm' => 'Bevestig verwijderen',
+        'delete_message' => 'Weet u zeker dat u deze terugbetaling wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van de terugbetaling!',
+
+        // Refund Details Page
+        'created_at' => 'Gemaakt op',
+        'updated_at' => 'Bijgewerkt op',
+        'back' => 'Terug naar terugbetalingen',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Betalingen',
+        'details_title' => 'Betalingsgegevens',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Bestelling',
+        'user' => 'Gebruiker',
+        'gateway' => 'Betaalgateway',
+        'amount' => 'Bedrag',
+        'status' => 'Status',
+        'transaction' => 'Transactie',
+        'action' => 'Actie',
+
+        // Status Labels
+        'completed' => 'Voltooid',
+        'pending' => 'In afwachting',
+        'failed' => 'Mislukt',
+
+        // Delete Modal
+        'delete_confirm' => 'Verwijderen bevestigen',
+        'delete_message' => 'Weet u zeker dat u deze betaling wilt verwijderen?',
+        'cancel' => 'Annuleren',
+        'delete' => 'Verwijderen',
+
+        // Alerts / Notifications
+        'success' => 'Succes',
+        'deleted' => 'Verwijderd',
+        'delete_error' => 'Fout bij het verwijderen van betaling!',
+
+        // Payment Details Page
+        'transaction_id' => 'Transactie-ID',
+        'created_at' => 'Aangemaakt op',
+        'back' => 'Terug naar Betalingen',
+
+        // Fallback
+        'not_available' => 'Niet beschikbaar',
     ],
 
     'pages' => [

@@ -88,6 +88,146 @@ return [
             'add_new' => 'Tambah Baru',
             'list' => 'Daftar',
         ],
+        'payments' => [
+            'title' => 'Pembayaran',
+            'list' => 'Daftar',
+        ],
+
+        'refunds' => [
+            'title' => 'Pengembalian Dana',
+            'list' => 'Daftar',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Gerbang Pembayaran',
+            'list' => 'Daftar',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Gateway Pembayaran',
+        'edit_title' => 'Sunting Gateway Pembayaran',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Nama',
+        'code' => 'Kode',
+        'status' => 'Status',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'active' => 'Aktif',
+        'inactive' => 'Nonaktif',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus gateway pembayaran ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Sukses',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus gateway pembayaran!',
+
+        // Form Labels
+        'gateway_name' => 'Nama Gateway',
+        'description' => 'Deskripsi',
+        'active_label' => 'Aktif',
+        'configurations' => 'Konfigurasi Gateway',
+        'key_name' => 'Nama Kunci',
+        'key_value' => 'Nilai Kunci',
+        'environment' => 'Lingkungan',
+        'sandbox' => 'Sandbox',
+        'production' => 'Produksi',
+        'encrypted' => 'Terenkripsi',
+        'unique' => 'Unik',
+        'update_button' => 'Perbarui',
+
+        // Fallback
+        'not_available' => 'Tidak Tersedia',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'Pengembalian Dana',
+        'details_title' => 'Detail Pengembalian Dana',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Pembayaran',
+        'amount' => 'Jumlah',
+        'status' => 'Status',
+        'reason' => 'Alasan',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'completed' => 'Selesai',
+        'pending' => 'Menunggu',
+        'failed' => 'Gagal',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus pengembalian dana ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Sukses',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus pengembalian dana!',
+
+        // Refund Details Page
+        'created_at' => 'Dibuat Pada',
+        'updated_at' => 'Diperbarui Pada',
+        'back' => 'Kembali ke Pengembalian Dana',
+
+        // Fallback
+        'not_available' => 'Tidak Tersedia',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Pembayaran',
+        'details_title' => 'Detail Pembayaran',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Pesanan',
+        'user' => 'Pengguna',
+        'gateway' => 'Gateway Pembayaran',
+        'amount' => 'Jumlah',
+        'status' => 'Status',
+        'transaction' => 'Transaksi',
+        'action' => 'Aksi',
+
+        // Status Labels
+        'completed' => 'Selesai',
+        'pending' => 'Tertunda',
+        'failed' => 'Gagal',
+
+        // Delete Modal
+        'delete_confirm' => 'Konfirmasi Hapus',
+        'delete_message' => 'Apakah Anda yakin ingin menghapus pembayaran ini?',
+        'cancel' => 'Batal',
+        'delete' => 'Hapus',
+
+        // Alerts / Notifications
+        'success' => 'Berhasil',
+        'deleted' => 'Dihapus',
+        'delete_error' => 'Terjadi kesalahan saat menghapus pembayaran!',
+
+        // Payment Details Page
+        'transaction_id' => 'ID Transaksi',
+        'created_at' => 'Tanggal Dibuat',
+        'back' => 'Kembali ke Pembayaran',
+
+        // Fallback
+        'not_available' => 'Tidak tersedia',
     ],
 
     'pages' => [

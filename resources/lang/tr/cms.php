@@ -88,6 +88,146 @@ return [
             'add_new' => 'Yeni Ekle',
             'list' => 'Liste',
         ],
+        'payments' => [
+            'title' => 'Ödemeler',
+            'list' => 'Liste',
+        ],
+
+        'refunds' => [
+            'title' => 'İadeler',
+            'list' => 'Liste',
+        ],
+
+        'payment_gateways' => [
+            'title' => 'Ödeme Ağ Geçitleri',
+            'list' => 'Liste',
+        ],
+    ],
+
+    'payment_gateways' => [
+
+        // Page Titles
+        'title' => 'Ödeme Ağ Geçitleri',
+        'edit_title' => 'Ödeme Ağ Geçidini Düzenle',
+
+        // Table Headings
+        'id' => 'ID',
+        'name' => 'Ad',
+        'code' => 'Kod',
+        'status' => 'Durum',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'active' => 'Aktif',
+        'inactive' => 'Pasif',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu ödeme ağ geçidini silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'Ödeme ağ geçidi silinirken hata oluştu!',
+
+        // Form Labels
+        'gateway_name' => 'Ağ Geçidi Adı',
+        'description' => 'Açıklama',
+        'active_label' => 'Aktif',
+        'configurations' => 'Ağ Geçidi Yapılandırmaları',
+        'key_name' => 'Anahtar Adı',
+        'key_value' => 'Anahtar Değeri',
+        'environment' => 'Ortam',
+        'sandbox' => 'Sandbox',
+        'production' => 'Production',
+        'encrypted' => 'Şifreli',
+        'unique' => 'Benzersiz',
+        'update_button' => 'Güncelle',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
+    ],
+
+    'refunds' => [
+
+        // Page Titles
+        'title' => 'İadeler',
+        'details_title' => 'İade Detayları',
+
+        // Table Headings
+        'id' => 'ID',
+        'payment' => 'Ödeme',
+        'amount' => 'Tutar',
+        'status' => 'Durum',
+        'reason' => 'Sebep',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'completed' => 'Tamamlandı',
+        'pending' => 'Beklemede',
+        'failed' => 'Başarısız',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu iadeyi silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'İade silinirken hata oluştu!',
+
+        // Refund Details Page
+        'created_at' => 'Oluşturulma Tarihi',
+        'updated_at' => 'Güncellenme Tarihi',
+        'back' => 'İadelere Geri Dön',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
+    ],
+
+    'payments' => [
+
+        // Page Titles
+        'title' => 'Ödemeler',
+        'details_title' => 'Ödeme Detayları',
+
+        // Table Headings
+        'id' => 'ID',
+        'order' => 'Sipariş',
+        'user' => 'Kullanıcı',
+        'gateway' => 'Ödeme Geçidi',
+        'amount' => 'Tutar',
+        'status' => 'Durum',
+        'transaction' => 'İşlem',
+        'action' => 'İşlem',
+
+        // Status Labels
+        'completed' => 'Tamamlandı',
+        'pending' => 'Beklemede',
+        'failed' => 'Başarısız',
+
+        // Delete Modal
+        'delete_confirm' => 'Silme Onayı',
+        'delete_message' => 'Bu ödemeyi silmek istediğinizden emin misiniz?',
+        'cancel' => 'İptal',
+        'delete' => 'Sil',
+
+        // Alerts / Notifications
+        'success' => 'Başarılı',
+        'deleted' => 'Silindi',
+        'delete_error' => 'Ödeme silinirken hata oluştu!',
+
+        // Payment Details Page
+        'transaction_id' => 'İşlem ID',
+        'created_at' => 'Oluşturulma Tarihi',
+        'back' => 'Ödeme Listesine Dön',
+
+        // Fallback
+        'not_available' => 'Mevcut değil',
     ],
 
     'pages' => [
