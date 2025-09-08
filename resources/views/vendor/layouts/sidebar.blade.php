@@ -1,14 +1,14 @@
 <!-- Sidebar -->
 <nav id="sidebar" class="d-flex flex-column p-3">
     <div class="logo-container">
-        <img src="https://via.placeholder.com/100" alt="Logo">
+        <img src="https://via.placeholder.com/100" alt="{{ __('cms.sidebar.logo') }}">
     </div>
     <div class="search-container position-relative">
-        <input type="text" class="form-control" placeholder="Search..." id="searchInput" autocomplete="off">
+        <input type="text" class="form-control" placeholder="{{ __('cms.sidebar.search_placeholder') }}" id="searchInput" autocomplete="off">
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() == 'vendor.dashboard' ? 'active' : '' }}" href="{{ route('vendor.dashboard') }}" href="#"><i class="fas fa-home me-2"></i> <span>Dashboard</span></a>
+            <a class="nav-link {{ Route::currentRouteName() == 'vendor.dashboard' ? 'active' : '' }}" href="{{ route('vendor.dashboard') }}" href="#"><i class="fas fa-home me-2"></i> <span>{{ __('cms.sidebar.dashboard') }}</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#productMenu" role="button" aria-expanded="false" aria-controls="productMenu">

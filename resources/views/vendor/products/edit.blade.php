@@ -114,10 +114,9 @@
                                 <input type="text" name="variants[{{ $index }}][dimensions]" class="form-control"
                                        value="{{ $variant->dimensions }}">
                             </div>
-                            <div class="col-md-6 mt-2">
+                           <div class="col-md-6 mt-2">
                                 <label>{{ __('cms.products.size') }}</label>
                                 <select name="variants[{{ $index }}][size_id]" class="form-control">
-                                    <option value="">{{ __('cms.products.select') }}</option>
                                     @foreach($sizes as $size)
                                         <option value="{{ $size->id }}" {{ $sizeId == $size->id ? 'selected' : '' }}>
                                             {{ $size->value }}
@@ -128,7 +127,6 @@
                             <div class="col-md-6 mt-2">
                                 <label>{{ __('cms.products.color') }}</label>
                                 <select name="variants[{{ $index }}][color_id]" class="form-control">
-                                    <option value="">{{ __('cms.products.select') }}</option>
                                     @foreach($colors as $color)
                                         <option value="{{ $color->id }}" {{ $colorId == $color->id ? 'selected' : '' }}>
                                             {{ $color->value }}
