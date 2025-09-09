@@ -93,7 +93,7 @@
 
                 let input = document.createElement("input");
                 input.type = "text";
-                input.name = "values[new][]";
+                input.name = "values[]";
                 input.classList.add("form-control");
                 input.placeholder = "Enter value";
 

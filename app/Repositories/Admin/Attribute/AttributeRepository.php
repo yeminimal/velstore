@@ -43,21 +43,28 @@ class AttributeRepository implements AttributeRepositoryInterface
     public function update(Attribute $attribute, array $data)
     {
         $attribute->update(['name' => $data['name']]);
+
         $existingValues = $attribute->values->keyBy('id');
+
+        $processedIds = [];
 
         foreach ($data['values'] as $valueId => $value) {
             if (is_numeric($valueId) && isset($existingValues[$valueId])) {
                 $existingValues[$valueId]->update(['value' => $value]);
+                $processedIds[] = $valueId;
+
+                $attributeValue = $existingValues[$valueId];
             } else {
                 $attributeValue = $attribute->values()->create(['value' => $value]);
+                $processedIds[] = $attributeValue->id;
             }
 
             if (isset($data['translations'])) {
                 foreach ($data['translations'] as $languageCode => $translatedValue) {
                     if (! empty($translatedValue)) {
-                        AttributeValueTranslation::updateOrCreate(
+                        \App\Models\AttributeValueTranslation::updateOrCreate(
                             [
-                                'attribute_value_id' => $attributeValue->id ?? $valueId,
+                                'attribute_value_id' => $attributeValue->id,
                                 'language_code' => $languageCode,
                             ],
                             ['translated_value' => $translatedValue]
@@ -65,6 +72,11 @@ class AttributeRepository implements AttributeRepositoryInterface
                     }
                 }
             }
+        }
+
+        $valuesToDelete = $existingValues->keys()->diff($processedIds);
+        if ($valuesToDelete->isNotEmpty()) {
+            $attribute->values()->whereIn('id', $valuesToDelete)->delete();
         }
 
         return $attribute;
