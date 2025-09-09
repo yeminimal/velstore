@@ -74,26 +74,26 @@
                     <i class="fa-regular fa-heart"></i>
                 </a>
 
-                <!-- Account Icon -->
+                    <!-- Account Icon -->
                 <a href="#" class="text-dark dropdown-toggle homepage-icon" data-bs-toggle="dropdown">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end p-2">
-                    @guest
+                    @guest('customer')
                         <li><a class="dropdown-item" href="{{ route('customer.login') }}">Sign In</a></li>
                         <li><a class="dropdown-item" href="{{ route('customer.register') }}">Sign Up</a></li>
-                    @else
-                        <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{{ route('orders') }}">Orders</a></li>
+                    @elseauth('customer')
                         <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <a class="dropdown-item" href="{{ route('customer.logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('customer-logout-form').submit();">
+                            Logout
+                            </a>
+                            <form id="customer-logout-form" action="{{ route('customer.logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </li>
                     @endguest
-                </ul>   
+                </ul>
 
                 <!-- Cart Icon -->
                 <a href="{{ route('cart.view') }}" class="text-dark position-relative homepage-icon">
