@@ -702,6 +702,7 @@ return [
         'remove_value' => 'Supprimer',
         'save_attribute' => 'Enregistrer l\'attribut',
         'update_attribute' => 'Mettre à jour l\'attribut',
+        'add_value_translation' => 'Ajouter une traduction de valeur',
 
         'success_create' => 'Attribut créé avec succès !',
         'success_update' => 'Attribut mis à jour avec succès !',

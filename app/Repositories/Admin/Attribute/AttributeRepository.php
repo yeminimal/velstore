@@ -19,18 +19,22 @@ class AttributeRepository implements AttributeRepositoryInterface
 
     public function store(array $data)
     {
-        $attribute = Attribute::create(['name' => $data['name']]);
+        $attribute = Attribute::create([
+            'name' => $data['name'],
+        ]);
 
-        foreach ($data['values'] as $value) {
-            $attributeValue = $attribute->values()->create(['value' => $value]);
+        foreach ($data['values'] as $index => $value) {
+            $attributeValue = $attribute->values()->create([
+                'value' => $value,
+            ]);
 
-            if (isset($data['translations'])) {
-                foreach ($data['translations'] as $languageCode => $translatedValue) {
-                    if (! empty($translatedValue)) {
+            if (! empty($data['translations'])) {
+                foreach ($data['translations'] as $languageCode => $translatedValues) {
+                    if (! empty($translatedValues[$index])) {
                         AttributeValueTranslation::create([
                             'attribute_value_id' => $attributeValue->id,
                             'language_code' => $languageCode,
-                            'translated_value' => $translatedValue,
+                            'translated_value' => $translatedValues[$index],
                         ]);
                     }
                 }
@@ -44,39 +48,25 @@ class AttributeRepository implements AttributeRepositoryInterface
     {
         $attribute->update(['name' => $data['name']]);
 
-        $existingValues = $attribute->values->keyBy('id');
+        $attribute->values()->each(function ($value) {
+            $value->translations()->delete();
+            $value->delete();
+        });
 
-        $processedIds = [];
+        foreach ($data['values'] as $index => $value) {
+            $attributeValue = $attribute->values()->create(['value' => $value]);
 
-        foreach ($data['values'] as $valueId => $value) {
-            if (is_numeric($valueId) && isset($existingValues[$valueId])) {
-                $existingValues[$valueId]->update(['value' => $value]);
-                $processedIds[] = $valueId;
-
-                $attributeValue = $existingValues[$valueId];
-            } else {
-                $attributeValue = $attribute->values()->create(['value' => $value]);
-                $processedIds[] = $attributeValue->id;
-            }
-
-            if (isset($data['translations'])) {
-                foreach ($data['translations'] as $languageCode => $translatedValue) {
-                    if (! empty($translatedValue)) {
-                        \App\Models\AttributeValueTranslation::updateOrCreate(
-                            [
-                                'attribute_value_id' => $attributeValue->id,
-                                'language_code' => $languageCode,
-                            ],
-                            ['translated_value' => $translatedValue]
-                        );
+            if (! empty($data['translations'])) {
+                foreach ($data['translations'] as $languageCode => $translatedValues) {
+                    if (! empty($translatedValues[$index])) {
+                        \App\Models\AttributeValueTranslation::create([
+                            'attribute_value_id' => $attributeValue->id,
+                            'language_code' => $languageCode,
+                            'translated_value' => $translatedValues[$index],
+                        ]);
                     }
                 }
             }
-        }
-
-        $valuesToDelete = $existingValues->keys()->diff($processedIds);
-        if ($valuesToDelete->isNotEmpty()) {
-            $attribute->values()->whereIn('id', $valuesToDelete)->delete();
         }
 
         return $attribute;

@@ -703,6 +703,7 @@ return [
         'remove_value' => 'Usuń',
         'save_attribute' => 'Zapisz atrybut',
         'update_attribute' => 'Aktualizuj atrybut',
+        'add_value_translation' => 'Dodaj tłumaczenie wartości',
 
         'success_create' => 'Atrybut został pomyślnie utworzony!',
         'success_update' => 'Atrybut został pomyślnie zaktualizowany!',

@@ -704,6 +704,7 @@ return [
         'remove_value' => '移除',
         'save_attribute' => '保存属性',
         'update_attribute' => '更新属性',
+        'add_value_translation' => '添加值翻译',
 
         'success_create' => '属性创建成功！',
         'success_update' => '属性更新成功！',

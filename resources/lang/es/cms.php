@@ -670,6 +670,7 @@ return [
         'remove_value' => 'Eliminar',
         'save_attribute' => 'Guardar Atributo',
         'update_attribute' => 'Actualizar Atributo',
+        'add_value_translation' => 'Agregar traducción de valor',
 
         'success_create' => '¡Atributo creado con éxito!',
         'success_update' => '¡Atributo actualizado con éxito!',

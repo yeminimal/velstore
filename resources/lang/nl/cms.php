@@ -702,6 +702,7 @@ return [
         'remove_value' => 'Verwijderen',
         'save_attribute' => 'Attribuut opslaan',
         'update_attribute' => 'Attribuut bijwerken',
+        'add_value_translation' => 'Waardevertaling toevoegen',
 
         'success_create' => 'Attribuut succesvol aangemaakt!',
         'success_update' => 'Attribuut succesvol bijgewerkt!',

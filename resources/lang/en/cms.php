@@ -703,6 +703,7 @@ return [
         'remove_value' => 'Remove',
         'save_attribute' => 'Save Attribute',
         'update_attribute' => 'Update Attribute',
+        'add_value_translation' => 'Add Value Translation',
 
         'success_create' => 'Attribute created successfully!',
         'success_update' => 'Attribute updated successfully!',

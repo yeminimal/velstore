@@ -717,6 +717,7 @@ return [
         'remove_value' => 'Entfernen',
         'save_attribute' => 'Attribut speichern',
         'update_attribute' => 'Attribut aktualisieren',
+        'add_value_translation' => 'Wertübersetzung hinzufügen',
 
         'success_create' => 'Attribut erfolgreich erstellt!',
         'success_update' => 'Attribut erfolgreich aktualisiert!',

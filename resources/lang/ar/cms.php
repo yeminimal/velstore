@@ -704,6 +704,7 @@ return [
         'remove_value' => 'إزالة',
         'save_attribute' => 'حفظ الخاصية',
         'update_attribute' => 'تحديث الخاصية',
+        'add_value_translation' => 'إضافة ترجمة للقيمة',
 
         'success_create' => 'تم إنشاء الخاصية بنجاح!',
         'success_update' => 'تم تحديث الخاصية بنجاح!',

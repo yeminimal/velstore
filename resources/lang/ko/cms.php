@@ -703,6 +703,7 @@ return [
         'remove_value' => '제거',
         'save_attribute' => '속성 저장',
         'update_attribute' => '속성 업데이트',
+        'add_value_translation' => '값 번역 추가',
 
         'success_create' => '속성이 성공적으로 생성되었습니다!',
         'success_update' => '속성이 성공적으로 업데이트되었습니다!',

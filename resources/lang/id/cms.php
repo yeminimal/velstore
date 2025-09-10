@@ -705,6 +705,7 @@ return [
         'remove_value' => 'Hapus',
         'save_attribute' => 'Simpan Atribut',
         'update_attribute' => 'Perbarui Atribut',
+        'add_value_translation' => 'Tambahkan terjemahan nilai',
 
         'success_create' => 'Atribut berhasil dibuat!',
         'success_update' => 'Atribut berhasil diperbarui!',

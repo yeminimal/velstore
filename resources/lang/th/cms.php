@@ -703,6 +703,7 @@ return [
         'remove_value' => 'ลบ',
         'save_attribute' => 'บันทึกคุณลักษณะ',
         'update_attribute' => 'อัปเดตคุณลักษณะ',
+        'add_value_translation' => 'เพิ่มคำแปลของค่า',
 
         'success_create' => 'สร้างคุณลักษณะสำเร็จ!',
         'success_update' => 'อัปเดตคุณลักษณะสำเร็จ!',

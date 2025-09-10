@@ -702,6 +702,7 @@ return [
         'remove_value' => 'Удалить',
         'save_attribute' => 'Сохранить атрибут',
         'update_attribute' => 'Обновить атрибут',
+        'add_value_translation' => 'Добавить перевод значения',
 
         'success_create' => 'Атрибут успешно создан!',
         'success_update' => 'Атрибут успешно обновлен!',
