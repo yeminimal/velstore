@@ -104,7 +104,7 @@
                         <input type="text" id="qty" value="1">
                         <button onclick="changeQty(1)">+</button>
                     </div>
-                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }}, '{{ $product->product_type }}')">Add to Cart</button>
+                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }}, '{{ $product->product_type }}')">{{ __('store.product_detail.add_to_cart') }}</button>
                 </div>
 
             </div>
@@ -120,11 +120,11 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
-                    type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                    type="button" role="tab" aria-controls="description" aria-selected="true">{{ __('store.product_detail.description') }}</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviews_count }})</button>
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">{{ __('store.product_detail.reviews') }} ({{ $product->reviews_count }})</button>
           </li>
         </ul>
 

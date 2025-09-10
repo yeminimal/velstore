@@ -32,9 +32,9 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('customer')->logout();
-        $request->session()->invalidate();
+
         $request->session()->regenerateToken();
 
-        return redirect()->route('themes.xylo.auth.login');
+        return redirect()->route('customer.login');
     }
 }
