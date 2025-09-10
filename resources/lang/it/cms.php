@@ -702,6 +702,7 @@ return [
         'remove_value' => 'हटाएँ',
         'save_attribute' => 'विशेषता सहेजें',
         'update_attribute' => 'विशेषता अपडेट करें',
+        'add_value_translation' => 'Aggiungi traduzione del valore',
 
         'success_create' => 'विशेषता सफलतापूर्वक बनाई गई!',
         'success_update' => 'विशेषता सफलतापूर्वक अपडेट की गई!',

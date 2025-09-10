@@ -704,6 +704,7 @@ return [
         'remove_value' => 'Kaldır',
         'save_attribute' => 'Özelliği Kaydet',
         'update_attribute' => 'Özelliği Güncelle',
+        'add_value_translation' => 'Değer çevirisi ekle',
 
         'success_create' => 'Özellik başarıyla oluşturuldu!',
         'success_update' => 'Özellik başarıyla güncellendi!',

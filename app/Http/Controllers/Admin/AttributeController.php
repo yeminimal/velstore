@@ -59,6 +59,8 @@ class AttributeController extends Controller
             'values' => 'required|array',
             'values.*' => 'string|max:255',
             'translations' => 'array',
+            'translations.*' => 'array',
+            'translations.*.*' => 'nullable|string|max:255',
         ]);
 
         $this->attributeService->createAttribute($request->all());
@@ -81,6 +83,8 @@ class AttributeController extends Controller
             'values' => 'required|array',
             'values.*' => 'string|max:255',
             'translations' => 'array',
+            'translations.*' => 'array',
+            'translations.*.*' => 'nullable|string|max:255',
         ]);
 
         $this->attributeService->updateAttribute($attribute, $request->all());

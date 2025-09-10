@@ -703,6 +703,7 @@ return [
         'remove_value' => 'حذف',
         'save_attribute' => 'ذخیره ویژگی',
         'update_attribute' => 'بروزرسانی ویژگی',
+        'add_value_translation' => 'افزودن ترجمه مقدار',
 
         'success_create' => 'ویژگی با موفقیت ایجاد شد!',
         'success_update' => 'ویژگی با موفقیت بروزرسانی شد!',

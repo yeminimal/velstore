@@ -702,6 +702,7 @@ return [
         'remove_value' => '削除',
         'save_attribute' => '属性を保存',
         'update_attribute' => '属性を更新',
+        'add_value_translation' => '値の翻訳を追加',
 
         'success_create' => '属性が正常に作成されました！',
         'success_update' => '属性が正常に更新されました！',

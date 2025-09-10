@@ -732,6 +732,7 @@ return [
         'remove_value' => 'Xóa',
         'save_attribute' => 'Lưu Thuộc Tính',
         'update_attribute' => 'Cập Nhật Thuộc Tính',
+        'add_value_translation' => 'Thêm bản dịch giá trị',
 
         'success_create' => 'Tạo Thuộc Tính Thành Công!',
         'success_update' => 'Cập Nhật Thuộc Tính Thành Công!',

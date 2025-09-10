@@ -49,7 +49,8 @@
                         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                             @foreach ($languages as $language)
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $language->code }}" type="button">
+                                    <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}-tab"
+                                        data-bs-toggle="tab" data-bs-target="#{{ $language->code }}" type="button">
                                         {{ ucwords($language->name) }}
                                     </button>
                                 </li>
@@ -59,8 +60,19 @@
                         <div class="tab-content mt-3" id="languageTabContent">
                             @foreach ($languages as $language)
                                 <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="{{ $language->code }}">
-                                    <label class="form-label">{{ __('cms.attributes.translated_value') }} ({{ $language->name }})</label>
-                                    <input type="text" name="translations[{{ $language->code }}]" class="form-control">
+                                    <div id="translation-container-{{ $language->code }}">
+                                        <div class="input-group mb-2 translation-group">
+                                            <input type="text" 
+                                                name="translations[{{ $language->code }}][]" 
+                                                class="form-control" 
+                                                placeholder="Enter {{ $language->name }} value">
+                                            <button type="button" class="btn btn-danger remove-translation">{{ __('cms.attributes.remove_value') }}</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary add-translation mt-2"
+                                        data-lang="{{ $language->code }}">
+                                        {{ __('cms.attributes.add_value_translation') }}
+                                    </button>
                                 </div>
                             @endforeach
                         </div>
@@ -74,8 +86,9 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("add-value").addEventListener("click", function() {
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add value field
+            document.getElementById("add-value").addEventListener("click", function () {
                 let container = document.getElementById("attribute-values-container");
                 let newInputGroup = document.createElement("div");
                 newInputGroup.classList.add("input-group", "mb-2");
@@ -90,7 +103,7 @@
                 removeBtn.type = "button";
                 removeBtn.classList.add("btn", "btn-danger", "remove-value");
                 removeBtn.textContent = "Remove";
-                removeBtn.addEventListener("click", function() {
+                removeBtn.addEventListener("click", function () {
                     newInputGroup.remove();
                 });
 
@@ -99,8 +112,45 @@
                 container.appendChild(newInputGroup);
             });
 
+            // Remove value field
             document.querySelectorAll(".remove-value").forEach(button => {
-                button.addEventListener("click", function() {
+                button.addEventListener("click", function () {
+                    this.parentElement.remove();
+                });
+            });
+
+            // Add translation per language
+            document.querySelectorAll(".add-translation").forEach(button => {
+                button.addEventListener("click", function () {
+                    let lang = this.dataset.lang;
+                    let container = document.getElementById("translation-container-" + lang);
+
+                    let newGroup = document.createElement("div");
+                    newGroup.classList.add("input-group", "mb-2", "translation-group");
+
+                    let input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "translations[" + lang + "][]";
+                    input.classList.add("form-control");
+                    input.placeholder = "Enter " + lang + " value";
+
+                    let removeBtn = document.createElement("button");
+                    removeBtn.type = "button";
+                    removeBtn.classList.add("btn", "btn-danger", "remove-translation");
+                    removeBtn.textContent = "Remove";
+                    removeBtn.addEventListener("click", function () {
+                        newGroup.remove();
+                    });
+
+                    newGroup.appendChild(input);
+                    newGroup.appendChild(removeBtn);
+                    container.appendChild(newGroup);
+                });
+            });
+
+            // Remove translation field
+            document.querySelectorAll(".remove-translation").forEach(button => {
+                button.addEventListener("click", function () {
                     this.parentElement.remove();
                 });
             });
