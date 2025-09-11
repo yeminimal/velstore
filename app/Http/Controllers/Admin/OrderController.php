@@ -31,14 +31,9 @@ class OrderController extends Controller
             })
             ->addColumn('action', function (Order $order) {
                 return '
-                    <form action="'.route('admin.orders.destroy', $order->id).'" method="POST" class="d-inline delete-order-form">
-                        '.csrf_field().'
-                        '.method_field('DELETE').'
-                        <button type="submit" class="btn btn-danger btn-sm"
-                            onclick="return confirm(\'Are you sure you want to delete this order?\')">
-                            Delete
-                        </button>
-                    </form>
+                    <span class="border border-danger dt-trash rounded-3 d-inline-block" onclick="deleteOrder('.$order->id.')">
+                        <i class="bi bi-trash-fill text-danger"></i>
+                    </span>
                 ';
             })
             ->rawColumns(['action'])
@@ -51,10 +46,6 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
 
-        if (request()->wantsJson()) {
-            return response()->json(['success' => true, 'message' => 'Order deleted successfully.']);
-        }
-
-        return redirect()->route('admin.orders.index')->with('success', 'Order deleted successfully.');
+        return response()->json(['success' => true, 'message' => 'Order deleted successfully.']);
     }
 }

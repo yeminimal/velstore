@@ -689,6 +689,30 @@ return [
         'action' => 'Ação',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Lista de Pedidos',
+
+        // Table Headings
+        'id' => 'ID do Pedido',
+        'order_date' => 'Data do Pedido',
+        'status' => 'Status',
+        'total_price' => 'Preço Total',
+        'action' => 'Ações',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Confirmar Exclusão',
+        'delete_confirm_message' => 'Tem certeza de que deseja excluir este pedido?',
+        'delete_cancel' => 'Cancelar',
+        'delete_button' => 'Excluir',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Pedido excluído com sucesso.',
+        'deleted_error' => 'Falha ao excluir o pedido.',
+        'deleted' => 'Excluído',
+    ],
+
     'attributes' => [
         'title_create' => 'Criar Atributo',
         'title_edit' => 'Editar Atributo',

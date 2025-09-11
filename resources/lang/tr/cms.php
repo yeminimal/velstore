@@ -690,6 +690,30 @@ return [
         'action' => 'İşlem',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Siparişler Listesi',
+
+        // Table Headings
+        'id' => 'Sipariş ID',
+        'order_date' => 'Sipariş Tarihi',
+        'status' => 'Durum',
+        'total_price' => 'Toplam Fiyat',
+        'action' => 'İşlemler',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Silme Onayı',
+        'delete_confirm_message' => 'Bu siparişi silmek istediğinizden emin misiniz?',
+        'delete_cancel' => 'İptal',
+        'delete_button' => 'Sil',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Sipariş başarıyla silindi.',
+        'deleted_error' => 'Siparişi silme işlemi başarısız oldu.',
+        'deleted' => 'Silindi',
+    ],
+
     'attributes' => [
         'title_create' => 'Özellik Oluştur',
         'title_edit' => 'Özellik Düzenle',

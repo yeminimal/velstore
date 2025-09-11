@@ -691,6 +691,30 @@ return [
         'action' => 'Aksi',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Daftar Pesanan',
+
+        // Table Headings
+        'id' => 'ID Pesanan',
+        'order_date' => 'Tanggal Pesanan',
+        'status' => 'Status',
+        'total_price' => 'Total Harga',
+        'action' => 'Aksi',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Konfirmasi Hapus',
+        'delete_confirm_message' => 'Apakah Anda yakin ingin menghapus pesanan ini?',
+        'delete_cancel' => 'Batal',
+        'delete_button' => 'Hapus',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Pesanan berhasil dihapus.',
+        'deleted_error' => 'Gagal menghapus pesanan.',
+        'deleted' => 'Dihapus',
+    ],
+
     'attributes' => [
         'title_create' => 'Buat Atribut',
         'title_edit' => 'Edit Atribut',

@@ -689,6 +689,30 @@ return [
         'action' => '작업',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => '주문 목록',
+
+        // Table Headings
+        'id' => '주문 ID',
+        'order_date' => '주문일',
+        'status' => '상태',
+        'total_price' => '총 금액',
+        'action' => '작업',
+
+        // Delete Modal
+        'delete_confirm_title' => '삭제 확인',
+        'delete_confirm_message' => '이 주문을 삭제하시겠습니까?',
+        'delete_cancel' => '취소',
+        'delete_button' => '삭제',
+
+        // Toastr / Flash Messages
+        'deleted_success' => '주문이 성공적으로 삭제되었습니다.',
+        'deleted_error' => '주문 삭제에 실패했습니다.',
+        'deleted' => '삭제됨',
+    ],
+
     'attributes' => [
         'title_create' => '속성 만들기',
         'title_edit' => '속성 수정',
