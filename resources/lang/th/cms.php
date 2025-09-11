@@ -689,6 +689,30 @@ return [
         'action' => 'การกระทำ',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'รายการคำสั่งซื้อ',
+
+        // Table Headings
+        'id' => 'รหัสคำสั่งซื้อ',
+        'order_date' => 'วันที่สั่งซื้อ',
+        'status' => 'สถานะ',
+        'total_price' => 'ราคารวม',
+        'action' => 'การดำเนินการ',
+
+        // Delete Modal
+        'delete_confirm_title' => 'ยืนยันการลบ',
+        'delete_confirm_message' => 'คุณแน่ใจหรือไม่ว่าต้องการลบคำสั่งซื้อนี้?',
+        'delete_cancel' => 'ยกเลิก',
+        'delete_button' => 'ลบ',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'ลบคำสั่งซื้อสำเร็จแล้ว',
+        'deleted_error' => 'ไม่สามารถลบคำสั่งซื้อได้',
+        'deleted' => 'ถูกลบ',
+    ],
+
     'attributes' => [
         'title_create' => 'สร้างคุณลักษณะ',
         'title_edit' => 'แก้ไขคุณลักษณะ',

@@ -688,36 +688,60 @@ return [
         'action' => 'Azione',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Elenco Ordini',
+
+        // Table Headings
+        'id' => 'ID Ordine',
+        'order_date' => 'Data Ordine',
+        'status' => 'Stato',
+        'total_price' => 'Prezzo Totale',
+        'action' => 'Azioni',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Conferma Eliminazione',
+        'delete_confirm_message' => 'Sei sicuro di voler eliminare questo ordine?',
+        'delete_cancel' => 'Annulla',
+        'delete_button' => 'Elimina',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Ordine eliminato con successo.',
+        'deleted_error' => 'Impossibile eliminare l\'ordine.',
+        'deleted' => 'Eliminato',
+    ],
+
     'attributes' => [
-        'title_create' => 'विशेषता बनाएँ',
-        'title_edit' => 'विशेषता संपादित करें',
-        'title_manage' => 'विशेषताओं का प्रबंधन करें',
+        'title_create' => 'Crea Attributo',
+        'title_edit' => 'Modifica Attributo',
+        'title_manage' => 'Gestisci Attributi',
 
-        'attribute_name' => 'विशेषता नाम',
-        'attribute_values' => 'विशेषता मान',
-        'translations' => 'अनुवाद',
-        'translated_value' => 'अनुवादित मान',
+        'attribute_name' => 'Nome Attributo',
+        'attribute_values' => 'Valori Attributo',
+        'translations' => 'Traduzioni',
+        'translated_value' => 'Valore Tradotto',
 
-        'add_value' => 'मान जोड़ें',
-        'remove_value' => 'हटाएँ',
-        'save_attribute' => 'विशेषता सहेजें',
-        'update_attribute' => 'विशेषता अपडेट करें',
-        'add_value_translation' => 'Aggiungi traduzione del valore',
+        'add_value' => 'Aggiungi Valore',
+        'remove_value' => 'Rimuovi',
+        'save_attribute' => 'Salva Attributo',
+        'update_attribute' => 'Aggiorna Attributo',
+        'add_value_translation' => 'Aggiungi Traduzione del Valore',
 
-        'success_create' => 'विशेषता सफलतापूर्वक बनाई गई!',
-        'success_update' => 'विशेषता सफलतापूर्वक अपडेट की गई!',
-        'success_delete' => 'विशेषता सफलतापूर्वक हटा दी गई!',
-        'delete_confirmation' => 'क्या आप वाकई इस विशेषता को हटाना चाहते हैं?',
-        'success' => 'सफलता',
+        'success_create' => 'Attributo creato con successo!',
+        'success_update' => 'Attributo aggiornato con successo!',
+        'success_delete' => 'Attributo eliminato con successo!',
+        'delete_confirmation' => 'Sei sicuro di voler eliminare questo attributo?',
+        'success' => 'Successo',
 
-        'id' => 'आईडी',
-        'name' => 'नाम',
-        'values' => 'मान',
-        'action' => 'क्रिया',
+        'id' => 'ID',
+        'name' => 'Nome',
+        'values' => 'Valori',
+        'action' => 'Azione',
 
-        'confirm_delete' => 'हटाने की पुष्टि करें',
-        'delete' => 'हटाएँ',
-        'cancel' => 'रद्द करें',
+        'confirm_delete' => 'Conferma Eliminazione',
+        'delete' => 'Elimina',
+        'cancel' => 'Annulla',
     ],
 
     'product_reviews' => [

@@ -703,6 +703,30 @@ return [
         'action' => 'Aktion',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Bestellübersicht',
+
+        // Table Headings
+        'id' => 'Bestellnummer',
+        'order_date' => 'Bestelldatum',
+        'status' => 'Status',
+        'total_price' => 'Gesamtpreis',
+        'action' => 'Aktionen',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Löschen bestätigen',
+        'delete_confirm_message' => 'Sind Sie sicher, dass Sie diese Bestellung löschen möchten?',
+        'delete_cancel' => 'Abbrechen',
+        'delete_button' => 'Löschen',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Bestellung erfolgreich gelöscht.',
+        'deleted_error' => 'Die Bestellung konnte nicht gelöscht werden.',
+        'deleted' => 'Gelöscht',
+    ],
+
     'attributes' => [
         'title_create' => 'Attribut erstellen',
         'title_edit' => 'Attribut bearbeiten',

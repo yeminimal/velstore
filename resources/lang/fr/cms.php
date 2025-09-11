@@ -688,6 +688,30 @@ return [
         'action' => 'Action',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Liste des commandes',
+
+        // Table Headings
+        'id' => 'ID de commande',
+        'order_date' => 'Date de commande',
+        'status' => 'Statut',
+        'total_price' => 'Prix total',
+        'action' => 'Actions',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Confirmer la suppression',
+        'delete_confirm_message' => 'Êtes-vous sûr de vouloir supprimer cette commande ?',
+        'delete_cancel' => 'Annuler',
+        'delete_button' => 'Supprimer',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Commande supprimée avec succès.',
+        'deleted_error' => 'Échec de la suppression de la commande.',
+        'deleted' => 'Supprimée',
+    ],
+
     'attributes' => [
         'title_create' => 'Créer un attribut',
         'title_edit' => 'Modifier un attribut',

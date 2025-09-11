@@ -687,6 +687,30 @@ return [
         'action' => 'क्रिया',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'ऑर्डर सूची',
+
+        // Table Headings
+        'id' => 'ऑर्डर आईडी',
+        'order_date' => 'ऑर्डर की तारीख',
+        'status' => 'स्थिति',
+        'total_price' => 'कुल कीमत',
+        'action' => 'कार्रवाई',
+
+        // Delete Modal
+        'delete_confirm_title' => 'हटाने की पुष्टि करें',
+        'delete_confirm_message' => 'क्या आप वाकई इस ऑर्डर को हटाना चाहते हैं?',
+        'delete_cancel' => 'रद्द करें',
+        'delete_button' => 'हटाएं',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'ऑर्डर सफलतापूर्वक हटा दिया गया।',
+        'deleted_error' => 'ऑर्डर हटाने में विफल।',
+        'deleted' => 'हटा दिया गया',
+    ],
+
     'attributes' => [
         'title_create' => 'विशेषता बनाएँ',
         'title_edit' => 'विशेषता संपादित करें',

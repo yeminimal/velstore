@@ -688,6 +688,30 @@ return [
         'action' => 'アクション',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => '注文一覧',
+
+        // Table Headings
+        'id' => '注文ID',
+        'order_date' => '注文日',
+        'status' => 'ステータス',
+        'total_price' => '合計金額',
+        'action' => '操作',
+
+        // Delete Modal
+        'delete_confirm_title' => '削除の確認',
+        'delete_confirm_message' => 'この注文を削除してもよろしいですか？',
+        'delete_cancel' => 'キャンセル',
+        'delete_button' => '削除',
+
+        // Toastr / Flash Messages
+        'deleted_success' => '注文は正常に削除されました。',
+        'deleted_error' => '注文の削除に失敗しました。',
+        'deleted' => '削除済み',
+    ],
+
     'attributes' => [
         'title_create' => '属性を作成',
         'title_edit' => '属性を編集',

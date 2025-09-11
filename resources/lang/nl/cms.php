@@ -688,6 +688,30 @@ return [
         'action' => 'Actie',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Bestellijst',
+
+        // Table Headings
+        'id' => 'Bestelnummer',
+        'order_date' => 'Besteldatum',
+        'status' => 'Status',
+        'total_price' => 'Totale prijs',
+        'action' => 'Acties',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Verwijder bevestigen',
+        'delete_confirm_message' => 'Weet je zeker dat je deze bestelling wilt verwijderen?',
+        'delete_cancel' => 'Annuleren',
+        'delete_button' => 'Verwijderen',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Bestelling succesvol verwijderd.',
+        'deleted_error' => 'Het verwijderen van de bestelling is mislukt.',
+        'deleted' => 'Verwijderd',
+    ],
+
     'attributes' => [
         'title_create' => 'Attribuut aanmaken',
         'title_edit' => 'Attribuut bewerken',

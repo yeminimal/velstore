@@ -690,6 +690,30 @@ return [
         'action' => 'الإجراء',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'قائمة الطلبات',
+
+        // Table Headings
+        'id' => 'معرّف الطلب',
+        'order_date' => 'تاريخ الطلب',
+        'status' => 'الحالة',
+        'total_price' => 'إجمالي السعر',
+        'action' => 'الإجراءات',
+
+        // Delete Modal
+        'delete_confirm_title' => 'تأكيد الحذف',
+        'delete_confirm_message' => 'هل أنت متأكد أنك تريد حذف هذا الطلب؟',
+        'delete_cancel' => 'إلغاء',
+        'delete_button' => 'حذف',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'تم حذف الطلب بنجاح.',
+        'deleted_error' => 'فشل في حذف الطلب.',
+        'deleted' => 'تم الحذف',
+    ],
+
     'attributes' => [
         'title_create' => 'إنشاء خاصية',
         'title_edit' => 'تعديل خاصية',

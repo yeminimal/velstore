@@ -690,6 +690,30 @@ return [
         'action' => '操作',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => '订单列表',
+
+        // Table Headings
+        'id' => '订单编号',
+        'order_date' => '下单日期',
+        'status' => '状态',
+        'total_price' => '总价',
+        'action' => '操作',
+
+        // Delete Modal
+        'delete_confirm_title' => '确认删除',
+        'delete_confirm_message' => '您确定要删除此订单吗？',
+        'delete_cancel' => '取消',
+        'delete_button' => '删除',
+
+        // Toastr / Flash Messages
+        'deleted_success' => '订单删除成功。',
+        'deleted_error' => '订单删除失败。',
+        'deleted' => '已删除',
+    ],
+
     'attributes' => [
         'title_create' => '创建属性',
         'title_edit' => '编辑属性',

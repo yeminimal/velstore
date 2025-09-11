@@ -689,6 +689,30 @@ return [
         'action' => 'Action',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Orders List',
+
+        // Table Headings
+        'id' => 'Order ID',
+        'order_date' => 'Order Date',
+        'status' => 'Status',
+        'total_price' => 'Total Price',
+        'action' => 'Actions',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Confirm Delete',
+        'delete_confirm_message' => 'Are you sure you want to delete this order?',
+        'delete_cancel' => 'Cancel',
+        'delete_button' => 'Delete',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Order deleted successfully.',
+        'deleted_error' => 'Failed to delete the order.',
+        'deleted' => 'Deleted',
+    ],
+
     'attributes' => [
         'title_create' => 'Create Attribute',
         'title_edit' => 'Edit Attribute',

@@ -689,6 +689,30 @@ return [
         'action' => 'عملیات',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'لیست سفارش‌ها',
+
+        // Table Headings
+        'id' => 'شناسه سفارش',
+        'order_date' => 'تاریخ سفارش',
+        'status' => 'وضعیت',
+        'total_price' => 'مبلغ کل',
+        'action' => 'عملیات',
+
+        // Delete Modal
+        'delete_confirm_title' => 'تأیید حذف',
+        'delete_confirm_message' => 'آیا مطمئن هستید که می‌خواهید این سفارش را حذف کنید؟',
+        'delete_cancel' => 'انصراف',
+        'delete_button' => 'حذف',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'سفارش با موفقیت حذف شد.',
+        'deleted_error' => 'حذف سفارش انجام نشد.',
+        'deleted' => 'حذف شد',
+    ],
+
     'attributes' => [
         'title_create' => 'ایجاد ویژگی',
         'title_edit' => 'ویرایش ویژگی',

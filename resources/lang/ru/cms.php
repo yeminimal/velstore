@@ -688,6 +688,30 @@ return [
         'action' => 'Действие',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Список заказов',
+
+        // Table Headings
+        'id' => 'ID заказа',
+        'order_date' => 'Дата заказа',
+        'status' => 'Статус',
+        'total_price' => 'Общая стоимость',
+        'action' => 'Действия',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Подтвердить удаление',
+        'delete_confirm_message' => 'Вы уверены, что хотите удалить этот заказ?',
+        'delete_cancel' => 'Отмена',
+        'delete_button' => 'Удалить',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Заказ успешно удален.',
+        'deleted_error' => 'Не удалось удалить заказ.',
+        'deleted' => 'Удалено',
+    ],
+
     'attributes' => [
         'title_create' => 'Создать атрибут',
         'title_edit' => 'Редактировать атрибут',

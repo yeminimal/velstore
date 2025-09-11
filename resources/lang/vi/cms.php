@@ -718,6 +718,30 @@ return [
         'action' => 'Hành động',
     ],
 
+    'orders' => [
+
+        // Page Title
+        'title' => 'Danh sách đơn hàng',
+
+        // Table Headings
+        'id' => 'Mã đơn hàng',
+        'order_date' => 'Ngày đặt hàng',
+        'status' => 'Trạng thái',
+        'total_price' => 'Tổng giá',
+        'action' => 'Hành động',
+
+        // Delete Modal
+        'delete_confirm_title' => 'Xác nhận xóa',
+        'delete_confirm_message' => 'Bạn có chắc chắn muốn xóa đơn hàng này không?',
+        'delete_cancel' => 'Hủy',
+        'delete_button' => 'Xóa',
+
+        // Toastr / Flash Messages
+        'deleted_success' => 'Xóa đơn hàng thành công.',
+        'deleted_error' => 'Xóa đơn hàng thất bại.',
+        'deleted' => 'Đã xóa',
+    ],
+
     'attributes' => [
         'title_create' => 'Tạo Thuộc Tính',
         'title_edit' => 'Chỉnh Sửa Thuộc Tính',
