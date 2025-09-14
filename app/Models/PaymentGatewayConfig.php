@@ -14,25 +14,15 @@ class PaymentGatewayConfig extends Model
         return $this->belongsTo(PaymentGateway::class, 'gateway_id');
     }
 
-    public function setKeyValueAttribute($value)
-    {
-        if ($this->is_encrypted) {
-            $this->attributes['key_value'] = Crypt::encryptString($value);
-        } else {
-            $this->attributes['key_value'] = $value;
-        }
-    }
-
     public function getKeyValueAttribute($value)
     {
-        if ($this->is_encrypted) {
-            try {
-                return Crypt::decryptString($value);
-            } catch (\Exception $e) {
-                return null;
-            }
-        }
+        return $value; // no decryption, just return whatever is stored
+    }
 
-        return $value;
+    public function setKeyValueAttribute($value)
+    {
+        $this->attributes['key_value'] = $this->is_encrypted && $value
+            ? Crypt::encryptString($value)
+            : $value;
     }
 }

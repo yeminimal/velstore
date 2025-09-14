@@ -152,3 +152,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
 Route::get('site-settings/edit', [SiteSettingsController::class, 'edit'])->name('admin.site-settings.edit');
 Route::put('site-settings/update', [SiteSettingsController::class, 'update'])->name('admin.site-settings.update');
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');

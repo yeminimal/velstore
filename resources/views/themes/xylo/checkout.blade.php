@@ -80,7 +80,7 @@
                             </div>
 
                         </div>
-
+                        <!-- 
                         <div class="shipping_info mt-5">
                             <div class="row">
                                 <div class="col-md-8"><h3 class="cart-heading">Payment Method</h3></div>
@@ -108,7 +108,32 @@
                                 </div>
                             </div>
 
+                        </div> -->
+                        <div class="shipping_info mt-5">
+                            <h3 class="cart-heading">Payment Method</h3>
+
+                            @foreach($paymentGateways as $gateway)
+                                <div class="form-check mt-2">
+                                    <input type="radio" name="gateway" value="{{ $gateway->code }}" 
+                                        id="gateway-{{ $gateway->id }}" required>
+                                    <label for="gateway-{{ $gateway->id }}">{{ $gateway->name }}</label>
+                                </div>
+
+                                @if($gateway->code === 'paypal')
+                                    <div id="paypal-button-container" class="mt-3" style="display: none;"></div>
+                                @endif
+
+                                @if($gateway->code === 'stripe')
+                                    <div id="card-element" class="mt-3" style="display: none;"></div>
+                                @endif
+                            @endforeach
+
+
+                            <div id="payment-fields">
+                                <!-- Stripe/PayPal fields will be injected here with JS -->
+                            </div>
                         </div>
+
                     </form>
 
                 </div>
@@ -141,19 +166,71 @@
     </div>
 
 
-
-
-
-
-
-
-
 @endsection
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-   
+document.addEventListener("DOMContentLoaded", async () => {
+    // Fetch keys from backend
+    let response = await fetch("{{ route('stripe.checkout.process') }}");
+    let data = await response.json();
+
+    let stripe = Stripe(data.publicKey);
+    let elements = stripe.elements();
+    let cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    document.querySelector('#checkout-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const {error, paymentIntent} = await stripe.confirmCardPayment(data.clientSecret, {
+            payment_method: {
+                card: cardElement
+            }
+        });
+
+        if (error) {
+            alert(error.message);
+        } else if (paymentIntent.status === 'succeeded') {
+            alert("Payment successful!");
+            window.location.href = "/order/success";
+        }
+    });
+});
 </script>
+
+
+@if($paypalClientId)
+    <script src="https://www.paypal.com/sdk/js?client-id={{ $paypalClientId }}&currency=USD"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof paypal !== "undefined") {
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{ amount: { value: "{{ $total }}" } }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            fetch("{{ route('checkout.process') }}", {
+                                method: "POST",
+                                headers: {"X-CSRF-TOKEN": "{{ csrf_token() }}"},
+                                body: JSON.stringify({
+                                    gateway: "paypal",
+                                    order_id: data.orderID
+                                })
+                            });
+                        });
+                    }
+                }).render('#paypal-button-container');
+            } else {
+                console.error("PayPal SDK not loaded");
+            }
+        });
+    </script>
+@endif
 
 @endsection

@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             LanguageSeeder::class,
             PaymentGatewaySeeder::class,
-            PaymentGatewayConfigSeeder::class,
             PaymentSeeder::class,
             RefundSeeder::class,
         ]);

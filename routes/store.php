@@ -8,6 +8,7 @@ use App\Http\Controllers\Store\Auth\ResetPasswordController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\CheckoutController;
 use App\Http\Controllers\Store\CurrencyController;
+use App\Http\Controllers\Store\PaymentGateway\StripeController;
 use App\Http\Controllers\Store\ProductController;
 use App\Http\Controllers\Store\SearchController;
 use App\Http\Controllers\Store\ShopController;
@@ -63,3 +64,5 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     });
 });
+
+Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout.process');
