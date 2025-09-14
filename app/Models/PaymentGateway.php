@@ -20,4 +20,11 @@ class PaymentGateway extends Model
     {
         return $this->hasMany(PaymentGatewayConfig::class, 'gateway_id');
     }
+
+    public function getConfigValue($key, $default = null)
+    {
+        $config = $this->configs->where('key_name', $key)->first();
+
+        return $config ? $config->key_value : $default;
+    }
 }

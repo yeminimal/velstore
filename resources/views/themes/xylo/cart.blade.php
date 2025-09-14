@@ -4,15 +4,12 @@
 @endsection
 @section('content')
     @php $currency = activeCurrency(); @endphp
-    <section class="banner-area inner-banner pt-5 animate__animated animate__fadeIn productinnerbanner">
-        <div class="container h-100">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="breadcrumbs">
-                        <a href="#">Home Page</a> <i class="fa fa-angle-right"></i> <a href="#">Headphone</a> <i
-                            class="fa fa-angle-right"></i> Espresso decaffeinato
-                    </div>
-                </div>
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumbs" aria-label="breadcrumb">
+                <a href="{{ url('/') }}">Home</a>
+                <i class="fa fa-angle-right"></i>
+                <span>Cart</span>
             </div>
         </div>
     </section>

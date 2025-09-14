@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\PaymentGateway;
 use App\Models\ProductVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,15 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        $paymentGateways = PaymentGateway::with('configs')
+            ->where('is_active', 1)
+            ->get();
+
+        $paypal = $paymentGateways->firstWhere('code', 'paypal');
+        $paypalClientId = $paypal
+            ? $paypal->getConfigValue('client_id', 'sandbox')
+            : null;
+
         $cart = Session::get('cart', []);
         $subtotal = 0;
 
@@ -30,7 +40,19 @@ class CheckoutController extends Controller
         $shipping = null;
         $total = $subtotal + ($shipping ?? 0);
 
-        return view('themes.xylo.checkout', compact('cart', 'subtotal', 'shipping', 'total'));
+        return view('themes.xylo.checkout', compact('cart', 'subtotal', 'shipping', 'total', 'paymentGateways', 'paypalClientId'));
+    }
+
+    public function process(Request $request)
+    {
+        $gatewayCode = $request->input('gateway');
+        $amount = 100;
+
+        $paymentService = PaymentManager::make($gatewayCode, 'sandbox');
+
+        $order = $paymentService->createOrder($amount, 'USD');
+
+        return response()->json($order);
     }
 
     public function store(Request $request)
