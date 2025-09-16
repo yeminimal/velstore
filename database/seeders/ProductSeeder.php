@@ -4,155 +4,156 @@ namespace Database\Seeders;
 
 use App\Models\Attribute;
 use App\Models\AttributeValue;
-use App\Models\AttributeValueTranslation;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\ProductTranslation;
-use App\Models\ProductVariant;
-use App\Models\ProductVariantTranslation;
+use App\Models\ProductAttributeValue;
+use App\Models\Vendor;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        $products = [
-            [
-                'vendor_id' => 1,
-                'shop_id' => 1,
-                'slug' => 'cool-tshirt',
-                'price' => 19.99,
-                'currency' => 'USD',
-                'stock' => 100,
-                'SKU' => 'TSH123',
-                'category_id' => 4,
-                'brand_id' => null,
-                'product_type' => 'Fashion',
-                'status' => 1,
-                'translations' => [
-                    'en' => ['name' => 'Cool T-Shirt', 'description' => 'Stylish and comfortable.'],
-                    'fr' => ['name' => 'T-shirt Cool', 'description' => 'Élégant et confortable.'],
-                ],
-                'attributes' => [
-                    'Color' => ['en' => ['Red', 'Black'], 'fr' => ['Rouge', 'Noir']],
-                    'Size' => ['en' => ['Small', 'Large'], 'fr' => ['Petit', 'Grand']],
-                ],
-                'variants' => [
-                    ['variant_slug' => 'cool-tshirt-red-small', 'price' => 25.99, 'stock' => 30, 'SKU' => 'TSH-RED-SMALL',
-                        'translations' => ['en' => 'Cool T-Shirt - Red Small', 'fr' => 'T-shirt Cool - Rouge Petit'], ],
-                    ['variant_slug' => 'cool-tshirt-black-large', 'price' => 29.99, 'stock' => 20, 'SKU' => 'TSH-BLACK-LARGE',
-                        'translations' => ['en' => 'Cool T-Shirt - Black Large', 'fr' => 'T-shirt Cool - Noir Grand'], ],
-                ],
-            ],
-            [
-                'vendor_id' => 1,
-                'shop_id' => 1,
-                'slug' => 'sport-shoes',
-                'price' => 49.99,
-                'currency' => 'USD',
-                'stock' => 50,
-                'SKU' => 'SHOE123',
-                'category_id' => 2,
-                'brand_id' => 1,
-                'product_type' => 'Footwear',
-                'status' => 1,
-                'translations' => [
-                    'en' => ['name' => 'Sport Shoes', 'description' => 'Perfect for running.'],
-                    'fr' => ['name' => 'Chaussures de sport', 'description' => 'Idéales pour courir.'],
-                ],
-                'attributes' => [
-                    'Size' => ['en' => ['7', '8', '9'], 'fr' => ['7', '8', '9']],
-                    'Color' => ['en' => ['White', 'Blue'], 'fr' => ['Blanc', 'Bleu']],
-                ],
-                'variants' => [
-                    ['variant_slug' => 'sport-shoes-white-7', 'price' => 50.99, 'stock' => 10, 'SKU' => 'SHOE-WHITE-7',
-                        'translations' => ['en' => 'Sport Shoes - White 7', 'fr' => 'Chaussures de sport - Blanc 7'], ],
-                ],
-            ],
-            [
-                'vendor_id' => 1,
-                'shop_id' => 1,
-                'slug' => 'wireless-headphones',
-                'price' => 79.99,
-                'currency' => 'USD',
-                'stock' => 30,
-                'SKU' => 'HEAD123',
-                'category_id' => 5,
-                'brand_id' => 2,
-                'product_type' => 'Electronics',
-                'status' => 1,
-                'translations' => [
-                    'en' => ['name' => 'Wireless Headphones', 'description' => 'Noise-canceling audio.'],
-                    'fr' => ['name' => 'Casque sans fil', 'description' => 'Audio avec suppression de bruit.'],
-                ],
-                'attributes' => [
-                    'Color' => ['en' => ['Black', 'White'], 'fr' => ['Noir', 'Blanc']],
-                ],
-                'variants' => [],
-            ],
-        ];
+        DB::transaction(function () {
 
-        foreach ($products as $productData) {
-            $translations = $productData['translations'];
-            $attributes = $productData['attributes'];
-            $variants = $productData['variants'];
-            unset($productData['translations'], $productData['attributes'], $productData['variants']);
+            // 1. Ensure attributes exist
+            $sizeAttr = Attribute::firstOrCreate(['name' => 'Size']);
+            $colorAttr = Attribute::firstOrCreate(['name' => 'Color']);
 
-            // Create or update product
-            $product = Product::updateOrCreate(['slug' => $productData['slug']], $productData);
+            $sizes = ['Small', 'Medium', 'Large'];
+            $colors = ['Red', 'Blue', 'Black'];
 
-            // Insert translations
-            foreach ($translations as $languageCode => $translationData) {
-                ProductTranslation::updateOrCreate(
-                    ['product_id' => $product->id, 'language_code' => $languageCode],
-                    $translationData
-                );
+            foreach ($sizes as $size) {
+                AttributeValue::firstOrCreate([
+                    'attribute_id' => $sizeAttr->id,
+                    'value' => $size,
+                ]);
             }
 
-            // Insert attributes and link them to the product
-            foreach ($attributes as $attributeName => $values) {
-                $attribute = Attribute::firstOrCreate(['name' => $attributeName]);
+            foreach ($colors as $color) {
+                AttributeValue::firstOrCreate([
+                    'attribute_id' => $colorAttr->id,
+                    'value' => $color,
+                ]);
+            }
 
-                foreach ($values['en'] as $index => $value) {
-                    // Create attribute value
-                    $attributeValue = AttributeValue::firstOrCreate([
-                        'attribute_id' => $attribute->id,
-                        'value' => $value,
-                    ]);
+            // 2. Get vendor, category, brand
+            $vendor = Vendor::first() ?? Vendor::factory()->create();
+            $category = Category::first() ?? Category::factory()->create();
+            $brand = Brand::first() ?? Brand::factory()->create();
 
-                    // Insert translations
-                    foreach ($values as $langCode => $translations) {
-                        AttributeValueTranslation::updateOrCreate([
-                            'attribute_value_id' => $attributeValue->id,
-                            'language_code' => $langCode,
-                        ], ['translated_value' => $translations[$index]]);
+            // 3. Demo products with online image URLs
+            $products = [
+                [
+                    'name' => 'Cool T-Shirt',
+                    'slug' => 'cool-tshirt',
+                    'image' => 'https://i.postimg.cc/4yXLGVJV/T-Shirt.jpg',
+                    'description' => 'Trendy T-Shirt available in multiple sizes and colors.',
+                ],
+                [
+                    'name' => 'Sport Shoes',
+                    'slug' => 'sport-shoes',
+                    'image' => 'https://i.postimg.cc/MGcg37TG/images.jpg', // actual shoes image
+                    'description' => 'Comfortable sport shoes for daily use.',
+                ],
+                [
+                    'name' => 'Wireless Headphones',
+                    'slug' => 'wireless-headphones',
+                    'image' => 'https://i.postimg.cc/c1Y0LSdJ/images-1.jpg',
+                    'description' => 'Noise-cancelling wireless headphones with long battery life.',
+                ],
+                [
+                    'name' => 'Travel Backpack',
+                    'slug' => 'travel-backpack',
+                    'image' => 'https://i.postimg.cc/8cKB8hF6/images-2.jpg', // actual backpack image
+                    'description' => 'Durable backpack for travel and outdoor activities.',
+                ],
+            ];
+
+            // 4. Loop through products
+            foreach ($products as $item) {
+                $product = Product::create([
+                    'shop_id' => 1,
+                    'vendor_id' => $vendor->id,
+                    'slug' => $item['slug'],
+                    'category_id' => $category->id,
+                    'brand_id' => $brand->id,
+                    'product_type' => 'variable',
+                    'status' => 1,
+                ]);
+
+                // Translations
+                $product->translations()->create([
+                    'language_code' => 'en',
+                    'name' => $item['name'],
+                    'description' => $item['description'],
+                ]);
+
+                // Image - fetch from URL
+                $imageUrl = $item['image'];
+                $imageName = basename($imageUrl);
+
+                try {
+                    // Try to download and store locally
+                    $imageContents = file_get_contents($imageUrl);
+                    $localPath = 'products/'.$imageName;
+                    Storage::disk('public')->put($localPath, $imageContents);
+                } catch (\Exception $e) {
+                    // fallback: use online URL directly
+                    $localPath = $imageUrl;
+                }
+
+                $product->images()->create([
+                    'name' => $imageName,
+                    'image_url' => $localPath,
+                    'type' => 'thumb',
+                ]);
+
+                // Variants
+                $sizesAttrValues = AttributeValue::where('attribute_id', $sizeAttr->id)->get();
+                $colorsAttrValues = AttributeValue::where('attribute_id', $colorAttr->id)->get();
+
+                foreach ($sizesAttrValues as $size) {
+                    foreach ($colorsAttrValues as $color) {
+                        $variant = $product->variants()->create([
+                            'variant_slug' => Str::slug("{$item['name']} {$size->value}-{$color->value}").'-'.uniqid(),
+                            'price' => rand(20, 60),
+                            'discount_price' => rand(15, 30),
+                            'stock' => rand(50, 200),
+                            'SKU' => strtoupper(substr($size->value, 0, 1)).substr($color->value, 0, 2).rand(100, 999),
+                            'barcode' => null,
+                            'weight' => '0.5',
+                            'dimensions' => '10x10x2 cm',
+                            'is_primary' => 1,
+                        ]);
+
+                        $variant->translations()->create([
+                            'language_code' => 'en',
+                            'name' => "{$size->value} - {$color->value}",
+                        ]);
+
+                        // Link attributes
+                        foreach ([$size->id, $color->id] as $attrValueId) {
+                            DB::table('product_variant_attribute_values')->insert([
+                                'product_id' => $product->id,
+                                'product_variant_id' => $variant->id,
+                                'attribute_value_id' => $attrValueId,
+                                'created_at' => now(),
+                                'updated_at' => now(),
+                            ]);
+
+                            ProductAttributeValue::firstOrCreate([
+                                'product_id' => $product->id,
+                                'attribute_value_id' => $attrValueId,
+                            ]);
+                        }
                     }
-
-                    // Insert into product_attribute_values pivot table
-                    DB::table('product_attribute_values')->updateOrInsert([
-                        'product_id' => $product->id,
-                        'attribute_value_id' => $attributeValue->id,
-                    ]);
                 }
             }
-
-            // Insert product variants
-            foreach ($variants as $variantData) {
-                $variantTranslations = $variantData['translations'];
-                unset($variantData['translations']);
-
-                $variant = ProductVariant::updateOrCreate(
-                    ['variant_slug' => $variantData['variant_slug']],
-                    array_merge($variantData, ['product_id' => $product->id])
-                );
-
-                foreach ($variantTranslations as $languageCode => $variantName) {
-                    ProductVariantTranslation::updateOrCreate(
-                        ['product_variant_id' => $variant->id, 'language_code' => $languageCode],
-                        ['name' => $variantName]
-                    );
-                }
-            }
-        }
+        });
     }
 }
