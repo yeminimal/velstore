@@ -6,7 +6,6 @@ use App\Models\Shop;
 use App\Models\StoreSetting;
 use App\Models\Vendor;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class DataImport extends Command
@@ -52,7 +51,7 @@ class DataImport extends Command
         $this->call('db:seed', ['--class' => 'CategorySeeder']);
 
         $this->info('Running product seeder');
-        // $this->call('db:seed', ['--class' => 'ProductSeeder']);
+        $this->call('db:seed', ['--class' => 'ProductSeeder']);
 
         $this->info('Running attribute seeder');
         $this->call('db:seed', ['--class' => 'AttributeSeeder']);

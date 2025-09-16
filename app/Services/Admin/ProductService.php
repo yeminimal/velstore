@@ -22,12 +22,12 @@ class ProductService
 
     public function getProductsForDataTable($request)
     {
-        $products = Product::with(['translations', 'primaryVariant' => function ($q) {
-            $q->where('is_primary', 1);
-        }])
-            ->whereHas('variants', function ($query) {
-                $query->where('is_primary', 1);
-            });
+        $products = Product::with([
+            'translations',
+            'primaryVariant' => function ($q) {
+                $q->where('is_primary', 1);
+            },
+        ]);
 
         return DataTables::of($products)
             ->addColumn('name', function ($product) {
