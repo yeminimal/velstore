@@ -53,8 +53,11 @@ class DataImport extends Command
         $this->info('Running product seeder');
         $this->call('db:seed', ['--class' => 'ProductSeeder']);
 
-        $this->info('Running attribute seeder');
-        $this->call('db:seed', ['--class' => 'AttributeSeeder']);
+        /* $this->info('Running attribute seeder');
+         $this->call('db:seed', ['--class' => 'AttributeSeeder']);*/
+
+        $this->info('Running banner seeder');
+        $this->call('db:seed', ['--class' => 'BannerSeeder']);
 
         $this->info('Data import completed successfully!');
     }

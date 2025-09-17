@@ -6,6 +6,7 @@ use App\Models\Attribute;
 use App\Models\AttributeValue;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Language;
 use App\Models\Product;
 use App\Models\ProductAttributeValue;
 use App\Models\Vendor;
@@ -19,34 +20,88 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         DB::transaction(function () {
+            $languages = Language::where('active', 1)->get();
 
-            // 1. Ensure attributes exist
+            // ----------------------
+            // 1. Create Attributes (not multilingual)
+            // ----------------------
             $sizeAttr = Attribute::firstOrCreate(['name' => 'Size']);
             $colorAttr = Attribute::firstOrCreate(['name' => 'Color']);
 
+            // ----------------------
+            // 2. Attribute Values (with translations)
+            // ----------------------
             $sizes = ['Small', 'Medium', 'Large'];
             $colors = ['Red', 'Blue', 'Black'];
 
             foreach ($sizes as $size) {
-                AttributeValue::firstOrCreate([
+                $attrValue = AttributeValue::firstOrCreate([
                     'attribute_id' => $sizeAttr->id,
                     'value' => $size,
                 ]);
+
+                foreach ($languages as $lang) {
+                    $attrValue->translations()->firstOrCreate([
+                        'language_code' => $lang->code,
+                    ], [
+                        'translated_value' => match ($lang->code) {
+                            'es' => match ($size) {
+                                'Small' => 'Pequeño',
+                                'Medium' => 'Mediano',
+                                'Large' => 'Grande',
+                                default => $size,
+                            },
+                            'de' => match ($size) {
+                                'Small' => 'Klein',
+                                'Medium' => 'Mittel',
+                                'Large' => 'Groß',
+                                default => $size,
+                            },
+                            default => $size,
+                        },
+                    ]);
+                }
             }
 
             foreach ($colors as $color) {
-                AttributeValue::firstOrCreate([
+                $attrValue = AttributeValue::firstOrCreate([
                     'attribute_id' => $colorAttr->id,
                     'value' => $color,
                 ]);
+
+                foreach ($languages as $lang) {
+                    $attrValue->translations()->firstOrCreate([
+                        'language_code' => $lang->code,
+                    ], [
+                        'translated_value' => match ($lang->code) {
+                            'es' => match ($color) {
+                                'Red' => 'Rojo',
+                                'Blue' => 'Azul',
+                                'Black' => 'Negro',
+                                default => $color,
+                            },
+                            'de' => match ($color) {
+                                'Red' => 'Rot',
+                                'Blue' => 'Blau',
+                                'Black' => 'Schwarz',
+                                default => $color,
+                            },
+                            default => $color,
+                        },
+                    ]);
+                }
             }
 
-            // 2. Get vendor, category, brand
+            // ----------------------
+            // 3. Vendors, Categories, Brands
+            // ----------------------
             $vendor = Vendor::first() ?? Vendor::factory()->create();
             $category = Category::first() ?? Category::factory()->create();
             $brand = Brand::first() ?? Brand::factory()->create();
 
-            // 3. Demo products with online image URLs
+            // ----------------------
+            // 4. Products with Variants
+            // ----------------------
             $products = [
                 [
                     'name' => 'Cool T-Shirt',
@@ -57,7 +112,7 @@ class ProductSeeder extends Seeder
                 [
                     'name' => 'Sport Shoes',
                     'slug' => 'sport-shoes',
-                    'image' => 'https://i.postimg.cc/MGcg37TG/images.jpg', // actual shoes image
+                    'image' => 'https://i.postimg.cc/MGcg37TG/images.jpg',
                     'description' => 'Comfortable sport shoes for daily use.',
                 ],
                 [
@@ -69,12 +124,11 @@ class ProductSeeder extends Seeder
                 [
                     'name' => 'Travel Backpack',
                     'slug' => 'travel-backpack',
-                    'image' => 'https://i.postimg.cc/8cKB8hF6/images-2.jpg', // actual backpack image
+                    'image' => 'https://i.postimg.cc/8cKB8hF6/images-2.jpg',
                     'description' => 'Durable backpack for travel and outdoor activities.',
                 ],
             ];
 
-            // 4. Loop through products
             foreach ($products as $item) {
                 $product = Product::create([
                     'shop_id' => 1,
@@ -86,24 +140,23 @@ class ProductSeeder extends Seeder
                     'status' => 1,
                 ]);
 
-                // Translations
-                $product->translations()->create([
-                    'language_code' => 'en',
-                    'name' => $item['name'],
-                    'description' => $item['description'],
-                ]);
+                // 🔹 Product translations
+                foreach ($languages as $lang) {
+                    $product->translations()->create([
+                        'language_code' => $lang->code,
+                        'name' => $item['name'],
+                        'description' => $item['description'],
+                    ]);
+                }
 
-                // Image - fetch from URL
+                // 🔹 Product image
                 $imageUrl = $item['image'];
                 $imageName = basename($imageUrl);
-
                 try {
-                    // Try to download and store locally
                     $imageContents = file_get_contents($imageUrl);
                     $localPath = 'products/'.$imageName;
                     Storage::disk('public')->put($localPath, $imageContents);
                 } catch (\Exception $e) {
-                    // fallback: use online URL directly
                     $localPath = $imageUrl;
                 }
 
@@ -113,16 +166,19 @@ class ProductSeeder extends Seeder
                     'type' => 'thumb',
                 ]);
 
-                // Variants
+                // 🔹 Product variants
                 $sizesAttrValues = AttributeValue::where('attribute_id', $sizeAttr->id)->get();
                 $colorsAttrValues = AttributeValue::where('attribute_id', $colorAttr->id)->get();
 
                 foreach ($sizesAttrValues as $size) {
                     foreach ($colorsAttrValues as $color) {
+                        $price = rand(20, 60);
+                        $discountPrice = rand(10, $price);
+
                         $variant = $product->variants()->create([
                             'variant_slug' => Str::slug("{$item['name']} {$size->value}-{$color->value}").'-'.uniqid(),
-                            'price' => rand(20, 60),
-                            'discount_price' => rand(15, 30),
+                            'price' => $price,
+                            'discount_price' => $discountPrice,
                             'stock' => rand(50, 200),
                             'SKU' => strtoupper(substr($size->value, 0, 1)).substr($color->value, 0, 2).rand(100, 999),
                             'barcode' => null,
@@ -131,12 +187,13 @@ class ProductSeeder extends Seeder
                             'is_primary' => 1,
                         ]);
 
-                        $variant->translations()->create([
-                            'language_code' => 'en',
-                            'name' => "{$size->value} - {$color->value}",
-                        ]);
+                        foreach ($languages as $lang) {
+                            $variant->translations()->create([
+                                'language_code' => $lang->code,
+                                'name' => "{$size->value} - {$color->value}",
+                            ]);
+                        }
 
-                        // Link attributes
                         foreach ([$size->id, $color->id] as $attrValueId) {
                             DB::table('product_variant_attribute_values')->insert([
                                 'product_id' => $product->id,
