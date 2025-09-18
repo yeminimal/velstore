@@ -47,10 +47,22 @@ class BannerSeeder extends Seeder
                         $localPath = $imageUrl;
                     }
 
+                    $translatedTitle = match ($lang->code) {
+                        'es' => 'Listo para comprar',
+                        'de' => 'Bereit zum Einkaufen',
+                        default => $item['translations']['title'],
+                    };
+
+                    $translatedDescription = match ($lang->code) {
+                        'es' => 'Tu tienda única para todo lo que necesitas.',
+                        'de' => 'Ihr One-Stop-Shop für alles, was Sie brauchen.',
+                        default => $item['translations']['description'],
+                    };
+
                     $banner->translations()->create([
                         'language_code' => $lang->code,
-                        'title' => $item['translations']['title'],
-                        'description' => $item['translations']['description'],
+                        'title' => $translatedTitle,
+                        'description' => $translatedDescription,
                         'image_url' => $localPath,
                     ]);
                 }

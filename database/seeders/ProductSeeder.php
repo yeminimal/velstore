@@ -22,15 +22,9 @@ class ProductSeeder extends Seeder
         DB::transaction(function () {
             $languages = Language::where('active', 1)->get();
 
-            // ----------------------
-            // 1. Create Attributes (not multilingual)
-            // ----------------------
             $sizeAttr = Attribute::firstOrCreate(['name' => 'Size']);
             $colorAttr = Attribute::firstOrCreate(['name' => 'Color']);
 
-            // ----------------------
-            // 2. Attribute Values (with translations)
-            // ----------------------
             $sizes = ['Small', 'Medium', 'Large'];
             $colors = ['Red', 'Blue', 'Black'];
 
@@ -92,39 +86,33 @@ class ProductSeeder extends Seeder
                 }
             }
 
-            // ----------------------
-            // 3. Vendors, Categories, Brands
-            // ----------------------
             $vendor = Vendor::first() ?? Vendor::factory()->create();
             $category = Category::first() ?? Category::factory()->create();
             $brand = Brand::first() ?? Brand::factory()->create();
 
-            // ----------------------
-            // 4. Products with Variants
-            // ----------------------
             $products = [
                 [
                     'name' => 'Cool T-Shirt',
                     'slug' => 'cool-tshirt',
-                    'image' => 'https://i.postimg.cc/4yXLGVJV/T-Shirt.jpg',
+                    'image' => 'https://i.postimg.cc/zBCkRRvb/T-Shirt-removebg-preview.png',
                     'description' => 'Trendy T-Shirt available in multiple sizes and colors.',
                 ],
                 [
                     'name' => 'Sport Shoes',
                     'slug' => 'sport-shoes',
-                    'image' => 'https://i.postimg.cc/MGcg37TG/images.jpg',
+                    'image' => 'https://i.postimg.cc/YS1FXBHT/images-removebg-preview.png',
                     'description' => 'Comfortable sport shoes for daily use.',
                 ],
                 [
                     'name' => 'Wireless Headphones',
                     'slug' => 'wireless-headphones',
-                    'image' => 'https://i.postimg.cc/c1Y0LSdJ/images-1.jpg',
+                    'image' => 'https://i.postimg.cc/2Sn3YdKZ/images-1-removebg-preview-2.png',
                     'description' => 'Noise-cancelling wireless headphones with long battery life.',
                 ],
                 [
                     'name' => 'Travel Backpack',
                     'slug' => 'travel-backpack',
-                    'image' => 'https://i.postimg.cc/8cKB8hF6/images-2.jpg',
+                    'image' => 'https://i.postimg.cc/WpDkKZTM/images-2-removebg-preview-1.png',
                     'description' => 'Durable backpack for travel and outdoor activities.',
                 ],
             ];
@@ -140,16 +128,50 @@ class ProductSeeder extends Seeder
                     'status' => 1,
                 ]);
 
-                // 🔹 Product translations
                 foreach ($languages as $lang) {
+                    $translatedName = match ($lang->code) {
+                        'es' => match ($item['name']) {
+                            'Cool T-Shirt' => 'Camiseta genial',
+                            'Sport Shoes' => 'Zapatillas deportivas',
+                            'Wireless Headphones' => 'Auriculares inalámbricos',
+                            'Travel Backpack' => 'Mochila de viaje',
+                            default => $item['name'],
+                        },
+                        'de' => match ($item['name']) {
+                            'Cool T-Shirt' => 'Cooles T-Shirt',
+                            'Sport Shoes' => 'Sportschuhe',
+                            'Wireless Headphones' => 'Kabellose Kopfhörer',
+                            'Travel Backpack' => 'Reiserucksack',
+                            default => $item['name'],
+                        },
+                        default => $item['name'],
+                    };
+
+                    $translatedDescription = match ($lang->code) {
+                        'es' => match ($item['name']) {
+                            'Cool T-Shirt' => 'Camiseta moderna disponible en varios tamaños y colores.',
+                            'Sport Shoes' => 'Zapatillas deportivas cómodas para uso diario.',
+                            'Wireless Headphones' => 'Auriculares inalámbricos con cancelación de ruido y batería de larga duración.',
+                            'Travel Backpack' => 'Mochila duradera para viajes y actividades al aire libre.',
+                            default => $item['description'],
+                        },
+                        'de' => match ($item['name']) {
+                            'Cool T-Shirt' => 'Trendiges T-Shirt in verschiedenen Größen und Farben erhältlich.',
+                            'Sport Shoes' => 'Bequeme Sportschuhe für den täglichen Gebrauch.',
+                            'Wireless Headphones' => 'Kabellose Kopfhörer mit Geräuschunterdrückung und langer Akkulaufzeit.',
+                            'Travel Backpack' => 'Robuster Rucksack für Reisen und Outdoor-Aktivitäten.',
+                            default => $item['description'],
+                        },
+                        default => $item['description'],
+                    };
+
                     $product->translations()->create([
                         'language_code' => $lang->code,
-                        'name' => $item['name'],
-                        'description' => $item['description'],
+                        'name' => $translatedName,
+                        'description' => $translatedDescription,
                     ]);
                 }
 
-                // 🔹 Product image
                 $imageUrl = $item['image'];
                 $imageName = basename($imageUrl);
                 try {
@@ -166,7 +188,6 @@ class ProductSeeder extends Seeder
                     'type' => 'thumb',
                 ]);
 
-                // 🔹 Product variants
                 $sizesAttrValues = AttributeValue::where('attribute_id', $sizeAttr->id)->get();
                 $colorsAttrValues = AttributeValue::where('attribute_id', $colorAttr->id)->get();
 
