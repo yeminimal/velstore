@@ -47,7 +47,7 @@ class BrandController extends Controller
 
         foreach ($request->input('translations', []) as $lang => $data) {
             $rules["translations.$lang.name"] = 'required|string|max:255';
-            $rules["translations.$lang.description"] = 'nullable|string';
+            $rules["translations.$lang.description"] = 'required|string|min:5';
         }
 
         $validated = $request->validate($rules);
