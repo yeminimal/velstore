@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.admin')
 @section('content')
 
@@ -71,10 +70,14 @@
             </div>
             </div>
             <div id="variants-wrapper">
-                @foreach($product->variants as $index => $variant)
-                <div class="variant-item mt-4">
-                    <h5>{{ __('cms.products.variants') }} {{ $index + 1 }}</h5> 
-            
+                @foreach ($product->variants as $index => $variant)
+                <div class="variant-item mt-4" id="variant_{{ $variant->id }}">
+                    <h5>
+                        {{ __('cms.products.variants') }} {{ $index + 1 }}
+                        <button type="button" class="btn btn-danger btn-sm float-end" onclick="removeVariant({{ $variant->id }})">
+                            {{ __('cms.products.remove') }}
+                        </button>
+                    </h5>           
                     <div class="row">
                         @php
                             $enTranslation = $variant->translations->firstWhere('language_code', 'en');
@@ -195,6 +198,68 @@
     });
 </script>
 
+{{-- Variant Template --}}
+<script type="text/template" id="variant-template">
+    <div class="variant-item mt-4" id="variant_new___INDEX__">
+        <h5>
+            {{ __('cms.products.variants') }} __INDEX__
+            <button type="button" class="btn btn-danger btn-sm float-end" onclick="this.closest('.variant-item').remove();">
+                {{ __('cms.products.remove') }}
+            </button>
+        </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <label>{{ __('cms.products.variant_name_en') }}</label>
+                <input type="text" name="variants[__INDEX__][name]" class="form-control" placeholder="Variant Name (EN)">
+            </div>
+            <div class="col-md-4">
+                <label>{{ __('cms.products.price') }}</label>
+                <input type="number" step="0.01" name="variants[__INDEX__][price]" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label>{{ __('cms.products.discount_price') }}</label>
+                <input type="number" step="0.01" name="variants[__INDEX__][discount_price]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.stock') }}</label>
+                <input type="number" name="variants[__INDEX__][stock]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.sku') }}</label>
+                <input type="text" name="variants[__INDEX__][SKU]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.barcode') }}</label>
+                <input type="text" name="variants[__INDEX__][barcode]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.weight') }}</label>
+                <input type="text" name="variants[__INDEX__][weight]" class="form-control" placeholder="e.g., 1.2 kg">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.dimension') }}</label>
+                <input type="text" name="variants[__INDEX__][dimension]" class="form-control" placeholder="e.g., 10x20x5">
+            </div>
+            <div class="col-md-6 mt-2">
+                <label>{{ __('cms.products.size') }}</label>
+                <select name="variants[__INDEX__][size_id]" class="form-control">
+                    @foreach($sizes as $size)
+                        <option value="{{ $size->id }}">{{ $size->value }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label>{{ __('cms.products.color') }}</label>
+                <select name="variants[__INDEX__][color_id]" class="form-control">
+                    @foreach($colors as $color)
+                        <option value="{{ $color->id }}">{{ $color->value }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+</script>
+
 <script>
     let selectedFiles = [];
 
@@ -239,6 +304,19 @@
         input.value = imageId;
         document.getElementById('removedImagesInputs').appendChild(input);
     }
+
+    function removeVariant(variantId) {
+        const variantDiv = document.getElementById('variant_' + variantId);
+        if (variantDiv) {
+            variantDiv.remove();
+        }
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'remove_variants[]';
+        input.value = variantId;
+        document.querySelector('form').appendChild(input);
+    }
 </script>    
 
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
@@ -252,4 +330,3 @@
     });
 </script>
 @endsection
-
