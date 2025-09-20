@@ -5,7 +5,8 @@
     --white: #ffffff;               /* Pure white for backgrounds */
     --cardbg: #f5f5f5;              /* Soft light grey for cards, subtle contrast */
     --grid-color-1: #333333;        /* Used for section dividers or headers */
-    --grid-color-2: #bbbbbb;        /* Light grey for borders or muted elements */
+    --grid-color-2: #bbbbbb;
+    --red-color:#ce0404;        /* Light grey for borders or muted elements */
 }
 /*:root {
     --main-color: #805c98;  
@@ -412,7 +413,7 @@ header {
     position: relative;
 }
 
-.category-slider .cat-card a {
+/* .category-slider .cat-card a {
     height: 226px;
     width: 100%;
     display: flex;
@@ -420,45 +421,75 @@ header {
     border-radius: 45px;
     background: #ebebeb;
     justify-content: space-between;
+} */
+.category-slider .cat-card a{
+    width:100%;
+    display:flex;
+    min-height: 310px;
+    /* max-height: 220px; */
+    overflow: hidden;
+    flex-direction:column-reverse;
+    /* background-color: var(--cardbg); */
+     border-radius: 45px;
 }
-
 .cat-card a:hover {
-    background: var(--dark-color);
-    box-shadow: 0 0 7px #333;
+    /* background: var(--dark-color); */
+    /* box-shadow: 0 0 7px #333; */
 }
 
 .cat-card a:hover h3 {
-    color: var(--white);
+     color: var(--red-color);
+    /* color: var(--white); */
+    
 }
 
 .category-slider .cat-card .catcard-img {
-    width: 70%;
-    height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
+    /* width: 70%;
+    height: 100%; */
+    height:200px;
+    width:200px;
+    border-radius:100%;
+    background: var(--cardbg);
+    overflow: hidden; 
+    margin: auto;
+    border:2px solid #000000;
 }
-
+.category-slider .cat-card .catcard-img:hover{
+    box-shadow: 0 0 15px #9b9b9b;
+}
 .cat-card .catcard-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.3s;
 }
-
+.cat-card .catcard-img:hover img{
+    transform: scale(1.3);
+}
 .cat-card h3 {
     font-size: 20px;
     font-weight: 700;
     color: #111;
-    /* transform: rotate(-72deg); */
     text-align: center;
     width: 24%;
     display: inline-flex;
-    /* float: left; */
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+/* .cat-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    width: 24%;
+    display: inline-flex;
     transform-origin: center;
     transform: translate(12px, 0%) rotate(-91deg);
     height: 100%;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .category-slider .slick-slide {
     margin: 0 10px;
@@ -621,9 +652,12 @@ header {
 .product-img img {
     width: auto;
     max-width: 100%;
+        transition: 0.3s;
     /* border-radius: 20px; Curved Image */
 }
-
+.product-img:hover img{
+    transform: scale(1.1);
+}
 .wishlist-btn {
     position: absolute;
     top: 10px;
