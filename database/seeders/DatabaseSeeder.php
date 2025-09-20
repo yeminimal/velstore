@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // SiteSettingsSeeder::class,
-            // OrderSeeder::class,
+            OrderSeeder::class,
             LanguageSeeder::class,
             PaymentGatewaySeeder::class,
             PaymentSeeder::class,
