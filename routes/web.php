@@ -155,3 +155,9 @@ Route::put('site-settings/update', [SiteSettingsController::class, 'update'])->n
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+// PayPal success callback
+Route::get('/checkout/paypal/success', [CheckoutController::class, 'paypalSuccess'])
+    ->name('paypal.success');
+// PayPal cancel callback
+Route::get('/checkout/paypal/cancel', [CheckoutController::class, 'paypalCancel'])
+    ->name('paypal.cancel');

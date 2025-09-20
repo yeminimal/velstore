@@ -46,13 +46,113 @@ class CheckoutController extends Controller
     public function process(Request $request)
     {
         $gatewayCode = $request->input('gateway');
-        $amount = 100;
+        $amount = 100; // you can replace this with cart total
 
-        $paymentService = PaymentManager::make($gatewayCode, 'sandbox');
+        try {
+            $paymentService = PaymentManager::make($gatewayCode, 'sandbox');
 
-        $order = $paymentService->createOrder($amount, 'USD');
+            $order = $paymentService->createOrder($amount, 'USD');
 
-        return response()->json($order);
+            return response()->json([
+                'success' => true,
+                'gateway' => $gatewayCode,
+                'order' => $order,
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Payment process failed: '.$e->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    /**
+     * PayPal success callback
+     */
+    public function paypalSuccess(Request $request)
+    {
+        $orderId = $request->query('token'); // PayPal returns ?token=ORDER_ID
+
+        try {
+            $paypal = PaymentManager::make('paypal', 'sandbox');
+            $result = $paypal->captureOrder($orderId);
+
+            if (($result['status'] ?? null) === 'COMPLETED') {
+
+                // Extract PayPal payer info
+                $payer = $result['payer'] ?? [];
+                $purchaseUnit = $result['purchase_units'][0] ?? [];
+                $amount = $purchaseUnit['payments']['captures'][0]['amount']['value'] ?? 0;
+
+                // ✅ 1. Create Order
+                $order = \App\Models\Order::create([
+                    'customer_id' => auth()->check() ? auth()->id() : null,
+                    'guest_email' => $payer['email_address'] ?? null,
+                    'total_amount' => $amount,
+                    'status' => 'completed',
+                ]);
+
+                $cart = session('cart', []); // you should already have cart in session
+                foreach ($cart as $productId => $item) {
+                    \App\Models\OrderDetail::create([
+                        'order_id' => $order->id,
+                        'product_id' => $productId,
+                        'quantity' => $item['quantity'],
+                        'price' => $item['price'],
+                    ]);
+                }
+
+                $shippingData = session('checkout.shipping'); // store shipping info in session before redirect
+                if ($shippingData) {
+                    \App\Models\ShippingAddress::create([
+                        'order_id' => $order->id,
+                        'customer_id' => auth()->check() ? auth()->id() : null,
+                        'name' => $shippingData['name'],
+                        'phone' => $shippingData['phone'],
+                        'address' => $shippingData['address'],
+                        'city' => $shippingData['city'],
+                        'postal_code' => $shippingData['postal_code'],
+                        'country' => $shippingData['country'],
+                    ]);
+                }
+
+                // ✅ 4. Clear cart session
+                session()->forget(['cart', 'checkout.shipping']);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Payment completed & order stored successfully.',
+                    'order_id' => $order->id,
+                    'details' => $result,
+                ]);
+            }
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Payment not completed.',
+                'details' => $result,
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('PayPal success error: '.$e->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    /**
+     * PayPal cancel callback
+     */
+    public function paypalCancel()
+    {
+        return response()->json([
+            'success' => false,
+            'message' => 'Payment was cancelled by user.',
+        ]);
     }
 
     public function store(Request $request)
