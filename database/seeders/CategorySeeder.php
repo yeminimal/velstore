@@ -25,7 +25,7 @@ class CategorySeeder extends Seeder
                         'fr' => ['name' => 'Électronique', 'description' => 'Appareils électroniques'],
                         'es' => ['name' => 'Electrónica', 'description' => 'Dispositivos electrónicos'],
                     ],
-                    'image' => 'https://i.postimg.cc/dV0k9kfK/172405380735-removebg-preview.png',
+                    'image' => 'https://i.postimg.cc/mgTTQWtW/07-300x300-1-1-removebg-preview.png',
                 ],
                 [
                     'slug' => 'fashion',
@@ -35,7 +35,7 @@ class CategorySeeder extends Seeder
                         'fr' => ['name' => 'Mode', 'description' => 'Vêtements et accessoires'],
                         'es' => ['name' => 'Moda', 'description' => 'Ropa y accesorios'],
                     ],
-                    'image' => 'https://i.postimg.cc/vmsRsfwJ/download-1-removebg-preview.png',
+                    'image' => 'https://i.postimg.cc/QM9NMkFF/cat7-removebg-preview.png',
                 ],
                 [
                     'slug' => 'smartphones',
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
                         'fr' => ['name' => 'Smartphones', 'description' => 'Derniers téléphones mobiles'],
                         'es' => ['name' => 'Smartphones', 'description' => 'Últimos teléfonos móviles'],
                     ],
-                    'image' => 'https://i.postimg.cc/LsRW7SzR/2-67cef69cd806e-removebg-preview.png',
+                    'image' => 'https://i.postimg.cc/ZKwJFD39/cat1-removebg-preview.png',
                 ],
                 [
                     'slug' => 't-shirts',
@@ -55,7 +55,7 @@ class CategorySeeder extends Seeder
                         'fr' => ['name' => 'T-shirts', 'description' => 'T-shirts décontractés'],
                         'es' => ['name' => 'Camisetas', 'description' => 'Camisetas informales'],
                     ],
-                    'image' => 'https://i.postimg.cc/SRzVR1WD/download-2-removebg-preview.png',
+                    'image' => 'https://i.postimg.cc/VkSP9smT/cat2-removebg-preview.png',
                 ],
             ];
 

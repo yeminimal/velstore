@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            SiteSettingsSeeder::class,
-            OrderSeeder::class,
+            // SiteSettingsSeeder::class,
+            // OrderSeeder::class,
             LanguageSeeder::class,
             PaymentGatewaySeeder::class,
             PaymentSeeder::class,

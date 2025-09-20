@@ -25,6 +25,7 @@ class BannerService
     public function store(Request $request)
     {
         $activeLanguages = Language::where('active', 1)->pluck('code')->toArray();
+        $defaultLang = 'en';
 
         $rules = [
             'type' => 'required|in:promotion,sale,seasonal,featured,announcement',
@@ -32,19 +33,33 @@ class BannerService
 
         foreach ($activeLanguages as $code) {
             $rules["languages.$code.title"] = 'required|string|max:255';
-            $rules["languages.$code.image"] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+
+            if ($code === $defaultLang) {
+                $rules["languages.$code.image"] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+            } else {
+                $rules["languages.$code.image"] = 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+            }
+
             $rules["languages.$code.image_title"] = 'nullable|string|max:255';
         }
 
-        $request->validate($rules);
+        $validated = $request->validate($rules);
 
         $banner = $this->bannerRepository->createBanner($request->only('type'));
+
+        $defaultImage = null;
+        if ($request->hasFile("languages.$defaultLang.image")) {
+            $defaultImage = $request->file("languages.$defaultLang.image")
+                ->store('banner_images', 'public');
+        }
 
         foreach ($activeLanguages as $code) {
             $languageData = $request->input("languages.$code");
             $image = $request->file("languages.$code.image");
 
-            $imageUrl = $image ? $image->store('banner_images', 'public') : null;
+            $imageUrl = $image
+                ? $image->store('banner_images', 'public')
+                : $defaultImage;
 
             BannerTranslation::create([
                 'banner_id' => $banner->id,
