@@ -46,6 +46,7 @@
                                 <div class="col-md-6 mt-3">
                                     <select name="country" class="form-select" required>
                                         <option value="">Select Country</option>
+                                        <option value="1">United States</option>
                                         <!-- Dynamically populate -->
                                     </select>
                                 </div>
@@ -57,6 +58,7 @@
                                 <div class="col-md-3 mt-3">
                                     <select name="state" class="form-select" required>
                                         <option value="">Select State</option>
+                                        <option value="1">New York</option>
                                         <!-- Dynamically populate -->
                                     </select>
                                 </div>
