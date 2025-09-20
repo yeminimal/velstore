@@ -56,10 +56,10 @@ class CheckoutController extends Controller
             return response()->json([
                 'success' => true,
                 'gateway' => $gatewayCode,
-                'order'   => $order,
+                'order' => $order,
             ]);
         } catch (\Exception $e) {
-            Log::error("Payment process failed: " . $e->getMessage());
+            Log::error('Payment process failed: '.$e->getMessage());
 
             return response()->json([
                 'success' => false,
@@ -74,18 +74,18 @@ class CheckoutController extends Controller
     public function paypalSuccess(Request $request)
     {
         $orderId = $request->query('token'); // PayPal returns ?token=ORDER_ID
-    
+
         try {
             $paypal = PaymentManager::make('paypal', 'sandbox');
             $result = $paypal->captureOrder($orderId);
-    
+
             if (($result['status'] ?? null) === 'COMPLETED') {
-    
+
                 // Extract PayPal payer info
                 $payer = $result['payer'] ?? [];
                 $purchaseUnit = $result['purchase_units'][0] ?? [];
                 $amount = $purchaseUnit['payments']['captures'][0]['amount']['value'] ?? 0;
-    
+
                 // ✅ 1. Create Order
                 $order = \App\Models\Order::create([
                     'customer_id' => auth()->check() ? auth()->id() : null,
@@ -93,7 +93,7 @@ class CheckoutController extends Controller
                     'total_amount' => $amount,
                     'status' => 'completed',
                 ]);
-    
+
                 $cart = session('cart', []); // you should already have cart in session
                 foreach ($cart as $productId => $item) {
                     \App\Models\OrderDetail::create([
@@ -103,7 +103,7 @@ class CheckoutController extends Controller
                         'price' => $item['price'],
                     ]);
                 }
-    
+
                 $shippingData = session('checkout.shipping'); // store shipping info in session before redirect
                 if ($shippingData) {
                     \App\Models\ShippingAddress::create([
@@ -117,10 +117,10 @@ class CheckoutController extends Controller
                         'country' => $shippingData['country'],
                     ]);
                 }
-    
+
                 // ✅ 4. Clear cart session
                 session()->forget(['cart', 'checkout.shipping']);
-    
+
                 return response()->json([
                     'success' => true,
                     'message' => 'Payment completed & order stored successfully.',
@@ -128,22 +128,21 @@ class CheckoutController extends Controller
                     'details' => $result,
                 ]);
             }
-    
+
             return response()->json([
                 'success' => false,
                 'message' => 'Payment not completed.',
                 'details' => $result,
             ]);
         } catch (\Exception $e) {
-            \Log::error("PayPal success error: " . $e->getMessage());
-    
+            \Log::error('PayPal success error: '.$e->getMessage());
+
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage(),
             ], 500);
         }
     }
-    
 
     /**
      * PayPal cancel callback
