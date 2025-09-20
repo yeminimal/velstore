@@ -64,19 +64,19 @@ Velstore is a powerful and open-source multi-vendor Laravel eCommerce solution. 
 </p>
 
 
-## Trending Products
+### Trending Products
 
 <p align="center">
   <img src="https://i.ibb.co/7Jy8q2CS/trending-product-1.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution demo">
 </p>
 
-## Featured Products
+### Featured Products
 
 <p align="center">
   <img src="https://i.ibb.co/ch5w4bv2/featured-products-velstore-laravel.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution demo">
 </p>
 
-## Categories
+### Categories
 
 <p align="center">
   <img src="https://i.ibb.co/vvKgdWK9/categories-velstore-laravel.png" alt="Velstore open-source multi-vendor Laravel eCommerce solution demo">

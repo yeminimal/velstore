@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\PaymentGateway;
 use App\Models\ProductVariant;
+use App\Services\Store\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -71,7 +72,7 @@ class CheckoutController extends Controller
     /**
      * PayPal success callback
      */
-    public function paypalSuccess(Request $request)
+    public function paypalSuccess(Request $request, OrderService $orderService)
     {
         $orderId = $request->query('token'); // PayPal returns ?token=ORDER_ID
 
@@ -81,45 +82,7 @@ class CheckoutController extends Controller
 
             if (($result['status'] ?? null) === 'COMPLETED') {
 
-                // Extract PayPal payer info
-                $payer = $result['payer'] ?? [];
-                $purchaseUnit = $result['purchase_units'][0] ?? [];
-                $amount = $purchaseUnit['payments']['captures'][0]['amount']['value'] ?? 0;
-
-                // ✅ 1. Create Order
-                $order = \App\Models\Order::create([
-                    'customer_id' => auth()->check() ? auth()->id() : null,
-                    'guest_email' => $payer['email_address'] ?? null,
-                    'total_amount' => $amount,
-                    'status' => 'completed',
-                ]);
-
-                $cart = session('cart', []); // you should already have cart in session
-                foreach ($cart as $productId => $item) {
-                    \App\Models\OrderDetail::create([
-                        'order_id' => $order->id,
-                        'product_id' => $productId,
-                        'quantity' => $item['quantity'],
-                        'price' => $item['price'],
-                    ]);
-                }
-
-                $shippingData = session('checkout.shipping'); // store shipping info in session before redirect
-                if ($shippingData) {
-                    \App\Models\ShippingAddress::create([
-                        'order_id' => $order->id,
-                        'customer_id' => auth()->check() ? auth()->id() : null,
-                        'name' => $shippingData['name'],
-                        'phone' => $shippingData['phone'],
-                        'address' => $shippingData['address'],
-                        'city' => $shippingData['city'],
-                        'postal_code' => $shippingData['postal_code'],
-                        'country' => $shippingData['country'],
-                    ]);
-                }
-
-                // ✅ 4. Clear cart session
-                session()->forget(['cart', 'checkout.shipping']);
+                $order = $orderService->createOrderFromPaypal($result);
 
                 return response()->json([
                     'success' => true,
