@@ -2,40 +2,58 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product;
-use Illuminate\Database\Seeder; // Import the DB facade
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class OrderSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        // Get all products from the products table
-        $products = Product::all(); // Make sure you have products in your database
+        // Insert orders and capture IDs
+        $order1Id = DB::table('orders')->insertGetId([
+            'customer_id' => null,
+            'guest_email' => 'guest1@example.com',
+            'total_amount' => 300,
+            'status' => 'completed',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
-        // Insert 1 record into the 'orders' table
-        $product = $products->random(); // Randomly select a product for the order
+        $order2Id = DB::table('orders')->insertGetId([
+            'customer_id' => null,
+            'guest_email' => 'guest2@example.com',
+            'total_amount' => 150,
+            'status' => 'pending',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
-        DB::table('orders')->insert([
-            'order_date' => now(), // Static current date and time
-            'status' => 'completed', // Set status as 'completed' for this order
-            'total_price' => 100.00, // Static total price of 100
-            'shipping_address' => '123 Example St, Sample City, Country', // Static shipping address
-            'billing_address' => '456 Another St, Sample City, Country', // Static billing address
-            'payment_method' => 'credit_card', // Static payment method
-            'payment_status' => 'paid', // Static payment status
-            'shipping_method' => 'standard', // Static shipping method
-            'tracking_number' => 'TRACK12345', // Static tracking number
-            'product_id' => $product->id, // Random product from the 'products' table
-            'quantity' => 1, // Static quantity of 1 for this order
-            'unit_price' => $product->price, // Use the product's price as unit price
-            'discount_amount' => 0.00, // Static discount amount (no discount)
-            'coupon_code' => null, // No coupon code
-            'created_at' => now(), // Set created_at to current time
-            'updated_at' => now(), // Set updated_at to current time
+        // Insert order details linked to the real IDs
+        DB::table('order_details')->insert([
+            [
+                'order_id' => $order1Id,
+                'product_id' => 1,
+                'quantity' => 2,
+                'price' => 100,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'order_id' => $order1Id,
+                'product_id' => 2,
+                'quantity' => 1,
+                'price' => 100,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'order_id' => $order2Id,
+                'product_id' => 1,
+                'quantity' => 3,
+                'price' => 50,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.admin')
 
 @section('content')
@@ -20,19 +19,32 @@
                     </div>
                 @endif
 
+                {{-- Banner type --}}
                 <div class="form-group">
                     <label for="type">{{ __('cms.banners.banner_type') }}</label>
                     <select name="type" class="form-control" required>
-                        <option value="promotion">{{ __('cms.banners.promotion') }}</option>
-                        <option value="sale">{{ __('cms.banners.sale') }}</option>
-                        <option value="seasonal">{{ __('cms.banners.seasonal') }}</option>
-                        <option value="featured">{{ __('cms.banners.featured') }}</option>
-                        <option value="announcement">{{ __('cms.banners.announcement') }}</option>
+                        <option value="promotion" {{ old('type') === 'promotion' ? 'selected' : '' }}>
+                            {{ __('cms.banners.promotion') }}
+                        </option>
+                        <option value="sale" {{ old('type') === 'sale' ? 'selected' : '' }}>
+                            {{ __('cms.banners.sale') }}
+                        </option>
+                        <option value="seasonal" {{ old('type') === 'seasonal' ? 'selected' : '' }}>
+                            {{ __('cms.banners.seasonal') }}
+                        </option>
+                        <option value="featured" {{ old('type') === 'featured' ? 'selected' : '' }}>
+                            {{ __('cms.banners.featured') }}
+                        </option>
+                        <option value="announcement" {{ old('type') === 'announcement' ? 'selected' : '' }}>
+                            {{ __('cms.banners.announcement') }}
+                        </option>
                     </select>
                 </div>
 
+                {{-- Languages --}}
                 <div id="languages-container" class="mt-4">
                     @if(!empty($languages) && count($languages) > 0)
+                        {{-- Tabs --}}
                         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                             @foreach($languages as $language)
                                 <li class="nav-item" role="presentation">
@@ -47,14 +59,17 @@
                             @endforeach
                         </ul>
 
+                        {{-- Tab content --}}
                         <div class="tab-content mt-3" id="languageTabContent">
                             @foreach($languages as $language)
                                 <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" 
                                      id="{{ $language->code }}" role="tabpanel">
-                                     
+
+                                    {{-- Title --}}
                                     <div class="form-group">
                                         <label for="languages[{{ $language->code }}][title]">{{ __('cms.banners.title') }}</label>
-                                        <input type="text" name="languages[{{ $language->code }}][title]" 
+                                        <input type="text" 
+                                               name="languages[{{ $language->code }}][title]" 
                                                class="form-control @error('languages.' . $language->code . '.title') is-invalid @enderror"
                                                value="{{ old('languages.' . $language->code . '.title') }}" required>
                                         @error('languages.' . $language->code . '.title') 
@@ -62,6 +77,7 @@
                                         @enderror
                                     </div>
 
+                                    {{-- Description --}}
                                     <div class="form-group">
                                         <label for="languages[{{ $language->code }}][description]">{{ __('cms.banners.description') }}</label>
                                         <textarea name="languages[{{ $language->code }}][description]" 
@@ -72,6 +88,7 @@
                                         @enderror
                                     </div>
 
+                                    {{-- Image --}}
                                     <label class="form-label mt-2">{{ __('cms.banners.image') }} ({{ $language->code }})</label>
                                     <div class="input-group">
                                         <label for="image_file_{{ $language->code }}" class="btn btn-primary">
@@ -84,18 +101,31 @@
                                                accept="image/*"
                                                onchange="updateFileName(this, '{{ $language->code }}'); previewImage(this, '{{ $language->code }}')"> 
                                         
-                                        <span id="file-name-{{ $language->code }}" class="ms-2 text-muted"></span>
+                                        <span id="file-name-{{ $language->code }}" class="ms-2 text-muted">
+                                            {{ old('languages.' . $language->code . '.image_name') }}
+                                        </span>
                                     </div>
                                     
                                     @error('languages.' . $language->code . '.image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
 
-                                    <div id="image_preview_{{ $language->code }}" class="mt-2" style="display: none;">
-                                        <img id="image_preview_img_{{ $language->code }}" src="#" 
+                                    {{-- Preview --}}
+                                    <div id="image_preview_{{ $language->code }}" class="mt-2" 
+                                         style="{{ old('languages.' . $language->code . '.image_base64') ? '' : 'display:none;' }}">
+                                        <img id="image_preview_img_{{ $language->code }}" 
+                                             src="{{ old('languages.' . $language->code . '.image_base64') }}" 
                                              alt="{{ __('cms.banners.image_preview') }}" 
                                              class="img-thumbnail" style="max-width: 200px;">
                                     </div>
+
+                                    <input type="hidden" name="languages[{{ $language->code }}][image_name]" 
+                                           id="hidden_image_name_{{ $language->code }}" 
+                                           value="{{ old('languages.' . $language->code . '.image_name') }}">
+
+                                    <input type="hidden" name="languages[{{ $language->code }}][image_base64]" 
+                                           id="hidden_image_base64_{{ $language->code }}" 
+                                           value="{{ old('languages.' . $language->code . '.image_base64') }}">
                                 </div>
                             @endforeach
                         </div>
@@ -112,26 +142,33 @@
     <script>
         function updateFileName(input, langCode) {
             let fileNameSpan = document.getElementById('file-name-' + langCode);
+            let hiddenFileName = document.getElementById('hidden_image_name_' + langCode);
+
             if (input.files.length > 0) {
                 fileNameSpan.textContent = input.files[0].name;
+                hiddenFileName.value = input.files[0].name;
             } else {
                 fileNameSpan.textContent = '{{ __("cms.banners.no_file_chosen") }}';
+                hiddenFileName.value = '';
             }
         }
 
         function previewImage(input, langCode) {
             let previewDiv = document.getElementById('image_preview_' + langCode);
             let previewImg = document.getElementById('image_preview_img_' + langCode);
+            let hiddenBase64 = document.getElementById('hidden_image_base64_' + langCode);
 
             if (input.files && input.files[0]) {
                 let reader = new FileReader();
                 reader.onload = function (e) {
                     previewImg.src = e.target.result;
                     previewDiv.style.display = 'block';
+                    hiddenBase64.value = e.target.result;
                 };
                 reader.readAsDataURL(input.files[0]);
             } else {
                 previewDiv.style.display = 'none';
+                hiddenBase64.value = '';
             }
         }
     </script>
