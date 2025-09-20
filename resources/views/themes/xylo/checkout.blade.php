@@ -22,93 +22,69 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <form action="">
+                    <form id="checkout-form" method="POST" action="{{ route('checkout.process') }}">
+                        @csrf
 
+                        <!-- Shipping Information -->
                         <div class="shipping_info">
                             <h3 class="cart-heading">Shipping Information</h3>
                             <div class="row">
                                 <div class="col-md-6 mt-3">
-                                    <input type="text" class="form-control" placeholder="First Name">
+                                    <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
-                                    <input type="text" class="form-control" placeholder="Last Name">
+                                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 mt-3">
-                                    <input type="text" class="form-control" placeholder="Adress">
+                                    <input type="text" name="address" class="form-control" placeholder="Address" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
-                                    <input type="text" class="form-control" placeholder="Suit/Floor">
+                                    <input type="text" name="suite" class="form-control" placeholder="Suit/Floor">
                                 </div>
                                 <div class="col-md-6 mt-3">
-                                    <select name="" id="" class="form-select">
-                                        <option value="">Country</option>
+                                    <select name="country" class="form-select" required>
+                                        <option value="">Select Country</option>
+                                        <!-- Dynamically populate -->
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mt-3">
-                                    <input type="text" class="form-control" placeholder="City">
+                                    <input type="text" name="city" class="form-control" placeholder="City" required>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select name="" id="" class="form-select">
-                                        <option value="">State</option>
+                                    <select name="state" class="form-select" required>
+                                        <option value="">Select State</option>
+                                        <!-- Dynamically populate -->
                                     </select>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" placeholder="Zipcode">
+                                    <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" required>
                                 </div>
                             </div>
                             <div class="mt-3">
                                 <label>
-                                    <input type="checkbox" checked> Use as billing
+                                    <input type="checkbox" name="use_as_billing" value="1" checked> Use as billing
                                 </label>
                             </div>
-
                         </div>
 
+                        <!-- Contact Information -->
                         <div class="shipping_info">
                             <h3 class="cart-heading mt-5">Contact Information</h3>
                             <div class="row">
                                 <div class="col-md-6 mt-3">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
-                                    <input type="text" class="form-control" placeholder="Phone">
+                                    <input type="text" name="phone" class="form-control" placeholder="Phone" required>
                                 </div>
                             </div>
-
                         </div>
-                        <!-- 
-                        <div class="shipping_info mt-5">
-                            <div class="row">
-                                <div class="col-md-8"><h3 class="cart-heading">Payment Method</h3></div>
-                                <div class="col-md-4 text-end">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-6">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-6">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/2052px-American_Express_logo_%282018%29.svg.png" alt="Amex" class="h-6">
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-12 mt-3">
-                                    <label>Card Number</label>
-                                    <input type="text" placeholder="1234 5678 9012 3456" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mt-3">
-                                    <label>Expiration Date</label>
-                                    <input type="text" placeholder="MM/YY" class="form-control">
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <label>Security Code</label>
-                                    <input type="text" placeholder="CVV" class="form-control">
-                                </div>
-                            </div>
 
-                        </div> -->
+                        <!-- Payment Method -->
                         <div class="shipping_info mt-5">
                             <h3 class="cart-heading">Payment Method</h3>
 
@@ -125,17 +101,20 @@
 
                                 @if($gateway->code === 'stripe')
                                     <div id="card-element" class="mt-3" style="display: none;"></div>
+                                    <div id="card-errors" class="text-danger mt-2"></div>
                                 @endif
                             @endforeach
 
-
                             <div id="payment-fields">
-                                <!-- Stripe/PayPal fields will be injected here with JS -->
+                                <!-- Stripe/PayPal fields injected with JS -->
                             </div>
                         </div>
 
+                        <!-- Submit Button -->
+                        <div class="mt-4">
+                            <button type="submit" id="place-order" class="btn btn-primary w-100">Place Order</button>
+                        </div>
                     </form>
-
                 </div>
 
                 <div class="col-md-5 mt-5 mt-md-0">
@@ -170,6 +149,7 @@
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<?php /* ?>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
@@ -232,5 +212,103 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     </script>
 @endif
+<?php */ ?>
+<script src="https://www.paypal.com/sdk/js?client-id={{ $paypalClientId }}&currency=USD"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const gatewayRadios = document.querySelectorAll('input[name="gateway"]');
+    const paypalContainer = document.getElementById("paypal-button-container");
+    const stripeContainer = document.getElementById("card-element");
+    const placeOrderBtn = document.getElementById("place-order");
+
+    let stripe = Stripe("asdasd");
+    let elements = stripe.elements();
+    let card = elements.create("card");
+    card.mount("#card-element");
+
+    // Show correct payment fields
+    gatewayRadios.forEach(radio => {
+        radio.addEventListener("change", function () {
+            if (this.value === "paypal") {
+                paypalContainer.style.display = "block";
+                stripeContainer.style.display = "none";
+            } else if (this.value === "stripe") {
+                stripeContainer.style.display = "block";
+                paypalContainer.style.display = "none";
+            } else {
+                paypalContainer.style.display = "none";
+                stripeContainer.style.display = "none";
+            }
+        });
+    });
+
+    // PayPal integration
+    if (typeof paypal !== "undefined") {
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{ amount: { value: "{{ number_format($total, 2, '.', '') }}" } }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Send to backend
+                    fetch("{{ route('checkout.process') }}", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            gateway: "paypal",
+                            order_id: data.orderID,
+                            details: details
+                        })
+                    }).then(res => res.json()).then(result => {
+                        window.location.href = "/thank-you";
+                    });
+                });
+            }
+        }).render("#paypal-button-container");
+    }
+
+    // Stripe integration
+    const form = document.getElementById("checkout-form");
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        let selectedGateway = document.querySelector('input[name="gateway"]:checked').value;
+
+        if (selectedGateway === "stripe") {
+            const {paymentMethod, error} = await stripe.createPaymentMethod({
+                type: "card",
+                card: card,
+            });
+
+            if (error) {
+                document.getElementById("card-errors").textContent = error.message;
+            } else {
+                // Send paymentMethod.id + form data to backend
+                let formData = new FormData(form);
+                formData.append("payment_method_id", paymentMethod.id);
+
+                fetch("{{ route('checkout.process') }}", {
+                    method: "POST",
+                    headers: {"X-CSRF-TOKEN": "{{ csrf_token() }}"},
+                    body: formData
+                }).then(res => res.json()).then(result => {
+                    window.location.href = "/thank-you";
+                });
+            }
+        } else if (selectedGateway === "paypal") {
+            alert("Please complete payment with PayPal button");
+        } else {
+            form.submit();
+        }
+    });
+});
+</script>
+
 
 @endsection
