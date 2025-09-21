@@ -1,4 +1,3 @@
-
 @extends('vendor.layouts.master')
 
 @section('content')
@@ -39,6 +38,7 @@
                     </div>
                 @endforeach
             </div>
+
             {{-- Category and Brand --}}
             <div class="row mt-4">
                 <div class="col-md-6">
@@ -63,6 +63,7 @@
                     </select>
                 </div>
             </div>
+
             {{-- Variants Section --}}
             <h5 class="mt-4">{{ __('cms.products.variants') }}</h5>
             <div id="variants-wrapper">
@@ -72,7 +73,11 @@
                         $sizeId = $variant->attributeValues->firstWhere('attribute.name', 'Size')?->id;
                         $colorId = $variant->attributeValues->firstWhere('attribute.name', 'Color')?->id;
                     @endphp
-                    <div class="border p-3 mb-3">
+                    <div class="border p-3 mb-3 variant-item">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>{{ __('cms.products.variant') }} #{{ $index + 1 }}</strong>
+                            <button type="button" class="btn btn-danger btn-sm remove-variant-btn">{{ __('cms.products.remove') }}</button>
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label>{{ __('cms.products.variant_name_en') }}</label>
@@ -114,7 +119,7 @@
                                 <input type="text" name="variants[{{ $index }}][dimensions]" class="form-control"
                                        value="{{ $variant->dimensions }}">
                             </div>
-                           <div class="col-md-6 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label>{{ __('cms.products.size') }}</label>
                                 <select name="variants[{{ $index }}][size_id]" class="form-control">
                                     @foreach($sizes as $size)
@@ -138,7 +143,10 @@
                     </div>
                 @endforeach
             </div>
+
             <button type="button" class="btn btn-sm btn-primary mt-3" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button>                                  
+
+            {{-- Images --}}
             <div class="mt-3">
                 <label class="form-label">{{ __('cms.products.images') }}</label>
                 <div class="custom-file">
@@ -164,12 +172,74 @@
                     @endforeach
                 </div>
             @endif
+
             <div class="mt-3 text-start">
                 <button type="submit" class="btn btn-primary">{{ __('cms.products.update_product') }}</button>
             </div>
         </form>
     </div>
 </div>
+
+{{-- Variant Template --}}
+<template id="variant-template">
+    <div class="border p-3 mb-3 variant-item">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <strong>{{ __('cms.products.variant') }}</strong>
+            <button type="button" class="btn btn-danger btn-sm remove-variant-btn">{{ __('cms.products.remove') }}</button>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>{{ __('cms.products.variant_name_en') }}</label>
+                <input type="text" name="variants[__INDEX__][name]" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label>{{ __('cms.products.price') }}</label>
+                <input type="number" step="0.01" name="variants[__INDEX__][price]" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label>{{ __('cms.products.discount_price') }}</label>
+                <input type="number" step="0.01" name="variants[__INDEX__][discount_price]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.stock') }}</label>
+                <input type="number" name="variants[__INDEX__][stock]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.sku') }}</label>
+                <input type="text" name="variants[__INDEX__][SKU]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.barcode') }}</label>
+                <input type="text" name="variants[__INDEX__][barcode]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.weight') }}</label>
+                <input type="text" name="variants[__INDEX__][weight]" class="form-control">
+            </div>
+            <div class="col-md-4 mt-2">
+                <label>{{ __('cms.products.dimension') }}</label>
+                <input type="text" name="variants[__INDEX__][dimensions]" class="form-control">
+            </div>
+            <div class="col-md-6 mt-2">
+                <label>{{ __('cms.products.size') }}</label>
+                <select name="variants[__INDEX__][size_id]" class="form-control">
+                    @foreach($sizes as $size)
+                        <option value="{{ $size->id }}">{{ $size->value }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label>{{ __('cms.products.color') }}</label>
+                <select name="variants[__INDEX__][color_id]" class="form-control">
+                    @foreach($colors as $color)
+                        <option value="{{ $color->id }}">{{ $color->value }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+</template>
+
 @endsection
 
 @section('js')
@@ -181,14 +251,14 @@
         $('#variants-wrapper').append(template);
         variantIndex++;
     });
-</script>
 
-<script>
+    $(document).on('click', '.remove-variant-btn', function () {
+        $(this).closest('.variant-item').remove();
+    });
+
     let selectedFiles = [];
-
     function previewMultipleImages(input) {
         const files = Array.from(input.files);
-
         files.forEach(file => {
             if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
                 selectedFiles.push(file);
@@ -197,7 +267,6 @@
 
         const previewContainer = document.getElementById('productImagesPreview');
         previewContainer.innerHTML = '';
-
         selectedFiles.forEach(file => {
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -217,9 +286,7 @@
 
     function removeExistingImage(imageId) {
         const imageDiv = document.getElementById('image_' + imageId);
-        if (imageDiv) {
-            imageDiv.remove();
-        }
+        if (imageDiv) imageDiv.remove();
 
         const input = document.createElement('input');
         input.type = 'hidden';
@@ -227,7 +294,7 @@
         input.value = imageId;
         document.getElementById('removedImagesInputs').appendChild(input);
     }
-</script>    
+</script>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>

@@ -20,6 +20,7 @@
                 </div>
             @endif
 
+            {{-- Language Tabs --}}
             <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                 @foreach($languages as $language)
                     <li class="nav-item" role="presentation">
@@ -51,6 +52,7 @@
                 @endforeach
             </div>
 
+            {{-- Category & Brand --}}
             <div class="row mt-4">
                 <div class="col-md-6">
                     <label class="form-label">{{ __('cms.products.category') }}</label>
@@ -71,15 +73,11 @@
                 </div>
             </div>
 
+            {{-- Variants --}}
             <div id="variants-wrapper"></div>
-
             <div class="d-flex gap-2 mt-3">
-                <button type="button" class="btn btn-sm btn-primary" id="add-variant-btn">
-                    {{ __('cms.products.add_variant') }}
-                </button>
-                <button type="button" class="btn btn-sm btn-danger" id="remove-variant-btn">
-                    {{ __('cms.products.remove_variant') ?? 'Remove Variant' }}
-                </button>
+                <button type="button" class="btn btn-sm btn-primary" id="add-variant-btn">{{ __('cms.products.add_variant') }}</button>
+                <button type="button" class="btn btn-sm btn-danger" id="remove-variant-btn">{{ __('cms.products.remove_variant') ?? 'Remove Variant' }}</button>
             </div>
 
             <template id="variant-template">
@@ -139,13 +137,14 @@
                 </div>
             </template>
 
+            {{-- Images --}}
             <div class="mt-3">
                 <label class="form-label">{{ __('cms.products.images') }}</label>
                 <div class="custom-file">
                     <label class="btn btn-primary" for="productImages">{{ __('cms.products.choose_file') }}</label>
                     <input type="file" name="images[]" class="form-control d-none" id="productImages" multiple onchange="previewMultipleImages(this)">
                 </div>
-                <div id="productImagesPreview" class="mt-2 d-flex flex-wrap"></div>
+                <div id="productImagesPreview" class="mt-2 d-flex flex-wrap gap-2"></div>
             </div>
 
             <div class="mt-4 text-start">
@@ -169,7 +168,6 @@
 
     $(document).ready(function () {
         $('#add-variant-btn').click();
-
         $('#remove-variant-btn').click(function () {
             const $variants = $('#variants-wrapper .variant-item');
             if ($variants.length > 0) {
@@ -178,9 +176,7 @@
             }
         });
     });
-</script>
 
-<script>
     let selectedFiles = [];
 
     function previewMultipleImages(input) {
@@ -192,17 +188,35 @@
             }
         });
 
+        renderPreview(input);
+    }
+
+    function renderPreview(input) {
         const previewContainer = document.getElementById('productImagesPreview');
         previewContainer.innerHTML = '';
 
-        selectedFiles.forEach(file => {
+        selectedFiles.forEach((file, index) => {
             const reader = new FileReader();
             reader.onload = function(e) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'position-relative';
+
                 const img = document.createElement('img');
                 img.src = e.target.result;
                 img.className = 'img-thumbnail m-1';
                 img.style.maxWidth = '150px';
-                previewContainer.appendChild(img);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerHTML = '&times;';
+                btn.className = 'btn btn-danger btn-sm position-absolute';
+                btn.style.top = '0';
+                btn.style.right = '0';
+                btn.onclick = function() { removeImage(index, input); };
+
+                wrapper.appendChild(img);
+                wrapper.appendChild(btn);
+                previewContainer.appendChild(wrapper);
             };
             reader.readAsDataURL(file);
         });
@@ -211,16 +225,17 @@
         selectedFiles.forEach(file => dataTransfer.items.add(file));
         input.files = dataTransfer.files;
     }
+
+    function removeImage(index, input) {
+        selectedFiles.splice(index, 1);
+        renderPreview(input);
+    }
 </script>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
     document.querySelectorAll('.ck-editor-multi-languages').forEach((element) => {
-        ClassicEditor
-            .create(element)
-            .catch(error => {
-                console.error(error);
-            });
+        ClassicEditor.create(element).catch(error => console.error(error));
     });
 </script>
 @endsection
