@@ -35,6 +35,7 @@ Velstore is a powerful and open-source multi-vendor Laravel eCommerce solution. 
 - Dedicated Admin, Seller, and Customer panels 
 - Modular and extensible architecture
 - Translated to 19 languages
+- Integrated payment gateways: PayPal and Stripe
 
 ### Supported Languages
 
@@ -127,3 +128,9 @@ http://127.0.0.1:8000
 - Frontend: Blade (with Laravel UI)
 - Authentication: Laravel Sanctum
 - DataTables: Yajra Laravel Datatables
+
+## 💼 Hire Us
+Need ecommerce development, Velstore customization, or support for your project?  
+We’re ready to help.  
+
+[Share your project details](https://forms.gle/ZF9E9t5gUKShfHLLA)
