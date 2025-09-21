@@ -127,3 +127,9 @@ http://127.0.0.1:8000
 - Frontend: Blade (with Laravel UI)
 - Authentication: Laravel Sanctum
 - DataTables: Yajra Laravel Datatables
+
+## 💼 Hire Us
+Need ecommerce development, Velstore customization, or support for your project?  
+We’re ready to help.  
+
+[Share your project details](https://forms.gle/ZF9E9t5gUKShfHLLA)
