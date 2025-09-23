@@ -35,10 +35,12 @@ class BannerService
             $rules["languages.$code.title"] = 'required|string|max:255';
 
             if ($code === $defaultLang) {
-                $rules["languages.$code.image"] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+                $rules["languages.$code.image"] = 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10000';
             } else {
-                $rules["languages.$code.image"] = 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000';
+                $rules["languages.$code.image"] = 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10000';
             }
+
+            $rules["languages.$code.description"] = 'required|string|min:3';
 
             $rules["languages.$code.image_title"] = 'nullable|string|max:255';
         }
@@ -49,14 +51,13 @@ class BannerService
 
         $defaultImage = null;
         if ($request->hasFile("languages.$defaultLang.image")) {
-            $defaultImage = $request->file("languages.$defaultLang.image")
-                ->store('banner_images', 'public');
+            $defaultImage = $request->file("languages.$defaultLang.image")->store('banner_images', 'public');
         }
 
         foreach ($activeLanguages as $code) {
-            $languageData = $request->input("languages.$code");
-            $image = $request->file("languages.$code.image");
+            $langInput = $request->input("languages.$code");
 
+            $image = $request->file("languages.$code.image");
             $imageUrl = $image
                 ? $image->store('banner_images', 'public')
                 : $defaultImage;
@@ -64,12 +65,14 @@ class BannerService
             BannerTranslation::create([
                 'banner_id' => $banner->id,
                 'language_code' => $code,
-                'title' => $languageData['title'],
-                'description' => $languageData['description'] ?? null,
-                'image_title' => $languageData['image_title'] ?? null,
+                'title' => $langInput['title'],
+                'description' => $langInput['description'],
+                'image_title' => $langInput['image_title'] ?? null,
                 'image_url' => $imageUrl,
             ]);
         }
+
+        return redirect()->route('admin.banners.index')->with('success', __('cms.banners.created'));
     }
 
     public function update(Request $request, int $id)
