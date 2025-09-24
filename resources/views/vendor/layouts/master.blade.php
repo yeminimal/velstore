@@ -13,12 +13,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     @yield('css')
 </head>
 <body>
-    @include('vendor.layouts.sidebar') 
-    
+    @include('vendor.layouts.sidebar')
+
     <!-- Content Area -->
     <div id="content" class="w-100">
         <nav class="navbar navbar-expand navbar-light bg-light p-3">
@@ -47,15 +47,18 @@
                     <li><a class="dropdown-item language-select" data-lang="th" href="#"><img src="https://flagcdn.com/w40/th.png" width="20"> Thai</a></li>
                     <li><a class="dropdown-item language-select" data-lang="tr" href="#"><img src="https://flagcdn.com/w40/tr.png" width="20"> Turkish</a></li>
                     <li><a class="dropdown-item language-select" data-lang="vi" href="#"><img src="https://flagcdn.com/w40/vn.png" width="20"> Vietnamese</a></li>
-                    <li><a class="dropdown-item language-select" data-lang="zh" href="#"><img src="https://flagcdn.com/w40/cn.png" width="20"> Chinese</a></li>                    
+                    <li><a class="dropdown-item language-select" data-lang="zh" href="#"><img src="https://flagcdn.com/w40/cn.png" width="20"> Chinese</a></li>
                 </ul>
             </div>
             <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                    <img src="https://via.placeholder.com/40" class="rounded-circle" alt="Profile">
+                    @php
+                        $vendor = Auth::guard('vendor')->user();
+                    @endphp
+                    <img src="{{ $vendor && $vendor->avatar ? asset('storage/' . $vendor->avatar)  : 'https://ui-avatars.com/api/?name=' . urlencode($vendor ? $vendor->name : 'V') . '&background=1976d2&color=fff&size=40' }}" class="rounded-circle" alt="Profile" style="width: 40px; height: 40px; object-fit: cover; border: 2px solid #e0e0e0;">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{ route('vendor.profile.edit') }}">Profile</a></li>
                     <li>
                         <form id="vendor-logout-form" action="{{ route('vendor.logout') }}" method="POST" style="display: none;">
                             @csrf

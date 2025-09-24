@@ -6,6 +6,7 @@ use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\OrderController;
 use App\Http\Controllers\Vendor\ProductController;
 use App\Http\Controllers\Vendor\ProductReviewController;
+use App\Http\Controllers\Vendor\ProfileController;
 use App\Http\Controllers\Vendor\SocialMediaLinkController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,5 +35,9 @@ Route::prefix('vendor')->group(function () {
 
         /** Language Switch */
         Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('vendor.change.language');
+
+        /** Profile */
+        Route::get('profile/edit', [ProfileController::class, 'edit'])->name('vendor.profile.edit');
+        Route::patch('profile', [ProfileController::class, 'update'])->name('vendor.profile.update');
     });
 });
