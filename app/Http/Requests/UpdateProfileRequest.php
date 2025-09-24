@@ -10,11 +10,10 @@ use Illuminate\Validation\Rule;
 
 class UpdateProfileRequest extends FormRequest
 {
-  public function authorize(): bool
+    public function authorize(): bool
     {
         return Auth::guard('vendor')->check();
     }
-
 
     public function rules(): array
     {
@@ -26,7 +25,7 @@ class UpdateProfileRequest extends FormRequest
                 'sometimes', 'nullable',
                 // 'email:rfc,dns', we can enable this later if needed
                 'max:255',
-                Rule::unique('vendors', 'email')->ignore($vendor->id)
+                Rule::unique('vendors', 'email')->ignore($vendor->id),
             ],
             'phone' => ['sometimes', 'nullable', 'string', 'max:20', 'min:10', 'regex:/^[\+]?[0-9\s\-\(\)]+$/'],
             'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/'],
@@ -34,7 +33,6 @@ class UpdateProfileRequest extends FormRequest
             'avatar' => ['sometimes', 'nullable', 'image', 'max:2048'],
         ];
     }
-
 
     public function messages(): array
     {
@@ -46,25 +44,23 @@ class UpdateProfileRequest extends FormRequest
         ];
     }
 
-
     public function withValidator($validator): void
     {
         $validator->after(function ($validator) {
             if ($this->filled('password') && $this->filled('current_password')) {
                 $vendor = Auth::guard('vendor')->user();
-                if (!Hash::check($this->current_password, $vendor->password)) {
+                if (! Hash::check($this->current_password, $vendor->password)) {
                     $validator->errors()->add('current_password', 'The current password is incorrect.');
                 }
             }
         });
     }
 
-
     protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator): void
     {
         Log::warning('Vendor profile validation failed', [
             'vendor_id' => Auth::guard('vendor')->id(),
-            'errors' => $validator->errors()->toArray()
+            'errors' => $validator->errors()->toArray(),
         ]);
 
         parent::failedValidation($validator);

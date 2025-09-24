@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Vendor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +14,7 @@ class ProfileController extends Controller
     public function edit()
     {
         $vendor = Auth::guard('vendor')->user();
+
         return view('vendor.profile.edit', compact('vendor'));
     }
 
@@ -35,7 +35,7 @@ class ProfileController extends Controller
         } catch (\Exception $e) {
             Log::error('Failed to update vendor profile', [
                 'vendor_id' => $vendor->id,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
 
             return redirect()->back()
@@ -44,8 +44,7 @@ class ProfileController extends Controller
         }
     }
 
-
-      private function updateVendorProfile($vendor, array $data): void
+    private function updateVendorProfile($vendor, array $data): void
     {
         $fillableFields = ['name', 'email', 'phone'];
 
@@ -68,5 +67,3 @@ class ProfileController extends Controller
         $vendor->save();
     }
 }
-
-
