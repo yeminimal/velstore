@@ -8,16 +8,7 @@
     <div class="card-body">
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            
+
             {{-- Language Tabs --}}
             <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                 @foreach($activeLanguages as $language)
@@ -42,11 +33,11 @@
                         
                         {{-- Product Name --}}
                         <label class="form-label">{{ __('cms.products.product_name') }} ({{ $language->code }})</label>
-                        <input type="text"
-                               name="translations[{{ $language->code }}][name]"
-                               class="form-control @error("translations.{$language->code}.name") is-invalid @enderror"
-                               value="{{ old("translations.{$language->code}.name") }}"
-                               required>
+                       <input type="text"
+                            name="translations[{{ $language->code }}][name]"
+                            class="form-control @error("translations.{$language->code}.name") is-invalid @enderror"
+                            value="{{ old("translations.{$language->code}.name") }}">
+
                         @error("translations.{$language->code}.name")
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
@@ -121,23 +112,26 @@
                         <div class="col-md-4">
                             <label>{{ __('cms.products.variant_name_en') }}</label>
                             <input type="text" name="variants[__INDEX__][name]" class="form-control" value="__NAME__" />
+                            <div class="invalid-feedback d-block variant-name-error"></div>
                         </div>
                         <div class="col-md-4">
                             <label>{{ __('cms.products.price') }}</label>
                             <input type="number" step="0.01" name="variants[__INDEX__][price]" class="form-control" value="__PRICE__" />
+                            <div class="invalid-feedback d-block variant-price-error"></div>
                         </div>
                         <div class="col-md-4">
                             <label>{{ __('cms.products.discount_price') }}</label>
                             <input type="number" step="0.01" name="variants[__INDEX__][discount_price]" class="form-control" value="__DISCOUNT__" />
                         </div>
-            
                         <div class="col-md-4 mt-2">
                             <label>{{ __('cms.products.stock') }}</label>
                             <input type="number" name="variants[__INDEX__][stock]" class="form-control" value="__STOCK__" />
+                            <div class="invalid-feedback d-block variant-stock-error"></div>
                         </div>
                         <div class="col-md-4 mt-2">
                             <label>{{ __('cms.products.sku') }}</label>
                             <input type="text" name="variants[__INDEX__][SKU]" class="form-control" value="__SKU__" />
+                            <div class="invalid-feedback d-block variant-sku-error"></div>
                         </div>
                         <div class="col-md-4 mt-2">
                             <label>{{ __('cms.products.barcode') }}</label>
@@ -147,12 +141,10 @@
                             <label>{{ __('cms.products.weight') }}</label>
                             <input type="text" name="variants[__INDEX__][weight]" class="form-control" placeholder="e.g., 1.5 kg" value="__WEIGHT__" />
                         </div>
-                        
                         <div class="col-md-4 mt-2">
                             <label>{{ __('cms.products.dimension') }}</label>
                             <input type="text" name="variants[__INDEX__][dimension]" class="form-control" placeholder="e.g., 10x20x5 cm" value="__DIMENSION__" />
                         </div>
-                           
                         <div class="col-md-6 mt-2">
                             <label>{{ __('cms.products.size') }}</label>
                             <select name="variants[__INDEX__][size_id]" class="form-control">
@@ -161,7 +153,6 @@
                                 @endforeach
                             </select>
                         </div>
-            
                         <div class="col-md-6 mt-2">
                             <label>{{ __('cms.products.color') }}</label>
                             <select name="variants[__INDEX__][color_id]" class="form-control">
@@ -173,7 +164,6 @@
                     </div>
                 </div>
             </template>
-
             {{-- Images --}}
             <div class="mt-3">
                 <label class="form-label">{{ __('cms.products.images') }}</label>
@@ -197,17 +187,37 @@
 
 @section('js')
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    @if ($errors->any())
+        var firstErrorElement = document.querySelector('.is-invalid');
+        if (firstErrorElement) {
+            var tabPane = firstErrorElement.closest('.tab-pane');
+            if (tabPane) {
+                var tabId = tabPane.getAttribute('id');
+                var triggerEl = document.querySelector(`button[data-bs-target="#${tabId}"]`);
+                if (triggerEl) {
+                    var tab = new bootstrap.Tab(triggerEl);
+                    tab.show();
+                }
+            }
+        }
+    @endif
+});
+</script>
+
+<script>
     let variantIndex = 0;
+    let validationErrors = @json($errors->getMessages());
 
     function updateRemoveButtonState() {
         const count = $('#variants-wrapper .variant-item').length;
         $('#remove-variant-btn').prop('disabled', count === 0);
     }
 
-    function addVariant(variant = {}) {
+    function addVariant(variant = {}, index = variantIndex) {
         let template = $('#variant-template').html();
         template = template
-            .replace(/__INDEX__/g, variantIndex)
+            .replace(/__INDEX__/g, index)
             .replace(/__NAME__/g, variant.name || '')
             .replace(/__PRICE__/g, variant.price || '')
             .replace(/__DISCOUNT__/g, variant.discount_price || '')
@@ -221,11 +231,26 @@
 
         const $variant = $(template);
 
-        if (variant.size_id) {
-            $variant.find(`select[name="variants[${variantIndex}][size_id]"] option[value="${variant.size_id}"]`).attr('selected', 'selected');
+        // Preselect size and color
+        if (variant.size_id) $variant.find(`select[name="variants[${index}][size_id]"] option[value="${variant.size_id}"]`).attr('selected', true);
+        if (variant.color_id) $variant.find(`select[name="variants[${index}][color_id]"] option[value="${variant.color_id}"]`).attr('selected', true);
+
+        // Set validation errors if exist
+        if(validationErrors[`variants.${index}.name`]) {
+            $variant.find('.variant-name-error').text(validationErrors[`variants.${index}.name`][0]);
+            $variant.find(`input[name="variants[${index}][name]"]`).addClass('is-invalid');
         }
-        if (variant.color_id) {
-            $variant.find(`select[name="variants[${variantIndex}][color_id]"] option[value="${variant.color_id}"]`).attr('selected', 'selected');
+        if(validationErrors[`variants.${index}.price`]) {
+            $variant.find('.variant-price-error').text(validationErrors[`variants.${index}.price`][0]);
+            $variant.find(`input[name="variants[${index}][price]"]`).addClass('is-invalid');
+        }
+        if(validationErrors[`variants.${index}.stock`]) {
+            $variant.find('.variant-stock-error').text(validationErrors[`variants.${index}.stock`][0]);
+            $variant.find(`input[name="variants[${index}][stock]"]`).addClass('is-invalid');
+        }
+        if(validationErrors[`variants.${index}.SKU`]) {
+            $variant.find('.variant-sku-error').text(validationErrors[`variants.${index}.SKU`][0]);
+            $variant.find(`input[name="variants[${index}][SKU]"]`).addClass('is-invalid');
         }
 
         $('#variants-wrapper').append($variant);
@@ -233,26 +258,23 @@
         updateRemoveButtonState();
     }
 
-    $('#add-variant-btn').click(function () {
-        addVariant();
-    });
-
-    $('#remove-variant-btn').click(function () {
-        const $variants = $('#variants-wrapper .variant-item');
-        if ($variants.length > 0) {
-            $variants.last().remove();
-            variantIndex--;
-            updateRemoveButtonState();
-        }
-    });
-
     $(document).ready(function () {
         @if(old('variants'))
             let oldVariants = @json(old('variants'));
-            oldVariants.forEach(v => addVariant(v));
+            oldVariants.forEach((v, i) => addVariant(v, i));
         @else
-            addVariant(); 
+            addVariant();
         @endif
+
+        $('#add-variant-btn').click(() => addVariant());
+        $('#remove-variant-btn').click(() => {
+            const $variants = $('#variants-wrapper .variant-item');
+            if ($variants.length > 0) {
+                $variants.last().remove();
+                variantIndex--;
+                updateRemoveButtonState();
+            }
+        });
     });
 </script>
 

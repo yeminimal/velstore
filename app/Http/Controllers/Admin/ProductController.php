@@ -63,7 +63,31 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $defaultLang = config('app.locale');
-        $validated = $request->validate(['category_id' => 'required|exists:categories,id', 'brand_id' => 'nullable|exists:brands,id', 'vendor_id' => 'required|exists:vendors,id', 'translations.'.$defaultLang.'.name' => 'required|string|max:255', 'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', 'variants' => 'required|array|min:1', 'variants.*.name' => 'required|string|max:255', 'variants.*.price' => 'required|numeric|min:0', 'variants.*.discount_price' => 'nullable|numeric|min:0|lte:variants.*.price', 'variants.*.stock' => 'required|integer|min:0', 'variants.*.SKU' => 'required|string|max:255', 'variants.*.barcode' => 'nullable|string|max:255', 'variants.*.weight' => 'nullable|numeric|min:0', 'variants.*.dimensions' => 'nullable|string|max:255', 'variants.*.language_code' => 'nullable|string|size:2', 'variants.*.size_id' => 'nullable|exists:attribute_values,id', 'variants.*.color_id' => 'nullable|exists:attribute_values,id']);
+        $rules = [
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'nullable|exists:brands,id',
+            'vendor_id' => 'required|exists:vendors,id',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'variants' => 'required|array|min:1',
+            'variants.*.name' => 'required|string|max:255',
+            'variants.*.price' => 'required|numeric|min:0',
+            'variants.*.discount_price' => 'nullable|numeric|min:0|lte:variants.*.price',
+            'variants.*.stock' => 'required|integer|min:0',
+            'variants.*.SKU' => 'required|string|max:255',
+            'variants.*.barcode' => 'nullable|string|max:255',
+            'variants.*.weight' => 'nullable|numeric|min:0',
+            'variants.*.dimensions' => 'nullable|string|max:255',
+            'variants.*.language_code' => 'nullable|string|size:2',
+            'variants.*.size_id' => 'nullable|exists:attribute_values,id',
+            'variants.*.color_id' => 'nullable|exists:attribute_values,id',
+        ];
+
+        foreach ($request->input('translations', []) as $lang => $data) {
+            $rules["translations.$lang.name"] = 'required|string|max:255';
+            $rules["translations.$lang.description"] = 'required|string|min:5';
+        }
+
+        $validated = $request->validate($rules);
         DB::transaction(function () use ($request, $defaultLang) {
             $defaultName = $request->translations[$defaultLang]['name'] ?? 'product';
             $slug = $this->generateUniqueSlug($defaultName);

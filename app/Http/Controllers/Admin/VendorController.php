@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 use Yajra\DataTables\Facades\DataTables;
 
 class VendorController extends Controller
@@ -34,23 +35,32 @@ class VendorController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:vendors,email',
-            'password' => 'required|min:6|confirmed',
-            'phone' => 'nullable|string|max:20',
-            'status' => 'required|in:active,inactive,banned',
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:vendors,email'],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(8)
+                    ->symbols(),
+            ],
+            'phone' => ['nullable', 'string', 'max:20', 'regex:/^\+?[0-9\s\-]+$/'],
+            'status' => ['required', 'in:active,inactive,banned'],
+        ], [
+            'password.confirmed' => 'Password confirmation does not match.',
+            'phone.regex' => 'Phone number can only contain numbers, spaces, dashes and optional +.',
         ]);
 
         Vendor::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone,
-            'status' => $request->status,
+            'name' => trim($validatedData['name']),
+            'email' => strtolower(trim($validatedData['email'])),
+            'password' => Hash::make($validatedData['password']),
+            'phone' => $validatedData['phone'] ?? null,
+            'status' => $validatedData['status'],
         ]);
 
-        return redirect()->route('admin.vendors.index')->with('success', 'Vendor registered successfully!');
+        return redirect()->route('admin.vendors.index')
+            ->with('success', 'Vendor registered successfully!');
     }
 
     public function destroy($id)
