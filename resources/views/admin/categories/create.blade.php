@@ -52,37 +52,39 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
 
-                            {{-- Image --}}
+                           {{-- Image --}}
                             <label class="form-label mt-2">{{ __('cms.categories.image') }} ({{ $language->code }})</label>
                             <div class="custom-file">
                                 <label class="btn btn-primary" for="image_file_{{ $language->code }}">
                                     {{ __('cms.categories.choose_file') }}
                                 </label>
                                 <input type="file" 
-                                       id="image_file_{{ $language->code }}" 
-                                       name="translations[{{ $language->code }}][image]" 
-                                       accept="image/*" 
-                                       class="form-control d-none @error('translations.'.$language->code.'.image') is-invalid @enderror" 
-                                       onchange="previewImage(this, '{{ $language->code }}')">
+                                    id="image_file_{{ $language->code }}" 
+                                    name="translations[{{ $language->code }}][image]" 
+                                    accept="image/*" 
+                                    class="form-control d-none @error('translations.'.$language->code.'.image') is-invalid @enderror" 
+                                    onchange="previewImage(this, '{{ $language->code }}')">
                             </div>
 
                             {{-- Hidden base64 --}}
                             <input type="hidden" 
-                                   id="image_base64_{{ $language->code }}" 
-                                   name="translations[{{ $language->code }}][image_base64]" 
-                                   value="{{ old('translations.' . $language->code . '.image_base64') }}">
+                                id="image_base64_{{ $language->code }}" 
+                                name="translations[{{ $language->code }}][image_base64]" 
+                                value="{{ old('translations.' . $language->code . '.image_base64') }}">
 
                             {{-- Preview --}}
                             <div id="image_preview_{{ $language->code }}" class="mt-2" 
-                                 style="{{ old('translations.' . $language->code . '.image_base64') ? '' : 'display:none;' }}">
+                                style="{{ old('translations.' . $language->code . '.image_base64') ? '' : 'display:none;' }}">
                                 <img id="image_preview_img_{{ $language->code }}" 
-                                     src="{{ old('translations.' . $language->code . '.image_base64') ?: '#' }}" 
-                                     alt="{{ __('cms.categories.image_preview') }}" 
-                                     class="img-thumbnail" 
-                                     style="max-width: 200px;">
+                                    src="{{ old('translations.' . $language->code . '.image_base64') ?: '#' }}" 
+                                    alt="{{ __('cms.categories.image_preview') }}" 
+                                    class="img-thumbnail" 
+                                    style="max-width: 200px;">
                             </div>
+
+                            {{-- Validation error --}}
                             @error('translations.'.$language->code.'.image')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
                     @endforeach
