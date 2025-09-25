@@ -73,11 +73,19 @@ class PageController extends Controller
 
         foreach ($request->input('translations', []) as $lang => $data) {
             $rules["translations.$lang.title"] = 'required|string|max:255';
-            $rules["translations.$lang.content"] = 'nullable|string';
-            $rules["translations.$lang.image"] = 'nullable|image|max:2048';
+            $rules["translations.$lang.content"] = 'required|string|min:5';
+            $rules["translations.$lang.image"] = 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048';
         }
 
         $request->validate($rules);
+
+        $translations = $request->input('translations', []);
+
+        foreach ($translations as $lang => $translation) {
+            if ($request->hasFile("translations.$lang.image")) {
+                $translations[$lang]['image'] = $request->file("translations.$lang.image");
+            }
+        }
 
         $defaultLang = config('app.locale');
         $title = $request->translations[$defaultLang]['title'] ?? null;
