@@ -54,14 +54,26 @@ class AttributeController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'values' => 'required|array',
-            'values.*' => 'string|max:255',
-            'translations' => 'array',
-            'translations.*' => 'array',
-            'translations.*.*' => 'nullable|string|max:255',
-        ]);
+        $rules = [
+            'name' => 'required|string|max:255|unique:attributes,name',
+            'values' => 'required|array|min:1',
+        ];
+
+        foreach ($request->input('values', []) as $index => $value) {
+            $rules["values.$index"] = 'required|string|max:255|distinct';
+        }
+
+        if ($request->has('translations')) {
+            foreach ($request->input('translations', []) as $lang => $translations) {
+                if (is_array($translations)) {
+                    foreach ($translations as $i => $val) {
+                        $rules["translations.$lang.$i"] = 'required|string|max:255';
+                    }
+                }
+            }
+        }
+
+        $validated = $request->validate($rules);
 
         $this->attributeService->createAttribute($request->all());
 
