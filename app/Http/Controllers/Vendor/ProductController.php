@@ -75,10 +75,9 @@ class ProductController extends Controller
         $defaultLang = config('app.locale');
         $vendorId = Auth::guard('vendor')->id();
 
-        $validated = $request->validate([
+        $rules = [
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'nullable|exists:brands,id',
-            'translations.'.$defaultLang.'.name' => 'required|string|max:255',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'variants' => 'required|array|min:1',
             'variants.*.name' => 'required|string|max:255',
@@ -92,7 +91,14 @@ class ProductController extends Controller
             'variants.*.language_code' => 'nullable|string|size:2',
             'variants.*.size_id' => 'nullable|exists:attribute_values,id',
             'variants.*.color_id' => 'nullable|exists:attribute_values,id',
-        ]);
+        ];
+
+        foreach ($request->input('translations', []) as $lang => $data) {
+            $rules["translations.$lang.name"] = 'required|string|max:255';
+            $rules["translations.$lang.description"] = 'required|string|min:5';
+        }
+
+        $validated = $request->validate($rules);
 
         DB::transaction(function () use ($request, $defaultLang, $vendorId) {
             $slug = $this->generateUniqueSlug($request->translations[$defaultLang]['name']);
