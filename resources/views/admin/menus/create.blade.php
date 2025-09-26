@@ -25,11 +25,11 @@
                 <!-- Menu Title -->
                     <div class="mb-3">
                         <label for="title" class="form-label">{{ __('cms.menus.menu_title') }}</label>
-                        <input type="text" 
-                               name="title" 
-                               id="title" 
-                               class="form-control @error('title') is-invalid @enderror" 
-                               required>
+                       <input type="text" 
+                        name="title" 
+                        id="title" 
+                        value="{{ old('title') }}"
+                        class="form-control @error('title') is-invalid @enderror">
                         @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
